@@ -2,10 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mars Concept Title goes here</title>
+    <title>SpaceDrop</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
-    <h1>Mars client side</h1>
+<header>
+    <nav>
+        <ul class="nav">
+            <li>
+                <ul id="planetDistances">
+                    <li><img src="./assets/images/icons/mars.png" alt="planet logo"></li>
+                    <li><a id="distance1">187.875.481km</a></li>
+                    <li><img src="./assets/images/icons/Mercury.png" alt="planet logo"></li>
+                    <li><a id="distance2">105.208.196km</a></li>
+                    <li><img src="./assets/images/icons/Venus.png" alt="planet logo"></li>
+                    <li><a id="distance3">187.875.481km</a></li>
+
+                </ul>
+            </li>
+            <li id="logo"><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
+            <li class="AccountLoginButton"><a class="AccountLoginButton" href="">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main>
+        <div id="buttons">
+    <div id="toMars">
+        <p>From Earth to Mars</p>
+        <img src="assets/images/icons/mars.png" alt="marsPNG">
+    </div>
+
+    <div id="toEarth">
+        <p>From Earth to Mars</p>
+        <img src="assets/images/icons/earth.png" alt="earthPNG">
+    </div>
+        </div>
+
+    </main>
+<footer>
+    <ul>
+        <li><a class="footer" id="Contact" href="">Contact</a></li>
+        <li><a class="footer" id="Conditions" href="">Conditions of use</a></li>
+        <li><a class="footer" id="Privacy" href="">Privacy</a></li>
+        <li><a class="footer" id="FAQ" href="">FAQ</a></li>
+
+    </ul>
+</footer>
+
     <script src="assets/js/main.js"></script>
     <script src="assets/js/api.js"></script>
 </body>
