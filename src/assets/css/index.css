@@ -15,9 +15,10 @@ nav{
     padding: 0.5rem;
 }
 
-nav ul{
+ul.nav{
     display: flex;
     justify-content: space-between;
+
 }
 
 header nav li a {
@@ -29,6 +30,8 @@ header nav li a {
 header nav li img {
     height: 3rem;
     width: auto;
+    float: left;
+
 }
 
 
@@ -68,3 +71,18 @@ li{
     font-weight: bold;
     font-size: 2.5rem;
 }
+
+
+#planetDistances{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    width: 25rem;
+}
+
+li.AccountLoginButton{
+    width: 25rem;
+    text-align: right;
+}
+
