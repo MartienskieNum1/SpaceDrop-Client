@@ -2,6 +2,11 @@ body{
     background-color: #404040;
     color: white;
     font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+html{
+    height: 100%;
 }
 
 
@@ -10,14 +15,19 @@ header{
     width: 100%;
     background-color: #262626;
 }
-
+main{
+    overflow: auto;
+    min-height: 100%;
+}
 nav{
     padding: 0.5rem;
+
 }
 
-nav ul{
+ul.nav{
     display: flex;
     justify-content: space-between;
+
 }
 
 header nav li a {
@@ -29,6 +39,8 @@ header nav li a {
 header nav li img {
     height: 3rem;
     width: auto;
+    float: left;
+
 }
 
 
@@ -68,3 +80,41 @@ li{
     font-weight: bold;
     font-size: 2.5rem;
 }
+
+
+#planetDistances{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    width: 25rem;
+}
+
+li.AccountLoginButton{
+    width: 25rem;
+    text-align: right;
+
+}
+
+footer ul{
+    display: flex;
+    justify-content: right;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    height: 30px;
+}
+
+footer ul li{
+    background-color: #313131;
+    margin: 4px;
+    padding: 4px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a.footer{
+    text-decoration: none;
+    color: white;
+}
+
