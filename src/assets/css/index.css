@@ -4,40 +4,51 @@ body{
     font-family: Arial, sans-serif;
 }
 
+
+header{
+    height: 4rem;
+    width: 100%;
+    background-color: #262626;
+}
+
 nav{
-    height: 5vh;
-    background-color: black;
+    padding: 0.5rem;
+}
+
+nav ul{
     display: flex;
+    justify-content: space-between;
 }
 
-.AccountLoginButton{
-    grid-area: timer;
-    float: right;
-}
-
-
-a.AccountLoginButton {
+header nav li a {
     color: white;
     text-align: center;
-    padding: 4px 16px;
-    margin: 8px 3px;
     text-decoration: none;
-    background-color: #65C55E;
-    border-radius: 10px;
-
 }
 
-a.AccountLoginButton:hover {
+header nav li img {
+    height: 3rem;
+    width: auto;
+}
+
+
+header a.AccountLoginButton {
+    padding: 4px 16px;
+    background-color: #65C55E;
+    border-radius: 10px;
+}
+
+header a.home:hover{
+    color: #076000;
+}
+
+header a.AccountLoginButton:hover {
     background-color: #076000;
 }
 
-.nav{
-    display: flex;
-    width:100%;
-}
-
-.nav > li {
-    flex: 1;
+li{
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #buttons{
