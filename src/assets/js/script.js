@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", init)
 
 
 function init(){
-    document.querySelector("main").addEventListener("click", goToFlights);
+    document.querySelector("div#buttons").addEventListener("click", goToFlights);
 }
 
 function goToFlights(e) {
