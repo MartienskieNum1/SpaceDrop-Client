@@ -25,8 +25,10 @@
     <a class="back" href="index.html">Back</a>
 
     <div id="filterMars">
-        <img src="#" alt="Mars icon">
-        <h1>Select flight to Mars</h1>
+        <div>
+            <img src="assets/images/icons/mars.png" alt="Mars icon">
+            <h1>Select flight to Mars</h1>
+        </div>
         <form action="#">
             <label for="weight">Weight:</label>
             <input type="text" id="weight" name="weight">
@@ -42,14 +44,13 @@
     <div id="flights">
 
         <table>
-            <caption>All flights to Mars</caption>
-            <tr>
-                <th>Departure:</th>
-                <th>Arrival:</th>
-                <th>Available cargo:</th>
-                <th>Available volume:</th>
-                <th>Price:</th>
-                <th></th>
+            <tr id="tableHeaders">
+                <th scope="col">Departure:</th>
+                <th scope="col">Arrival:</th>
+                <th scope="col">Available cargo:</th>
+                <th scope="col">Available volume:</th>
+                <th scope="col">Price:</th>
+                <td></td>
             </tr>
 
             <tr data-row="1">

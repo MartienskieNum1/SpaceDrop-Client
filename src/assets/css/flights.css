@@ -2,6 +2,7 @@ body{
     background-color: #404040;
     color: white;
     font-family: "Segoe UI", sans-serif;
+    font-size: 1.4rem;
 }
 
 /* -------------------HEADER------------------ */
@@ -22,13 +23,17 @@ nav ul{
     justify-content: space-between;
 }
 
+nav ul li{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 header nav li a {
     color: white;
     text-align: center;
     text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
-
 }
 
 header nav li img {
@@ -42,8 +47,6 @@ header a.AccountLoginButton {
     padding: 0.2rem 2rem;
     background-color: #65C55E;
     border-radius: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
 header a.home:hover{
@@ -57,15 +60,82 @@ header a.AccountLoginButton:hover {
 
 /* -------------------MAIN------------------ */
 
+/* -------------------FILTER------------------ */
 main a.back{
     color: white;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
     font-size: 1rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.2rem 1.5rem;
     background-color: #989898;
     border-radius: 10px;
     margin-bottom: 2rem;
+    margin-left: 2rem;
 }
+
+div#filterMars{
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    line-height: 4rem;
+}
+
+div#filterMars div{
+    display: flex;
+}
+
+div#filterMars h1{
+    margin-right: 10rem;
+    font-size: 2.5rem;
+}
+
+div#filterMars img{
+    height: 4rem;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* -------------------FLIGHTS------------------ */
+
+div#flights{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    width: 70%;
+
+}
+
+div#flights table{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+div#flights table th{
+    text-align: start;
+}
+
+div#flights table td button{
+    background-color: #65C55E;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+div#flights table td, div#flights table th {
+    padding-right: 6rem;
+}
+
+div#flights table:first-child{
+    margin-bottom: 12px;
+}
+
+
 
