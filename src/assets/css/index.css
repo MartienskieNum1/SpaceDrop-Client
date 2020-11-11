@@ -1,0 +1,43 @@
+body{
+    background-color: #404040;
+    color: white;
+}
+
+nav{
+    height: 5vh;
+    background-color: black;
+    display: flex;
+
+}
+
+.AccountLoginButton{
+    grid-area: timer;
+    float: right;
+}
+
+
+a.AccountLoginButton {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 4px 16px;
+    margin: 8px 3px;
+    text-decoration: none;
+    background-color: #65C55E;
+    border-radius: 10px;
+
+}
+
+a.AccountLoginButton:hover {
+    background-color: #076000;
+}
+
+.nav{
+    display: flex;
+    width:100%;
+}
+
+.nav > li {
+    flex: 1;
+}
+
