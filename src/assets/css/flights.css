@@ -108,7 +108,6 @@ div#flights{
     margin-right: auto;
     margin-top: 2rem;
     width: 70%;
-
 }
 
 div#flights table{
@@ -118,7 +117,12 @@ div#flights table{
 }
 
 div#flights table th{
+    padding: 2rem 0;
+}
+
+div#flights table th,div#flights table td {
     text-align: start;
+    padding: 0.5rem 0;
 }
 
 div#flights table td button{
@@ -133,8 +137,8 @@ div#flights table td, div#flights table th {
     padding-right: 6rem;
 }
 
-div#flights table:first-child{
-    margin-bottom: 12px;
+div#flights table tr:nth-child(even){
+    background: #989898;
 }
 
 
