@@ -1,12 +1,16 @@
 body{
     background-color: #404040;
     color: white;
+    font-family: "Segoe UI", sans-serif;
 }
+
+/* -------------------HEADER------------------ */
 
 header{
     line-height: 2rem;
     width: 100%;
     background-color: #262626;
+    margin-bottom: 3rem;
 }
 
 nav{
@@ -22,6 +26,8 @@ header nav li a {
     color: white;
     text-align: center;
     text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 header nav li img {
@@ -31,7 +37,7 @@ header nav li img {
 
 
 header a.AccountLoginButton {
-    padding: 4px 16px;
+    padding: 0.5rem 1.5rem;
     background-color: #65C55E;
     border-radius: 10px;
 }
@@ -43,3 +49,19 @@ header a.home:hover{
 header a.AccountLoginButton:hover {
     background-color: #076000;
 }
+
+
+/* -------------------MAIN------------------ */
+
+main a.back{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #989898;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
