@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flights</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/flights.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul class="nav">
+            <li><a class="home" href="#"><em class="fa fa-home" style="font-size:36px"></em></a></li>
+            <li><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
+            <li><a class="AccountLoginButton" href="">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <a href="#">Back</a>
+
+    <section id="filterMars">
+        <img src="#" alt="Mars icon">
+        <h1>Select flight to Mars</h1>
+        <form action="#">
+            <label for="weight">Weight:</label>
+            <input type="text" id="weight" name="weight">
+
+            <label for="volume">Volume:</label>
+            <input type="text" id="volume" name="volume">
+
+            <input type="submit" value="search"> <!--TODO: dynamically filter results without pressing this button-->
+        </form>
+    </section>
+
+    <section id="flights">
+        <table>
+            <tr>
+                <th>Departure:</th>
+                <th>Arrival:</th>
+                <th>Available cargo:</th>
+                <th>Available volume:</th>
+                <th>Price:</th>
+            </tr>
+        </table>
+    </section>
+
+
+</main>
+
+</body>
+</html>

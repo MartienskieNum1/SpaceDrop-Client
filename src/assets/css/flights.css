@@ -1,0 +1,45 @@
+body{
+    background-color: #404040;
+    color: white;
+}
+
+header{
+    line-height: 2rem;
+    width: 100%;
+    background-color: #262626;
+}
+
+nav{
+    padding: 1rem;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+header nav li img {
+    height: 3rem;
+    width: auto;
+}
+
+
+header a.AccountLoginButton {
+    padding: 4px 16px;
+    background-color: #65C55E;
+    border-radius: 10px;
+}
+
+header a.home:hover{
+    color: #076000;
+}
+
+header a.AccountLoginButton:hover {
+    background-color: #076000;
+}
