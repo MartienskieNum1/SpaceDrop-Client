@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Flights</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/flights.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 
 <header>
     <nav>
         <ul class="nav">
-            <li><a href="#">Home</a></li>
+            <li><a class="home" href="#"><em class="fa fa-home" style="font-size:36px"></em></a></li>
             <li><img src="#" alt="SpaceDrop logo"></li>
             <li><a class="AccountLoginButton" href="">Login</a></li>
         </ul>
@@ -18,7 +22,7 @@
 
 <main>
 
-    <button>Back</button>
+    <a href="#">Back</a>
 
     <section id="filterMars">
         <img src="#" alt="Mars icon">
@@ -30,7 +34,7 @@
             <label for="volume">Volume:</label>
             <input type="text" id="volume" name="volume">
 
-            <input type="submit" value="search">
+            <input type="submit" value="search"> <!--TODO: dynamically filter results without pressing this button-->
         </form>
     </section>
 

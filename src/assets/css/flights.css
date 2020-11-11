@@ -3,32 +3,38 @@ body{
     color: white;
 }
 
-nav{
-    height: 5vh;
-    background-color: black;
+header{
+    line-height: 3rem;
     display: flex;
-
 }
 
-.AccountLoginButton{
-    grid-area: timer;
-    float: right;
+nav{
+    width: 100%;
 }
 
+nav ul{
+    background-color: black;
+    justify-content: space-around;
+}
 
-a.AccountLoginButton {
-    display: block;
+header nav li a {
     color: white;
     text-align: center;
-    padding: 4px 16px;
-    margin: 8px 3px;
     text-decoration: none;
-    background-color: #65C55E;
-    border-radius: 10px;
-
 }
 
-a.AccountLoginButton:hover {
+
+header a.AccountLoginButton {
+    padding: 4px 16px;
+    background-color: #65C55E;
+    border-radius: 10px;
+}
+
+header a.home:hover{
+    color: #076000;
+}
+
+header a.AccountLoginButton:hover {
     background-color: #076000;
 }
 
