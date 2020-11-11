@@ -4,23 +4,29 @@ body{
 }
 
 header{
-    line-height: 3rem;
-    display: flex;
+    line-height: 2rem;
+    width: 100%;
+    background-color: #262626;
 }
 
 nav{
-    width: 100%;
+    padding: 1rem;
 }
 
 nav ul{
-    background-color: black;
-    justify-content: space-around;
+    display: flex;
+    justify-content: space-between;
 }
 
 header nav li a {
     color: white;
     text-align: center;
     text-decoration: none;
+}
+
+header nav li img {
+    height: 3rem;
+    width: auto;
 }
 
 
@@ -37,13 +43,3 @@ header a.home:hover{
 header a.AccountLoginButton:hover {
     background-color: #076000;
 }
-
-.nav{
-    display: flex;
-    width:100%;
-}
-
-.nav > li {
-    flex: 1;
-}
-
