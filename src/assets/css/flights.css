@@ -142,4 +142,39 @@ div#flights table tr:nth-child(even){
 }
 
 
+/* -------------------POPUP------------------ */
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 45%;
+    background-color: #FFF;
+    border: 5px solid #696969;
+    padding: 20px;
+    color: black;
+}
+
+#popup .close {
+    color: #FFF;
+    font-weight: bold;
+    background-color: #696969;
+    display: inline-block;
+    border-radius: 23px;
+    padding: 5px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(50%) translateY(-50%); }
+
+#popup {
+    width: 50%; }
+
+.hidden{
+    display: none;
+}
+
 
