@@ -24,7 +24,7 @@
 
     <a class="back" href="index.html">Back</a>
 
-    <section id="filterMars">
+    <div id="filterMars">
         <img src="#" alt="Mars icon">
         <h1>Select flight to Mars</h1>
         <form action="#">
@@ -36,19 +36,50 @@
 
             <input type="submit" value="search"> <!--TODO: dynamically filter results without pressing this button-->
         </form>
-    </section>
+    </div>
 
-    <section id="flights">
+
+    <div id="flights">
+
         <table>
+            <caption>All flights to Mars</caption>
             <tr>
                 <th>Departure:</th>
                 <th>Arrival:</th>
                 <th>Available cargo:</th>
                 <th>Available volume:</th>
                 <th>Price:</th>
+                <th></th>
+            </tr>
+
+            <tr data-row="1">
+                <td>17/01/2052</td>
+                <td>17/02/2052</td>
+                <td>230kg</td>
+                <td>100m³</td>
+                <td>?? Euro/kg</td>
+                <td><button>book now</button></td>
+            </tr>
+
+            <tr data-row="2">
+                <td>17/01/2052</td>
+                <td>17/02/2052</td>
+                <td>230kg</td>
+                <td>100m³</td>
+                <td>?? Euro/kg</td>
+                <td><button>book now</button></td>
+            </tr>
+
+            <tr data-row="3">
+                <td>17/01/2052</td>
+                <td>17/02/2052</td>
+                <td>230kg</td>
+                <td>100m³</td>
+                <td>?? Euro/kg</td>
+                <td><button>book now</button></td>
             </tr>
         </table>
-    </section>
+    </div>
 
 
 </main>
