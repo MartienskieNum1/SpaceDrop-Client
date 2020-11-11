@@ -74,7 +74,7 @@ main a.back{
     margin-left: 2rem;
 }
 
-div#filterMars{
+div#filterFlights{
     margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
@@ -85,16 +85,16 @@ div#filterMars{
     line-height: 4rem;
 }
 
-div#filterMars div{
+div#filterFlights div{
     display: flex;
 }
 
-div#filterMars h1{
+div#filterFlights h1{
     margin-right: 10rem;
     font-size: 2.5rem;
 }
 
-div#filterMars img{
+div#filterFlights img{
     height: 4rem;
     width: auto;
     margin-top: auto;
