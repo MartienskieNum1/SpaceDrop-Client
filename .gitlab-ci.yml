@@ -1,5 +1,4 @@
-image: timbru31/java-node:11-azul-alpine-jdk
-
+image: monitor:5000/howest-java-node:11-azul-alpine-jdk
 stages:
   - QA
   - deploy
