@@ -32,6 +32,7 @@ header nav li a {
 header nav li img {
     height: 3rem;
     width: auto;
+    float: left;
 }
 
 header a.AccountLoginButton {
@@ -39,6 +40,15 @@ header a.AccountLoginButton {
     padding: 0.2rem 2rem;
     background-color: #65C55E;
     border-radius: 10px;
+}
+
+nav li {
+    width: 15rem;
+}
+
+li a.AccountLoginButton{
+    width: 5rem;
+    float: right;
 }
 
 header a.home:hover{
@@ -49,18 +59,9 @@ header a.AccountLoginButton:hover {
     background-color: #076000;
 }
 
-ul.nav{
+#planetDistances{
     display: flex;
     justify-content: space-between;
-}
-
-header nav li img {
-    height: 3rem;
-    width: auto;
-    float: left;
-}
-
-li{
-    margin-top: auto;
-    margin-bottom: auto;
+    font-size: 0.7rem;
+    width: 25rem;
 }
