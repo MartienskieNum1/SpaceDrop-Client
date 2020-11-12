@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td>
-                    <select name="planet" id="planet">
+                    <select name="planet" id="planet" onchange="changeVisable()">
                     <option value="earth">Earth</option>
                     <option value="mars">Mars</option>
                     </select>
@@ -59,11 +59,11 @@
                     <input type="text" id="phone" name="phone" value="">
                 </td>
             </tr>
-            <tr class="earth">
+            <tr id="earthLabel">
                 <td><label for="country">Country:</label></td>
                 <td><label for="city">City:</label></td>
             </tr>
-            <tr class="earth">
+            <tr id="earth">
                 <td>
                     <input id="country" name="country" required list="country-list" />
                     <datalist id="country-list">
@@ -315,12 +315,14 @@
                         <option value="Zimbabwe">Zimbabwe</option>
                     </datalist>
                 </td>
-                <td><input type="text" id="city" name="city" value=""></td>
+                <td>
+                    <input type="text" id="city" name="city" value="">
+                </td>
             </tr>
-            <tr class="mars">
+            <tr id="marsLabel">
                 <td colspan="2"><label for="colony">Colony:</label></td>
             </tr>
-            <tr class="mars">
+            <tr id="mars">
                 <td colspan="2"><input class="wide" type="text" id="colony" name="colony" value=""></td>
             </tr>
             <tr>
@@ -342,6 +344,9 @@
 </main>
 
 
+
+<script src="assets/js/register.js"></script>
+<script src="assets/js/local-storage.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/api.js"></script>
 </body>
