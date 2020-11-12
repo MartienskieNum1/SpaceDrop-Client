@@ -67,18 +67,38 @@ li.AccountLoginButton{
     text-align: right;
 }
 
-input.wide{
-    width: 32rem;
+main a.back{
+    color: white;
+    font-weight: bold;
     text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.2rem 1.5rem;
+    background-color: #989898;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
 }
 
-input{
-    width: 15rem;
+td.google{
+    float: right;
 }
 
-select{
-    width: 15rem;
+td.register{
+    float: left;
+}
 
+div.google, div.register{
+    width: 15rem;
+    text-align: center;
+
+}
+
+div.google a, div.register a{
+    width: 15rem;
+    text-decoration: none;
+    color: white;
+    margin: auto;
 }
 
 table{
@@ -95,7 +115,7 @@ td:nth-child(even) {
     text-align: right;
 }
 
-input[type=submit]{
+input[type=submit], div.google, div.register{
     background-color: #65C55E;
     border-radius: 5px;
     text-decoration: none;
@@ -105,29 +125,15 @@ input[type=submit]{
     font-weight: bold;
     font-size: 1.5rem;
     border: none;
+    margin-top: 0.5rem;
 }
 
-input,select{
-    margin-bottom: 0.3rem;
-    border-radius: 5px;
+input.wide{
+    width: 32rem;
 }
 
-h1{
-    text-align: center;
-    font-size: 2.5rem;
-    margin-top: 0.7rem;
-}
-
-main a.back{
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.2rem 1.5rem;
-    background-color: #989898;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
+input{
+    margin-top: 0.5rem;
 
 }
+
