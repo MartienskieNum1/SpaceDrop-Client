@@ -22,8 +22,27 @@
 </header>
 
 <main>
-
     <a class="back" href="flights.html">Back</a>
+
+    <table id="selectedFlight">
+        <tr id="tableHeaders">
+            <th scope="col">Departure:</th>
+            <th scope="col">Arrival:</th>
+            <th scope="col">Available cargo:</th>
+            <th scope="col">Available volume:</th>
+            <th scope="col">Price:</th>
+            <td></td>
+        </tr>
+
+        <tr data-row="1">
+            <td>17/01/2052</td>
+            <td>17/02/2052</td>
+            <td>230kg</td>
+            <td>100m³</td>
+            <td>?? Euro/kg</td>
+            <td><a id="removeOrder" href="flights.html"><em class="fa fa-trash"></em></a></td>
+        </tr>
+    </table>
 
 </main>
 

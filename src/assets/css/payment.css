@@ -1,0 +1,42 @@
+body{
+    font-size: 1.4rem;
+}
+
+table#selectedFlight{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    width: 70%;
+}
+
+table#selectedFlight{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+table#selectedFlight th{
+    padding: 2rem 0;
+}
+
+table#selectedFlight th, table#selectedFlight td {
+    text-align: start;
+    padding: 0.5rem 6rem 0.5rem 0;
+}
+
+table#selectedFlight td button{
+    background-color: #65C55E;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+#removeOrder{
+    color: white;
+    font-size: 2.5rem;
+}
+
+#removeOrder:hover{
+    color: #65C55E;
+}
