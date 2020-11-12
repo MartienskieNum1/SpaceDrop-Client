@@ -1,7 +1,7 @@
 "use strict";
 
 
-document.addEventListener("DOMContentLoaded", popupInit)
+document.addEventListener("DOMContentLoaded", popupInit);
 
 
 function popupInit() {
