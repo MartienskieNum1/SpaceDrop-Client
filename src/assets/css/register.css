@@ -17,7 +17,6 @@ header{
 }
 main{
     overflow: auto;
-    min-height: 100%;
 }
 nav{
     padding: 0.5rem;
@@ -68,7 +67,8 @@ li.AccountLoginButton{
 }
 
 input.wide{
-    width: 31rem;
+    width: 32rem;
+    text-align: center;
 }
 
 input{
@@ -77,4 +77,22 @@ input{
 
 select{
     width: 15rem;
+
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td.wide{
+    text-align: center;
+}
+
+td:nth-child(even) {
+    text-align: right;
+}
+
+.earth{
+    display: none;
 }
