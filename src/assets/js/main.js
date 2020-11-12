@@ -10,6 +10,11 @@ async function init() {
     config = await loadConfig();
     api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
     // Small poc
+
+    // addUser().then(response => {
+    //     console.log(response);
+    // })
+
     getMessage().then(message => h1Element.innerText = message);
 }
 
