@@ -1,78 +1,10 @@
 body{
-    background-color: #404040;
-    color: white;
-    font-family: "Segoe UI", sans-serif;
     font-size: 1.4rem;
 }
-
-/* -------------------HEADER------------------ */
-
-header{
-    line-height: 1.5rem;
-    width: 100%;
-    background-color: #262626;
-    margin-bottom: 3rem;
-}
-
-nav{
-    padding: 1rem;
-}
-
-nav ul{
-    display: flex;
-    justify-content: space-between;
-}
-
-nav ul li{
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-header nav li a {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-header nav li img {
-    height: 3rem;
-    width: auto;
-}
-
-
-header a.AccountLoginButton {
-    display: block;
-    padding: 0.2rem 2rem;
-    background-color: #65C55E;
-    border-radius: 10px;
-}
-
-header a.home:hover{
-    color: #076000;
-}
-
-header a.AccountLoginButton:hover {
-    background-color: #076000;
-}
-
 
 /* -------------------MAIN------------------ */
 
 /* -------------------FILTER------------------ */
-main a.back{
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.2rem 1.5rem;
-    background-color: #989898;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-}
 
 div#filterFlights{
     margin-top: 2rem;
@@ -122,7 +54,7 @@ div#flights table th{
 
 div#flights table th,div#flights table td {
     text-align: start;
-    padding: 0.5rem 0;
+    padding: 0.5rem 6rem 0.5rem 0;
 }
 
 div#flights table td button{
@@ -131,10 +63,6 @@ div#flights table td button{
     border-radius: 10px;
     border: none;
     color: white;
-}
-
-div#flights table td, div#flights table th {
-    padding-right: 6rem;
 }
 
 div#flights table tr:nth-child(even){
@@ -149,11 +77,11 @@ div#flights table tr:nth-child(even){
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    width: 45%;
     background-color: #FFF;
     border: 5px solid #696969;
     padding: 20px;
     color: black;
+    width: 50%;
 }
 
 #popup .close {
@@ -168,10 +96,13 @@ div#flights table tr:nth-child(even){
     position: absolute;
     right: 0;
     top: 0;
-    transform: translateX(50%) translateY(-50%); }
+    transform: translateX(50%) translateY(-50%);
+}
 
-#popup {
-    width: 50%; }
+#popup div.contentwrapper a{
+    text-decoration: none;
+
+}
 
 .hidden{
     display: none;

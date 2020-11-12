@@ -1,6 +1,6 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", init)
+document.addEventListener("DOMContentLoaded", init);
 
 
 function init(){
@@ -8,17 +8,17 @@ function init(){
 }
 
 function goToFlights(e) {
-    let id = e.target.closest("div").getAttribute("id");
+    const ID = e.target.closest("div").getAttribute("id");
 
-    addPlanetToLocalStorage(id);
+    addPlanetToLocalStorage(ID);
 
     window.location.href = "flights.html";
 }
 
 function addPlanetToLocalStorage(id) {
     if (id === "toMars"){
-        setDestinationPlanet("mars")
+        setDestinationPlanet("mars");
     }else if (id === "toEarth"){
-        setDestinationPlanet("earth")
+        setDestinationPlanet("earth");
     }
 }

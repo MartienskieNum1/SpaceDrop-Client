@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm your payment method</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/screen.css">
+    <link rel="stylesheet" href="assets/css/payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul class="nav">
+            <li><a class="home" href="index.html"><em class="fa fa-home" style="font-size:48px"></em></a></li>
+            <li><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
+            <li><a class="AccountLoginButton" href="">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <a class="back" href="flights.html">Back</a>
+
+    <table id="selectedFlight">
+        <caption>Overview:</caption>
+        <tr id="tableHeaders">
+            <th scope="col">To:</th>
+            <th scope="col">Departure:</th>
+            <th scope="col">Arrival:</th>
+            <th scope="col">Weight:</th>
+            <th scope="col">Height:</th>
+            <th scope="col">Width:</th>
+            <th scope="col">Price:</th>
+            <td></td>
+        </tr>
+
+        <tr data-row="1">
+            <td><img src="assets/images/icons/mars.png" alt="planet icon"></td>
+            <td>17/01/2052</td>
+            <td>17/02/2052</td>
+            <td>230kg</td>
+            <td>5m</td>
+            <td>2m</td>
+            <td>?? Euro/kg</td>
+            <td><a id="removeOrder" href="flights.html"><em class="fa fa-trash"></em></a></td>
+        </tr>
+    </table>
+
+    <section>
+        <h1>Select your payment method:</h1>
+    </section>
+
+
+    <div id="paymentMethods">
+
+        <div id="payPal">
+            <p>Paypal</p>
+        </div>
+
+        <div id="bancontact">
+            <p>bancontact</p>
+        </div>
+
+        <div id="marsCoin">
+            <p>marsCoin</p>
+        </div>
+
+        <div id="payconiq">
+            <p>payconiq</p>
+        </div>
+
+        <div id="visa">
+            <p>visa</p>
+        </div>
+
+        <div id="other">
+            <p>other</p>
+        </div>
+    </div>
+
+
+
+</main>
+
+</body>
+</html>

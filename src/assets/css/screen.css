@@ -1,0 +1,89 @@
+body{
+    background-color: #404040;
+    color: white;
+    font-family: "Segoe UI", sans-serif;
+    height: 100%;
+}
+
+/* -------------------HEADER------------------ */
+
+header{
+    line-height: 1.5rem;
+    width: 100%;
+    background-color: #262626;
+    margin-bottom: 3rem;
+}
+
+nav{
+    padding: 0.5rem;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+header nav li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+header nav li img {
+    height: 3rem;
+    width: auto;
+    float: left;
+}
+
+header a.AccountLoginButton {
+    display: block;
+    padding: 0.2rem 2rem;
+    background-color: #65C55E;
+    border-radius: 10px;
+}
+
+nav li {
+    width: 15rem;
+}
+
+li a.AccountLoginButton{
+    width: 5rem;
+    float: right;
+}
+
+header a.home:hover{
+    color: #076000;
+}
+
+header a.AccountLoginButton:hover {
+    background-color: #076000;
+}
+
+#planetDistances{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    width: 25rem;
+}
+
+/* -------------------HEADER------------------ */
+
+main a.back{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.2rem 1.5rem;
+    background-color: #989898;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
