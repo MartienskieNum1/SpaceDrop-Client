@@ -1,8 +1,8 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", indexInit);
+document.addEventListener("DOMContentLoaded", registerInit);
 
-function indexInit() {
+function registerInit() {
     document.querySelector("#submit").addEventListener("click", makeAccount);
     changeVisable();
 }

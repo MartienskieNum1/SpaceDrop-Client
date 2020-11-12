@@ -79,3 +79,61 @@ main a.back{
     margin-bottom: 2rem;
     margin-left: 2rem;
 }
+
+td.google{
+    float: right;
+}
+
+td.register{
+    float: left;
+}
+
+div.google, div.register{
+    width: 15rem;
+    text-align: center;
+
+}
+
+div.google a, div.register a{
+    width: 15rem;
+    text-decoration: none;
+    color: white;
+    margin: auto;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.7rem;
+}
+
+td.wide{
+    text-align: center;
+}
+
+td:nth-child(even) {
+    text-align: right;
+}
+
+input[type=submit], div.google, div.register{
+    background-color: #65C55E;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    height: 2.3rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+    margin-top: 0.5rem;
+}
+
+input.wide{
+    width: 32rem;
+}
+
+input{
+    margin-top: 0.5rem;
+
+}
+
