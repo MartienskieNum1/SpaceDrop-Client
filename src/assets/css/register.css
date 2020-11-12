@@ -62,58 +62,37 @@ li{
     margin-bottom: auto;
 }
 
-#buttons{
-    display: flex;
-}
-
-#buttons > div {
-    margin: 100px;
-    background-color: #989898;
-    flex: 1;
-    border-radius: 15px;
-    text-align: center;
-    padding: 20px;
-}
-
-#toMars>p,#toEarth>p{
-    font-weight: bold;
-    font-size: 2.5rem;
-}
-
-
-#planetDistances{
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.7rem;
-    width: 25rem;
-}
-
 li.AccountLoginButton{
-    width: 25rem;
     text-align: right;
+}
+
+input.wide{
+    width: 32rem;
+    text-align: center;
+}
+
+input{
+    width: 15rem;
+}
+
+select{
+    width: 15rem;
 
 }
 
-footer ul{
-    display: flex;
-    justify-content: right;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-    height: 30px;
+table{
+    margin-left: auto;
+    margin-right: auto;
 }
 
-footer ul li{
-    background-color: #313131;
-    margin: 4px;
-    padding: 4px;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+td.wide{
+    text-align: center;
 }
 
-a.footer{
-    text-decoration: none;
-    color: white;
+td:nth-child(even) {
+    text-align: right;
 }
 
+.earth{
+    display: none;
+}
