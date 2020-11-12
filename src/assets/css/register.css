@@ -83,6 +83,7 @@ select{
 table{
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0.7rem;
 }
 
 td.wide{
@@ -93,3 +94,26 @@ td:nth-child(even) {
     text-align: right;
 }
 
+input[type=submit]{
+    background-color: #65C55E;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    height: 2.3rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+
+}
+
+input,select{
+    margin-bottom: 0.3rem;
+    border-radius: 5px;
+}
+
+h1{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 0.7rem;
+}

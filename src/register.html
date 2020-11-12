@@ -20,29 +20,30 @@
 </header>
 
 <main>
+    <h1>Make an account</h1>
     <form action="#">
         <table>
             <tr>
                 <td colspan="2"><label for="email">Email:</label></td>
             </tr>
             <tr>
-                <td colspan="2"><input class="wide" type="email" id="email" name="email" value=""></td>
+                <td colspan="2"><input class="wide" type="email" id="email" name="email" value="" required></td>
             </tr>
             <tr>
                 <td><label for="fname">First name:</label></td>
                 <td><label for="lname">Last name:</label></td>
             </tr>
             <tr>
-                <td><input type="text" id="fname" name="fname" value=""></td>
-                <td><input type="text" id="lname" name="lname" value=""></td>
+                <td><input type="text" id="fname" name="fname" value="" required></td>
+                <td><input type="text" id="lname" name="lname" value="" required></td>
             </tr>
             <tr>
                 <td><label for="password">Password:</label></td>
                 <td><label for="repeatPassword">Repeat Password:</label></td>
             </tr>
             <tr>
-                <td><input type="password" id="password" name="password" value=""></td>
-                <td><input type="password" id="repeatPassword" name="repeatPassword" value=""></td>
+                <td><input type="password" id="password" name="password" value="" required></td>
+                <td><input type="password" id="repeatPassword" name="repeatPassword" value="" required></td>
             </tr>
             <tr>
                 <td><label for="planet">Planet:</label></td>
@@ -50,7 +51,7 @@
             </tr>
             <tr>
                 <td>
-                    <select name="planet" id="planet" onchange="changeVisable()">
+                    <select name="planet" id="planet" onchange="changeVisable()" required>
                     <option value="earth">Earth</option>
                     <option value="mars">Mars</option>
                     </select>
@@ -65,7 +66,7 @@
             </tr>
             <tr id="earth">
                 <td>
-                    <input id="country" name="country" required list="country-list" />
+                    <input id="country" name="country"  list="country-list" />
                     <datalist id="country-list">
                         <option value="Afganistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
@@ -316,7 +317,7 @@
                     </datalist>
                 </td>
                 <td>
-                    <input type="text" id="city" name="city" value="">
+                    <input type="text" id="city" name="city" value="" >
                 </td>
             </tr>
             <tr id="marsLabel">
@@ -334,7 +335,7 @@
                 <td><input type="text" id="nr" name="nr" value=""></td>
             </tr>
             <tr>
-                <td class="wide" colspan="2"><input class="wide" type="submit" value="Submit"></td>
+                <td class="wide" colspan="2"><input class="wide" type="submit" value="Register"></td>
             </tr>
 
         </table>
