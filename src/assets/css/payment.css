@@ -3,25 +3,40 @@ body{
 }
 
 table#selectedFlight{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
+    margin: 2rem auto;
     width: 70%;
-}
-
-table#selectedFlight{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+table#selectedFlight caption, section h1{
+    text-align: left;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+
 }
 
 table#selectedFlight th{
     padding: 2rem 0;
 }
 
+table#selectedFlight tr{
+    text-align: center;
+}
+
+table#selectedFlight tr img{
+    height: 4rem;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+}
+
 table#selectedFlight th, table#selectedFlight td {
     text-align: start;
-    padding: 0.5rem 6rem 0.5rem 0;
+    padding: 0.5rem 4rem 0.5rem 0;
 }
 
 table#selectedFlight td button{
@@ -39,4 +54,40 @@ table#selectedFlight td button{
 
 #removeOrder:hover{
     color: #65C55E;
+}
+
+/* ---------------Payment options---------------- */
+
+section{
+    margin-top: 4rem;
+}
+
+#paymentMethods, section h1{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    width: 70%;
+}
+
+#paymentMethods{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+
+#paymentMethods > div{
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+}
+
+#paymentMethods > div p{
+    font-size: 3rem;
+    background-color: white;
+    color: black;
+    padding: 3rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 15rem;
 }

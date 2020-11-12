@@ -25,24 +25,61 @@
     <a class="back" href="flights.html">Back</a>
 
     <table id="selectedFlight">
+        <caption>Overview:</caption>
         <tr id="tableHeaders">
+            <th scope="col">To:</th>
             <th scope="col">Departure:</th>
             <th scope="col">Arrival:</th>
-            <th scope="col">Available cargo:</th>
-            <th scope="col">Available volume:</th>
+            <th scope="col">Weight:</th>
+            <th scope="col">Height:</th>
+            <th scope="col">Width:</th>
             <th scope="col">Price:</th>
-            <td></td>
         </tr>
 
         <tr data-row="1">
+            <td><img src="assets/images/icons/mars.png" alt="planet icon"></td>
             <td>17/01/2052</td>
             <td>17/02/2052</td>
             <td>230kg</td>
-            <td>100m³</td>
+            <td>5m</td>
+            <td>2m</td>
             <td>?? Euro/kg</td>
             <td><a id="removeOrder" href="flights.html"><em class="fa fa-trash"></em></a></td>
         </tr>
     </table>
+
+    <section>
+        <h1>Select your payment method:</h1>
+    </section>
+
+
+    <section id="paymentMethods">
+        <div id="payPal">
+            <p>Paypal</p>
+        </div>
+
+        <div id="bancontact">
+            <p>bancontact</p>
+        </div>
+
+        <div id="marsCoin">
+            <p>marsCoin</p>
+        </div>
+
+        <div id="payconiq">
+            <p>payconiq</p>
+        </div>
+
+        <div id="visa">
+            <p>visa</p>
+        </div>
+
+        <div id="other">
+            <p>other</p>
+        </div>
+    </section>
+
+
 
 </main>
 
