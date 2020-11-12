@@ -1,25 +1,10 @@
 body{
-    background-color: #404040;
-    color: white;
-    font-family: "Segoe UI", sans-serif;
     font-size: 1.4rem;
 }
 
 /* -------------------MAIN------------------ */
 
 /* -------------------FILTER------------------ */
-main a.back{
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.2rem 1.5rem;
-    background-color: #989898;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-}
 
 div#filterFlights{
     margin-top: 2rem;
@@ -111,7 +96,13 @@ div#flights table tr:nth-child(even){
     position: absolute;
     right: 0;
     top: 0;
-    transform: translateX(50%) translateY(-50%); }
+    transform: translateX(50%) translateY(-50%);
+}
+
+#popup div.contentwrapper a{
+    text-decoration: none;
+
+}
 
 .hidden{
     display: none;
