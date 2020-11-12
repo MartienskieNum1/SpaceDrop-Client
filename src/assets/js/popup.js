@@ -9,16 +9,26 @@ function popupInit() {
     document.querySelector(".close").addEventListener("click", closePopUp);
 }
 
+
 function openPopUp(e) {
     e.preventDefault();
 
     if (e.target.tagName.toLowerCase() === "button"){
         document.querySelector("#popup").classList.remove("hidden");
-        fillPopUpWithContent(e);
+        fillWithForm(e);
+    }
+
+    if (e.target.tagName.toLowerCase() === "em"){
+        document.querySelector("#popup").classList.remove("hidden");
+        showConfirmation(e);
     }
 }
 
-function fillPopUpWithContent(e) {
+function fillWithForm(e) {
+    //TODO
+}
+
+function showConfirmation(e) {
     //TODO
 }
 
