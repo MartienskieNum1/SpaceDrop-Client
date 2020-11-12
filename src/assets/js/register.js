@@ -49,17 +49,43 @@ function makeAccount() {
     else{
         if(planet==="mars"){
             const colony = document.getElementById("colony").value;
-            //TODO send userdata to server with mars adress
+            if(email===""||fname===""||lname===""||street===""||nr===""||colony===""){
+                fillInAllFieldsPopUp();
+            }
+            else{
+                //TODO send userdata to server with mars address
+                console.log("send userdata to server with mars address");
+            }
         }
-        else{
+        else if(planet==="earth"){
             const country = document.getElementById("country").value;
             const city = document.getElementById("city").value;
-            //TODO send userdata to server with earth adress
+            if(email===""||fname===""||lname===""||street===""||nr===""||country===""||city===""){
+                fillInAllFieldsPopUp();
+            }
+            else{
+                //TODO send userdata to server with earth address
+                console.log("send userdata to server with earth address");
+            }
+        }
+        else{
+            somethingWentWrongPopUp();
         }
     }
 }
 
 function passwordNotIdentical() {
     console.log("passwords are not identical");
+    //TODO
+}
+
+function fillInAllFieldsPopUp() {
+    console.log("Not all fields are filled in");
+    //TODO
+
+}
+
+function somethingWentWrongPopUp() {
+    console.log("Something went wrong");
     //TODO
 }

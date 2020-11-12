@@ -67,58 +67,6 @@ li.AccountLoginButton{
     text-align: right;
 }
 
-input.wide{
-    width: 32rem;
-    text-align: center;
-}
-
-input{
-    width: 15rem;
-}
-
-select{
-    width: 15rem;
-
-}
-
-table{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.7rem;
-}
-
-td.wide{
-    text-align: center;
-}
-
-td:nth-child(even) {
-    text-align: right;
-}
-
-input[type=submit]{
-    background-color: #65C55E;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    height: 2.3rem;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    border: none;
-
-}
-
-input,select{
-    margin-bottom: 0.3rem;
-    border-radius: 5px;
-}
-
-h1{
-    text-align: center;
-    font-size: 2.5rem;
-    margin-top: 0.7rem;
-}
-
 main a.back{
     color: white;
     font-weight: bold;
@@ -130,5 +78,4 @@ main a.back{
     border-radius: 10px;
     margin-bottom: 2rem;
     margin-left: 2rem;
-
 }
