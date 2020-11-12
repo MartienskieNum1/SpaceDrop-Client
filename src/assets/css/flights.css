@@ -69,7 +69,7 @@ div#flights table th{
 
 div#flights table th,div#flights table td {
     text-align: start;
-    padding: 0.5rem 0;
+    padding: 0.5rem 6rem 0.5rem 0;
 }
 
 div#flights table td button{
@@ -78,10 +78,6 @@ div#flights table td button{
     border-radius: 10px;
     border: none;
     color: white;
-}
-
-div#flights table td, div#flights table th {
-    padding-right: 6rem;
 }
 
 div#flights table tr:nth-child(even){
@@ -96,11 +92,11 @@ div#flights table tr:nth-child(even){
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    width: 45%;
     background-color: #FFF;
     border: 5px solid #696969;
     padding: 20px;
     color: black;
+    width: 50%;
 }
 
 #popup .close {
@@ -116,9 +112,6 @@ div#flights table tr:nth-child(even){
     right: 0;
     top: 0;
     transform: translateX(50%) translateY(-50%); }
-
-#popup {
-    width: 50%; }
 
 .hidden{
     display: none;

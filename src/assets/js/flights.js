@@ -12,11 +12,11 @@ function renderChosenPlanet() {
     const CONTAINER = document.querySelector("div#filterFlights div");
     CONTAINER.innerHTML =
         `<img src="assets/images/icons/${getDestinationPlanet()}.png" alt="planet icon">
-         <h1>Select flight to ${toTitleCase(getDestinationPlanet())}</h1>`
+         <h1>Select flight to ${toTitleCase(getDestinationPlanet())}</h1>`;
 }
 
 function toTitleCase(txt){
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 }
 
 
