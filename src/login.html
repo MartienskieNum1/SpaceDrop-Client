@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpaceDrop Login</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<header>
+    <nav>
+        <ul class="nav">
+            <li><a class="home" href="index.html"><em class="fa fa-home" style="font-size:48px"></em></a></li>
+            <li id="logo"><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
+            <li class="AccountLoginButton"><a class="AccountLoginButton" href="">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <a class="back" href="index.html">Back</a>
+    <table>
+        <tr>
+            <td colspan="2"><label for="email">Email:</label></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="wide"><input class="wide" type="email" id="email" name="email" value="" required></td>
+        </tr>
+        <tr>
+            <td colspan="2"><label for="password">Password:</label></td>
+        </tr>
+        <tr>
+            <td class="wide" colspan="2"><input class="wide" type="password" id="password" name="password" value="" required></td>
+        </tr>
+        <tr>
+            <td class="wide" colspan="2"><input class="wide" id="submit" type="submit" value="Login"></td>
+        </tr>
+        <tr>
+            <td class="register"  id="reg"><div class="register"><a class="register">Register</a></div></td>
+            <td class="google"><div class="google"><a class="google">Login with google</a></div></td>
+        </tr>
+    </table>
+</main>
+<script src="assets/js/login.js"></script>
+</body>
+</html>
