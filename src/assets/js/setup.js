@@ -13,6 +13,15 @@ function getUsers(){
     return apiCall("users", "GET")
 }
 
+function addOrder(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
+    return apiCall("order", "POST",
+        orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost))
+}
+
+function getOrders(){
+    return apiCall("orders", "GET")
+}
+
 function userToJson(firstName, lastName, email, phoneNumber, password){
     return {
         "firstName": firstName,
@@ -21,15 +30,6 @@ function userToJson(firstName, lastName, email, phoneNumber, password){
         "phoneNumber": phoneNumber,
         "password": password
     };
-}
-
-function addOrder(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
-    return apiCall("order", "POST",
-        orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost))
-}
-
-function getOrders(){
-    return apiCall("orders", "GET")
 }
 
 function orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
