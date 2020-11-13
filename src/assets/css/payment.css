@@ -91,3 +91,14 @@ section{
     text-align: center;
     width: 15rem;
 }
+
+/* ---------------PopUp---------------- */
+
+div.paymentScreen{
+    font-size: 1.5rem;
+}
+
+div.paymentScreen h5{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}

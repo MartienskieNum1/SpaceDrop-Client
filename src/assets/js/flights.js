@@ -21,5 +21,9 @@ function toTitleCase(txt){
 
 
 function renderFlightlist() {
-    //TODO: this is to render the correct flight data via API call
+    getFlights().then(function(flights){
+        for (let i = 0; i < flights.length; i++) {
+            console.log(flight[i]);
+        }
+    });
 }
