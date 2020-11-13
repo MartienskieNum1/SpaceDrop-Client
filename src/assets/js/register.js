@@ -42,12 +42,14 @@ function makeAccount() {
     const planet = document.getElementById("planet").value;
     const phone = document.getElementById("phone").value;
 
+    let validPass = isPasswordValid(password, repeatPassword);
+    let allFieldsFilled = validateRegistration(planet, email, fname, lname, street, nr)
 
-    if(password !== repeatPassword){
+    if(!validPass){
         showPopUp("Passwords are not identical");
-    }else if (validateRegistration(planet, email, fname, lname, street, nr)) {
+    }else if (allFieldsFilled) {
         showPopUp("Please fill in the required fields");
-    }else if (password === repeatPassword && !validateRegistration(planet, email, fname, lname, street, nr)) {
+    }else if (validPass && !allFieldsFilled) {
         addUser(fname, lname, email, phone, password).then(response => {
             if (response.message === undefined){
                 setToken(response);
@@ -59,19 +61,23 @@ function makeAccount() {
     }
 }
 
+function isPasswordValid(password, repeatPassword){
+    return (password === repeatPassword)
+}
+
 function validateRegistration(planet, email, fname, lname, street, nr){
 
     if(planet === "mars"){
         const colony = document.getElementById("colony").value;
-        return (email===""||fname===""||lname===""||street===""||nr===""||colony==="")
+        return (email===""||fname===""||lname===""||street===""||nr===""||colony==="");
     }
     else if(planet === "earth"){
         const country = document.getElementById("country").value;
         const city = document.getElementById("city").value;
-        return (email===""||fname===""||lname===""||street===""||nr===""||country===""||city==="")
+        return (email===""||fname===""||lname===""||street===""||nr===""||country===""||city==="");
     }
     else{
-        showPopUp("Something went wrong")
+        showPopUp("Something went wrong");
     }
 }
 
@@ -80,5 +86,5 @@ function showPopUp(message){
     CONTAINER.innerHTML = message;
 
     const POPUP = document.querySelector("#errorScreen");
-    POPUP.classList.remove("hidden")
+    POPUP.classList.remove("hidden");
 }

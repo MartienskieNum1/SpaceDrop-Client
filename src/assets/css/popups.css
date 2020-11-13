@@ -10,6 +10,7 @@ section.popup {
     padding: 20px;
     color: black;
     width: 50%;
+    font-size: 1.5rem;
 }
 
 section.popup .close {
@@ -33,10 +34,6 @@ section.popup div a{
 
 section.hidden{
     display: none;
-}
-
-section.popup{
-    font-size: 1.5rem;
 }
 
 section.popup h5 {

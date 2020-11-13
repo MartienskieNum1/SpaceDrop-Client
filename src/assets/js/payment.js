@@ -1,6 +1,6 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", paymentInit)
+document.addEventListener("DOMContentLoaded", paymentInit);
 
 function paymentInit() {
     renderChosenPlanet();
@@ -24,5 +24,5 @@ function renderChosenPaymentMethod(e){
 function handlePaymentPopup(method){
     const CONTAINER = document.querySelector("#chosenPayment h5");
     document.querySelector("#chosenPayment").classList.remove("hidden");
-    CONTAINER.innerHTML = `${method} payment service provider`
+    CONTAINER.innerHTML = `${method} payment service provider`;
 }

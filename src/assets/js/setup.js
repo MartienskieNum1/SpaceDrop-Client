@@ -6,20 +6,20 @@ function getMessage() {
 
 function addUser(firstName, lastName, email, phoneNumber, password){
     return apiCall("user", "POST",
-        userToJson(firstName, lastName, email, phoneNumber, password))
+        userToJson(firstName, lastName, email, phoneNumber, password));
 }
 
 function getUsers(){
-    return apiCall("users", "GET")
+    return apiCall("users", "GET");
 }
 
 function addOrder(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
     return apiCall("order", "POST",
-        orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost))
+        orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost));
 }
 
 function getOrders(){
-    return apiCall("orders", "GET")
+    return apiCall("orders", "GET");
 }
 
 function userToJson(firstName, lastName, email, phoneNumber, password){

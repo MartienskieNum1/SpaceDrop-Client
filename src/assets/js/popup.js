@@ -8,7 +8,7 @@ function popupInit() {
     document.querySelector("table").addEventListener("click", openPopUp);
     document.querySelectorAll(".close").forEach(closeButton => {
         closeButton.addEventListener("click", closePopUp);
-    })
+    });
 }
 
 

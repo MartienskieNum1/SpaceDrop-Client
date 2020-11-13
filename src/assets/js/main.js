@@ -13,7 +13,4 @@ async function init() {
     document.cookie = 'Authorization=Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=';
     config = await loadConfig();
     api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
-    // Small poc
-
-    // getMessage().then(message => h1Element.innerText = message);
 }
