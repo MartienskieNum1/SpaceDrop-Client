@@ -49,7 +49,12 @@ function makeAccount() {
         showPopUp("Please fill in the required fields");
     }else if (password === repeatPassword && !validateRegistration(planet, email, fname, lname, street, nr)) {
         addUser(fname, lname, email, phone, password).then(response => {
-            console.log(response);
+            if (response.message === undefined){
+                setToken(response);
+                window.location.href = "login.html";
+            }else{
+                showPopUp("Something went wrong");
+            }
         });
     }
 }
