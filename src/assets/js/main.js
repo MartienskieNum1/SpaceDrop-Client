@@ -1,6 +1,5 @@
 let config;
 let api;
-const h1Element = document.querySelector("h1");
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -16,9 +15,5 @@ async function init() {
     api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
     // Small poc
 
-    // addUser("thomas","thomas","thomas","thomas","thomas").then(response => {
-    //     console.log(response);
-    // })
-
-    getMessage().then(message => h1Element.innerText = message);
+    // getMessage().then(message => h1Element.innerText = message);
 }

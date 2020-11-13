@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", flightsInit);
 
 function flightsInit(){
     renderChosenPlanet();
-    renderFlightlist();
+    // renderFlightlist();
 }
 
 
