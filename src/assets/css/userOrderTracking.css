@@ -81,7 +81,7 @@ li.AccountLoginButton{
 }
 
 .sidenav a {
-    padding: 6px 8px 6px 16px;
+    padding: 6px 8px 6px 1.5rem;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
@@ -97,9 +97,15 @@ li.AccountLoginButton{
     font-weight: bold;
 }
 
+.sidenav h1{
+    font-size: 1.7rem;
+    padding-left: 0.5rem;
+}
+
 table{
+    margin-top: 1.3rem;
     margin-left: 12rem;
-    margin-top: 0.7rem;
+
 }
 
 table th{
@@ -170,4 +176,10 @@ table td{
 
 .trackingBar li.active + li:after{
     background-color: #65C55E;
+}
+
+h2{
+    margin-left: 12rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
