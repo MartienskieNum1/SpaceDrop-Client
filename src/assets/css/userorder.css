@@ -102,3 +102,58 @@ h1{
     padding-left: 0.5rem;
 }
 
+
+div#flightsToMars,div#flightsToEarth{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    width: 70%;
+}
+
+div#flightsToEarth table, div#flightsToMars table{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+div#flightsToMars table th, div#flightsToEarth table th{
+    padding: 2rem 0;
+}
+
+div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td{
+    text-align: start;
+    padding: 0.5rem 6rem 0.5rem 0;
+}
+
+div#flightsToEarth table td button, div#flightsToMars table td button{
+    background-color: #65C55E;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+div#flightsToEarth table tr:nth-child(even),div#flightsToMars table tr:nth-child(even){
+    background: #989898;
+}
+
+
+div#flightsToEarth img,div#flightsToMars img{
+    height: 4rem;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+div#flightsToEarth div,div#flightsToMars div{
+    display: flex;
+}
+
+div#flightsToEarth h1,div#flightsToMars h1{
+    margin-right: 10rem;
+    font-size: 1.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
