@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", registerInit);
 
 function registerInit() {
     document.querySelector("#submit").addEventListener("click", makeAccount);
+    document.querySelector(".close").addEventListener("click", closePopUp);
     changeVisable();
 }
 
@@ -39,53 +40,45 @@ function makeAccount() {
     const street = document.getElementById("street").value;
     const nr = document.getElementById("nr").value;
     const planet = document.getElementById("planet").value;
-    if(document.getElementById("phone").value==null){
-        const phone = document.getElementById("phone").value;
-    }
+    const phone = document.getElementById("phone").value;
 
-    if(password!==repeatPassword){
-        passwordNotIdentical();
+
+    if(password !== repeatPassword){
+        showPopUp("Passwords are not identical");
+    }else if (validateRegistration(planet, email, fname, lname, street, nr)) {
+        showPopUp("Please fill in the required fields");
+    }else if (password === repeatPassword && !validateRegistration(planet, email, fname, lname, street, nr)) {
+        addUser(fname, lname, email, phone, password).then(response => {
+            if (response.message === undefined){
+                setToken(response);
+                window.location.href = "login.html";
+            }else{
+                showPopUp("Something went wrong");
+            }
+        });
+    }
+}
+
+function validateRegistration(planet, email, fname, lname, street, nr){
+
+    if(planet === "mars"){
+        const colony = document.getElementById("colony").value;
+        return (email===""||fname===""||lname===""||street===""||nr===""||colony==="")
+    }
+    else if(planet === "earth"){
+        const country = document.getElementById("country").value;
+        const city = document.getElementById("city").value;
+        return (email===""||fname===""||lname===""||street===""||nr===""||country===""||city==="")
     }
     else{
-        if(planet==="mars"){
-            const colony = document.getElementById("colony").value;
-            if(email===""||fname===""||lname===""||street===""||nr===""||colony===""){
-                fillInAllFieldsPopUp();
-            }
-            else{
-                //TODO send userdata to server with mars address
-                console.log("send userdata to server with mars address");
-            }
-        }
-        else if(planet==="earth"){
-            const country = document.getElementById("country").value;
-            const city = document.getElementById("city").value;
-            if(email===""||fname===""||lname===""||street===""||nr===""||country===""||city===""){
-                fillInAllFieldsPopUp();
-            }
-            else{
-                //TODO send userdata to server with earth address
-                console.log("send userdata to server with earth address");
-            }
-        }
-        else{
-            somethingWentWrongPopUp();
-        }
+        showPopUp("Something went wrong")
     }
 }
 
-function passwordNotIdentical() {
-    console.log("passwords are not identical");
-    //TODO
-}
+function showPopUp(message){
+    const CONTAINER = document.querySelector("#errorScreen h5");
+    CONTAINER.innerHTML = message;
 
-function fillInAllFieldsPopUp() {
-    console.log("Not all fields are filled in");
-    //TODO
-
-}
-
-function somethingWentWrongPopUp() {
-    console.log("Something went wrong");
-    //TODO
+    const POPUP = document.querySelector("#errorScreen");
+    POPUP.classList.remove("hidden")
 }
