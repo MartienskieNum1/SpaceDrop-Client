@@ -17,3 +17,12 @@ function apiCall(uri, httpVerb, requestBody) {
             return jsonResponse;
         });
 }
+
+// function apiCall(uri) { // api fetch given with default project
+//     const request = new Request(api + uri, {
+//         method: 'GET',
+//         credentials: 'include'
+//     });
+//     return fetch(request)
+//         .then(response => response.json());
+// }

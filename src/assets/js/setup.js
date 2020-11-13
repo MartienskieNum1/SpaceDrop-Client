@@ -5,29 +5,13 @@ function getMessage() {
 }
 
 function addUser(firstName, lastName, email, phoneNumber, password){
-    return apiCall("user", "POST", userToJson(firstName, lastName, email, phoneNumber, password))
+    return apiCall("user", "POST",
+        userToJson(firstName, lastName, email, phoneNumber, password))
 }
 
 function getUsers(){
     return apiCall("users", "GET")
 }
-
-function addOrder(){
-
-}
-
-function getOrders(){
-    return apiCall("users", "GET")
-}
-
-// function apiCall(uri) {
-//     const request = new Request(api + uri, {
-//         method: 'GET',
-//         credentials: 'include'
-//     });
-//     return fetch(request)
-//         .then(response => response.json());
-// }
 
 function userToJson(firstName, lastName, email, phoneNumber, password){
     return {
@@ -38,3 +22,27 @@ function userToJson(firstName, lastName, email, phoneNumber, password){
         "password": password
     };
 }
+
+function addOrder(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
+    return apiCall("order", "POST",
+        orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost))
+}
+
+function getOrders(){
+    return apiCall("orders", "GET")
+}
+
+function orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
+    return {
+        "orderId": orderId,
+        "userId": userId,
+        "rocketId": rocketId,
+        "statusId": statusId,
+        "mass": mass,
+        "width": width,
+        "height": height,
+        "depth": depth,
+        "cost": cost
+    };
+}
+
