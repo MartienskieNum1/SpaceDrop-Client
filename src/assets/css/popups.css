@@ -64,3 +64,7 @@ section.popup div.popupButtons a {
     color: white;
     text-decoration: none;
 }
+
+section#errorScreen h5{
+    text-align: center;
+}

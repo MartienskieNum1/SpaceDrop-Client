@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", registerInit);
 
 function registerInit() {
     document.querySelector("#submit").addEventListener("click", makeAccount);
+    document.querySelector(".close").addEventListener("click", closePopUp);
     changeVisable();
 }
 
@@ -70,6 +71,9 @@ function validateRegistration(planet, email, fname, lname, street, nr){
 }
 
 function showPopUp(message){
-    console.log(message);
-    //TODO
+    const CONTAINER = document.querySelector("#errorScreen h5");
+    CONTAINER.innerHTML = message;
+
+    const POPUP = document.querySelector("#errorScreen");
+    POPUP.classList.remove("hidden")
 }
