@@ -8,7 +8,7 @@ function userOrderInit(){
 
 function loadInOrders() {
     let orders = getUserOrdersMock();
-    //spit
+    //split up orders based on destination
     showOrdersToEarth(orders);
     showOrdersToMars(orders);
 }
@@ -28,5 +28,5 @@ function showOrdersToMars(orders){
         orderRowsToMars += "<tr data-row='" + orders[i].orderId + "'><td>"+orders[i].userId+"</td><td>NAME RECIEVER</td><td>ADDRESS RECIEVER</td><td>"+orders[i].orderId+"</td><td>"+orders[i].statusId+"</td><td>"+orders[i].rocketId+"</td><td>"+orders[i].rocketId+"</td><td>"+orders[i].price+"</td><td><button>view more</button></td></tr>";
         console.log(orderRowsToMars);
     }
-    document.getElementById("flightsToEarthContent").innerHTML = tableHeaders + orderRowsToMars;
+    document.getElementById("flightsToMarsContent").innerHTML = tableHeaders + orderRowsToMars;
 }

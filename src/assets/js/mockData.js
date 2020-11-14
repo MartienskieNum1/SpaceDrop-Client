@@ -32,8 +32,8 @@ function getUserOrdersMock() {
                 height: 2,
                 depth: 400,
                 price: 600
-            },
-        ]
+            }
+        ];
 }
 
 function getUserOrderMock() {
