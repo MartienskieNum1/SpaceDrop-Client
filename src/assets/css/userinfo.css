@@ -126,10 +126,14 @@ table{
 .button a{
     margin: auto;
     padding-top: 1rem;
+
 }
 a.button{
     color: white;
     text-decoration: none;
+    padding:0 4rem;
+    background-color: #65C55E;
+    border-radius: 10px;
 }
 
 th, td{
@@ -143,12 +147,6 @@ th{
     text-align: left;
 }
 
-a.button {
-    padding:0 4rem;
-    background-color: #65C55E;
-    border-radius: 10px;
-
-}
 
 
 

@@ -7,7 +7,7 @@ function userOrderInit(){
 }
 
 function loadInOrders() {
-    let orders = getUserOrdersMock();
+    const orders = getUserOrdersMock();
     //split up orders based on destination
     showOrdersToEarth(orders);
     showOrdersToMars(orders);
@@ -15,7 +15,7 @@ function loadInOrders() {
 
 function showOrdersToEarth(orders) {
     let orderRowsToEarth ="";
-    for(let i in orders){
+    for(const i in orders){
         orderRowsToEarth += "<tr data-row='" + orders[i].orderId + "'><td>"+orders[i].userId+"</td><td>NAME RECIEVER</td><td>ADDRESS RECIEVER</td><td>"+orders[i].orderId+"</td><td>"+orders[i].statusId+"</td><td>"+orders[i].rocketId+"</td><td>"+orders[i].rocketId+"</td><td>"+orders[i].price+"</td><td><button>view more</button></td></tr>";
         console.log(orderRowsToEarth);
     }
@@ -24,7 +24,7 @@ function showOrdersToEarth(orders) {
 
 function showOrdersToMars(orders){
     let orderRowsToMars="";
-    for(let i in orders){
+    for(const i in orders){
         orderRowsToMars += "<tr data-row='" + orders[i].orderId + "'><td>"+orders[i].userId+"</td><td>NAME RECIEVER</td><td>ADDRESS RECIEVER</td><td>"+orders[i].orderId+"</td><td>"+orders[i].statusId+"</td><td>"+orders[i].rocketId+"</td><td>"+orders[i].rocketId+"</td><td>"+orders[i].price+"</td><td><button>view more</button></td></tr>";
         console.log(orderRowsToMars);
     }

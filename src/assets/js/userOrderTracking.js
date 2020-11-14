@@ -34,6 +34,4 @@ function showProgression(progressionLevel) {
 }
 
 function fillInDetails(){
-    
-
 }
