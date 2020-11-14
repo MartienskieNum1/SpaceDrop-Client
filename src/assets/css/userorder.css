@@ -124,7 +124,7 @@ div#flightsToMars table th, div#flightsToEarth table th{
 
 div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td{
     text-align: start;
-    padding: 0.5rem 6rem 0.5rem 0;
+    padding: 0.5rem 5.5rem 0.5rem 0;
     font-size: 0.9rem;
 }
 

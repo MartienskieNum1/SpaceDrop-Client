@@ -2,17 +2,16 @@ document.addEventListener("DOMContentLoaded", userOrderTrackingInit);
 
 function userOrderTrackingInit(){
     showOrderdetails();
-    showProgression();
-
-
 }
 
 function showOrderdetails() {
+    //get order details from api
+    fillInDetails();
+    showProgression(3);
 
 }
 
-function showProgression() {
-    const progressionLevel = 3;
+function showProgression(progressionLevel) {
     for(let i=1;i<=5;i++){
         document.getElementById(i.toString()).classList.remove("active");
     }
@@ -32,7 +31,9 @@ function showProgression() {
     if(progressionLevel>=5){
         document.getElementById("5").classList.add("active");
     }
+}
 
-
+function fillInDetails(){
+    
 
 }
