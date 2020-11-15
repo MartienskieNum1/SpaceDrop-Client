@@ -81,11 +81,11 @@ li.AccountLoginButton{
 }
 
 .sidenav a {
+    padding: 6px 8px 6px 1.5rem;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
-    padding: 6px 8px 6px 1.5rem;
 }
 
 .sidenav a:hover {
@@ -102,62 +102,84 @@ li.AccountLoginButton{
     padding-left: 0.5rem;
 }
 
-
-div#flightsToMars,div#flightsToEarth{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
-    padding-left: 13rem;
-}
-
-div#flightsToEarth table, div#flightsToMars table{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 105rem;
-}
-
-div#flightsToMars table th, div#flightsToEarth table th{
-    padding: 2rem 0;
+table{
+    margin-top: 1.3rem;
+    margin-left: 12rem;
 
 }
 
-div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td{
-    text-align: start;
-    padding: 0.5rem 5.5rem 0.5rem 0;
-    font-size: 0.9rem;
+table th{
+    text-align: left;
 }
 
-div#flightsToEarth table td button, div#flightsToMars table td button{
-    background-color: #65C55E;
-    padding: 0.2rem 0.5rem;
-    border-radius: 10px;
-    border: none;
+
+table td{
+    padding: 0.5rem 6rem 0.5rem 0;
+}
+
+.tracking{
+    padding-top: 3rem;
+    width: 100rem;
+    padding-left: 12rem;
+}
+
+.trackingBar{
+    counter-reset: step;
+}
+
+.trackingBar li{
+    font-size: 1rem;
+    list-style-type: none;
+    width: 20%;
+    float: left;
+    position: relative;
+    text-align: center;
     color: white;
 }
 
-div#flightsToEarth table tr:nth-child(even),div#flightsToMars table tr:nth-child(even){
-    background: #989898;
+.trackingBar li:before{
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    content: counter(step);
+    counter-increment: step;
+    margin: 0 auto 10px auto;
+    border: 2px solid white;
+    background-color: #404040;
 }
 
-
-div#flightsToEarth img,div#flightsToMars img{
-    height: 4rem;
-    width: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+.trackingBar li:after{
+    width: 100%;
+    height: 2px;
+    content: '';
+    position: absolute;
+    background-color: #7d7d7d;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
 }
 
-
-div#flightsToEarth div,div#flightsToMars div{
-    display: flex;
+.trackingBar li:first-child:after{
+    content: none;
 }
 
-div#flightsToEarth h1,div#flightsToMars h1{
-    margin-right: 10rem;
-    font-size: 1.5rem;
-    margin-top: auto;
-    margin-bottom: auto;
-
+.trackingBar li.active{
+    color: #65C55E;
 }
 
+.trackingBar li.active:before{
+    border-color: #65C55E;
+}
+
+.trackingBar li.active + li:after{
+    background-color: #65C55E;
+}
+
+h2{
+    margin-left: 12rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}

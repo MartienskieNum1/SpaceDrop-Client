@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpaceDrop Order Tracking</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/userOrderTracking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul class="nav">
+            <li><a class="home" href="index.html"><em class="fa fa-home" style="font-size:48px"></em></a></li>
+            <li id="logo"><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
+            <li class="AccountLoginButton"><a class="AccountLoginButton" href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="sidenav">
+        <h1>Account</h1>
+        <a href="userInfo.html">User info</a>
+        <a href="userOrders.html"><strong>Orders</strong></a>
+    </div>
+
+    <h2>Track your order</h2>
+
+    <table id="orderInfo">
+        <tr>
+            <th scope="col">From:</th>
+            <th scope="col">To:</th>
+            <th scope="col">Address:</th>
+            <th scope="col">Ordernr:</th>
+            <th scope="col">Orderstatus:</th>
+            <th scope="col">Departure:</th>
+            <th scope="col">Arrival:</th>
+            <th scope="col">Price:</th>
+            <th scope="col">Dimensions:</th>
+            <th scope="col">Weight:</th>
+        </tr>
+
+        <tr>
+            <td>Jan Jansens</td>
+            <td>Jeff Jefferson</td>
+            <td>Milkyway 4 Mars</td>
+            <td>665555466-ADTE5</td>
+            <td>Arrived at space station</td>
+            <td>17/01/2052</td>
+            <td>17/02/2052</td>
+            <td>?? Euro</td>
+            <td>300mm x 300mm x 550mm</td>
+            <td>4kg</td>
+        </tr>
+    </table>
+
+        <div class="tracking">
+            <ul class="trackingBar">
+                <li id="1" class="active">Arrived at warehouse</li>
+                <li id="2" class="active">Loaded on to the rocket</li>
+                <li id="3" class="active">Rocket Launched</li>
+                <li id="4">Rocket arrived on mars</li>
+                <li id="5">Package has been delivered</li>
+            </ul>
+        </div>
+</main>
+<script src="assets/js/userOrderTracking.js"></script>
+
+</body>
+</html>

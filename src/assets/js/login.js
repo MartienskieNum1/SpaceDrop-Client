@@ -19,6 +19,6 @@ function login(email,password) {
 
 
 function goToRegisterPage(){
-    window.location.pathname = 'client/src/register.html'
+    window.location.pathname = 'client/src/register.html';
 }
 
