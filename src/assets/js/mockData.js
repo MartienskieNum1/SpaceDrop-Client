@@ -36,7 +36,7 @@ function getUserOrdersMock() {
         ];
 }
 
-function getUserOrderMock() {
+function getOrderMock() {
     return {
         order: {
             orderId: "1",
@@ -51,3 +51,16 @@ function getUserOrderMock() {
         }
     };
 }
+
+function getUserMock() {
+    return {
+        user: {
+            firstName: "Jan",
+            lastName: "jansens",
+            email: "jan.jansens@gmail.com",
+            phoneNumber: "+324514616",
+            password: "password",
+        }
+    };
+}
+
