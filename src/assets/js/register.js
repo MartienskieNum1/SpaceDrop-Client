@@ -32,6 +32,7 @@ function changeVisable(){
 }
 
 function makeAccount() {
+    //TODO: put every form value and put it in an array instead of the monster below
     const email = document.getElementById("email").value;
     const fname = document.getElementById("fname").value;
     const lname = document.getElementById("lname").value;
@@ -42,12 +43,14 @@ function makeAccount() {
     const planet = document.getElementById("planet").value;
     const phone = document.getElementById("phone").value;
 
+    const validPass = isPasswordValid(password, repeatPassword);
+    const allFieldsFilled = !includesEmptyField(planet, email, fname, lname, street, nr);
 
-    if(password !== repeatPassword){
+    if(!validPass){
         showPopUp("Passwords are not identical");
-    }else if (validateRegistration(planet, email, fname, lname, street, nr)) {
+    }else if (!allFieldsFilled) {
         showPopUp("Please fill in the required fields");
-    }else if (password === repeatPassword && !validateRegistration(planet, email, fname, lname, street, nr)) {
+    }else{
         addUser(fname, lname, email, phone, password).then(response => {
             if (response.message === undefined){
                 setToken(response);
@@ -59,19 +62,25 @@ function makeAccount() {
     }
 }
 
-function validateRegistration(planet, email, fname, lname, street, nr){
+function isPasswordValid(password, repeatPassword){
+    return (password === repeatPassword);
+}
+
+function includesEmptyField(planet, email, fname, lname, street, nr){
+    const colony = document.getElementById("colony").value;
+    const country = document.getElementById("country").value;
+    const city = document.getElementById("city").value;
 
     if(planet === "mars"){
-        const colony = document.getElementById("colony").value;
-        return (email===""||fname===""||lname===""||street===""||nr===""||colony==="")
+        const marsFields = [planet, email, fname, lname, street, nr, colony];
+        return marsFields.includes("");
     }
     else if(planet === "earth"){
-        const country = document.getElementById("country").value;
-        const city = document.getElementById("city").value;
-        return (email===""||fname===""||lname===""||street===""||nr===""||country===""||city==="")
+        const earthFields = [planet, email, fname, lname, street, nr, country, city];
+        return earthFields.includes("");
     }
     else{
-        showPopUp("Something went wrong")
+        showPopUp("Something went wrong");
     }
 }
 
@@ -80,5 +89,5 @@ function showPopUp(message){
     CONTAINER.innerHTML = message;
 
     const POPUP = document.querySelector("#errorScreen");
-    POPUP.classList.remove("hidden")
+    POPUP.classList.remove("hidden");
 }
