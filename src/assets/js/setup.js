@@ -4,6 +4,13 @@ function getMessage() {
     return apiCall("message");
 }
 
+function loginUser(email, password){
+    return apiCall("login", "POST", {
+        "email" : email,
+        "password" : password
+    });
+}
+
 function addUser(firstName, lastName, email, phoneNumber, password){
     return apiCall("user", "POST",
         userToJson(firstName, lastName, email, phoneNumber, password));
