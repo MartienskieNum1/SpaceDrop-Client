@@ -21,20 +21,20 @@ function getOrdersByUser(){
 
 function showOrders(){
     // let orders = getOrdersByUser(); // via api call
-    let orders = MOCK_ORDERS;
-    let containerEarth = document.querySelector("#flightsToEarthContent");
-    let containerMars = document.querySelector("#flightsToMarsContent");
+    const orders = MOCK_ORDERS;
+    const containerEarth = document.querySelector("#flightsToEarthContent");
+    const containerMars = document.querySelector("#flightsToMarsContent");
 
     let earthOrders = "";
     let marsOrders = "";
 
     for (let i = 0; i < orders.length; i++){
-        let order = orders[i];
+        const ORDER = orders[i];
 
-        if(order.destination === "earth"){
-            earthOrders = fillTableWithContent(earthOrders, order);
-        }else if(order.destination === "mars"){
-            marsOrders = fillTableWithContent(marsOrders, order);
+        if(ORDER.destination === "earth"){
+            earthOrders = fillTableWithContent(earthOrders, ORDER);
+        }else if(ORDER.destination === "mars"){
+            marsOrders = fillTableWithContent(marsOrders, ORDER);
         }
     }
 
@@ -43,7 +43,8 @@ function showOrders(){
 }
 
 function fillTableWithContent(container, order){
-    container +=`<tr data-row='${order.orderId}'>
+    let orders = container;
+    orders +=`<tr data-row='${order.orderId}'>
                     <td>${order.userId}</td>
                     <td>NAME RECIEVER</td>
                     <td>ADDRESS RECIEVER</td>
@@ -54,5 +55,5 @@ function fillTableWithContent(container, order){
                     <td>${order.price}</td>
                     <td><button>view more</button></td>
                  </tr>`;
-    return container;
+    return orders;
 }
