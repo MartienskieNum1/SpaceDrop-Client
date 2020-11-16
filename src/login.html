@@ -5,6 +5,7 @@
     <title>SpaceDrop Login</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/popups.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -42,7 +43,23 @@
             <td class="google"><div class="google"><a class="google">Login with google</a></div></td>
         </tr>
     </table>
+
+    <section id="errorScreen" class="popup hidden">
+
+        <div>
+            <h5>Error Message</h5>
+        </div>
+
+        <a href="#" class="close">X</a>
+    </section>
+
+
 </main>
-<script src="assets/js/login.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/setup.js"></script>
+    <script src="assets/js/local-storage.js"></script>
+    <script src="assets/js/login.js"></script>
+    <script src="assets/js/popup.js"></script>
 </body>
 </html>
