@@ -1,5 +1,4 @@
-function getUserOrdersMock() {
-    return [
+const MOCK_DATA = [
             {
                 orderId : "1",
                 userId: "Jan jansens",
@@ -9,7 +8,8 @@ function getUserOrdersMock() {
                 width: 2,
                 height: 2,
                 depth: 400,
-                price: 600
+                price: 600,
+                destination: "earth"
             },
             {
                 orderId: 2,
@@ -20,7 +20,8 @@ function getUserOrdersMock() {
                 width: 2,
                 height: 2,
                 depth: 400,
-                price: 200
+                price: 200,
+                destination: "mars"
             },
             {
                 orderId: 3,
@@ -31,10 +32,10 @@ function getUserOrdersMock() {
                 width: 2,
                 height: 2,
                 depth: 400,
-                price: 600
+                price: 600,
+                destination: "earth"
             }
         ];
-}
 
 function getOrderMock() {
     return {
