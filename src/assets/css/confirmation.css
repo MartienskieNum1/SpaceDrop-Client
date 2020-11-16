@@ -1,0 +1,67 @@
+body{
+    font-size: 1.4rem;
+}
+
+h1, table#orderConfirmation, p, footer a{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1, p, table#orderConfirmation caption{
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+p{
+    width: 60%;
+}
+
+table#orderConfirmation{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+table#orderConfirmation caption{
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+table#orderConfirmation th{
+    padding: 2rem 0;
+}
+
+table#orderConfirmation tr img{
+    height: 4rem;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    top: 1.3rem;
+}
+
+table#orderConfirmation th, table#orderConfirmation td {
+    text-align: start;
+    padding: 0.5rem 6rem 0.5rem 0;
+}
+
+footer a{
+    background-color: #65C55E;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 40%;
+    position: relative;
+    bottom: -15rem;
+}
