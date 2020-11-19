@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", userInfoInit);
 
 function userInfoInit(){
     loadInUserInfo();
+
+    getUser().then(function(response){
+        console.log(response);
+    });
+
 }
 
 function loadInUserInfo() {

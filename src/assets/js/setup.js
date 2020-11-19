@@ -20,6 +20,10 @@ function getUsers(){
     return apiCall("users", "GET");
 }
 
+function getUser(){
+    return apiCall("details/user", "GET");
+}
+
 function addOrder(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
     return apiCall("order", "POST",
         orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost));
