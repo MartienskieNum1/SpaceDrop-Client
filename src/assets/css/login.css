@@ -88,18 +88,9 @@ td.register{
     float: left;
 }
 
-div.google, div.register{
-    width: 15rem;
-    text-align: center;
 
-}
 
-div.google a, div.register a{
-    width: 15rem;
-    text-decoration: none;
-    color: white;
-    margin: auto;
-}
+
 
 table{
     margin-left: auto;
@@ -115,17 +106,20 @@ td:nth-child(even) {
     text-align: right;
 }
 
-input[type=submit], div.google, div.register{
+input[type=submit], a.google, a.register{
     background-color: #65C55E;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
-    height: 2.3rem;
+    line-height: 2.3rem;
     color: white;
     font-weight: bold;
     font-size: 1.5rem;
     border: none;
     margin-top: 0.5rem;
+    display: block;
+    width: 15rem;
+    text-align: center;
 }
 
 input.wide{

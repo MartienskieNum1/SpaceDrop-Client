@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", loginInit);
 
 function loginInit() {
     document.querySelector("#submit").addEventListener("click", getLoginCredentials);
-    document.querySelector("#reg").addEventListener("click", goToRegisterPage);
+    document.querySelector("#reg").addEventListener("click", goToReg);
 }
 
 function getLoginCredentials(e) {
@@ -30,7 +30,8 @@ function showPopUp(message){
     POPUP.classList.remove("hidden");
 }
 
-function goToRegisterPage(){
-    window.location.pathname = 'client/src/register.html';
+function goToReg() {
+    window.location.href = "register.html";
 }
+
 
