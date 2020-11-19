@@ -20,6 +20,32 @@ main{
     padding-top: 1rem;
 }
 
+#loginForm{
+    display: flex;
+    flex-direction: column;
+}
+
+#loginForm form, #loginForm div{
+    margin-top: 0.7rem;
+}
+
+#loginForm form{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loginForm div{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    width: 32rem;
+    justify-content: space-between;
+}
+
+
 td.google{
     float: right;
 }
@@ -64,6 +90,5 @@ input.wide{
 
 input{
     margin-top: 0.5rem;
-
 }
 
