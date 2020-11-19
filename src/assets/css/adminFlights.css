@@ -1,0 +1,162 @@
+body{
+    background-color: #404040;
+    color: white;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+html{
+    height: 100%;
+}
+
+
+header{
+    height: 4rem;
+    width: 100%;
+    background-color: #262626;
+}
+main{
+    overflow: auto;
+    padding-top: 1rem;
+}
+nav{
+    padding: 0.5rem;
+
+}
+
+ul.nav{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+header nav li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+header nav li img {
+    height: 3rem;
+    width: auto;
+    float: left;
+
+}
+
+
+header a.AccountLoginButton {
+    padding: 4px 16px;
+    background-color: #65C55E;
+    border-radius: 10px;
+}
+
+header a.home:hover{
+    color: #076000;
+}
+
+header a.AccountLoginButton:hover {
+    background-color: #076000;
+}
+
+li{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+li.AccountLoginButton{
+    text-align: right;
+}
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 4rem;
+}
+
+.sidenav a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    padding: 6px 8px 6px 1.5rem;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav a.a{
+    color: #65C55E;
+    font-weight: bold;
+}
+
+.sidenav h1{
+    font-size: 1.7rem;
+    padding-left: 0.5rem;
+}
+
+
+div#flightsToMars,div#flightsToEarth{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    padding-left: 13rem;
+}
+
+div#flightsToEarth table, div#flightsToMars table{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 105rem;
+}
+
+div#flightsToMars table th, div#flightsToEarth table th{
+    padding: 2rem 0;
+
+}
+
+div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td{
+    text-align: start;
+    padding: 0.5rem 5.5rem 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+div#flightsToEarth table td button, div#flightsToMars table td button{
+    background-color: #65C55E;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+div#flightsToEarth table tr:nth-child(even),div#flightsToMars table tr:nth-child(even){
+    background: #989898;
+}
+
+
+div#flightsToEarth img,div#flightsToMars img{
+    height: 4rem;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+div#flightsToEarth div,div#flightsToMars div{
+    display: flex;
+}
+
+div#flightsToEarth h1,div#flightsToMars h1{
+    margin-right: 10rem;
+    font-size: 1.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
