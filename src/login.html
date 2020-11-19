@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="assets/css/popups.css">
+    <link rel="stylesheet" href="assets/css/screen.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -22,7 +23,28 @@
 
 <main>
     <a class="back" href="index.html">Back</a>
-    <table>
+
+    <div id="loginForm">
+        <form action="">
+            <label for="email">Email:</label>
+            <input class="wide" type="email" id="email" name="email" value="" required>
+
+            <label for="password">Password:</label>
+            <input class="wide" type="password" id="password" name="password" value="" required>
+
+            <input class="wide" id="submit" type="submit" value="Login">
+        </form>
+
+        <div>
+            <a id="reg" class="register">Register</a>
+            <a class="google">Login with google</a>
+        </div>
+    </div>
+
+
+
+
+    <!-- <table>
         <tr>
             <td colspan="2"><label for="email">Email:</label></td>
         </tr>
@@ -43,7 +65,7 @@
             <td class="google"><a class="google">Login with google</a></td>
         </tr>
     </table>
-
+    -->
 
 
     <section id="errorScreen" class="popup hidden">
