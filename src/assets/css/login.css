@@ -117,7 +117,7 @@ input[type=submit], a.google, a.register{
     font-size: 1.5rem;
     border: none;
     margin-top: 0.5rem;
-    display: inline-block;
+    display: block;
     width: 15rem;
     text-align: center;
 }
