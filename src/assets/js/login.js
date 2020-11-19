@@ -1,25 +1,33 @@
 document.addEventListener("DOMContentLoaded", loginInit);
 
 function loginInit() {
-    document.querySelector("#submit").addEventListener("click", getLoginCredentials);
+    document.querySelector("#submit").addEventListener("submit", preventFormSubmit)
+    document.querySelector("#submit").addEventListener("click", login);
     document.querySelector("#reg").addEventListener("click", goToReg);
 }
 
-function getLoginCredentials(e) {
+function preventFormSubmit(e){
     e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    login(email,password);
 }
 
-function login(email,password) {
-    loginUser(email, password).then(response => {
-        if (response === getToken()){
-            showPopUp("Braaf maatken, ge moogt binnen"); // temporarily show this message
-        }else{
-            showPopUp("User credentials invalid, try again or register first.");
-        }
-    });
+function login(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email === "" || password === "") {
+        showPopUp("Please fill in all fields")
+    }else{
+        loginUser(email, password).then(response => {
+            if (response === getToken()){
+                window.location.href = "userInfo.html"; // TODO: change this
+            }else{
+                showPopUp("User credentials invalid, try again or register first.");
+            }
+        });
+    }
+
 }
 
 function showPopUp(message){
