@@ -103,32 +103,33 @@ li.AccountLoginButton{
 }
 
 
-div#flightsToMars,div#flightsToEarth{
+div#flightsToMars,div#flightsToEarth,div#flights{
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
     padding-left: 13rem;
 }
 
-div#flightsToEarth table, div#flightsToMars table{
+div#flightsToEarth table, div#flightsToMars table, div#flights table{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     width: 105rem;
+    padding-bottom: 0.5rem;
 }
 
-div#flightsToMars table th, div#flightsToEarth table th{
+div#flightsToMars table th, div#flightsToEarth table th,div#flights table th{
     padding: 2rem 0;
 
 }
 
-div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td{
+div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td, div#flights table th,div#flights table td{
     text-align: start;
     padding: 0.5rem 5.5rem 0.5rem 0;
     font-size: 0.9rem;
 }
 
-div#flightsToEarth table td button, div#flightsToMars table td button{
+div#flightsToEarth table td button, div#flightsToMars table td button, div#flights table td button{
     background-color: #65C55E;
     padding: 0.2rem 0.5rem;
     border-radius: 10px;
@@ -136,12 +137,12 @@ div#flightsToEarth table td button, div#flightsToMars table td button{
     color: white;
 }
 
-div#flightsToEarth table tr:nth-child(even),div#flightsToMars table tr:nth-child(even){
+div#flightsToEarth table tr:nth-child(even),div#flightsToMars table tr:nth-child(even),div#flights table tr:nth-child(even){
     background: #989898;
 }
 
 
-div#flightsToEarth img,div#flightsToMars img{
+div#flightsToEarth img,div#flightsToMars img,div#flights img{
     height: 4rem;
     width: auto;
     margin-top: auto;
@@ -149,11 +150,11 @@ div#flightsToEarth img,div#flightsToMars img{
 }
 
 
-div#flightsToEarth div,div#flightsToMars div{
+div#flightsToEarth div,div#flightsToMars div,div#flights div{
     display: flex;
 }
 
-div#flightsToEarth h1,div#flightsToMars h1{
+div#flightsToEarth h1,div#flightsToMars h1,div#flights h1{
     padding-right: 1rem;
     font-size: 1.5rem;
     margin-top: auto;
@@ -173,3 +174,4 @@ div#flightsToEarth h1,div#flightsToMars h1{
     margin-top: auto;
     margin-bottom: auto;
 }
+
