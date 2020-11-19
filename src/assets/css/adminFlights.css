@@ -154,9 +154,22 @@ div#flightsToEarth div,div#flightsToMars div{
 }
 
 div#flightsToEarth h1,div#flightsToMars h1{
-    margin-right: 10rem;
+    padding-right: 1rem;
     font-size: 1.5rem;
     margin-top: auto;
     margin-bottom: auto;
 
+}
+
+.title a{
+    background-color: #65C55E;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    text-decoration: none;
+    line-height: 2rem;
+    height: 2rem;
+    margin-top: auto;
+    margin-bottom: auto;
 }
