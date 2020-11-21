@@ -162,7 +162,7 @@ div#flightsToEarth h1,div#flightsToMars h1,div#flights h1{
 
 }
 
-.title a{
+#title a,.title a{
     background-color: #65C55E;
     padding: 0.2rem 0.5rem;
     border-radius: 10px;
