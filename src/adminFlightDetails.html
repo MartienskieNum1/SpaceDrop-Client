@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpaceDrop Admin Flight Details</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/adminFlights.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul class="nav">
+            <li><a class="home" href="adminFlightsOverview.html"><em class="fa fa-home" style="font-size:48px"></em></a></li>
+            <li id="logo"><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
+            <li class="AccountLoginButton"><a class="AccountLoginButton" href="#">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="sidenav">
+        <h1>Admin</h1>
+        <a href="adminFlightsOverview.html"><strong>Logistics</strong></a>
+        <a href="#">Statistics</a>
+    </div>
+    <a class="back" href="adminFlightsOverview.html">Back</a>
+
+    <div id="flights">
+        <div class="title">
+            <img src="assets/images/icons/earth.png" alt="planet icon">
+            <h1>Flights to Earth</h1>
+        </div>
+        <table id="flightsContent">
+            <tr class="tableHeaders">
+                <th scope="col">Flightnr:</th>
+                <th scope="col">Orderstatus:</th>
+                <th scope="col">Departure:</th>
+                <th scope="col">Arrival:</th>
+                <th scope="col">Cargo:</th>
+                <th scope="col">Flights:</th>
+            </tr>
+            <tr data-row='665555466-ADTE5'>
+                <td>665555466-ADTE5</td>
+                <td>Arrived at space station</td>
+                <td>05/11/2050</td>
+                <td>07/03/2020</td>
+                <td>1800kg</td>
+                <td>700m³</td>
+            </tr>
+        </table>
+        <label for="progressbar">Loading cargo progression: 25%</label>
+        <progress id="progressbar" value="32" max="100"> 32% </progress>
+        <table id="flightOrders">
+            <tr class="tableHeaders">
+                <th scope="col">From:</th>
+                <th scope="col">To:</th>
+                <th scope="col">Address:</th>
+                <th scope="col">Ordernr:</th>
+                <th scope="col">Status:</th>
+                <td></td>
+            </tr>
+            <tr data-row='665555466-ADTE5'>
+                <td>Jan Jansens</td>
+                <td>Jan Jansens</td>
+                <td>Milkyway 4 Mars</td>
+                <td>665555466-ADTE5</td>
+                <td>Loaded into rocket</td>
+                <td><button>delete</button></td>
+            </tr>
+            <tr data-row='665555466-ADTE5'>
+                <td>Jan Jansens</td>
+                <td>Jan Jansens</td>
+                <td>Milkyway 4 Mars</td>
+                <td>665555466-ADTE5</td>
+                <td>Loaded into rocket</td>
+                <td><button>delete</button></td>
+            </tr>
+        </table>
+    </div>
+
+</main>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/setup.js"></script>
+
+<script src="assets/js/mockData.js"></script>
+<script src="assets/js/local-storage.js"></script>
+<script src="assets/js/popup.js"></script>
+</body>
+</html>
