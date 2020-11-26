@@ -1,12 +1,11 @@
 function apiCall(uri, httpVerb, requestBody) {
-
-    console.log(api+uri)
+    let token = getToken();
 
     const request = new Request(api + uri, {
         method: httpVerb,
         headers: {
-            'Content-Type': 'application/json;',
-            'Authorization' : getToken()
+            'Content-type': 'application/json',
+            'Authorization' : 'Bearer ' + token
         },
         body: JSON.stringify(requestBody)
     });

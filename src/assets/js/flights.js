@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", flightsInit);
 
 function flightsInit(){
+    document.querySelector("div#flights").addEventListener("click", openPopUp);
     renderChosenPlanet();
 }
 
