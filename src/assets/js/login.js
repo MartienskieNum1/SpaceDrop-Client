@@ -22,7 +22,8 @@ function login(e) {
         showPopUp("Please fill in all fields");
     }else{
         loginUser(email, password).then(response => {
-            if (response === getToken()){
+            if (response.message === undefined){
+                setToken(response);
                 window.location.href = "userInfo.html"; // TODO: change this
             }else{
                 showPopUp("User credentials invalid, try again or register first.");
