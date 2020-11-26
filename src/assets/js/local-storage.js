@@ -19,7 +19,7 @@ function setToken(token){
     localStorage.setItem("token", JSON.stringify(token));
 }
 
-function setOrderId(orderID) {
+function setOrderId(orderId) {
     localStorage.setItem("orderId", JSON.stringify(orderId));
 }
 

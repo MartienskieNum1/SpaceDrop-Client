@@ -24,7 +24,7 @@ function getOrdersByUser(){
 
 function showOrders(){
     // let orders = getOrdersByUser(); // via api call
-    const orders = getOrders();
+    const orders = MOCK_ORDERS;
     const containerEarth = document.querySelector("#flightsToEarthContent");
     const containerMars = document.querySelector("#flightsToMarsContent");
 
@@ -33,11 +33,12 @@ function showOrders(){
 
     for (let i = 0; i < orders.length; i++){
         const ORDER = orders[i];
-
-        if(ORDER.destination === "earth"){
-            earthOrders = fillTableWithContent(earthOrders, ORDER);
-        }else if(ORDER.destination === "mars"){
-            marsOrders = fillTableWithContent(marsOrders, ORDER);
+        if(ORDER.userId === getToken()){
+            if(ORDER.destination === "earth"){
+                earthOrders = fillTableWithContent(earthOrders, ORDER);
+            }else if(ORDER.destination === "mars"){
+                marsOrders = fillTableWithContent(marsOrders, ORDER);
+            }
         }
     }
 
