@@ -1,8 +1,9 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", flightsInit);
+onApiUrlLoaded(flightsInit);
 
 function flightsInit(){
+    document.querySelector("div#flights").addEventListener("click", openPopUp);
     renderChosenPlanet();
 }
 

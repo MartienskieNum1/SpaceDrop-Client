@@ -1,5 +1,8 @@
-document.addEventListener("DOMContentLoaded", userOrderInit);
-const tableHeaders = `<tr class="tableHeaders">
+"use strict";
+
+onApiUrlLoaded(userOrderInit);
+
+const tableHeaders = `<tr class=\"tableHeaders\">
                         <th scope="col">From:</th>
                         <th scope="col">To:</th>
                         <th scope="col">Address:</th>
@@ -38,10 +41,8 @@ function showOrders(){
         }
     }
 
-
     containerEarth.innerHTML = tableHeaders + earthOrders;
     containerMars.innerHTML = tableHeaders + marsOrders;
-
 }
 
 function goToOrderDetail(orderId) {

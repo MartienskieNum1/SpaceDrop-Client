@@ -1,6 +1,6 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", paymentInit);
+onApiUrlLoaded(paymentInit);
 
 function paymentInit() {
     renderChosenPlanet();

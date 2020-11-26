@@ -1,4 +1,7 @@
-document.addEventListener("DOMContentLoaded", userOrderTrackingInit);
+"use strict";
+
+onApiUrlLoaded(userOrderTrackingInit);
+
 const tableHeaders ="<tr>" +
     "            <th scope=\"col\">From:</th>" +
     "            <th scope=\"col\">To:</th>" +
@@ -11,6 +14,9 @@ const tableHeaders ="<tr>" +
     "            <th scope=\"col\">Dimensions:</th>" +
     "            <th scope=\"col\">Weight:</th>" +
     "        </tr>";
+"use strict";
+
+
 function userOrderTrackingInit(){
     showOrderdetails();
 }
@@ -24,7 +30,6 @@ function showOrderdetails() {
 }
 
 function showProgression(progressionLevel) {
-    console.log(progressionLevel);
     for(let i=1;i<=5;i++){
         if(progressionLevel>=i){
             document.getElementById(i.toString()).classList.add("active");

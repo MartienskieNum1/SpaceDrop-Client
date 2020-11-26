@@ -1,6 +1,6 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", registerInit);
+onApiUrlLoaded(registerInit);
 
 function registerInit() {
     document.querySelector("#submit").addEventListener("click", makeAccount);
@@ -42,16 +42,21 @@ function makeAccount() {
     const nr = document.getElementById("nr").value;
     const planet = document.getElementById("planet").value;
     const phone = document.getElementById("phone").value;
+    const colony = document.getElementById("colony").value;
+    const country = document.getElementById("country").value;
+    const city = document.getElementById("city").value;
 
     const validPass = isPasswordValid(password, repeatPassword);
-    const allFieldsFilled = !includesEmptyField(planet, email, fname, lname, street, nr);
+    const allFieldsFilled = !includesEmptyField(planet, email, fname, lname, street, nr, colony, country, city);
 
     if(!validPass){
         showPopUp("Passwords are not identical");
     }else if (!allFieldsFilled) {
         showPopUp("Please fill in the required fields");
     }else{
-        addUser(fname, lname, email, phone, password).then(response => {
+        let colonyOrCountry = checkColonyOrCountry(colony, country);
+
+        addUser(fname, lname, email, phone, password, planet, colonyOrCountry, city, street, parseInt(nr)).then(response => {
             if (response.message === undefined){
                 setToken(response);
                 window.location.href = "login.html";
@@ -62,15 +67,19 @@ function makeAccount() {
     }
 }
 
+function checkColonyOrCountry(colony, country){
+    if(colony === ""){
+        return country;
+    }else{
+        return colony;
+    }
+}
+
 function isPasswordValid(password, repeatPassword){
     return (password === repeatPassword);
 }
 
-function includesEmptyField(planet, email, fname, lname, street, nr){
-    const colony = document.getElementById("colony").value;
-    const country = document.getElementById("country").value;
-    const city = document.getElementById("city").value;
-
+function includesEmptyField(planet, email, fname, lname, street, nr, colony, country, city){
     if(planet === "mars"){
         const marsFields = [planet, email, fname, lname, street, nr, colony];
         return marsFields.includes("");

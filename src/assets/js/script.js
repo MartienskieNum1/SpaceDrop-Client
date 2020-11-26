@@ -1,9 +1,9 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", init);
+onApiUrlLoaded(homeInit());
 
 
-function init(){
+function homeInit(){
     document.querySelector("div#buttons").addEventListener("click", goToFlights);
 }
 
