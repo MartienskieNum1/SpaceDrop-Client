@@ -37,6 +37,16 @@ function getRockets(){
     return apiCall("rockets", "GET");
 }
 
+function getRocketById(rocketId){
+    const allRockets = MOCK_FLIGHTS;//getRockets()
+    for(let i=0;i<allRockets.length;i++){
+        if(allRockets[i].rocketId === rocketId){
+            return allRockets[i];
+        }
+    }
+    return null;
+}
+
 function userToJson(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
     return {
         "firstName": firstName,

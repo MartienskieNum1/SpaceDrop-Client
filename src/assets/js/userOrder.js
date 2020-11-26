@@ -35,9 +35,9 @@ function showOrders(){
         const ORDER = orders[i];
         if(ORDER.userId === getToken()){
             if(ORDER.destination === "earth"){
-                earthOrders = fillTableWithContent(earthOrders, ORDER);
+                earthOrders = fillTableWithContent(earthOrders, ORDER, getRocketById(ORDER.rocketId));
             }else if(ORDER.destination === "mars"){
-                marsOrders = fillTableWithContent(marsOrders, ORDER);
+                marsOrders = fillTableWithContent(marsOrders, ORDER, getRocketById(ORDER.rocketId));
             }
         }
     }
@@ -47,13 +47,12 @@ function showOrders(){
 }
 
 function goToOrderDetail(orderId) {
-    console.log(orderId);
     setOrderId(orderId.toString());
     window.location.href = "userOrderTracking.html";
 }
 
 
-function fillTableWithContent(container, order){
+function fillTableWithContent(container, order, rocket){
     let orders = container;
     orders +=`<tr data-row='${order.orderId}'>
                     <td>${order.userId}</td>
@@ -61,8 +60,8 @@ function fillTableWithContent(container, order){
                     <td>ADDRESS RECIEVER</td>
                     <td>${order.orderId}</td>
                     <td>${order.statusId}</td>
-                    <td>${order.rocketId}</td>
-                    <td>${order.rocketId}</td>
+                    <td>${rocket.departure}</td>
+                    <td>${rocket.arrival}</td>
                     <td>${order.price}</td>
                     <td><button onclick="goToOrderDetail(${order.orderId})">view more</button></td>
                  </tr>`;
