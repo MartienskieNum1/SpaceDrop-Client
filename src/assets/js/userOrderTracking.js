@@ -5,16 +5,17 @@ function userOrderTrackingInit(){
 }
 
 function showOrderdetails() {
-    //get order details from api
-    fillInDetails();
-    showProgression(3);
+    const order = getOrderMock();
+    fillInDetails(order);
+    showProgression(order.orderStatus);
 
 }
 
 function showProgression(progressionLevel) {
+    console.log(progressionLevel);
     for(let i=1;i<=5;i++){
         if(progressionLevel>=i){
-            document.getElementById("1").classList.add("active");
+            document.getElementById(i.toString()).classList.add("active");
         }
         else {
             document.getElementById(i.toString()).classList.remove("active");
@@ -22,5 +23,5 @@ function showProgression(progressionLevel) {
     }
 }
 
-function fillInDetails(){
+function fillInDetails(order){
 }

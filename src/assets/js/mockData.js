@@ -146,7 +146,6 @@ const MOCK_FLIGHTS = [
 
 function getOrderMock() {
     return {
-        order: {
             orderId: "1",
             userId: "Jan jansens",
             rocketId: 456464,
@@ -155,9 +154,10 @@ function getOrderMock() {
             width: 2,
             height: 2,
             depth: 400,
-            price: 600
+            price: 600,
+            orderStatus: 4
         }
-    };
+
 }
 
 function getUserMock() {
