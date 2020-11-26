@@ -19,6 +19,21 @@ function setToken(token){
     localStorage.setItem("token", JSON.stringify(token));
 }
 
+function setOrderId(orderID) {
+    localStorage.setItem("orderId", JSON.stringify(orderId));
+}
+
+function getOrderId(){
+    let orderId = localStorage.getItem("orderId");
+
+    if (orderId === null){
+        setOrderId(null);
+        orderId = localStorage.getItem("orderId");
+    }
+
+    return JSON.parse(orderId);
+}
+
 function getToken(){
     let token = localStorage.getItem("token");
 

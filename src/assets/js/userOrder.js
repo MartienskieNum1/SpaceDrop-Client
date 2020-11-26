@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", userOrderInit);
-const tableHeaders = `<tr class=\"tableHeaders\">
+const tableHeaders = `<tr class="tableHeaders">
                         <th scope="col">From:</th>
                         <th scope="col">To:</th>
                         <th scope="col">Address:</th>
@@ -21,7 +21,7 @@ function getOrdersByUser(){
 
 function showOrders(){
     // let orders = getOrdersByUser(); // via api call
-    const orders = MOCK_ORDERS;
+    const orders = getOrders();
     const containerEarth = document.querySelector("#flightsToEarthContent");
     const containerMars = document.querySelector("#flightsToMarsContent");
 
@@ -46,6 +46,8 @@ function showOrders(){
 
 function goToOrderDetail(orderId) {
     console.log(orderId);
+    setOrderId(orderId.toString());
+    window.location.href = "userOrderTracking.html";
 }
 
 
