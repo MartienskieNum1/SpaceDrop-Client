@@ -38,9 +38,16 @@ function showOrders(){
         }
     }
 
+
     containerEarth.innerHTML = tableHeaders + earthOrders;
     containerMars.innerHTML = tableHeaders + marsOrders;
+
 }
+
+function goToOrderDetail(orderId) {
+    console.log(orderId);
+}
+
 
 function fillTableWithContent(container, order){
     let orders = container;
@@ -53,7 +60,7 @@ function fillTableWithContent(container, order){
                     <td>${order.rocketId}</td>
                     <td>${order.rocketId}</td>
                     <td>${order.price}</td>
-                    <td><button>view more</button></td>
+                    <td><button onclick="goToOrderDetail(${order.orderId})">view more</button></td>
                  </tr>`;
     return orders;
 }
