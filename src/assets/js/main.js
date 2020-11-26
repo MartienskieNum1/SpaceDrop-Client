@@ -1,5 +1,6 @@
 let config;
 let api;
+let listeners = [];
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -13,4 +14,13 @@ async function init() {
     document.cookie = 'Authorization=Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=';
     config = await loadConfig();
     api = `${config.host ? config.host + '/': ''}${config.group ? config.group + '/' : ''}api/`;
+    apiUrlLoaded();
+}
+
+function apiUrlLoaded() {
+    listeners.forEach(listener => listener.call());
+}
+
+function onApiUrlLoaded(listener){
+    listeners.push(listener);
 }

@@ -1,6 +1,6 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", registerInit);
+onApiUrlLoaded(registerInit);
 
 function registerInit() {
     document.querySelector("#submit").addEventListener("click", makeAccount);
