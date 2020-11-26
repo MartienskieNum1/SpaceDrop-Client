@@ -5,7 +5,7 @@ function apiCall(uri, httpVerb, requestBody) {
         method: httpVerb,
         headers: {
             'Content-type': 'application/json',
-            'Authorization' : 'Bearer ' + token
+            'Authorization' : token
         },
         body: JSON.stringify(requestBody)
     });
