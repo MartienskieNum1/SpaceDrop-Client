@@ -156,8 +156,7 @@ function getOrderMock() {
             depth: 400,
             price: 600,
             orderStatus: 4
-        }
-
+    };
 }
 
 function getFlightMock() {
@@ -183,7 +182,7 @@ function getFlightMock() {
             price: 600,
             destination: "mars"
         }
-    }
+    };
 }
 
 function getUserMock() {
