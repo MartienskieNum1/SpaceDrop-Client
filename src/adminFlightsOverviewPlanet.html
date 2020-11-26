@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpaceDrop Admin Flights</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/adminFlights.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul class="nav">
+            <li><a class="home" href="adminFlightsOverview.html"><em class="fa fa-home" style="font-size:48px"></em></a></li>
+            <li id="logo"><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
+            <li class="AccountLoginButton"><a class="AccountLoginButton" href="#">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="sidenav">
+        <h1>Admin</h1>
+        <a href="adminFlightsOverview.html"><strong>Logistics</strong></a>
+        <a href="#">Statistics</a>
+    </div>
+    <a class="back" href="adminFlightsOverview.html">Back</a>
+    <div id="flights">
+        <div id="title">
+            <img src="assets/images/icons/earth.png" alt="planet icon">
+            <h1>Flights to Earth</h1>
+        </div>
+        <table id="flightsContent">
+
+        </table>
+    </div>
+
+
+
+</main>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/setup.js"></script>
+<script src="assets/js/adminFlightsOverviewPlanet.js"></script>
+<script src="assets/js/mockData.js"></script>
+<script src="assets/js/local-storage.js"></script>
+<script src="assets/js/popup.js"></script>
+</body>
+</html>

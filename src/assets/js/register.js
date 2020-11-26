@@ -90,6 +90,8 @@ function includesEmptyField(planet, email, fname, lname, street, nr, colony, cou
     }
     else{
         showPopUp("Something went wrong");
+        const planetFields = [planet, email, fname, lname, street, nr, country, city];
+        return planetFields.includes("");
     }
 }
 
