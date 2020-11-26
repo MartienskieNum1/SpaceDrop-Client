@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", loginInit);
+"use strict";
+
+onApiUrlLoaded(loginInit);
 
 function loginInit() {
     document.querySelector("#submit").addEventListener("submit", preventFormSubmit);
