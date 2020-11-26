@@ -1,9 +1,10 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", adminFlightOverviewPlanetInit);
-const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightnr:</th><th scope="col">Orderstatus:</th><th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th><th scope="col">Volume:</th><td></td></tr>';
-
+const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightnr:</th><th scope="col">Orderstatus:</th>' +
+    '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
+    '<th scope="col">Volume:</th><td></td></tr>';
 function adminFlightOverviewPlanetInit() {
-    let planet = getDestinationPlanet();
+    const planet = getDestinationPlanet();
     if(planet!=="mars"&&planet!=="earth"){
         window.location.href = "adminFlightsOverview.html";
     }else{
@@ -47,6 +48,6 @@ function fillTableWithContent(container, flight){
 
 function showTitle(planet) {
     const container = document.querySelector("#title");
-    container.innerHTML = '<img src="assets/images/icons/'+planet+'.png" alt="planet icon"><h1>Flights to '+planet+'</h1>';
+    container.innerHTML = `<img src="assets/images/icons/${planet}.png" alt="planet icon"><h1>Flights to ${planet}</h1>`;
 
 }
