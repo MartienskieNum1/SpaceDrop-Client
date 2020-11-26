@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", loginInit);
 
 function loginInit() {
-    document.querySelector("#submit").addEventListener("submit", preventFormSubmit)
+    document.querySelector("#submit").addEventListener("submit", preventFormSubmit);
     document.querySelector("#submit").addEventListener("click", login);
     document.querySelector("#reg").addEventListener("click", goToReg);
 }
@@ -17,7 +17,7 @@ function login(e) {
     const password = document.getElementById("password").value;
 
     if (email === "" || password === "") {
-        showPopUp("Please fill in all fields")
+        showPopUp("Please fill in all fields");
     }else{
         loginUser(email, password).then(response => {
             if (response === getToken()){
