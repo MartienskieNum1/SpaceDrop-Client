@@ -1,7 +1,15 @@
-document.addEventListener("DOMContentLoaded", userInfoInit);
+"use strict";
+
+onApiUrlLoaded(userInfoInit);
 
 function userInfoInit(){
     loadInUserInfo();
+
+    getUser().then(function(response){
+        console.log(response);
+    });
+
+
 }
 
 function loadInUserInfo() {

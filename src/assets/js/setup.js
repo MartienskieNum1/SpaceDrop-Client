@@ -11,13 +11,17 @@ function loginUser(email, password){
     });
 }
 
-function addUser(firstName, lastName, email, phoneNumber, password){
+function addUser(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
     return apiCall("user", "POST",
-        userToJson(firstName, lastName, email, phoneNumber, password));
+        userToJson(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number));
 }
 
 function getUsers(){
     return apiCall("users", "GET");
+}
+
+function getUser(){
+    return apiCall("details/user", "GET");
 }
 
 function addOrder(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
@@ -29,13 +33,20 @@ function getOrders(){
     return apiCall("orders", "GET");
 }
 
-function userToJson(firstName, lastName, email, phoneNumber, password){
+function userToJson(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
     return {
         "firstName": firstName,
         "lastName": lastName,
         "email": email,
         "phoneNumber": phoneNumber,
-        "password": password
+        "password": password,
+        "address": {
+            "planet": planet,
+            "countryOrColony": country_or_colony,
+            "cityOrDistrict": city_or_district,
+            "street": street,
+            "number": number
+        }
     };
 }
 

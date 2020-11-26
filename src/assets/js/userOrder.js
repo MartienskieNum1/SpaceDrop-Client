@@ -1,4 +1,7 @@
-document.addEventListener("DOMContentLoaded", userOrderInit);
+"use strict";
+
+onApiUrlLoaded(userOrderInit);
+
 const tableHeaders = `<tr class=\"tableHeaders\">
                         <th scope="col">From:</th>
                         <th scope="col">To:</th>
