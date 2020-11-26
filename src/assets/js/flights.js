@@ -22,12 +22,13 @@ function toTitleCase(txt){
 
 
 function renderRockets() {
-    const CONTAINER = document.querySelector("#flights table");
+    const CONTAINER = document.querySelector("#flights table tbody");
     renderFlightHead(CONTAINER);
 
     getRockets().then(function(rockets){
         for (let i = 0; i < rockets.length; i++) {
             let rocket = rockets[i];
+            console.log(rocket);
 
             if (rocket.departLocation === toTitleCase(getDestinationPlanet())){
                 CONTAINER.innerHTML +=
@@ -36,7 +37,7 @@ function renderRockets() {
                         <td>${rocket.arrival}</td>
                         <td>${rocket.availableVolume}</td>
                         <td>${rocket.availableMass}³</td>
-                        <td>${rocket.pricePerKg} Euro/kg</td>
+                        <td>${rocket.pricePerKilo} Euro/kg</td>
                         <td><button>view more</button></td>
                     </tr>`;
             }
