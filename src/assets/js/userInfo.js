@@ -1,3 +1,5 @@
+"use strict";
+
 onApiUrlLoaded(userInfoInit);
 
 function userInfoInit(){

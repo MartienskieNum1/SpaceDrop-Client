@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", userOrderTrackingInit);
+"use strict";
+
+onApiUrlLoaded(userOrderTrackingInit);
 
 function userOrderTrackingInit(){
     showOrderdetails();
