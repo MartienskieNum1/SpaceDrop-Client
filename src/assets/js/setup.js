@@ -33,6 +33,10 @@ function getOrders(){
     return apiCall("orders", "GET");
 }
 
+function getRockets(){
+    return apiCall("rockets", "GET");
+}
+
 function userToJson(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
     return {
         "firstName": firstName,
