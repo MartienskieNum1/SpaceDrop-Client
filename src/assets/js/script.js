@@ -1,6 +1,6 @@
 "use strict";
 
-onApiUrlLoaded(homeInit());
+onApiUrlLoaded(homeInit);
 
 
 function homeInit(){

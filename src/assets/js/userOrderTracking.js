@@ -14,14 +14,12 @@ const tableHeaders ="<tr>" +
     "            <th scope=\"col\">Dimensions:</th>" +
     "            <th scope=\"col\">Weight:</th>" +
     "        </tr>";
-"use strict";
-
 
 function userOrderTrackingInit(){
-    showOrderdetails();
+    showOrderdetails(getOrderId());
 }
 
-function showOrderdetails() {
+function showOrderdetails(orderId) {
     const order = getOrderMock();
     const flight = getFlightMock();
     fillInDetails(order, flight);

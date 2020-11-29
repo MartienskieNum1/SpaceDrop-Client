@@ -1,3 +1,4 @@
+
 "use strict";
 
 onApiUrlLoaded(userOrderInit);
@@ -15,14 +16,17 @@ const tableHeaders = `<tr class=\"tableHeaders\">
                     </tr>`;
 
 function userOrderInit(){
+    console.log(getUserId());
     showOrders();
 }
 
 function getOrdersByUser(){
-    return apiCall(`users/${getToken()}/orders`, "GET"); // this won't even be necessary if we add a "destination" field to an order
+    getUser().then(function(response){
+        showUserInfo(response);
+    });
 }
 
-function showOrders(){
+function showOrders(user){
     // let orders = getOrdersByUser(); // via api call
     const orders = MOCK_ORDERS;
     const containerEarth = document.querySelector("#flightsToEarthContent");

@@ -29,8 +29,23 @@ function addOrder(orderId, userId, rocketId, statusId, mass, width, height, dept
         orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost));
 }
 
+function getUserId(){
+    return apiCall(`userId/user`, "GET");
+}
+
 function getOrders(){
     return apiCall("orders", "GET");
+}
+
+function getOrdersByUser(userId){
+    const allOrders = getOrders();
+    let orders="";
+    for(let i=0;i<allOrders.length;i++){
+        if(allOrders[i].userId === userId){
+            orders+= allOrders[i];
+        }
+    }
+    return orders;
 }
 
 function getRockets(){
@@ -38,7 +53,7 @@ function getRockets(){
 }
 
 function getRocketById(rocketId){
-    const allRockets = MOCK_FLIGHTS;//getRockets()
+    const allRockets = getRockets();
     for(let i=0;i<allRockets.length;i++){
         if(allRockets[i].rocketId === rocketId){
             return allRockets[i];
