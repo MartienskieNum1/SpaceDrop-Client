@@ -6,12 +6,11 @@ const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightname:</th><t
 onApiUrlLoaded(adminFlightOverviewInit);
 
 function adminFlightOverviewInit() {
-    const rockets = getRockets();
     const flightname = getFlightname();
-    let rocket =null;
     getRockets().then(function(rockets){
+        let rocket =null;
         for (let i = 0; i < rockets.length; i++) {
-            let selectedRocket = rockets[i];
+            const selectedRocket = rockets[i];
             if(selectedRocket.name===flightname){
                 rocket = selectedRocket;
 
@@ -21,9 +20,6 @@ function adminFlightOverviewInit() {
             showDetails(rocket);
         }
     });
-
-
-
 }
 
 function showDetails(rocket) {
@@ -38,19 +34,3 @@ function showDetails(rocket) {
                     <td>${rocket.availableVolume}/${rocket.maxVolume} m3</td>
                 </tr>`;
 }
-
-function getRocketByName(flightname) {
-    const rockets = getRockets();
-    console.log(rockets);
-    console.log(rockets.PromiseResult);
-    for (let i = 0; i < rockets.length; i++) {
-            let rocket = rockets[i];
-            console.log(rocket.name + flightname);
-            if(rocket.name===flightname){
-                console.log(rocket);
-                return rocket;
-            }
-    }
-    return getFlightMock();
-}
-
