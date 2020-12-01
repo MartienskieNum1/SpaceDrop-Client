@@ -26,37 +26,36 @@ function goToPlanetOverview(e) {
 }
 
 function showOverview() {
-    const flights = MOCK_FLIGHTS;
     const containerEarth = document.querySelector("#flightsToEarthContent");
     const containerMars = document.querySelector("#flightsToMarsContent");
-
     let earthFlights = "";
     let marsFlights = "";
 
-    for (let i = 0; i < flights.length; i++){
-        const FLIGHT = flights[i];
-
-        if(FLIGHT.destination === "earth"){
-            earthFlights = fillTableWithContent(earthFlights, FLIGHT);
-        }else if(FLIGHT.destination === "mars"){
-            marsFlights = fillTableWithContent(marsFlights, FLIGHT);
+    getRockets().then(function(rockets){
+        for (let i = 0; i < rockets.length; i++) {
+            let rocket = rockets[i];
+            console.log(rocket);
+            console.log(rocket.departLocation);
+            if(rocket.departLocation === "Mars"){
+                earthFlights += fillTableWithContent(rocket);
+            }else if(rocket.departLocation === "Earth"){
+                marsFlights += fillTableWithContent(rocket);
+                console.log(marsFlights);
+            }
         }
-    }
-
-    containerEarth.innerHTML = tableHeader + earthFlights;
-    containerMars.innerHTML = tableHeader + marsFlights;
+        containerEarth.innerHTML = tableHeader + earthFlights;
+        containerMars.innerHTML = tableHeader + marsFlights;
+    });
 }
 
-function fillTableWithContent(container, flight){
-    let orders = container;
-    orders +=`<tr data-row='${flight.rocketId}'>
-                    <td>${flight.rocketId}</td>
+function fillTableWithContent(flight){
+    return `<tr data-row='${flight.name}'>
+                    <td>${flight.name}</td>
                     <td>STATUS</td>
                     <td>${flight.departure}</td>
                     <td>${flight.arrival}</td>
-                    <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>
-                    <td>${flight.maxVolume-flight.availableVolume}/${flight.maxVolume} m3</td>
+                    <td>${flight.availableMass}/${flight.maxMass} kg</td>
+                    <td>${flight.availableVolume}/${flight.maxVolume} m3</td>
                     <td><button>more info</button></td>
-                 </tr>`;
-    return orders;
+                </tr>`;
 }

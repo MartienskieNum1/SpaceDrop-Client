@@ -36,11 +36,12 @@ function getOrderId(){
 
 function getToken(){
     let token = localStorage.getItem("token");
+    console.log(token);
 
     if (token === null){
         setToken(null);
         token = localStorage.getItem("token");
     }
 
-    return JSON.parse(token);
+    return token;
 }
