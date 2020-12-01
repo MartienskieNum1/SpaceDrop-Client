@@ -1,5 +1,5 @@
 "use strict";
-const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightnr:</th><th scope="col">Orderstatus:</th>' +
+const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
                     '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
                     '<th scope="col">Volume:</th><td></td></tr>';
 
@@ -56,6 +56,11 @@ function fillTableWithContent(flight){
                     <td>${flight.arrival}</td>
                     <td>${flight.availableMass}/${flight.maxMass} kg</td>
                     <td>${flight.availableVolume}/${flight.maxVolume} m3</td>
-                    <td><button>more info</button></td>
+                    <td><button onclick="goToFlightDetail('${flight.name}')">more info</button></td>
                 </tr>`;
+}
+
+function goToFlightDetail(name) {
+    setFlightname(name);
+    window.location.href = "adminFlightDetails.html";
 }

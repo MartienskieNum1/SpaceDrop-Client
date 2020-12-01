@@ -63,7 +63,7 @@ function fillTableWithContent(container, order, rocket){
                     <td>${rocket.departure}</td>
                     <td>${rocket.arrival}</td>
                     <td>${order.price}</td>
-                    <td><button onclick="goToOrderDetail(${order.orderId})">view more</button></td>
+                    <td><button onclick="goToOrderDetail('${order.orderId}')">view more</button></td>
                  </tr>`;
     return orders;
 }
