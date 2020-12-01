@@ -20,15 +20,11 @@ function userOrderInit(){
     showOrders();
 }
 
-function getOrdersByUser(){
-    getUser().then(function(response){
-        showUserInfo(response);
-    });
-}
 
-function showOrders(user){
-    // let orders = getOrdersByUser(); // via api call
-    const orders = MOCK_ORDERS;
+
+function showOrders(){
+    const userId = getUserId();
+    const orders = getOrders();
     const containerEarth = document.querySelector("#flightsToEarthContent");
     const containerMars = document.querySelector("#flightsToMarsContent");
 
@@ -37,7 +33,7 @@ function showOrders(user){
 
     for (let i = 0; i < orders.length; i++){
         const ORDER = orders[i];
-        if(ORDER.userId === getToken()){
+        if(ORDER.userId ===userId){
             if(ORDER.destination === "earth"){
                 earthOrders = fillTableWithContent(earthOrders, ORDER, getRocketById(ORDER.rocketId));
             }else if(ORDER.destination === "mars"){
