@@ -49,18 +49,18 @@ function showOverview() {
 }
 
 function fillTableWithContent(flight){
-    return `<tr data-row='${flight.name}'>
-                    <td>${flight.name}</td>
+    return `<tr data-row='${flight.id}'>
+                    <td>${flight.id}</td>
                     <td>STATUS</td>
                     <td>${flight.departure}</td>
                     <td>${flight.arrival}</td>
                     <td>${flight.availableMass}/${flight.maxMass} kg</td>
                     <td>${flight.availableVolume}/${flight.maxVolume} m3</td>
-                    <td><button onclick="goToFlightDetail('${flight.name}')">more info</button></td>
+                    <td><button onclick="goToFlightDetail('${flight.id}')">more info</button></td>
                 </tr>`;
 }
 
-function goToFlightDetail(name) {
-    setFlightname(name);
+function goToFlightDetail(id) {
+    setflightId(id);
     window.location.href = "adminFlightDetails.html";
 }

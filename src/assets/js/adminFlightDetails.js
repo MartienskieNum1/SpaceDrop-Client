@@ -6,27 +6,34 @@ const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightname:</th><t
 onApiUrlLoaded(adminFlightOverviewInit);
 
 function adminFlightOverviewInit() {
-    const flightname = getFlightname();
+    const flightId = getFlightId();
     getRockets().then(function(rockets){
         let rocket =null;
         for (let i = 0; i < rockets.length; i++) {
             const selectedRocket = rockets[i];
-            if(selectedRocket.name===flightname){
+            console.log(selectedRocket.id+flightId);
+            if(selectedRocket.id.toString()===flightId.toString()){
                 rocket = selectedRocket;
+                console.log(rocket);
 
             }
         }
+        console.log(rocket);
         if(rocket!==null){
             showDetails(rocket);
+            showOrdersRocket(rocket);
         }
     });
 }
 
+function showOrdersRocket(rocket) {
+
+}
+
 function showDetails(rocket) {
     const containerDetails = document.querySelector("#flightsContent");
-    console.log(rocket.name);
-    containerDetails.innerHTML = tableHeader + `<tr data-row='${rocket.name}'>
-                    <td>${rocket.name}</td>
+    containerDetails.innerHTML = tableHeader + `<tr data-row='${rocket.id}'>
+                    <td>${rocket.id}</td>
                     <td>STATUS</td>
                     <td>${rocket.departure}</td>
                     <td>${rocket.arrival}</td>
