@@ -37,6 +37,10 @@ function getOrders(){
     return apiCall("orders", "GET");
 }
 
+function getOrdersUser(){
+    return apiCall("details/orders", "GET");
+}
+
 function getRockets(){
     return apiCall("rockets", "GET");
 }

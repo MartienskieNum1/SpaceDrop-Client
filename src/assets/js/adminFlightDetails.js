@@ -9,7 +9,7 @@ const tableHeader2= '<tr class="tableHeaders">' +
     '                <th scope="col">To:</th>' +
     '                <th scope="col">Address:</th>' +
     '                <th scope="col">Status:</th>' +
-    '                <td>(MOCKDATA)</td>' +
+    '                <td></td>' +
     '            </tr>';
 
 onApiUrlLoaded(adminFlightOverviewInit);
