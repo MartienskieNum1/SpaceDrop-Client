@@ -58,5 +58,5 @@ function getToken(){
         token = localStorage.getItem("token");
     }
 
-    return token;
+    return JSON.parse(token);
 }

@@ -18,8 +18,13 @@ const tableHeaders = `<tr class=\"tableHeaders\">
 function userOrderInit(){
     console.log(getUserId());
     showOrders();
+    document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
 }
 
+function openUserInfo() {
+    window.location.href= "userInfo.html";
+
+}
 
 
 function showOrders(){

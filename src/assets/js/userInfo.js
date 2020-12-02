@@ -4,17 +4,19 @@ onApiUrlLoaded(userInfoInit);
 
 function userInfoInit(){
     loadInUserInfo();
-
-
-
 }
 
 function loadInUserInfo() {
     getUser().then(function(response){
         showUserInfo(response);
     });
+    document.querySelector("#toUserOrders").addEventListener("click", openUserOrders);
 }
 
+function openUserOrders() {
+    window.location.href= "userOrders.html";
+
+}
 
 function showUserInfo(user) {
     document.getElementById("userInfo").innerHTML = `
