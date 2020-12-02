@@ -1,3 +1,4 @@
+
 "use strict";
 
 onApiUrlLoaded(userOrderInit);
@@ -15,16 +16,15 @@ const tableHeaders = `<tr class=\"tableHeaders\">
                     </tr>`;
 
 function userOrderInit(){
+    console.log(getUserId());
     showOrders();
 }
 
-function getOrdersByUser(){
-    return apiCall(`users/${getToken()}/orders`, "GET"); // this won't even be necessary if we add a "destination" field to an order
-}
+
 
 function showOrders(){
-    // let orders = getOrdersByUser(); // via api call
-    const orders = MOCK_ORDERS;
+    const userId = getUserId();
+    const orders = getOrders();
     const containerEarth = document.querySelector("#flightsToEarthContent");
     const containerMars = document.querySelector("#flightsToMarsContent");
 
@@ -33,11 +33,12 @@ function showOrders(){
 
     for (let i = 0; i < orders.length; i++){
         const ORDER = orders[i];
-
-        if(ORDER.destination === "earth"){
-            earthOrders = fillTableWithContent(earthOrders, ORDER);
-        }else if(ORDER.destination === "mars"){
-            marsOrders = fillTableWithContent(marsOrders, ORDER);
+        if(ORDER.userId ===userId){
+            if(ORDER.destination === "earth"){
+                earthOrders = fillTableWithContent(earthOrders, ORDER, getRocketById(ORDER.rocketId));
+            }else if(ORDER.destination === "mars"){
+                marsOrders = fillTableWithContent(marsOrders, ORDER, getRocketById(ORDER.rocketId));
+            }
         }
     }
 
@@ -45,7 +46,13 @@ function showOrders(){
     containerMars.innerHTML = tableHeaders + marsOrders;
 }
 
-function fillTableWithContent(container, order){
+function goToOrderDetail(orderId) {
+    setOrderId(orderId.toString());
+    window.location.href = "userOrderTracking.html";
+}
+
+
+function fillTableWithContent(container, order, rocket){
     let orders = container;
     orders +=`<tr data-row='${order.orderId}'>
                     <td>${order.userId}</td>
@@ -53,10 +60,10 @@ function fillTableWithContent(container, order){
                     <td>ADDRESS RECIEVER</td>
                     <td>${order.orderId}</td>
                     <td>${order.statusId}</td>
-                    <td>${order.rocketId}</td>
-                    <td>${order.rocketId}</td>
+                    <td>${rocket.departure}</td>
+                    <td>${rocket.arrival}</td>
                     <td>${order.price}</td>
-                    <td><button>view more</button></td>
+                    <td><button onclick="goToOrderDetail(${order.orderId})">view more</button></td>
                  </tr>`;
     return orders;
 }

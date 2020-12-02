@@ -29,12 +29,37 @@ function addOrder(orderId, userId, rocketId, statusId, mass, width, height, dept
         orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost));
 }
 
+function getUserId(){
+    return apiCall(`userId/user`, "GET");
+}
+
 function getOrders(){
     return apiCall("orders", "GET");
 }
 
+function getOrdersByUser(userId){
+    const allOrders = getOrders();
+    let orders="";
+    for(let i=0;i<allOrders.length;i++){
+        if(allOrders[i].userId === userId){
+            orders+= allOrders[i];
+        }
+    }
+    return orders;
+}
+
 function getRockets(){
     return apiCall("rockets", "GET");
+}
+
+function getRocketById(rocketId){
+    const allRockets = getRockets();
+    for(let i=0;i<allRockets.length;i++){
+        if(allRockets[i].rocketId === rocketId){
+            return allRockets[i];
+        }
+    }
+    return null;
 }
 
 function userToJson(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
