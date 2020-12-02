@@ -16,9 +16,9 @@ function goToPlanetOverview(e) {
     const ID = e.target.getAttribute("id");
     let planet;
     if(ID==="viewMoreMars"){
-        planet = "mars";
+        planet = "Mars";
     }else if(ID==="viewMoreEarth"){
-        planet = "earth";
+        planet = "Earth";
     }
     setDestinationPlanet(planet);
     window.location.href = "adminFlightsOverviewPlanet.html";
@@ -54,8 +54,8 @@ function fillTableWithContent(flight){
                     <td>STATUS</td>
                     <td>${flight.departure}</td>
                     <td>${flight.arrival}</td>
-                    <td>${flight.availableMass}/${flight.maxMass} kg</td>
-                    <td>${flight.availableVolume}/${flight.maxVolume} m3</td>
+                    <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>
+                    <td>${flight.maxVolume-flight.availableVolume}/${flight.maxVolume} m3</td>
                     <td><button onclick="goToFlightDetail('${flight.id}')">more info</button></td>
                 </tr>`;
 }

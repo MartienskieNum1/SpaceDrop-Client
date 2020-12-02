@@ -5,7 +5,7 @@ const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightnr:</th><th 
     '<th scope="col">Volume:</th><td></td></tr>';
 function adminFlightOverviewPlanetInit() {
     const planet = getDestinationPlanet();
-    if(planet!=="mars"&&planet!=="earth"){
+    if(planet!=="Mars"&&planet!=="Earth"){
         window.location.href = "adminFlightsOverview.html";
     }else{
         showTitle(planet);
@@ -14,35 +14,40 @@ function adminFlightOverviewPlanetInit() {
 }
 
 function showOverview(planet) {
-    const flights = MOCK_FLIGHTS;
     const container = document.querySelector("#flightsContent");
-
     let flightsToChosenPlanet = "";
 
-    for (let i = 0; i < flights.length; i++){
-        const FLIGHT = flights[i];
+    getRockets().then(function(rockets){
+        for (let i = 0; i < rockets.length; i++) {
+            let rocket = rockets[i];
+            let toPlanet;
+            if (rocket.departLocation === "Mars"){
+                toPlanet = "Earth";
+            }
+            else if(rocket.departLocation === "Earth") {
+                toPlanet = "Mars";
+            }
 
-        if(FLIGHT.destination === planet){
-            flightsToChosenPlanet = fillTableWithContent(flightsToChosenPlanet, FLIGHT);
+            if(toPlanet===planet){
+                flightsToChosenPlanet += fillTableWithContent(rocket);
+            }
         }
-    }
+        container.innerHTML = tableHeader + flightsToChosenPlanet;
+    });
 
-    container.innerHTML = tableHeader + flightsToChosenPlanet;
+
 }
 
-function fillTableWithContent(container, flight){
-    let orders = container;
-    orders +=`<tr data-row='${flight.rocketId}'>
-                    <td>${flight.rocketId}</td>
+function fillTableWithContent(flight){
+    return `<tr data-row='${flight.id}'>
+                    <td>${flight.id}</td>
                     <td>STATUS</td>
                     <td>${flight.departure}</td>
                     <td>${flight.arrival}</td>
                     <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>
                     <td>${flight.maxVolume-flight.availableVolume}/${flight.maxVolume} m3</td>
-                    <td><button>more info</button></td>
-                 </tr>`;
-    return orders;
-
+                    <td><button onclick="goToFlightDetail('${flight.id}')">more info</button></td>
+                </tr>`;
 }
 
 
@@ -51,3 +56,9 @@ function showTitle(planet) {
     container.innerHTML = `<img src="assets/images/icons/${planet}.png" alt="planet icon"><h1>Flights to ${planet}</h1>`;
 
 }
+
+function goToFlightDetail(id) {
+    setflightId(id);
+    window.location.href = "adminFlightDetails.html";
+}
+

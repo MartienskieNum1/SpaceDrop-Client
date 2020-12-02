@@ -27,6 +27,7 @@ function adminFlightOverviewInit() {
 }
 
 function showOrdersRocket(rocket) {
+    //get orders from this flight
 
 }
 
@@ -37,7 +38,7 @@ function showDetails(rocket) {
                     <td>STATUS</td>
                     <td>${rocket.departure}</td>
                     <td>${rocket.arrival}</td>
-                    <td>${rocket.availableMass}/${rocket.maxMass} kg</td>
-                    <td>${rocket.availableVolume}/${rocket.maxVolume} m3</td>
+                    <td>${rocket.maxMass-rocket.availableMass}/${rocket.maxMass} kg</td>
+                    <td>${rocket.maxVolume-rocket.availableVolume}/${rocket.maxVolume} m3</td>
                 </tr>`;
 }
