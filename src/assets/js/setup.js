@@ -37,17 +37,6 @@ function getOrders(){
     return apiCall("orders", "GET");
 }
 
-function getOrdersByUser(userId){
-    const allOrders = getOrders();
-    let orders="";
-    for(let i=0;i<allOrders.length;i++){
-        if(allOrders[i].userId === userId){
-            orders+= allOrders[i];
-        }
-    }
-    return orders;
-}
-
 function getRockets(){
     return apiCall("rockets", "GET");
 }

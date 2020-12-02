@@ -30,6 +30,7 @@ function openUserInfo() {
 function showOrders(){
     const userId = getUserId();
     const orders = getOrders();
+    console.log(orders);
     const containerEarth = document.querySelector("#flightsToEarthContent");
     const containerMars = document.querySelector("#flightsToMarsContent");
 

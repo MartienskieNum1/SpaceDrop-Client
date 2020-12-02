@@ -3,6 +3,15 @@ const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightname:</th><t
     '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
     '<th scope="col">Volume:</th><td></td></tr>';
 
+const tableHeader2= '<tr class="tableHeaders">' +
+    '                <th scope="col">Ordernr:</th>'+
+    '                <th scope="col">From:</th>' +
+    '                <th scope="col">To:</th>' +
+    '                <th scope="col">Address:</th>' +
+    '                <th scope="col">Status:</th>' +
+    '                <td>(MOCKDATA)</td>' +
+    '            </tr>';
+
 onApiUrlLoaded(adminFlightOverviewInit);
 
 function adminFlightOverviewInit() {
@@ -27,8 +36,24 @@ function adminFlightOverviewInit() {
 }
 
 function showOrdersRocket(rocket) {
-    //get orders from this flight
-
+    const containerOrders = document.querySelector("#flightOrders");
+    let ordersRocket ="";
+    getOrders().then(function(orders){
+        for (let i = 0; i < orders.length; i++) {
+            console.log(orders[i]);
+            if (orders[i].rocketId === rocket.id) {
+                ordersRocket += `<tr data-row='${orders[i].id}'>
+                                <td>${orders[i].orderId}</td>
+                                <td>${orders[i].userId}</td>
+                                <td>RECEIVER</td>
+                                <td>ADDRESS</td>
+                                <td>STATUS</td>
+                                <td><button>delete</button></td>
+                                </tr>`
+            }
+        }
+        containerOrders.innerHTML = tableHeader2 + ordersRocket;
+    })
 }
 
 function showDetails(rocket) {
