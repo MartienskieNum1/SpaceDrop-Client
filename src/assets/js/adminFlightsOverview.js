@@ -1,5 +1,5 @@
 "use strict";
-const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightnr:</th><th scope="col">Orderstatus:</th>' +
+const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
                     '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
                     '<th scope="col">Volume:</th><td></td></tr>';
 
@@ -16,9 +16,9 @@ function goToPlanetOverview(e) {
     const ID = e.target.getAttribute("id");
     let planet;
     if(ID==="viewMoreMars"){
-        planet = "mars";
+        planet = "Mars";
     }else if(ID==="viewMoreEarth"){
-        planet = "earth";
+        planet = "Earth";
     }
     setDestinationPlanet(planet);
     window.location.href = "adminFlightsOverviewPlanet.html";
@@ -26,37 +26,38 @@ function goToPlanetOverview(e) {
 }
 
 function showOverview() {
-    const flights = MOCK_FLIGHTS;
     const containerEarth = document.querySelector("#flightsToEarthContent");
     const containerMars = document.querySelector("#flightsToMarsContent");
-
     let earthFlights = "";
     let marsFlights = "";
 
-    for (let i = 0; i < flights.length; i++){
-        const FLIGHT = flights[i];
-
-        if(FLIGHT.destination === "earth"){
-            earthFlights = fillTableWithContent(earthFlights, FLIGHT);
-        }else if(FLIGHT.destination === "mars"){
-            marsFlights = fillTableWithContent(marsFlights, FLIGHT);
+    getRockets().then(function(rockets){
+        for (let i = 0; i < rockets.length; i++) {
+            let rocket = rockets[i];
+            if(rocket.departLocation === "Mars"){
+                earthFlights += fillTableWithContent(rocket);
+            }else if(rocket.departLocation === "Earth"){
+                marsFlights += fillTableWithContent(rocket);
+            }
         }
-    }
-
-    containerEarth.innerHTML = tableHeader + earthFlights;
-    containerMars.innerHTML = tableHeader + marsFlights;
+        containerEarth.innerHTML = tableHeader + earthFlights;
+        containerMars.innerHTML = tableHeader + marsFlights;
+    });
 }
 
-function fillTableWithContent(container, flight){
-    let orders = container;
-    orders +=`<tr data-row='${flight.rocketId}'>
-                    <td>${flight.rocketId}</td>
+function fillTableWithContent(flight){
+    return `<tr data-row='${flight.id}'>
+                    <td>${flight.id}</td>
                     <td>STATUS</td>
                     <td>${flight.departure}</td>
                     <td>${flight.arrival}</td>
                     <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>
                     <td>${flight.maxVolume-flight.availableVolume}/${flight.maxVolume} m3</td>
-                    <td><button>more info</button></td>
-                 </tr>`;
-    return orders;
+                    <td><button onclick="goToFlightDetail('${flight.id}')">more info</button></td>
+                </tr>`;
+}
+
+function goToFlightDetail(id) {
+    setflightId(id);
+    window.location.href = "adminFlightDetails.html";
 }

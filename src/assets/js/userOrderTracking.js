@@ -17,6 +17,18 @@ const tableHeaders ="<tr>" +
 
 function userOrderTrackingInit(){
     showOrderdetails(getOrderId());
+    document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
+    document.querySelector("#toUserOrders").addEventListener("click", openUserOrders);
+}
+
+function openUserOrders() {
+    window.location.href= "userOrders.html";
+
+}
+
+function openUserInfo() {
+    window.location.href= "userInfo.html";
+
 }
 
 function showOrderdetails(orderId) {
@@ -45,7 +57,7 @@ function fillInDetails(order, flight){
             <td>RECIEVER</td>
             <td>ADRESS</td>
             <td>${order.orderId}</td>
-            <td>${order.orderStatus}</td>
+            <td>STATUS</td>
             <td>${flight.departure}</td>
             <td>${flight.arrival}</td>
             <td>${order.price}</td>

@@ -19,6 +19,21 @@ function setToken(token){
     localStorage.setItem("token", JSON.stringify(token));
 }
 
+function setflightId(flightId) {
+    localStorage.setItem("flightId", JSON.stringify(flightId));
+}
+
+function getFlightId(){
+    let flightId = localStorage.getItem("flightId");
+
+    if (flightId === null){
+        setOrderId(null);
+        flightId = localStorage.getItem("flightId");
+    }
+
+    return JSON.parse(flightId);
+}
+
 function setOrderId(orderId) {
     localStorage.setItem("orderId", JSON.stringify(orderId));
 }
@@ -36,6 +51,7 @@ function getOrderId(){
 
 function getToken(){
     let token = localStorage.getItem("token");
+    console.log(token);
 
     if (token === null){
         setToken(null);

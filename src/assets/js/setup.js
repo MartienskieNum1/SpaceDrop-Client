@@ -24,6 +24,17 @@ function getUser(){
     return apiCall("details/user", "GET");
 }
 
+function getUsersById(userId){
+    getUsers().then(function (users) {
+        for(let i =0; i<users.length;i++){
+            if(users[i].id.toString()===userId){
+                return users[i];
+            }
+        }
+    });
+    return null;
+}
+
 function addOrder(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
     return apiCall("order", "POST",
         orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost));
@@ -37,15 +48,8 @@ function getOrders(){
     return apiCall("orders", "GET");
 }
 
-function getOrdersByUser(userId){
-    const allOrders = getOrders();
-    let orders="";
-    for(let i=0;i<allOrders.length;i++){
-        if(allOrders[i].userId === userId){
-            orders+= allOrders[i];
-        }
-    }
-    return orders;
+function getOrdersUser(){
+    return apiCall("details/orders", "GET");
 }
 
 function getRockets(){
