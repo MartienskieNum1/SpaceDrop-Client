@@ -34,13 +34,10 @@ function showOverview() {
     getRockets().then(function(rockets){
         for (let i = 0; i < rockets.length; i++) {
             let rocket = rockets[i];
-            console.log(rocket);
-            console.log(rocket.departLocation);
             if(rocket.departLocation === "Mars"){
                 earthFlights += fillTableWithContent(rocket);
             }else if(rocket.departLocation === "Earth"){
                 marsFlights += fillTableWithContent(rocket);
-                console.log(marsFlights);
             }
         }
         containerEarth.innerHTML = tableHeader + earthFlights;

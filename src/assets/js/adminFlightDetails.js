@@ -20,14 +20,11 @@ function adminFlightOverviewInit() {
         let rocket =null;
         for (let i = 0; i < rockets.length; i++) {
             const selectedRocket = rockets[i];
-            console.log(selectedRocket.id+flightId);
             if(selectedRocket.id.toString()===flightId.toString()){
                 rocket = selectedRocket;
-                console.log(rocket);
 
             }
         }
-        console.log(rocket);
         if(rocket!==null){
             showDetails(rocket);
             showOrdersRocket(rocket);
@@ -40,14 +37,14 @@ function showOrdersRocket(rocket) {
     let ordersRocket ="";
     getOrders().then(function(orders){
         for (let i = 0; i < orders.length; i++) {
-            console.log(orders[i]);
             if (orders[i].rocketId === rocket.id) {
-                ordersRocket += `<tr data-row='${orders[i].id}'>
+                ordersRocket += `<tr data-row='${orders[i].orderId}'>
                                 <td>${orders[i].orderId}</td>
-                                <td>${orders[i].userId}</td>
+                                <td>${orders[i].userId //change to name of the user (beta)
+                                }</td>
                                 <td>RECEIVER</td>
                                 <td>ADDRESS</td>
-                                <td>STATUS</td>
+                                <td>${orders[i].status}</td>
                                 <td><button>delete</button></td>
                                 </tr>`
             }

@@ -41,7 +41,6 @@ function showOrders(){
             getRockets().then(function (rockets) {
                 for (let x = 0; x < orders.length; x++){
                     if(ORDER.rocketId.toString()===rockets[x].id.toString()){
-                        console.log(rockets[x].departLocation);
                         if(rockets[x].departLocation === "Earth"){
                             marsOrders += fillTableWithContent(earthOrders, ORDER, rockets[x]);
                         }else if(rockets[x].departLocation === "Mars"){
