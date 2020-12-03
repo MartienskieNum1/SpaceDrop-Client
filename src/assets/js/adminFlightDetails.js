@@ -8,6 +8,7 @@ const tableHeader2= '<tr class="tableHeaders">' +
     '                <th scope="col">From:</th>' +
     '                <th scope="col">To:</th>' +
     '                <th scope="col">Address:</th>' +
+    '                <th scope="col">Return:</th>' +
     '                <th scope="col">Status:</th>' +
     '                <td></td>' +
     '            </tr>';
@@ -34,22 +35,33 @@ function adminFlightOverviewInit() {
 
 function showOrdersRocket(rocket) {
     const containerOrders = document.querySelector("#flightOrders");
-    let ordersRocket ="";
+    console.log(getUsers());
     getOrders().then(function(orders){
+        let ordersRocket ="";
         for (let i = 0; i < orders.length; i++) {
-            if (orders[i].rocketId === rocket.id) {
-                ordersRocket += `<tr data-row='${orders[i].orderId}'>
+            if (orders[i].rocketId.toString() === rocket.id.toString()) {
+                getUsers().then(function (users) {
+                    let name = "";
+                    let returnAdress ="";
+                    for (let x = 0; x < users.length; x++) {
+                        if (users[x].id.toString() === orders[i].userId.toString()) {
+                            name= users[x].firstName + " " + users[x].lastName;
+                            returnAdress= users[x].address.street + " " + users[x].address.number + " " + users[x].address.cityOrDistrict + " " + users[x].address.countryOrColony + " " + users[x].address.planet;
+                            ordersRocket += `<tr data-row='${orders[i].orderId}'>
                                 <td>${orders[i].orderId}</td>
-                                <td>${orders[i].userId //change to name of the user (beta)
-                                }</td>
+                                <td>${name}</td>
                                 <td>RECEIVER</td>
-                                <td>ADDRESS</td>
+                                <td>ADRESS</td>
+                                <td>${returnAdress}</td>
                                 <td>${orders[i].status}</td>
                                 <td><button>delete</button></td>
-                                </tr>`
+                                </tr>`;
+                        }
+                    }
+                    containerOrders.innerHTML = tableHeader2 + ordersRocket;
+                })
             }
         }
-        containerOrders.innerHTML = tableHeader2 + ordersRocket;
     })
 }
 
