@@ -1,72 +1,47 @@
-# Mars web project group XX
+# Mars web project group 03
 
-## Before you start
-* Search for the string XX and replace it with the group number.
-  * ctrl shift f in windows to search in ALL files
+## What can a user or admin do in the aplha version
+* Users:
+  * A user can create a new account
+  * A user can login to his account
+  * A user can see his account info
+  * A user can see his orders
+  * A user can see what flights are available (ordering not yet impemented)
+* Admins:
+  * An admin can login to his account
+  * An admin can see an overview of all flights
+  * An admin can see an details page of the flights with all the placed orders
 
-## Important public urls  
-* Web project: https://project-ii.ti.howest.be/mars-XX/
-* Sonar reports: https://sonar.ti.howest.be/sonar/dashboard?id=2020.project-ii%3Amars-client-XX
-
-## Please complete the following before committing the final version on the project
-Please **add** any **instructions** required to 
-* Make your application work if applicable 
-* Be able to test the application (login data)
-* View the wireframes
-
-Also clarify
-* If there are known **bugs**
-* If you haven't managed to finish certain required functionality
-
-## Instructions for running locally
-* Run the mars-server with gradle run (in another intelij instance)
-* Open the mars-client in phpstorm
-  * Navigate to the index.html
-  * Click on a browser icon to host the mars-client in intelij.
-  
-## Instruction for running the web client locally with a deployed mars-server
-* Open the mars-client in phpstorm
-  * Change the host and group in the config.json
-    * group -> marsXX
-    * host -> https://project-ii.ti.howest.be
-  * Navigate to the index.html
-  * Click on a browser icon to host the mars-client in intelij.
-
-## Instructions for testing locally
-You can run the validator, CSS and JS rules locally. 
-There is no need to push to the server to check if you are compliant with our rules. 
-In the interest of sparing the server, please result to local testing as often as possible. 
-If everyone will push to test, the remote will not last. 
-
-* Go to the project folder in your command line editor 
-
-* Execute `npm run validate-local` for linux/max users.
-* Execute `npm run validate-local-win` for windows users.
-* If there are errors, the program execution will halt and show the first error
-* If there are no error, a report file will be generated in the `.scannerworks/` directory. You will find the link to the sonar report in this file 
-
-If you want to skip ci remotely, include `[ci skip]` in your commit message. 
-This is convenient for when you want to quickly add a certain commit, but do not wish to trigger the whole CI sequence. 
-
-## Default files
-
-### CSS 
-The `reset.css` has aleady been supplied, but it's up to you and your team to add the rest of the styles. 
-Please feel free to split those up in multiple files. 
-We'll handle efficient delivery for products in production in later semesters. 
-
-### JavaScript
-A demonstration for connecting with the API has already been set up. 
-We urge you to separate your JS files as **atomically as possible**. 
-Add folders as you please.  
-
-The web client and server are protected with credentials.
-Please add the following header to all fetch calls going out to the server.
-* 'Authorization': 'Basic cHJvamVjdG1lZGV3ZXJrZXI6dmVya2VlcmQ=' 
-
-## Extra tips for CSS Grid
-In case you get stuck or confused 
-https://learncssgrid.com/
-
-And for your convenience, yet use with caution
-https://grid.layoutit.com/ 
+## Flow
+* Home page:
+  * When a user visits our webclient he gets greeted with the home page. On this page there are two large buttons with the planets, if he clicks on these he gets redirected to the flights page. On the right top of the screen there is a login button (changes to account or admin button when logged in, not yet impemented) if he clicks on it you get redirected to the login page.
+    ![picture](images/home.png)
+* Login page:
+  * On this page the user can fill in his email and password. If this is correct he gets redirected to the userinfo page, if not an pop up shows up. A user can also go to the register by clicking on the register button or login in with google(not yet impemented).
+    ![picture](images/login.png)
+* Register page:
+  * On this page the user can fill in his info and click on the register button to register and gets redirected to the login page.
+  ![picture](images/register.png)
+* Flights page:
+  * On this page the user can see a list of all future flights of the previously clicked planet. When he clicks on view more a dropdown appears with inputs fields for the order details. When the user clicks on the order button he gets redirected to the payment page(not yet impemented).
+    ![picture](images/flights.png)
+* Userinfo page:
+  * On this page the user can see an table with his user info with two buttons to edit his info or password(not yet impemented). The home button in the right corner has changed into a logout button. On the leftside there is a sidenav with a button to redirect to the userorders page
+  * IMPORTANT: if you want to go userinfo pages you need to do this via the url: go to page userInfo.html
+![picture](images/userinfo.png)
+* Userorder page:
+  * On this page the user can see an overview of all his orders, when he clicks on the view more button he gets redirected to the Userordertracking page.
+  * IMPORTANT: if you want to go userinfo pages you need to do this via the url: go to page userOrders.html
+![picture](images/userorders.png)
+* Userordertracking page:
+  * On this page the user can see all the details about his order such as an visual presentation of the progression of his order.
+  * IMPORTANT: if you want to go userinfo pages you need to do this via the url: go to page userOrderTracking.html
+![picture](images/userordertracking.png)
+* Adminhome page:
+  * On this page the admin can see an overview of all flights, when he clicks on the more info page he gets redirected to the adminflightdetails page. When he clicks on view more next to the planet title, Only the flights to that planet get displayed. On the left side there is a sidenav with a button to the statistics(not yet impemented).
+  * IMPORTANT: if you want to go admin pages you need to do this via the url: go to page adminFlightsOverview.html or adminFlightsOverviewPlanet.html
+![picture](images/adminflights.png)
+* adminflightdetails page:
+  * On this page the admin can see an table with all the flight details, underneat this there is an overview of all orders placed on this flight.
+  * IMPORTANT: if you want to go admin pages you need to do this via the url: go to page adminFlightDetails.html
+  ![picture](images/adminflightsdetails.png)
