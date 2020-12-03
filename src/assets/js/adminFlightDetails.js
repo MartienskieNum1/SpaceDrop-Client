@@ -7,8 +7,8 @@ const tableHeader2= '<tr class="tableHeaders">' +
     '                <th scope="col">Ordernr:</th>'+
     '                <th scope="col">From:</th>' +
     '                <th scope="col">To:</th>' +
-    '                <th scope="col">Return:</th>' +
     '                <th scope="col">Address:</th>' +
+    '                <th scope="col">Return:</th>' +
     '                <th scope="col">Status:</th>' +
     '                <td></td>' +
     '            </tr>';
@@ -51,6 +51,7 @@ function showOrdersRocket(rocket) {
                                 <td>${orders[i].orderId}</td>
                                 <td>${name}</td>
                                 <td>RECEIVER</td>
+                                <td>ADRESS</td>
                                 <td>${returnAdress}</td>
                                 <td>${orders[i].status}</td>
                                 <td><button>delete</button></td>

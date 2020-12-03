@@ -63,8 +63,14 @@ li{
     margin-bottom: auto;
 }
 
-li.AccountLoginButton{
+li.AccountLoginButton, li.AccountLogoutButton{
     text-align: right;
+}
+
+header a.AccountLogoutButton {
+    padding: 4px 16px;
+    background-color: red;
+    border-radius: 10px;
 }
 
 .sidenav {

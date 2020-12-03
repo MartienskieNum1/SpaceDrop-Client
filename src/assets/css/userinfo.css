@@ -50,6 +50,12 @@ header a.AccountLoginButton {
     border-radius: 10px;
 }
 
+header a.AccountLogoutButton {
+    padding: 4px 16px;
+    background-color: red;
+    border-radius: 10px;
+}
+
 header a.home:hover{
     color: #076000;
 }
@@ -63,7 +69,7 @@ li{
     margin-bottom: auto;
 }
 
-li.AccountLoginButton{
+li.AccountLoginButton, li.AccountLogoutButton{
     text-align: right;
 }
 
