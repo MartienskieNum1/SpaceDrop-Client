@@ -2,7 +2,9 @@
 
 onApiUrlLoaded(flightsInit);
 
+// TODO: remove these global variables
 let FLIGHTS_TO_SORT = [];
+let SORTED_FLIGHTS = [];
 
 function flightsInit(){
     getRocketsForDestination();
@@ -27,27 +29,24 @@ function flightsInit(){
 // }
 
 
-function sortFlightsByWeightOrVolume(e){
-    e.preventDefault();
+function sortFlightsByWeightOrVolume(){
     let selectedWeight = document.querySelector("#weight").value;
     let selectedVolume = document.querySelector("#volume").value;
-    let sortedFlights = [];
+    SORTED_FLIGHTS = [];
 
     FLIGHTS_TO_SORT.forEach((flight) => {
-        if (flight.availableMass > selectedWeight && flight.availableVolume > selectedVolume){
-            sortedFlights.push(flight);
+        if (flight.availableMass >= selectedWeight && flight.availableVolume >= selectedVolume){
+            SORTED_FLIGHTS.push(flight);
         }
     });
 
-    renderRockets(sortedFlights);
+    renderRockets(SORTED_FLIGHTS);
 }
 
 function sortRocketsBySearchValue(e){
     let sortValue = e.target.value;
-    let sortedArray;
 
-    sortedArray =
-        FLIGHTS_TO_SORT.sort(function (a, b) {
+    SORTED_FLIGHTS.sort(function (a, b) {
             if (a[sortValue] < b[sortValue]) {
                 return -1;
             } else if (a[sortValue] > b[sortValue]) {
@@ -55,16 +54,11 @@ function sortRocketsBySearchValue(e){
             }
             return 0;
         });
-
-
-    console.log(sortedArray);
-
-    renderRockets(sortedArray);
-
+    renderRockets(SORTED_FLIGHTS);
 }
 
 function sortTargetAscendingOrDescending() {
-    renderRockets(FLIGHTS_TO_SORT.reverse());
+    renderRockets(SORTED_FLIGHTS.reverse());
 }
 
 function getRocketsForDestination(){
