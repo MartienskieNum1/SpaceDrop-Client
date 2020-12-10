@@ -97,3 +97,8 @@ function orderToJson(orderId, userId, rocketId, statusId, mass, width, height, d
     };
 }
 
+function logout(){
+    setToken("");
+    window.location.href = "login.html";
+}
+

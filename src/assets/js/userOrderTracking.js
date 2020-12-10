@@ -19,6 +19,7 @@ function userOrderTrackingInit(){
     showOrderdetails(getOrderId());
     document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
     document.querySelector("#toUserOrders").addEventListener("click", openUserOrders);
+    document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
 }
 
 function openUserOrders() {

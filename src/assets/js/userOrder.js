@@ -19,6 +19,7 @@ function userOrderInit(){
     console.log(getUserId());
     showOrders();
     document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
+    document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
 }
 
 function openUserInfo() {
