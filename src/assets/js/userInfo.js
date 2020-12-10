@@ -21,7 +21,7 @@ function openUserOrders() {
 
 function showUserInfo(user) {
     document.getElementById("userInfo").innerHTML = `
-        <th scope="row" colspan="2">Account Info</th>
+        <tr><th scope="row" colspan="2">Account Info</th></tr>
         <tr><th>name:</th><td>${user.firstName} ${user.lastName}</td></tr>
         <tr><th>email:</th><td>${user.email}</td></tr>
         <tr><th>adress:</th><td>${user.address.street} ${user.address.number} ${user.address.cityOrDistrict} ${user.address.countryOrColony} ${user.address.planet}</td></tr>
