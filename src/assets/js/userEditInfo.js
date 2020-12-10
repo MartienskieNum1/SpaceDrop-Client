@@ -10,5 +10,7 @@ function editInfoInit() {
 }
 
 function editAccount() {
-
+    const addEdit = "edit";
+    addOrEdit(addEdit);
 }
+

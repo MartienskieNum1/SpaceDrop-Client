@@ -16,6 +16,12 @@ function addUser(firstName, lastName, email, phoneNumber, password, planet, coun
         userToJson(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number));
 }
 
+function editUser(oldPassword,firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
+    console.log(userToJson(firstName, lastName, email, phoneNumber,password, planet, country_or_colony, city_or_district, street, number));
+    return apiCall("update/user", "PATCH",
+        [oldPassword,userToJson(firstName, lastName, email, phoneNumber,password, planet, country_or_colony, city_or_district, street, number)]);
+}
+
 function getUsers(){
     return apiCall("users", "GET");
 }
