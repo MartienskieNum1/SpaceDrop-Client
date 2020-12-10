@@ -5,10 +5,11 @@ onApiUrlLoaded(registerInit);
 function registerInit() {
     document.querySelector("#submit").addEventListener("click", makeAccount);
     document.querySelector(".close").addEventListener("click", closePopUp);
-    changeVisable();
+    changeVisible();
+    renderCountryList();
 }
 
-function changeVisable(){
+function changeVisible(){
     if(document.getElementById("planet").value === "mars"){
         document.getElementById("marsLabel").style.display = 'table-row';
         document.getElementById("earthLabel").style.display = 'none';
