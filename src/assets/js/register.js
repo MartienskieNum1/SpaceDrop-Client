@@ -54,9 +54,9 @@ function makeAccount() {
     }else if (!allFieldsFilled) {
         showPopUp("Please fill in the required fields");
     }else{
-        let colonyOrCountry = checkColonyOrCountry(colony, country);
+        const COLONY_OR_COUNTRY = checkColonyOrCountry(colony, country);
 
-        addUser(fname, lname, email, phone, password, planet, colonyOrCountry, city, street, parseInt(nr)).then(response => {
+        addUser(fname, lname, email, phone, password, planet, COLONY_OR_COUNTRY, city, street, parseInt(nr)).then(response => {
             if (response.message === undefined){
                 setToken(response);
                 window.location.href = "login.html";

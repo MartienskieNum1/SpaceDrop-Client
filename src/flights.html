@@ -38,7 +38,19 @@
             <label for="volume">Volume:</label>
             <input type="text" id="volume" name="volume">
 
-            <input type="submit" value="search"> <!--TODO: dynamically filter results without pressing this button-->
+            <label for="sortBy"></label>
+            <select name="sortBy" id="sortBy">
+                <option value="arrival">Arrival</option>
+                <option value="departure">Departure</option>
+                <option value="availableMass">Available mass</option>
+            </select>
+
+            <label for="sort"></label>
+            <select name="sort" id="sort">
+                <option value="Asc">Ascending</option>
+                <option value="Desc">Descending</option>
+            </select>
+
         </form>
     </div>
 
