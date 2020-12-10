@@ -59,10 +59,10 @@ function showOrdersRocket(rocket) {
                         }
                     }
                     containerOrders.innerHTML = tableHeader2 + ordersRocket;
-                })
+                });
             }
         }
-    })
+    });
 }
 
 function showDetails(rocket) {
