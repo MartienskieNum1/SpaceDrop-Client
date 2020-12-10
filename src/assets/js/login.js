@@ -2,10 +2,12 @@
 
 onApiUrlLoaded(loginInit);
 
+
 function loginInit() {
     document.querySelector("#submit").addEventListener("submit", preventFormSubmit);
     document.querySelector("#submit").addEventListener("click", login);
     document.querySelector("#reg").addEventListener("click", goToReg);
+    document.querySelector("a.AccountLoginButton").addEventListener("click", signOut);
 }
 
 function preventFormSubmit(e){
@@ -44,5 +46,35 @@ function showPopUp(message){
 function goToReg() {
     window.location.href = "register.html";
 }
+
+function onSignIn(googleUser) {
+    // let profile = googleUser.getBasicProfile();
+    // console.log(profile)
+    // console.log("ID: " + profile.getId());
+    // console.log('Name: ' + profile.getName());
+    // console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    let accessToken = googleUser.xc.access_token;
+    document.querySelector("a.AccountLoginButton").innerHTML = "Logout";
+
+    getLoggedInUserFetch(accessToken);
+}
+
+function getLoggedInUserFetch(token){
+    fetch("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token="+token)
+        .then(response => response.json())
+        .then(user => {
+            console.log(user)
+        })
+}
+
+function signOut() {
+
+    let auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        document.querySelector("#googleSignOut").innerHTML = "Signed out";
+    });
+
+}
+
 
 

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="982930497562-0e0ar3rmgtn1rgtpat6ldke2a76iqlfs.apps.googleusercontent.com">
     <title>SpaceDrop Login</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/login.css">
@@ -35,10 +36,13 @@
             <input class="wide" id="submit" type="submit" value="Login">
         </form>
 
-        <div>
+        <div id="loginFormButtons">
             <a id="reg" class="register">Register</a>
-            <a class="google">Login with google</a>
+            <div id="googleSignIn" class="g-signin2" data-onsuccess="onSignIn">Sign in with Google</div>
+<!--            <a href="#" class="register" id="googleSignOut">Sign out</a>-->
         </div>
+
+
     </div>
 
     <section id="errorScreen" class="popup hidden">
@@ -58,5 +62,7 @@
     <script src="assets/js/local-storage.js"></script>
     <script src="assets/js/login.js"></script>
     <script src="assets/js/popup.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </body>
 </html>
