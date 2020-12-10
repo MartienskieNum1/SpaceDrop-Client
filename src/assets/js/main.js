@@ -1,5 +1,6 @@
 let config;
 let api;
+let loggedIn = false;
 const LISTENERS = [];
 
 document.addEventListener("DOMContentLoaded", init);

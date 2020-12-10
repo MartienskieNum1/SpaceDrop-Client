@@ -2,7 +2,6 @@
 
 onApiUrlLoaded(loginInit);
 
-
 function loginInit() {
     document.querySelector("#submit").addEventListener("submit", preventFormSubmit);
     document.querySelector("#submit").addEventListener("click", login);
@@ -25,6 +24,7 @@ function login(e) {
     }else{
         loginUser(email, password).then(response => {
             if (response.message === undefined){
+                loggedIn = true;
                 setToken(response);
                 window.location.href = "userInfo.html"; // TODO: change this
             }else{
@@ -41,6 +41,8 @@ function showPopUp(message){
 
     const POPUP = document.querySelector("#errorScreen");
     POPUP.classList.remove("hidden");
+
+    console.log(loggedIn)
 }
 
 function goToReg() {
@@ -48,14 +50,9 @@ function goToReg() {
 }
 
 function onSignIn(googleUser) {
-    // let profile = googleUser.getBasicProfile();
-    // console.log(profile)
-    // console.log("ID: " + profile.getId());
-    // console.log('Name: ' + profile.getName());
-    // console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     let accessToken = googleUser.xc.access_token;
+    loggedIn = true;
     document.querySelector("a.AccountLoginButton").innerHTML = "Logout";
-
     getLoggedInUserFetch(accessToken);
 }
 
@@ -68,12 +65,11 @@ function getLoggedInUserFetch(token){
 }
 
 function signOut() {
-
     let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         document.querySelector("#googleSignOut").innerHTML = "Signed out";
     });
-
+    loggedIn = false;
 }
 
 
