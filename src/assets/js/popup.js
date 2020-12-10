@@ -1,8 +1,6 @@
 "use strict";
 
-
-document.addEventListener("DOMContentLoaded", popupInit);
-
+onApiUrlLoaded(popupInit);
 
 function popupInit() {
     document.querySelector("div").addEventListener("click", openPopUp);
@@ -31,8 +29,30 @@ function openPopUp(e) {
 }
 
 function fillWithForm(e) {
-    //TODO
+    const CONTAINER = document.querySelector("div.contentwrapper");
+    let rocketId = parseInt(e.target.closest("tr").getAttribute("data-row"));
+
+    getRocketById(rocketId).then(response => {
+        fillRocketPopup(response, CONTAINER)
+    });
 }
+
+// yes yes code duplication I know
+function fillRocketPopup(rocket, container) {
+    if (container !== undefined){
+        container.innerHTML = `
+            <h5>Fill in your order details:</h5>
+            <tr data-row="${rocket.id}">
+                <td>${rocket.departure}</td>
+                <td>${rocket.arrival}</td>
+                <td>${rocket.availableVolume}³</td>
+                <td>${rocket.availableMass}</td>
+                <td>${rocket.pricePerKilo} Euro/kg</td>
+            </tr>`;
+    }
+
+}
+
 
 function showConfirmation(e) {
     //TODO

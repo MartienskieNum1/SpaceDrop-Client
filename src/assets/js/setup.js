@@ -46,13 +46,14 @@ function getRockets(){
 }
 
 function getRocketById(rocketId){
-    const allRockets = getRockets();
-    for(let i=0;i<allRockets.length;i++){
-        if(allRockets[i].rocketId === rocketId){
-            return allRockets[i];
+    return getRockets().then(function (response){
+        for(let i=0;i<response.length;i++){
+            if(response[i].id === rocketId){
+                return response[i];
+            }
         }
-    }
-    return null;
+        return null;
+    });
 }
 
 function userToJson(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
