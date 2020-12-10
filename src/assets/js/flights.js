@@ -40,7 +40,14 @@ function sortFlightsByWeightOrVolume(){
         }
     });
 
+    selectDefaultSorting("sort",  "Asc")
+    
     renderRockets(SORTED_FLIGHTS);
+}
+
+function selectDefaultSorting(id, valueToSelect) {
+    let elementContainer = document.getElementById(id);
+    elementContainer.value = valueToSelect;
 }
 
 function sortRocketsBySearchValue(e){
