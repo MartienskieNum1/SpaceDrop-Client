@@ -24,17 +24,6 @@ function getUser(){
     return apiCall("details/user", "GET");
 }
 
-function getUsersById(userId){
-    getUsers().then(function (users) {
-        for(let i =0; i<users.length;i++){
-            if(users[i].id.toString()===userId){
-                return users[i];
-            }
-        }
-    });
-    return null;
-}
-
 function addOrder(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
     return apiCall("order", "POST",
         orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost));
