@@ -1,0 +1,179 @@
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 4rem;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 1.5rem;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav a.a{
+    color: #65C55E;
+    font-weight: bold;
+}
+
+.sidenav h1{
+    font-size: 1.7rem;
+    padding-left: 0.5rem;
+}
+
+body{
+    background-color: #404040;
+    color: white;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+html{
+    height: 100%;
+}
+
+
+header{
+    height: 4rem;
+    width: 100%;
+    background-color: #262626;
+}
+main{
+    overflow: auto;
+    padding-top: 1rem;
+}
+nav{
+    padding: 0.5rem;
+
+}
+
+input.wide{
+    width: 32rem;
+    text-align: center;
+}
+
+input{
+    width: 15rem;
+}
+
+select{
+    width: 15rem;
+
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.7rem;
+}
+
+td.wide{
+    text-align: center;
+}
+
+td:nth-child(even) {
+    text-align: right;
+}
+
+input[type=submit]{
+    background-color: #65C55E;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    height: 2.3rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+}
+
+input,select{
+    margin-bottom: 0.3rem;
+    border-radius: 5px;
+}
+
+h1{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 0.7rem;
+}
+
+
+header{
+    height: 4rem;
+    width: 100%;
+    background-color: #262626;
+}
+main{
+    overflow: auto;
+    padding-top: 1rem;
+}
+nav{
+    padding: 0.5rem;
+
+}
+
+ul.nav{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+header nav li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+header nav li img {
+    height: 3rem;
+    width: auto;
+    float: left;
+
+}
+
+
+header a.AccountLoginButton {
+    padding: 4px 16px;
+    background-color: #65C55E;
+    border-radius: 10px;
+}
+
+header a#AccountLogoutButton {
+    padding: 4px 16px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+header a.home:hover{
+    color: #076000;
+}
+
+header a.AccountLoginButton:hover {
+    background-color: #076000;
+}
+
+li{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+li.AccountLoginButton, li#AccountLogoutButton{
+    text-align: right;
+}
+
+caption{
+    padding-bottom: 1rem;
+}
