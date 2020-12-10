@@ -5,10 +5,11 @@ onApiUrlLoaded(registerInit);
 function registerInit() {
     document.querySelector("#submit").addEventListener("click", makeAccount);
     document.querySelector(".close").addEventListener("click", closePopUp);
-    changeVisable();
+    changeVisible();
+    renderCountryList();
 }
 
-function changeVisable(){
+function changeVisible(){
     if(document.getElementById("planet").value === "mars"){
         document.getElementById("marsLabel").style.display = 'table-row';
         document.getElementById("earthLabel").style.display = 'none';
@@ -101,4 +102,18 @@ function showPopUp(message){
 
     const POPUP = document.querySelector("#errorScreen");
     POPUP.classList.remove("hidden");
+}
+
+function renderCountryList(){
+    const CONTAINER = document.querySelector("#country-list");
+    CONTAINER.innerHTML = "";
+
+    fetch("https://restcountries.eu/rest/v2/all?fields=name")
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(country => {
+                CONTAINER.innerHTML += `<option value="${country.name}">${country.name}</option>`
+            })
+        })
+
 }
