@@ -47,7 +47,13 @@ function sortFlightsByWeightOrVolume(){
 function sortRocketsBySearchValue(e){
     const SORT_VALUE = e.target.value;
 
-    sortedFlights.sort(function (a, b) {
+    let flightsToUse = sortedFlights;
+
+    if(sortedFlights.length === 0){
+        flightsToUse = flightsToSort;
+    }
+
+    flightsToUse.sort(function (a, b) {
             if (a[SORT_VALUE] < b[SORT_VALUE]) {
                 return -1;
             } else if (a[SORT_VALUE] > b[SORT_VALUE]) {
@@ -55,11 +61,18 @@ function sortRocketsBySearchValue(e){
             }
             return 0;
         });
-    renderRockets(sortedFlights);
+    renderRockets(flightsToUse);
 }
 
 function sortTargetAscendingOrDescending() {
-    renderRockets(sortedFlights.reverse());
+
+    let flightsToUse = sortedFlights;
+
+    if(sortedFlights.length === 0){
+        flightsToUse = flightsToSort;
+    }
+
+    renderRockets(flightsToUse.reverse());
 }
 
 function selectDefaultSorting(id, valueToSelect) {
