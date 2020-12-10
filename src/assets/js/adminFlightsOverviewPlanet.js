@@ -19,7 +19,7 @@ function showOverview(planet) {
 
     getRockets().then(function(rockets){
         for (let i = 0; i < rockets.length; i++) {
-            let rocket = rockets[i];
+            const rocket = rockets[i];
             let toPlanet;
             if (rocket.departLocation === "Mars"){
                 toPlanet = "Earth";
