@@ -11,6 +11,7 @@ function flightsInit(){
     document.querySelector("div#flights").addEventListener("click", openPopUp);
     document.querySelector("select#sort").addEventListener("change", sortTargetAscendingOrDescending);
     document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
+    document.querySelector("form").addEventListener("keyup", sortFlightsByWeightOrVolume)
 }
 
 // function renderOptions(){
@@ -24,6 +25,22 @@ function flightsInit(){
 //         container.innerHTML += `<option value="${value}">${value}</option>`;
 //     });
 // }
+
+
+function sortFlightsByWeightOrVolume(e){
+    e.preventDefault();
+    let selectedWeight = document.querySelector("#weight").value;
+    let selectedVolume = document.querySelector("#volume").value;
+    let sortedFlights = [];
+
+    FLIGHTS_TO_SORT.forEach((flight) => {
+        if (flight.availableMass > selectedWeight && flight.availableVolume > selectedVolume){
+            sortedFlights.push(flight);
+        }
+    });
+
+    renderRockets(sortedFlights);
+}
 
 function sortRocketsBySearchValue(e){
     let sortValue = e.target.value;
@@ -40,7 +57,7 @@ function sortRocketsBySearchValue(e){
         });
 
 
-    console.log(sortedArray)
+    console.log(sortedArray);
 
     renderRockets(sortedArray);
 
