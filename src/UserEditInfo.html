@@ -26,85 +26,11 @@
     </div>
     <a class="back" href="login.html">Back</a>
     <h1>Edit your account</h1>
+<table id="tableUserInfo">
 
-    <table>
-        <caption>Fill in your details</caption>
-        <tr>
-            <th colspan="2" scope="row"><label for="email">Email:</label></th>
-        </tr>
-        <tr>
-            <td colspan="2"><input class="wide" type="email" id="email" name="email" value="" required></td>
-        </tr>
-        <tr>
-            <th scope="row"><label for="fname">First name:</label></th>
-            <th scope="row"><label for="lname">Last name:</label></th>
-        </tr>
-        <tr>
-            <td><input type="text" id="fname" name="fname" value="" required></td>
-            <td><input type="text" id="lname" name="lname" value="" required></td>
-        </tr>
-        <tr>
-            <th scope="row"><label for="planet">Planet:</label></th>
-            <th scope="row"><label for="phone">Phone:</label></th>
-        </tr>
-        <tr>
-            <td>
-                <select name="planet" id="planet" onchange="changeVisible()">
-                    <option value="earth">Earth</option>
-                    <option value="mars">Mars</option>
-                </select>
-            </td>
-            <td>
-                <input type="text" id="phone" name="phone" value="">
-            </td>
-        </tr>
-        <tr id="earthLabel">
-            <th scope="row"><label for="country">Country:</label></th>
-            <th scope="row"><label for="city">City:</label></th>
-        </tr>
-        <tr id="earth">
-            <td>
-                <input id="country" name="country"  required list="country-list" />
-                <datalist id="country-list">
-                </datalist>
-            </td>
-            <td>
-                <input type="text" id="city" name="city" value="" >
-            </td>
-        </tr>
-        <tr id="marsLabel">
-            <th colspan="2" scope="row"><label for="colony">Colony:</label></th>
-        </tr>
-        <tr id="mars">
-            <td colspan="2"><input class="wide" type="text" id="colony" name="colony" value=""></td>
-        </tr>
-        <tr>
-            <th scope="row"><label for="street">Street:</label></th>
-            <th scope="row"><label for="nr">Nr:</label></th>
-        </tr>
-        <tr>
-            <td><input type="text" id="street" name="street" value=""></td>
-            <td><input type="text" id="nr" name="nr" value=""></td>
-        </tr>
-        <tr>
-            <th scope="row"><label for="password">New password:</label></th>
-            <th scope="row"><label for="repeatPassword">Repeat new password:</label></th>
-        </tr>
-        <tr>
-            <td><input type="password" id="password" name="password" value="" required></td>
-            <td><input type="password" id="repeatPassword" name="repeatPassword" value="" required></td>
-        </tr>
-        <tr>
-            <th scope="row" colspan="2"><label for="oldPassword">New password:</label></th>
-        </tr>
-        <tr>
-            <td colspan="2"><input class="wide" type="password" id="oldPassword" name="password" value="" required></td>
-        </tr>
-        <tr>
-            <td class="wide" colspan="2"><input class="wide" id="submit" type="submit" value="Edit"></td>
-        </tr>
+</table>
 
-    </table>
+
 
     <section id="errorScreen" class="popup hidden">
 
