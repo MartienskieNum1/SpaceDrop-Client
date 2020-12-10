@@ -1,6 +1,6 @@
 let config;
 let api;
-let listeners = [];
+const LISTENERS = [];
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -18,9 +18,9 @@ async function init() {
 }
 
 function apiUrlLoaded() {
-    listeners.forEach(listener => listener.call());
+    LISTENERS.forEach(listener => listener.call());
 }
 
 function onApiUrlLoaded(listener){
-    listeners.push(listener);
+    LISTENERS.push(listener);
 }
