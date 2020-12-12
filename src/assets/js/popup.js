@@ -53,8 +53,8 @@ function renderFormWithUserDetails(rocket, container) {
                 <label for="rocketId">Rocket ${rocket.id}:</label>
                 <input type="text" id="rocketId" value="${rocket.id}" disabled>
                 
-                <label for="pricePerKilo">Fixed cost: €/kg</label>
-                <input type="text" id="pricePerKilo" value="${rocket.pricePerKilo}" disabled>
+                <label for="cost">Fixed cost: €/kg</label>
+                <input type="text" id="cost" value="${rocket.pricePerKilo}" disabled>
                 
                 <label for="mass">Mass:</label>
                 <input type="text" id="mass">

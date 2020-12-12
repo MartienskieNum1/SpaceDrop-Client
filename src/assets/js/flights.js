@@ -142,8 +142,10 @@ function setOrderInLocalStorage(e){
             const street = response.address.street;
             const number = response.address.number;
 
-            let tempOrder = orderToJson(userId, rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number)
-            console.log(tempOrder);
+            const parameterList = [userId, rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number]
+
+            let tempOrder = orderToJson(...parameterList);
+            console.log(tempOrder)
             setTempOrder(tempOrder);
         });
     }
