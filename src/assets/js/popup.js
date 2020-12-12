@@ -56,8 +56,6 @@ function renderFormWithUserDetails(rocket, container) {
                 <label for="pricePerKilo">Fixed cost: €/kg</label>
                 <input type="text" id="pricePerKilo" value="${rocket.pricePerKilo}" disabled>
                 
-                <br>
-                
                 <label for="mass">Mass:</label>
                 <input type="text" id="mass">
                 
