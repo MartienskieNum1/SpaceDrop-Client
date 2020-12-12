@@ -50,22 +50,22 @@ function renderFormWithUserDetails(rocket, container) {
             <h5>Fill in your order details:</h5>
             <form id="tempOrder" action="#" method="post">
                 <label for="rocketId">Rocket ${rocket.id}:</label>
-                <input type="text" id="rocketId" value="${rocket.id}" disabled>
+                <input type="number" id="rocketId" value="${rocket.id}" disabled>
                 
                 <label for="cost">Fixed cost: €/kg</label>
-                <input type="text" id="cost" value="${rocket.pricePerKilo}" disabled>
+                <input type="number" id="cost" value="${rocket.pricePerKilo}" disabled>
                 
                 <label for="mass">Mass:</label>
-                <input type="number" id="mass">
+                <input type="number" min="1" id="mass">
                 
                 <label for="width">Width:</label>
-                <input type="number" id="width">
+                <input type="number" min="1" id="width">
                 
                 <label for="height">Height:</label>
-                <input type="number" id="height">
+                <input type="number" min="1" id="height">
                 
                 <label for="depth">Depth:</label>
-                <input type="number" id="depth">
+                <input type="number" min="1" id="depth">
                 
             </form>
             <a href="#" id="submit" class="popUpButtons">Next</a>`;

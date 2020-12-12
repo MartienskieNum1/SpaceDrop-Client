@@ -3,26 +3,54 @@
 onApiUrlLoaded(paymentInit);
 
 function paymentInit() {
-    renderChosenPlanet();
+    renderOrder();
     document.querySelector("#paymentMethods").addEventListener("click", renderChosenPaymentMethod);
+    document.querySelector(".paymentScreen").addEventListener("click", createOrder);
 }
 
-function renderChosenPlanet() {
-    const CONTAINER = document.querySelector('tr[data-order="1"] td img');
+function renderOrder() {
 
-    CONTAINER.outerHTML =
-        `<img src="assets/images/icons/${getDestinationPlanet()}.png" alt="planet icon">`;
+    const tempOrder = getTempOrder();
+    const totalCost = tempOrder.cost * parseInt(tempOrder.mass);
+    const CONTAINER = document.querySelector('tr[data-order="1"]');
+
+    getRocketById(parseInt(tempOrder.rocketId)).then(rocket => {
+        CONTAINER.innerHTML =
+            `   <td><img src="assets/images/icons/${getDestinationPlanet()}.png" alt="planet icon"></td>
+            <td>${rocket.departure}</td>
+            <td>${rocket.arrival}</td>
+            <td>${tempOrder.mass} kg</td>
+            <td>${tempOrder.height} m</td>
+            <td>${tempOrder.width} m</td>
+            <td>${tempOrder.depth} m</td>
+            <td>€ ${totalCost}</td>
+            <td><a id="removeOrder" href="flights.html"><em class="fa fa-trash"></em></a></td>`;
+    });
+}
+
+function createOrder(e){
+
+    if (e.target.id === "createOrder"){
+        let tempOrder = getTempOrder();
+        addOrder(tempOrder).then(r => console.log(r.orderId));
+        window.location.href = "confirmation.html";
+    }
+
 }
 
 function renderChosenPaymentMethod(e){
     if (e.target.tagName === "P"){
-        const METHOD = e.target.closest("div").getAttribute("id");
-        handlePaymentPopup(METHOD);
+        const PAYMENT_METHOD = e.target.closest("div").getAttribute("id");
+        handlePaymentPopup(PAYMENT_METHOD);
     }
 }
 
-function handlePaymentPopup(method){
-    const CONTAINER = document.querySelector("#chosenPayment h5");
+function handlePaymentPopup(paymentMethod){
+    const HEADER = document.querySelector("#chosenPayment h5");
+    const BODY = document.querySelector("#chosenPayment p");
+
     document.querySelector("#chosenPayment").classList.remove("hidden");
-    CONTAINER.innerHTML = `${method} payment service provider`;
+
+    HEADER.innerHTML = `${paymentMethod} payment service provider`;
+    BODY.innerHTML = `By clicking continue, you confirm that your order details are correct.`;
 }

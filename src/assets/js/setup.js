@@ -24,9 +24,8 @@ function getUser(){
     return apiCall("details/user", "GET");
 }
 
-function addOrder(userId, rocketId, statusId, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number){
-    return apiCall("order", "POST",
-        orderToJson(userId, rocketId, statusId, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number));
+function addOrder(body){
+    return apiCall("order", "POST", body);
 }
 
 function getUserId(){
@@ -75,6 +74,7 @@ function userToJson(firstName, lastName, email, phoneNumber, password, planet, c
 
 function orderToJson(userId, rocketId, statusId, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number){
     return {
+        "orderId" : -1,
         "userId": userId,
         "rocketId": rocketId,
         "statusId": statusId,
@@ -83,11 +83,13 @@ function orderToJson(userId, rocketId, statusId, mass, width, height, depth, cos
         "height": height,
         "depth": depth,
         "cost": cost,
-        "planet": planet,
-        "countryOrColony": countryOrColony,
-        "cityOrDistrict": cityOrDistrict,
-        "street": street,
-        "number": number
+        "address": {
+            "planet": planet,
+            "countryOrColony": countryOrColony,
+            "cityOrDistrict": cityOrDistrict,
+            "street": street,
+            "number": number
+        }
     };
 }
 

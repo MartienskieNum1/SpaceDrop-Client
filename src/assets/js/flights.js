@@ -13,7 +13,7 @@ function flightsInit(){
     document.querySelector("select#sort").addEventListener("change", sortTargetAscendingOrDescending);
     document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
     document.querySelector("form").addEventListener("keyup", sortFlightsByWeightOrVolume);
-    document.querySelector("main").addEventListener("click", setOrderInLocalStorage);
+    document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
 
 }
 
@@ -129,12 +129,12 @@ function setOrderInLocalStorage(e){
 
     if (document.querySelector("a#submit") !== null && e.target.id === "submit"){
         getUser().then(response => {
-            const rocketId = document.getElementById("rocketId").value;
-            const mass = document.getElementById("mass").value;
-            const width = document.getElementById("width").value;
-            const height = document.getElementById("height").value;
-            const depth = document.getElementById("depth").value;
-            const cost = document.getElementById("cost").value;
+            const rocketId = parseInt(document.getElementById("rocketId").value);
+            const mass = parseInt(document.getElementById("mass").value);
+            const width = parseInt(document.getElementById("width").value);
+            const height = parseInt(document.getElementById("height").value);
+            const depth = parseInt(document.getElementById("depth").value);
+            const cost = parseInt(document.getElementById("cost").value);
             const userId = response.id;
             const planet = response.address.planet;
             const countryOrColony = response.address.countryOrColony;
@@ -146,6 +146,7 @@ function setOrderInLocalStorage(e){
 
             if (hasNoEmptyField(...parameterList)){
                 setTempOrder(orderToJson(...parameterList));
+                console.log(orderToJson(...parameterList));
                 window.location.href = "payment.html";
             }else{
                 showPopUp("Please fill in all the fields");
