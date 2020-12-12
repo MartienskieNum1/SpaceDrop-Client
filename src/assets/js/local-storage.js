@@ -51,7 +51,6 @@ function getOrderId(){
 
 function getToken(){
     let token = localStorage.getItem("token");
-    console.log(token);
 
     if (token === null){
         setToken(null);
@@ -59,4 +58,19 @@ function getToken(){
     }
 
     return JSON.parse(token);
+}
+
+function setTempOrder(order){
+    localStorage.setItem("tempOrder", JSON.stringify(order));
+}
+
+function getTempOrder(){
+    let tempOrder = localStorage.getItem("tempOrder");
+
+    if (tempOrder === null){
+        setTempOrder(null);
+        tempOrder = localStorage.getItem("tempOrder");
+    }
+
+    return JSON.parse(tempOrder);
 }

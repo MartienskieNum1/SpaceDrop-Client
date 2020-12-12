@@ -96,10 +96,3 @@ function includesEmptyField(planet, email, fname, lname, street, nr, colony, cou
     }
 }
 
-function showPopUp(message){
-    const CONTAINER = document.querySelector("#errorScreen h5");
-    CONTAINER.innerHTML = message;
-
-    const POPUP = document.querySelector("#errorScreen");
-    POPUP.classList.remove("hidden");
-}

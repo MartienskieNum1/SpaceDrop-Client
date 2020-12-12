@@ -13,6 +13,8 @@ function flightsInit(){
     document.querySelector("select#sort").addEventListener("change", sortTargetAscendingOrDescending);
     document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
     document.querySelector("form").addEventListener("keyup", sortFlightsByWeightOrVolume);
+    document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
+
 }
 
 function getRocketsForDestination(){
@@ -47,7 +49,13 @@ function sortFlightsByWeightOrVolume(){
 function sortRocketsBySearchValue(e){
     const SORT_VALUE = e.target.value;
 
-    sortedFlights.sort(function (a, b) {
+    let flightsToUse = sortedFlights;
+
+    if(sortedFlights.length === 0){
+        flightsToUse = flightsToSort;
+    }
+
+    flightsToUse.sort(function (a, b) {
             if (a[SORT_VALUE] < b[SORT_VALUE]) {
                 return -1;
             } else if (a[SORT_VALUE] > b[SORT_VALUE]) {
@@ -55,11 +63,18 @@ function sortRocketsBySearchValue(e){
             }
             return 0;
         });
-    renderRockets(sortedFlights);
+    renderRockets(flightsToUse);
 }
 
 function sortTargetAscendingOrDescending() {
-    renderRockets(sortedFlights.reverse());
+
+    let flightsToUse = sortedFlights;
+
+    if(sortedFlights.length === 0){
+        flightsToUse = flightsToSort;
+    }
+
+    renderRockets(flightsToUse.reverse());
 }
 
 function selectDefaultSorting(id, valueToSelect) {
@@ -93,7 +108,8 @@ function renderRockets(rockets) {
                     <td>${ROCKET.availableMass}</td>
                     <td>${ROCKET.pricePerKilo} Euro/kg</td>
                     <td><button>view more</button></td>
-                </tr>`;
+                </tr>`
+            ;
     }
 }
 
@@ -107,3 +123,40 @@ function renderFlightHead(container){
             <td></td>
           </tr>`;
 }
+
+function setOrderInLocalStorage(e){
+    e.preventDefault();
+
+    if (document.querySelector("a#submit") !== null && e.target.id === "submit"){
+
+        getUser().then(response => { // TODO: aanpassen zodat ook clients zonder account orders kunnen plaatsen
+            const rocketId = parseInt(document.getElementById("rocketId").value);
+            const mass = parseInt(document.getElementById("mass").value);
+            const width = parseInt(document.getElementById("width").value);
+            const height = parseInt(document.getElementById("height").value);
+            const depth = parseInt(document.getElementById("depth").value);
+            const cost = parseInt(document.getElementById("cost").value);
+            const userId = response.id;
+            const planet = response.address.planet;
+            const countryOrColony = response.address.countryOrColony;
+            const cityOrDistrict = response.address.cityOrDistrict;
+            const street = response.address.street;
+            const number = response.address.number;
+
+            const parameterList = [userId, rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number];
+
+            if (hasNoEmptyField(...parameterList)){
+                setTempOrder(orderToJson(...parameterList));
+                console.log(orderToJson(...parameterList));
+                window.location.href = "payment.html";
+            }else{
+                showPopUp("Please fill in all the fields");
+            }
+        });
+    }
+}
+
+function hasNoEmptyField(...parameterList){
+    return !parameterList.includes("") || parameterList.includes(" ");
+}
+
