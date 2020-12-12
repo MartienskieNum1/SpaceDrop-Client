@@ -8,7 +8,7 @@ function renderCountryList(){
         .then(response => response.json())
         .then(data => {
             data.forEach(country => {
-                CONTAINER.innerHTML += `<option value="${country.name}">${country.name}</option>`
+                CONTAINER.innerHTML += `<option value="${country.name}">${country.name}</option>`;
             });
         });
 }

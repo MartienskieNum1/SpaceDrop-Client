@@ -33,7 +33,7 @@ function fillWithForm(e) {
     let rocketId = parseInt(e.target.closest("tr").getAttribute("data-row"));
 
     getRocketById(rocketId).then(response => {
-        fillRocketPopup(response, CONTAINER)
+        fillRocketPopup(response, CONTAINER);
     });
 }
 
@@ -51,22 +51,16 @@ function renderFormWithUserDetails(rocket, container) {
             <form id="tempOrder" action="#" method="post">
                 <label for="rocketId">Rocket ${rocket.id}:</label>
                 <input type="number" id="rocketId" value="${rocket.id}" disabled>
-                
                 <label for="cost">Fixed cost: €/kg</label>
                 <input type="number" id="cost" value="${rocket.pricePerKilo}" disabled>
-                
                 <label for="mass">Mass:</label>
                 <input type="number" min="1" id="mass">
-                
                 <label for="width">Width:</label>
                 <input type="number" min="1" id="width">
-                
                 <label for="height">Height:</label>
                 <input type="number" min="1" id="height">
-                
                 <label for="depth">Depth:</label>
                 <input type="number" min="1" id="depth">
-                
             </form>
             <a href="#" id="submit" class="popUpButtons">Next</a>`;
 }

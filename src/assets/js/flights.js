@@ -128,7 +128,8 @@ function setOrderInLocalStorage(e){
     e.preventDefault();
 
     if (document.querySelector("a#submit") !== null && e.target.id === "submit"){
-        getUser().then(response => {
+
+        getUser().then(response => { // TODO: aanpassen zodat ook clients zonder account orders kunnen plaatsen
             const rocketId = parseInt(document.getElementById("rocketId").value);
             const mass = parseInt(document.getElementById("mass").value);
             const width = parseInt(document.getElementById("width").value);
@@ -142,7 +143,7 @@ function setOrderInLocalStorage(e){
             const street = response.address.street;
             const number = response.address.number;
 
-            const parameterList = [userId, rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number]
+            const parameterList = [userId, rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number];
 
             if (hasNoEmptyField(...parameterList)){
                 setTempOrder(orderToJson(...parameterList));
