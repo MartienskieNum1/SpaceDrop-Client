@@ -37,20 +37,42 @@ function fillWithForm(e) {
     });
 }
 
-// yes yes code duplication I know
+
 function fillRocketPopup(rocket, container) {
     if (container !== undefined){
-        container.innerHTML = `
-            <h5>Fill in your order details:</h5>
-            <tr data-row="${rocket.id}">
-                <td>${rocket.departure}</td>
-                <td>${rocket.arrival}</td>
-                <td>${rocket.availableVolume}³</td>
-                <td>${rocket.availableMass}</td>
-                <td>${rocket.pricePerKilo} Euro/kg</td>
-            </tr>`;
+        renderFormWithUserDetails(rocket, container);
     }
 
+}
+
+function renderFormWithUserDetails(rocket, container) {
+    container.innerHTML = `
+            <h5>Fill in your order details:</h5>
+
+            <form id="tempOrder" action="#" method="post">
+                <label for="rocketId">Rocket ${rocket.id}:</label>
+                <input type="text" id="rocketId" value="${rocket.id}" disabled>
+                
+                <label for="pricePerKilo">Fixed cost: €/kg</label>
+                <input type="text" id="pricePerKilo" value="${rocket.pricePerKilo}" disabled>
+                
+                <br>
+                
+                <label for="mass">Mass:</label>
+                <input type="text" id="mass">
+                
+                <label for="width">Width:</label>
+                <input type="text" id="width">
+                
+                <label for="height">Height:</label>
+                <input type="text" id="height">
+                
+                <label for="depth">Depth:</label>
+                <input type="text" id="depth">
+                
+            </form>
+            <br>
+            <a href="#" id="submit" class="popUpButtons">Next</a>`;
 }
 
 

@@ -24,9 +24,9 @@ function getUser(){
     return apiCall("details/user", "GET");
 }
 
-function addOrder(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
+function addOrder(userId, rocketId, statusId, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number){
     return apiCall("order", "POST",
-        orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost));
+        orderToJson(userId, rocketId, statusId, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number));
 }
 
 function getUserId(){
@@ -73,9 +73,8 @@ function userToJson(firstName, lastName, email, phoneNumber, password, planet, c
     };
 }
 
-function orderToJson(orderId, userId, rocketId, statusId, mass, width, height, depth, cost){
+function orderToJson(userId, rocketId, statusId, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number){
     return {
-        "orderId": orderId,
         "userId": userId,
         "rocketId": rocketId,
         "statusId": statusId,
@@ -83,7 +82,12 @@ function orderToJson(orderId, userId, rocketId, statusId, mass, width, height, d
         "width": width,
         "height": height,
         "depth": depth,
-        "cost": cost
+        "cost": cost,
+        "planet": planet,
+        "countryOrColony": countryOrColony,
+        "cityOrDistrict": cityOrDistrict,
+        "street": street,
+        "number": number
     };
 }
 

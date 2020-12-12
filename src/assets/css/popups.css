@@ -50,7 +50,7 @@ section.popup p {
     justify-content: space-around;
 }
 
-section.popup div.popupButtons a {
+section.popup div.popupButtons a, a#submit {
     background-color: #65C55E;
     padding: 0.2rem 0.5rem;
     border-radius: 10px;
@@ -58,6 +58,18 @@ section.popup div.popupButtons a {
     color: white;
     text-decoration: none;
 }
+
+#tempOrder{
+    display: grid;
+    grid-template-areas:
+            "rocket rocket-input cost cost-input"
+            "mass mass-input width width-input"
+            "height height-input depth depth-input";
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+}
+
 
 /* -------------------REGISTER------------------ */
 

@@ -13,6 +13,8 @@ function flightsInit(){
     document.querySelector("select#sort").addEventListener("change", sortTargetAscendingOrDescending);
     document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
     document.querySelector("form").addEventListener("keyup", sortFlightsByWeightOrVolume);
+    document.querySelector("main").addEventListener("click", setOrderInLocalStorage);
+
 }
 
 function getRocketsForDestination(){
@@ -106,7 +108,8 @@ function renderRockets(rockets) {
                     <td>${ROCKET.availableMass}</td>
                     <td>${ROCKET.pricePerKilo} Euro/kg</td>
                     <td><button>view more</button></td>
-                </tr>`;
+                </tr>`
+            ;
     }
 }
 
@@ -119,4 +122,29 @@ function renderFlightHead(container){
             <th scope="col">Price:</th>
             <td></td>
           </tr>`;
+}
+
+function setOrderInLocalStorage(e){
+    e.preventDefault();
+
+    if (document.querySelector("a#submit") !== null && e.target.id === "submit"){
+        getUser().then(response => {
+            const rocketId = document.getElementById("rocketId").value;
+            const mass = document.getElementById("mass").value;
+            const width = document.getElementById("width").value;
+            const height = document.getElementById("height").value;
+            const depth = document.getElementById("depth").value;
+            const cost = document.getElementById("cost").value;
+            const userId = response.id;
+            const planet = response.address.planet;
+            const countryOrColony = response.address.countryOrColony;
+            const cityOrDistrict = response.address.cityOrDistrict;
+            const street = response.address.street;
+            const number = response.address.number;
+
+            let tempOrder = orderToJson(userId, rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number)
+            console.log(tempOrder);
+            setTempOrder(tempOrder);
+        });
+    }
 }
