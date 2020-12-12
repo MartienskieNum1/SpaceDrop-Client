@@ -48,7 +48,6 @@ function fillRocketPopup(rocket, container) {
 function renderFormWithUserDetails(rocket, container) {
     container.innerHTML = `
             <h5>Fill in your order details:</h5>
-
             <form id="tempOrder" action="#" method="post">
                 <label for="rocketId">Rocket ${rocket.id}:</label>
                 <input type="text" id="rocketId" value="${rocket.id}" disabled>
@@ -57,19 +56,18 @@ function renderFormWithUserDetails(rocket, container) {
                 <input type="text" id="cost" value="${rocket.pricePerKilo}" disabled>
                 
                 <label for="mass">Mass:</label>
-                <input type="text" id="mass">
+                <input type="number" id="mass">
                 
                 <label for="width">Width:</label>
-                <input type="text" id="width">
+                <input type="number" id="width">
                 
                 <label for="height">Height:</label>
-                <input type="text" id="height">
+                <input type="number" id="height">
                 
                 <label for="depth">Depth:</label>
-                <input type="text" id="depth">
+                <input type="number" id="depth">
                 
             </form>
-            <br>
             <a href="#" id="submit" class="popUpButtons">Next</a>`;
 }
 
@@ -81,4 +79,12 @@ function showConfirmation(e) {
 function closePopUp(e) {
     e.preventDefault();
     e.target.closest(".popup").classList.add("hidden");
+}
+
+function showPopUp(message){
+    const CONTAINER = document.querySelector("#errorScreen h5");
+    CONTAINER.innerHTML = message;
+
+    const POPUP = document.querySelector("#errorScreen");
+    POPUP.classList.remove("hidden");
 }

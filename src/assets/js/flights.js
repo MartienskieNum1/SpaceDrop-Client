@@ -144,9 +144,17 @@ function setOrderInLocalStorage(e){
 
             const parameterList = [userId, rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number]
 
-            let tempOrder = orderToJson(...parameterList);
-            console.log(tempOrder)
-            setTempOrder(tempOrder);
+            if (hasNoEmptyField(...parameterList)){
+                setTempOrder(orderToJson(...parameterList));
+                window.location.href = "payment.html";
+            }else{
+                showPopUp("Please fill in all the fields");
+            }
         });
     }
 }
+
+function hasNoEmptyField(...parameterList){
+    return !parameterList.includes("") || parameterList.includes(" ");
+}
+

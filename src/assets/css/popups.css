@@ -70,6 +70,7 @@ section.popup div.popupButtons a, a#submit {
     grid-template-rows:1fr 1fr 1fr;
     column-gap: 1rem;
     row-gap: 5px;
+    margin-bottom: 2rem;
 }
 
 
