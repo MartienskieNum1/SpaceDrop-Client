@@ -74,3 +74,18 @@ function getTempOrder(){
 
     return JSON.parse(tempOrder);
 }
+
+function setFinalOrder(order){
+    localStorage.setItem("finalOrder", JSON.stringify(order));
+}
+
+function getFinalOrder(){
+    let finalOrder = localStorage.getItem("finalOrder");
+
+    if (finalOrder === null){
+        setFinalOrder(null);
+        finalOrder = localStorage.getItem("finalOrder");
+    }
+
+    return JSON.parse(finalOrder);
+}

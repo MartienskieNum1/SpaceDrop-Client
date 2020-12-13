@@ -29,13 +29,14 @@ function renderOrder() {
 }
 
 function createOrder(e){
-
     if (e.target.id === "createOrder"){
         let tempOrder = getTempOrder();
-        addOrder(tempOrder).then(r => console.log(r.orderId));
-        window.location.href = "confirmation.html";
+        addOrder(tempOrder).then(finalOrder => {
+            setFinalOrder(finalOrder);
+        }).then(() => {
+            window.location.href = "confirmation.html";
+        });
     }
-
 }
 
 function renderChosenPaymentMethod(e){
