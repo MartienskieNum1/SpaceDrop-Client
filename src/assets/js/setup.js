@@ -44,6 +44,10 @@ function getRockets(){
     return apiCall("rockets", "GET");
 }
 
+function getOrderById(rocketId){
+    return apiCall( `orders/${rocketId}`, "GET");
+}
+
 function getRocketById(rocketId){
     return getRockets().then(function (response){
         for(let i=0;i<response.length;i++){

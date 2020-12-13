@@ -147,7 +147,6 @@ function setOrderInLocalStorage(e){
 
             if (hasNoEmptyField(...parameterList)){
                 setTempOrder(orderToJson(...parameterList));
-                console.log(orderToJson(...parameterList));
                 window.location.href = "payment.html";
             }else{
                 showPopUp("Please fill in all the fields");
