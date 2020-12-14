@@ -10,28 +10,28 @@ function paymentInit() {
 
 function renderOrder() {
 
-    const tempOrder = getTempOrder();
-    const totalCost = tempOrder.cost * parseInt(tempOrder.mass);
+    const TEMP_ORDER = getTempOrder();
+    const TOTAL_COST = TEMP_ORDER.cost * parseInt(TEMP_ORDER.mass);
     const CONTAINER = document.querySelector('tr[data-order="1"]');
 
-    getRocketById(parseInt(tempOrder.rocketId)).then(rocket => {
+    getRocketById(parseInt(TEMP_ORDER.rocketId)).then(rocket => {
         CONTAINER.innerHTML =
             `   <td><img src="assets/images/icons/${getDestinationPlanet()}.png" alt="planet icon"></td>
             <td>${rocket.departure}</td>
             <td>${rocket.arrival}</td>
-            <td>${tempOrder.mass} kg</td>
-            <td>${tempOrder.height} m</td>
-            <td>${tempOrder.width} m</td>
-            <td>${tempOrder.depth} m</td>
-            <td>€ ${totalCost}</td>
+            <td>${TEMP_ORDER.mass} kg</td>
+            <td>${TEMP_ORDER.height} m</td>
+            <td>${TEMP_ORDER.width} m</td>
+            <td>${TEMP_ORDER.depth} m</td>
+            <td>€ ${TOTAL_COST}</td>
             <td><a id="removeOrder" href="flights.html"><em class="fa fa-trash"></em></a></td>`;
     });
 }
 
 function createOrder(e){
     if (e.target.id === "createOrder"){
-        let tempOrder = getTempOrder();
-        addOrder(tempOrder).then(finalOrder => {
+        const TEMP_ORDER = getTempOrder();
+        addOrder(TEMP_ORDER).then(finalOrder => {
             setFinalOrder(finalOrder);
         }).then(() => {
             window.location.href = "confirmation.html";

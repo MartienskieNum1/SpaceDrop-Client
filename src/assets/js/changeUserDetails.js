@@ -56,7 +56,8 @@ function addOrEdit(addEdit){
     const city = document.getElementById("city").value;
 
     const validPass = isPasswordValid(password, repeatPassword);
-    const allFieldsFilled = !includesEmptyField(planet, email, phone, fname, lname, street, nr, colony, country, city);
+    const fieldsArgs = [planet, email, phone, fname, lname, street, nr, colony, country, city]
+    const allFieldsFilled = !includesEmptyField(...fieldsArgs);
 
     if(!validPass){
         showPopUp("Passwords are not identical");
@@ -88,11 +89,7 @@ function addOrEdit(addEdit){
 }
 
 function checkColonyOrCountry(colony, country){
-    if(colony === ""){
-        return country;
-    }else{
-        return colony;
-    }
+    return ( (colony === "") ? country : colony);
 }
 
 function showPopUp(message){
