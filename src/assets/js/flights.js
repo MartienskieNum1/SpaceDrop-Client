@@ -14,7 +14,7 @@ function flightsInit(){
     document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
     document.querySelector("form").addEventListener("keyup", sortFlightsByWeightOrVolume);
     document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
-
+    document.querySelector("ul.nav").addEventListener("click", logInOrOut);
 }
 
 function getRocketsForDestination(){
