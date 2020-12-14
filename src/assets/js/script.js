@@ -11,6 +11,7 @@ function homeInit(){
 function goToFlights(e) {
     const ID = e.target.closest("div").getAttribute("id");
     addPlanetToLocalStorage(ID);
+    window.location.href = "flights.html";
 }
 
 function showNextPage(){
