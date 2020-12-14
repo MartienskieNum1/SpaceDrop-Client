@@ -1,7 +1,8 @@
 "use strict";
+// TODO: tableHeader code duplication in 2 files -> mss opnemen in setup.js als getTableHeader()
 const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
-    '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
-    '<th scope="col">Volume:</th><td></td></tr>';
+                    '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
+                    '<th scope="col">Volume:</th><td></td></tr>';
 
 const tableHeader2= '<tr class="tableHeaders">' +
     '                <th scope="col">Ordernr:</th>'+
@@ -17,7 +18,7 @@ onApiUrlLoaded(adminFlightOverviewInit);
 
 function adminFlightOverviewInit() {
     const flightId = getFlightId();
-    getRockets().then(function(rockets){
+    getRockets().then(function(rockets){  // TODO: use getRocketById
         let rocket =null;
         for (let i = 0; i < rockets.length; i++) {
             const selectedRocket = rockets[i];
@@ -41,18 +42,18 @@ function showOrdersRocket(rocket) {
         for (let i = 0; i < orders.length; i++) {
             if (orders[i].rocketId.toString() === rocket.id.toString()) {
                 getUsers().then(function (users) {
-                    let name = "";
-                    let returnAdress ="";
                     for (let x = 0; x < users.length; x++) {
                         if (users[x].id.toString() === orders[i].userId.toString()) {
-                            name= users[x].firstName + " " + users[x].lastName;
-                            returnAdress= users[x].address.street + " " + users[x].address.number + " " + users[x].address.cityOrDistrict + " " + users[x].address.countryOrColony + " " + users[x].address.planet;
+                            const name = users[x].firstName + " " + users[x].lastName;
+                            //returnAddress= users[x].address.street + " " + users[x].address.number + " " + users[x].address.cityOrDistrict + " " + users[x].address.countryOrColony + " " + users[x].address.planet;
+                            //TODO: template literal gebruiken zodat het onder de toegelaten 180 karakters blijft
+                            const returnAddress = `${users[x].address.street} ${users[x].address.number} ${users[x].address.cityOrDistrict} ${users[x].address.countryOrColony} ${users[x].address.planet}`;
                             ordersRocket += `<tr data-row='${orders[i].orderId}'>
                                 <td>${orders[i].orderId}</td>
                                 <td>${name}</td>
                                 <td>RECEIVER</td>
-                                <td>ADRESS</td>
-                                <td>${returnAdress}</td>
+                                <td>ADDRESS</td>
+                                <td>${returnAddress}</td>
                                 <td>${orders[i].status}</td>
                                 <td><button>delete</button></td>
                                 </tr>`;
