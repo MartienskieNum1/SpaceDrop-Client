@@ -108,3 +108,30 @@ function logout(){
     window.location.href = "login.html";
 }
 
+
+function getLoggedInStatus(){
+    return getToken() !== "";
+}
+
+function checkIfLoggedIn(){
+    if (getLoggedInStatus()){
+        document.querySelector("a.AccountLoginButton").outerHTML =
+            `<li class="AccountLogoutButton"><a class="AccountLogoutButton" href="index.html">Logout (user)</a></li>`;
+    }else{
+        document.querySelector("a.AccountLoginButton").outerHTML =
+            `<li class="AccountLoginButton"><a class="AccountLoginButton" href="login.html">Login</a></li>`;
+    }
+}
+
+function logInOrOut(e){
+    e.preventDefault();
+    console.log("YO")
+    if (e.target.classList.contains("AccountLoginButton")){
+        console.log("LOG IN")
+        window.location.href = "login.html";
+    }else if (e.target.classList.contains("AccountLogoutButton")){
+        console.log("LOG OUT")
+        logout();
+    }
+}
+

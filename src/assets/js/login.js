@@ -6,6 +6,7 @@ function loginInit() {
     document.querySelector("#submit").addEventListener("submit", preventFormSubmit);
     document.querySelector("#submit").addEventListener("click", login);
     document.querySelector("#reg").addEventListener("click", goToReg);
+    document.querySelector("#user").addEventListener("click", logInMockUser);
 }
 
 function preventFormSubmit(e){
@@ -14,23 +15,35 @@ function preventFormSubmit(e){
 
 function login(e) {
     e.preventDefault();
-
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
     if (email === "" || password === "") {
         showPopUp("Please fill in all fields");
     }else{
-        loginUser(email, password).then(response => {
-            if (response.message === undefined){
-                setToken(response);
-                window.location.href = "userInfo.html"; // TODO: change this
-            }else{
-                showPopUp("User credentials invalid, try again or register first.");
-            }
-        });
+        loginNormalUser(email, password);
     }
+}
 
+function logInMockUser(e){
+    e.preventDefault();
+    if (e.target.id === "user"){
+        const email = "user@space.drop";
+        const password = "mock";
+
+        loginNormalUser(email, password);
+    }
+}
+
+function loginNormalUser(email, password){
+    loginUser(email, password).then(response => {
+        if (response.message === undefined){
+            setToken(response);
+            window.location.href = "index.html"; // TODO: change this
+        }else{
+            showPopUp("User credentials invalid, try again or register first.");
+        }
+    });
 }
 
 function showPopUp(message){
