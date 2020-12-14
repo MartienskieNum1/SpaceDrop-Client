@@ -49,6 +49,13 @@ header a.AccountLoginButton {
     border-radius: 10px;
 }
 
+header a.AccountLogoutButton {
+    display: block;
+    padding: 0.2rem 2rem;
+    background-color: #c82c2f;
+    border-radius: 10px;
+}
+
 nav li {
     width: 15rem;
 }

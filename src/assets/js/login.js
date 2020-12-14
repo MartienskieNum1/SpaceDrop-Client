@@ -25,7 +25,7 @@ function login(e) {
     }
 }
 
-function logInMockUser(e){
+function logInMockUser(e){ //TODO: implement this on server side: hashed pass = $2a$10$y4ZEbUKH1NBMOneHg.JwrecL8VIyNFfoZcQPsBw2tbriXyIdRzQKW
     e.preventDefault();
     if (e.target.id === "user"){
         const email = "user@space.drop";
@@ -39,7 +39,7 @@ function loginNormalUser(email, password){
     loginUser(email, password).then(response => {
         if (response.message === undefined){
             setToken(response);
-            window.location.href = "index.html"; // TODO: change this
+            window.location.href = "index.html";
         }else{
             showPopUp("User credentials invalid, try again or register first.");
         }
