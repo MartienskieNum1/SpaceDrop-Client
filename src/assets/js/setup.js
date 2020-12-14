@@ -63,40 +63,40 @@ function getRocketById(rocketId){
     });
 }
 
-function userToJson(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
+function userToJson(...body){
     return {
-        "firstName": firstName,
-        "lastName": lastName,
-        "email": email,
-        "phoneNumber": phoneNumber,
-        "password": password,
+        "firstName": body[0],
+        "lastName": body[1],
+        "email": body[2],
+        "phoneNumber": body[3],
+        "password": body[4],
         "address": {
-            "planet": planet,
-            "countryOrColony": country_or_colony,
-            "cityOrDistrict": city_or_district,
-            "street": street,
-            "number": number
+            "planet": body[5],
+            "countryOrColony": body[6],
+            "cityOrDistrict": body[7],
+            "street": body[8],
+            "number": body[9]
         }
     };
 }
 
-function orderToJson(userId, rocketId, statusId, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number){
+function orderToJson(...body){
     return {
         "orderId" : -1,
-        "userId": userId,
-        "rocketId": rocketId,
-        "statusId": statusId,
-        "mass": mass,
-        "width": width,
-        "height": height,
-        "depth": depth,
-        "cost": cost,
+        "userId": body[0],
+        "rocketId": body[1],
+        "statusId": body[2],
+        "mass": body[3],
+        "width": body[4],
+        "height": body[5],
+        "depth": body[6],
+        "cost": body[7],
         "address": {
-            "planet": planet,
-            "countryOrColony": countryOrColony,
-            "cityOrDistrict": cityOrDistrict,
-            "street": street,
-            "number": number
+            "planet": body[8],
+            "countryOrColony": body[9],
+            "cityOrDistrict": body[10],
+            "street": body[11],
+            "number": body[12]
         }
     };
 }
@@ -123,12 +123,9 @@ function checkIfLoggedIn(){
 
 function logInOrOut(e){
     e.preventDefault();
-    console.log("YO")
     if (e.target.classList.contains("AccountLoginButton")){
-        console.log("LOG IN")
         window.location.href = "login.html";
     }else if (e.target.classList.contains("AccountLogoutButton")){
-        console.log("LOG OUT")
         logout();
     }
 }
