@@ -102,18 +102,19 @@ class SmokeTrail {
 class Rocket {
     constructor() {
         this.color = "white";
-        this.width = 30;
-        this.height = 10;
+        this.colorv2 = "red";
+        this.width = 55;
+        this.height = 18;
+        this.width2= 30;
+        this.height2 = 10;
+        this.width3 = 25;
+        this.height3 = 15;
+        this.width4 = 35;
+        this.height4 = 5;
         this.position = new Vector(145, (canvas.height - this.height)/2);
         this.velocity = new Vector(0, 0);
         this.acceleration = new Vector(0.1, 0);
         this.smokeTrail = new SmokeTrail(this);
-    }
-
-    reset() {
-        this.position = new Vector(0, (canvas.height - this.height)/2);
-        this.acceleration = new Vector(0, 0);
-        this.velocity = new Vector(0, 0);
     }
 
     animate() {
@@ -121,7 +122,7 @@ class Rocket {
         this.velocity.add(this.acceleration);
         position.add(this.velocity);
 
-        if(!inbounds(position.x+655, position.y, this.width, this.height)) { //position.x + 1455 is de start, 205 is het aankomen bij de andere planeet,
+        if(!inbounds(position.x+455, position.y, this.width, this.height)) { //position.x + 1455 is de start, 205 is het aankomen bij de andere planeet,
             this.acceleration=new Vector(0, 0);
             this.velocity = new Vector(0, 0);
             this.smokeTrail.smokesPerAnimation=0;
@@ -129,13 +130,19 @@ class Rocket {
 
         this.smokeTrail.animate();
         context.fillStyle = this.color;
+        let positioning2 =(canvas.height - this.height2)/2;
+        let positioning3 =(canvas.height - this.height3)/2;
+        let positioning4 =(canvas.height - this.height4)/2;
         context.fillRect(position.x, position.y, this.width, this.height);
+        context.fillRect(position.x+this.width, positioning2, this.width2, this.height2);
+        context.fillRect(position.x+this.width+this.width2, positioning3, this.width3, this.height3);
+        context.fillStyle = this.colorv2;
+        context.fillRect(position.x-7, positioning4, this.width4, this.height4);
     }
 }
 
 class Planet1{
     constructor(planet) {
-        console.log(planet);
         this.color = "#FF2515";
     }
     animate(){
@@ -148,7 +155,6 @@ class Planet1{
 
 class Planet2{
     constructor(planet) {
-        console.log(planet);
         this.color2= "#0f5e9c";
 
     }
@@ -157,6 +163,5 @@ class Planet2{
         context.fillStyle = this.color2;
         context.arc(1500, canvas.height/2, 60, 0, 2 * Math.PI);
         context.fill();
-
     }
 }
