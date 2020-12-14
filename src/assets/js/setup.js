@@ -11,15 +11,13 @@ function loginUser(email, password){
     });
 }
 
-function addUser(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
-    return apiCall("user", "POST",
-        userToJson(firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number));
+function addUser(body){
+    return apiCall("user", "POST", body);
 }
 
-function editUser(oldPassword,firstName, lastName, email, phoneNumber, password, planet, country_or_colony, city_or_district, street, number){
-    console.log(userToJson(firstName, lastName, email, phoneNumber,password, planet, country_or_colony, city_or_district, street, number));
+function editUser(oldPassword, body){
     return apiCall("update/user", "PATCH",
-        [oldPassword,userToJson(firstName, lastName, email, phoneNumber,password, planet, country_or_colony, city_or_district, street, number)]);
+        [oldPassword,body]);
 }
 
 function getUsers(){

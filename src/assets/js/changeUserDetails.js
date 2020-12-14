@@ -64,8 +64,9 @@ function addOrEdit(addEdit){
         showPopUp("Please fill in the required fields");
     }else{
         const COLONY_OR_COUNTRY = checkColonyOrCountry(colony, country);
+        const userArgs = [fname, lname, email, phone, password, planet, COLONY_OR_COUNTRY, city, street, parseInt(nr)];
         if(addEdit ==="add"){
-            addUser(fname, lname, email, phone, password, planet, COLONY_OR_COUNTRY, city, street, parseInt(nr)).then(response => {
+            addUser(userToJson(...userArgs)).then(response => {
                 if (response.message === undefined){
                     setToken(response);
                     window.location.href = "login.html";
@@ -75,7 +76,7 @@ function addOrEdit(addEdit){
             });
         }else if(addEdit ==="edit"){
             const oldPassword = document.getElementById("oldPassword").value;
-            editUser(oldPassword ,fname, lname, email, phone, password, planet, COLONY_OR_COUNTRY, city, street, parseInt(nr)).then(response => {
+            editUser(oldPassword, userToJson(...userArgs)).then(response => {
                 if (response.message === undefined){
                     window.location.href = "userInfo.html";
                 }else{
