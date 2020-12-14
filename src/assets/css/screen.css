@@ -42,18 +42,18 @@ header nav li img {
     float: left;
 }
 
-header a.AccountLoginButton {
+header a.AccountLoginButton, a.AccountLogoutButton  {
     display: block;
     padding: 0.2rem 2rem;
-    background-color: #65C55E;
     border-radius: 10px;
 }
 
+header a.AccountLoginButton{
+    background-color: #65C55E;
+}
+
 header a.AccountLogoutButton {
-    display: block;
-    padding: 0.2rem 2rem;
     background-color: #c82c2f;
-    border-radius: 10px;
 }
 
 nav li {
