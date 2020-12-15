@@ -5,7 +5,6 @@ onApiUrlLoaded(userOrderInit);
 
 const tableHeaders = `<tr class=\"tableHeaders\">
                         <th scope="col">From:</th>
-                        <th scope="col">To:</th>
                         <th scope="col">Address:</th>
                         <th scope="col">Ordernr:</th>
                         <th scope="col">Orderstatus:</th>
@@ -40,11 +39,11 @@ function showOrders(){
             console.log(orders[i]);
             const ORDER = orders[i];
             getRockets().then(function (rockets) {
-                for (let x = 0; x < orders.length; x++){
+                for (let x = 0; x < rockets.length; x++){
                     if(ORDER.rocketId.toString()===rockets[x].id.toString()){
-                        if(rockets[x].departLocation === "Earth"){
+                        if(rockets[x].departLocation === "Mars"){
                             marsOrders += fillTableWithContent(earthOrders, ORDER, rockets[x]);
-                        }else if(rockets[x].departLocation === "Mars"){
+                        }else if(rockets[x].departLocation === "Earth"){
                             earthOrders += fillTableWithContent(marsOrders, ORDER, rockets[x]);
                         }
                     }
@@ -63,15 +62,15 @@ function goToOrderDetail(orderId) {
 
 
 function fillTableWithContent(container, order, rocket){
+    console.log(order.address);
     return `<tr data-row='${order.orderId}'>
                     <td>${order.userId}</td>
-                    <td>NAME RECIEVER</td>
-                    <td>ADDRESS RECIEVER</td>
+                    <td>${order.address}</td>
                     <td>${order.orderId}</td>
-                    <td>${order.status}</td>
+                    <td>${order.statusId}</td>
                     <td>${rocket.departure}</td>
                     <td>${rocket.arrival}</td>
                     <td>${order.cost}</td>
-                    <td><button onclick="goToOrderDetail('${order.orderId}')">view more</button></td>
+                    <td><button onclick="goToOrderDetail(${order.orderId})">view more</button></td>
                  </tr>`;
 }
