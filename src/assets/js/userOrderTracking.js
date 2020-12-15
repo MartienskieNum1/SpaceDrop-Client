@@ -48,7 +48,7 @@ function showOrderdetails(orderId) {
                 });
             }
         }
-    })
+    });
 }
 
 function showProgression(progressionLevel) {
