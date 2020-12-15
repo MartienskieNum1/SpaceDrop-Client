@@ -20,6 +20,7 @@ function flightsInit(){
 function showNextPage(){
     document.getElementById("loader").style.display = "none";
     document.getElementById("hiddenDiv").style.display = "flex";
+    document.getElementById("optimizing").classList.add("hidden");
 }
 
 

@@ -125,8 +125,24 @@ div#flights table tr:nth-child(even){
     text-align: center;
 }
 
-#hiddenDiv{
+#optimizing{
+    margin-top: 4rem;
+}
+
+#hiddenDiv, .hidden{
     display: none;
 }
 
+/*-------------LOADING FONT -------------------*/
 
+.loading {
+    font-size: 84px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-align: center;
+}
+
+span {
+    display: inline-block;
+    margin: 0 -.05em;
+}
