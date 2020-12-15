@@ -32,20 +32,6 @@ function showOverview(planet) {
         }
         container.innerHTML = getTableHeader() + flightsToChosenPlanet;
     });
-
-
-}
-
-function fillTableWithContent(flight){
-    return `<tr data-row='${flight.id}'>
-                    <td>${flight.id}</td>
-                    <td>STATUS</td>
-                    <td>${flight.departure}</td>
-                    <td>${flight.arrival}</td>
-                    <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>
-                    <td>${flight.maxVolume-flight.availableVolume}/${flight.maxVolume} m3</td>
-                    <td><button onclick="goToFlightDetail('${flight.id}')">more info</button></td>
-                </tr>`;
 }
 
 

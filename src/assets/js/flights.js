@@ -2,7 +2,6 @@
 
 onApiUrlLoaded(flightsInit);
 
-// TODO: remove these global variables
 let flightsToSort = [];
 let sortedFlights = [];
 
@@ -14,7 +13,6 @@ function flightsInit(){
     document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
     document.querySelector("form").addEventListener("keyup", sortFlightsByWeightOrVolume);
     document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
-    document.querySelector("ul.nav").addEventListener("click", logInOrOut);
 }
 
 function getRocketsForDestination(){
@@ -129,7 +127,7 @@ function setOrderInLocalStorage(e){
 
     if (document.querySelector("a#submit") !== null && e.target.id === "submit"){
 
-        getUser().then(response => { // TODO: aanpassen zodat ook clients zonder account orders kunnen plaatsen
+        getUser().then(response => { // TODO: aanpassen zodat ook clients zonder account orders kunnen plaatsen -> server
             const rocketId = parseInt(document.getElementById("rocketId").value);
             const mass = parseInt(document.getElementById("mass").value);
             const width = parseInt(document.getElementById("width").value);
