@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/screen.css">
+    <link rel="stylesheet" href="assets/css/filter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Refine your choice</title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul class="nav">
+            <li><a class="home" href="index.html"><em class="fa fa-home" style="font-size:48px"></em></a></li>
+            <li><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
+            <li class="AccountLoginButton"><a class="AccountLoginButton" href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section class="filterBot filter">
+
+        <div class="contentwrapper filterIntro">
+            <h5>Flight optimizer</h5>
+            <p>My name is SpaceBot and I'm here to help you find a flight optimized for your order.</p>
+            <img src="images/Chatbot.png" alt="chatbot">
+
+            <div class="buttons">
+                <a id="optimize" href="#">Continue</a>
+                <a href="flights.html">Skip</a>
+            </div>
+
+        </div>
+    </section>
+    
+    <section class="filterStep1 filter hidden">
+
+        <div class="contentwrapper">
+
+            <h5>What are the dimensions of your package?</h5>
+
+            <form class="filterStep1" action="#" method="post">
+
+                <label for="mass">Mass:</label>
+                <input type="number" min="1" id="mass">
+                <label for="width">Width:</label>
+                <input type="number" min="1" id="width">
+                <label for="height">Height:</label>
+                <input type="number" min="1" id="height">
+                <label for="depth">Depth:</label>
+                <input type="number" min="1" id="depth">
+
+            </form>
+
+            <div class="buttons">
+                <a id="nextStep" href="#">Continue</a>
+                <a href="flights.html">Skip</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="filterStep2 filter hidden">
+
+        <div class="contentwrapper">
+
+            <h5>When do you want to send your package ?</h5>
+
+            <form class="filterStep2" action="#" method="post">
+
+                <label for="speed">Time of departure:</label>
+                <select name="speed" id="speed">
+                    <option value="fast">Fast</option>
+                    <option value="normal">Normal</option>
+                    <option value="slow">Slow</option>
+                </select>
+
+            </form>
+
+            <div class="buttons">
+                <a href="flights.html">Continue</a>
+                <a href="flights.html">Skip</a>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/setup.js"></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/filter.js"></script>
+    <script src="assets/js/local-storage.js"></script>
+
+</body>
+</html>

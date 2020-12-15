@@ -114,10 +114,10 @@ function getLoggedInStatus(){
 function checkIfLoggedIn(){
     if (getLoggedInStatus()){
         document.querySelector("a.AccountLoginButton").outerHTML =
-            `<li class="AccountButton"><a class="AccountButton" href="index.html">Account</a></li>`;
+            `<a class="AccountButton" href="index.html">Account</a>`;
     }else{
         document.querySelector("a.AccountLoginButton").outerHTML =
-            `<li class="AccountLoginButton"><a class="AccountLoginButton" href="login.html">Login</a></li>`;
+            `<a class="AccountLoginButton" href="login.html">Login</a>`;
     }
 }
 
@@ -127,6 +127,8 @@ function logInOrAccount(e){
         window.location.href = "login.html";
     }else if (e.target.classList.contains("AccountButton")){
         window.location.href = "userInfo.html";
+    }else{
+        window.location.href = "index.html";
     }
 }
 
