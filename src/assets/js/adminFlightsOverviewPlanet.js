@@ -1,8 +1,6 @@
 "use strict";
 onApiUrlLoaded(adminFlightOverviewPlanetInit);
-const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightnr:</th><th scope="col">Orderstatus:</th>' +
-    '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
-    '<th scope="col">Volume:</th><td></td></tr>';
+
 function adminFlightOverviewPlanetInit() {
     const planet = getDestinationPlanet();
     if(planet!=="Mars"&&planet!=="Earth"){
@@ -32,7 +30,7 @@ function showOverview(planet) {
                 flightsToChosenPlanet += fillTableWithContent(rocket);
             }
         }
-        container.innerHTML = tableHeader + flightsToChosenPlanet;
+        container.innerHTML = getTableHeader() + flightsToChosenPlanet;
     });
 
 

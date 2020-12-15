@@ -1,19 +1,4 @@
 "use strict";
-// TODO: tableHeader code duplication in 2 files -> mss opnemen in setup.js als getTableHeader()
-const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
-                    '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
-                    '<th scope="col">Volume:</th><td></td></tr>';
-
-const tableHeader2= '<tr class="tableHeaders">' +
-    '                <th scope="col">Ordernr:</th>'+
-    '                <th scope="col">From:</th>' +
-    '                <th scope="col">To:</th>' +
-    '                <th scope="col">Address:</th>' +
-    '                <th scope="col">Return:</th>' +
-    '                <th scope="col">Status:</th>' +
-    '                <td></td>' +
-    '            </tr>';
-
 onApiUrlLoaded(adminFlightOverviewInit);
 
 function adminFlightOverviewInit() {
@@ -45,8 +30,6 @@ function showOrdersRocket(rocket) {
                     for (let x = 0; x < users.length; x++) {
                         if (users[x].id.toString() === orders[i].userId.toString()) {
                             const name = users[x].firstName + " " + users[x].lastName;
-                            //returnAddress= users[x].address.street + " " + users[x].address.number + " " + users[x].address.cityOrDistrict + " " + users[x].address.countryOrColony + " " + users[x].address.planet;
-                            //TODO: template literal gebruiken zodat het onder de toegelaten 180 karakters blijft
                             const returnAddress = `${users[x].address.street} ${users[x].address.number} ${users[x].address.cityOrDistrict} ${users[x].address.countryOrColony} ${users[x].address.planet}`;
                             ordersRocket += `<tr data-row='${orders[i].orderId}'>
                                 <td>${orders[i].orderId}</td>
@@ -59,7 +42,7 @@ function showOrdersRocket(rocket) {
                                 </tr>`;
                         }
                     }
-                    containerOrders.innerHTML = tableHeader2 + ordersRocket;
+                    containerOrders.innerHTML = getTableHeader2() + ordersRocket;
                 });
             }
         }
@@ -68,7 +51,7 @@ function showOrdersRocket(rocket) {
 
 function showDetails(rocket) {
     const containerDetails = document.querySelector("#flightsContent");
-    containerDetails.innerHTML = tableHeader + `<tr data-row='${rocket.id}'>
+    containerDetails.innerHTML = getTableHeader() + `<tr data-row='${rocket.id}'>
                     <td>${rocket.id}</td>
                     <td>STATUS</td>
                     <td>${rocket.departure}</td>

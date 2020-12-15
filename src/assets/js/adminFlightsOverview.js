@@ -1,7 +1,4 @@
 "use strict";
-const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
-                    '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
-                    '<th scope="col">Volume:</th><td></td></tr>';
 
 onApiUrlLoaded(adminFlightOverviewInit);
 
@@ -40,8 +37,8 @@ function showOverview() {
                 marsFlights += fillTableWithContent(rocket);
             }
         }
-        containerEarth.innerHTML = tableHeader + earthFlights;
-        containerMars.innerHTML = tableHeader + marsFlights;
+        containerEarth.innerHTML = getTableHeader() + earthFlights;
+        containerMars.innerHTML = getTableHeader() + marsFlights;
     });
 }
 

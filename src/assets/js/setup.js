@@ -130,3 +130,21 @@ function logInOrOut(e){
     }
 }
 
+function getTableHeader(){
+    return  '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
+            '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
+            '<th scope="col">Volume:</th><td></td></tr>';
+}
+
+function getTableHeader2(){
+    return '<tr class="tableHeaders">' +
+        '                <th scope="col">Ordernr:</th>'+
+        '                <th scope="col">From:</th>' +
+        '                <th scope="col">To:</th>' +
+        '                <th scope="col">Address:</th>' +
+        '                <th scope="col">Return:</th>' +
+        '                <th scope="col">Status:</th>' +
+        '                <td></td>' +
+        '            </tr>';
+}
+
