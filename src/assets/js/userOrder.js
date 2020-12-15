@@ -13,6 +13,8 @@ const tableHeaders = `<tr class=\"tableHeaders\">
                         <td></td>
                     </tr>`;
 
+const containerEarth = document.querySelector("#flightsToEarthContent");
+const containerMars = document.querySelector("#flightsToMarsContent");
 let earthOrders = tableHeaders;
 let marsOrders = tableHeaders;
 
@@ -29,15 +31,11 @@ function openUserInfo() {
 
 
 function showOrders(){
-    const containerEarth = document.querySelector("#flightsToEarthContent");
-    const containerMars = document.querySelector("#flightsToMarsContent");
     getOrdersUser().then(function (orders) {
         for (let i = 0; i < orders.length; i++){
             const ORDER = orders[i];
             getRockets().then(response => {
                 showRockets(response, ORDER);
-                containerEarth.innerHTML = marsOrders;
-                containerMars.innerHTML = earthOrders;
             });
         }
     });
@@ -70,4 +68,6 @@ function showRockets(rockets,ORDER) {
             earthOrders += fillTableWithContent(marsOrders, ORDER, rockets[x]);
         }
     }
+    containerEarth.innerHTML = marsOrders;
+    containerMars.innerHTML = earthOrders;
 }
