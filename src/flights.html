@@ -23,77 +23,78 @@
 </header>
 
 <main>
+    <div id="loader"></div>
 
-    <a class="back" href="index.html">Back</a>
+        <a class="back" href="index.html">Back</a>
+        <div id="filterFlights">
+            <div>
+                <img src="assets/images/icons/mars.png" alt="planet icon">
+                <h1>Select flight to Mars</h1>
+            </div>
+            <form action="#">
+                <label for="weight">Weight:</label>
+                <input type="text" id="weight" name="weight">
 
-    <div id="filterFlights">
-        <div>
-            <img src="assets/images/icons/mars.png" alt="planet icon">
-            <h1>Select flight to Mars</h1>
+                <label for="volume">Volume:</label>
+                <input type="text" id="volume" name="volume">
+
+                <label for="sortBy"></label>
+                <select name="sortBy" id="sortBy">
+                    <option value="arrival">Arrival</option>
+                    <option value="departure">Departure</option>
+                    <option value="availableMass">Available mass</option>
+                </select>
+
+                <label for="sort"></label>
+                <select name="sort" id="sort">
+                    <option value="Asc">Ascending</option>
+                    <option value="Desc">Descending</option>
+                </select>
+
+            </form>
         </div>
-        <form action="#">
-            <label for="weight">Weight:</label>
-            <input type="text" id="weight" name="weight">
 
-            <label for="volume">Volume:</label>
-            <input type="text" id="volume" name="volume">
+    <div id="hiddenDiv" class="animate-bottom hidden">
+        <div id="flights">
 
-            <label for="sortBy"></label>
-            <select name="sortBy" id="sortBy">
-                <option value="arrival">Arrival</option>
-                <option value="departure">Departure</option>
-                <option value="availableMass">Available mass</option>
-            </select>
+            <table>
+                <tr id="tableHeaders">
+                    <th scope="col">Departure:</th>
+                    <th scope="col">Arrival:</th>
+                    <th scope="col">Available cargo:</th>
+                    <th scope="col">Available volume:</th>
+                    <th scope="col">Price:</th>
+                    <td></td>
+                </tr>
 
-            <label for="sort"></label>
-            <select name="sort" id="sort">
-                <option value="Asc">Ascending</option>
-                <option value="Desc">Descending</option>
-            </select>
+                <tr data-row="1">
+                    <td>17/01/2052</td>
+                    <td>17/02/2052</td>
+                    <td>230kg</td>
+                    <td>100m³</td>
+                    <td>?? Euro/kg</td>
+                    <td><button>view more</button></td>
+                </tr>
 
-        </form>
-    </div>
+                <tr data-row="2">
+                    <td>17/01/2052</td>
+                    <td>17/02/2052</td>
+                    <td>230kg</td>
+                    <td>100m³</td>
+                    <td>?? Euro/kg</td>
+                    <td><button>view more</button></td>
+                </tr>
 
-
-    <div id="flights">
-
-        <table>
-            <tr id="tableHeaders">
-                <th scope="col">Departure:</th>
-                <th scope="col">Arrival:</th>
-                <th scope="col">Available cargo:</th>
-                <th scope="col">Available volume:</th>
-                <th scope="col">Price:</th>
-                <td></td>
-            </tr>
-
-            <tr data-row="1">
-                <td>17/01/2052</td>
-                <td>17/02/2052</td>
-                <td>230kg</td>
-                <td>100m³</td>
-                <td>?? Euro/kg</td>
-                <td><button>view more</button></td>
-            </tr>
-
-            <tr data-row="2">
-                <td>17/01/2052</td>
-                <td>17/02/2052</td>
-                <td>230kg</td>
-                <td>100m³</td>
-                <td>?? Euro/kg</td>
-                <td><button>view more</button></td>
-            </tr>
-
-            <tr data-row="3">
-                <td>17/01/2052</td>
-                <td>17/02/2052</td>
-                <td>230kg</td>
-                <td>100m³</td>
-                <td>?? Euro/kg</td>
-                <td><button>view more</button></td>
-            </tr>
-        </table>
+                <tr data-row="3">
+                    <td>17/01/2052</td>
+                    <td>17/02/2052</td>
+                    <td>230kg</td>
+                    <td>100m³</td>
+                    <td>?? Euro/kg</td>
+                    <td><button>view more</button></td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <section id="flightForm" class="popup hidden">

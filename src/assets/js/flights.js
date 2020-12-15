@@ -8,12 +8,20 @@ let sortedFlights = [];
 function flightsInit(){
     getRocketsForDestination();
     renderChosenPlanet();
+    setTimeout(showNextPage,2000);
     document.querySelector("div#flights").addEventListener("click", openPopUp);
     document.querySelector("select#sort").addEventListener("change", sortTargetAscendingOrDescending);
     document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
     document.querySelector("form").addEventListener("keyup", sortFlightsByWeightOrVolume);
     document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
+
 }
+
+function showNextPage(){
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("hiddenDiv").style.display = "flex";
+}
+
 
 function getRocketsForDestination(){
 
