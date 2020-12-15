@@ -5,6 +5,7 @@ let canvas;
 let rocket;
 let planet1;
 let planet2;
+let stars;
 
 function init() {
     canvas = document.getElementById("trackingVisual");
@@ -12,17 +13,20 @@ function init() {
     canvas.height = 250;
     context = canvas.getContext("2d");
 
+    stars = new Stars();
     rocket = new Rocket();
     setInterval(loop, 20);
 }
 
 function loop() {
     clearCanvas();
+    stars.animate();
     rocket.animate();
     planet1 = new Planet1("earth");
     planet1.animate();
     planet2 = new Planet2("mars");
     planet2.animate();
+
 }
 
 function clearCanvas() {
@@ -89,7 +93,7 @@ class SmokeTrail {
 
             if( !inbounds(smoke.position.x, smoke.position.y, smoke.size, smoke.size) || smoke.age >= smoke.lifetime) {
                 smokes.splice(y, 1);
-                y--;
+                y-=1;
             }
             smoke.animate();
         }
@@ -165,5 +169,58 @@ class Planet2{
         context.fillStyle = this.color2;
         context.arc(1500, canvas.height/2, 60, 0, 2 * Math.PI);
         context.fill();
+    }
+}
+
+
+class Stars{
+    constructor() {
+        this.size1=4;
+        this.size2=2;
+        this.counter=1;
+        this.color= "#feff82";
+    }
+    animate(){
+        context.beginPath();
+        context.fillStyle = this.color;
+        context.arc(600, 50, this.size1, 0, 2 * Math.PI);
+        context.fill();
+        context.beginPath();
+        context.arc(100, 200, this.size1, 0, 2 * Math.PI);
+        context.fill();
+        context.beginPath();
+        context.arc(1100, 40, 5, 0, 2 * Math.PI);
+        context.fill();
+        context.beginPath();
+        context.arc(1570, 205, this.size1, 0, 2 * Math.PI);
+        context.fill();
+        context.beginPath();
+        context.arc(250, 80, this.size2, 0, 2 * Math.PI);
+        context.fill();
+        context.beginPath();
+        context.arc(850, 90, this.size1, 0, 2 * Math.PI);
+        context.fill();
+        context.beginPath();
+        context.arc(450, 180, 5, 0, 2 * Math.PI);
+        context.fill();
+        context.beginPath();
+        context.arc(950, 210, this.size2, 0, 2 * Math.PI);
+        context.fill();
+        context.beginPath();
+        context.arc(1300, 75, this.size2, 0, 2 * Math.PI);
+        context.fill();
+
+        if(this.counter===25){
+            if(this.size1===2&&this.size2===3.5){
+                this.size1=4;
+                this.size2=2;
+            }else{
+                this.size1=2;
+                this.size2=3.5;
+            }
+            this.counter=0;
+
+        }
+        this.counter+=1;
     }
 }

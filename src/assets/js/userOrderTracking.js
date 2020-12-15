@@ -3,8 +3,6 @@
 onApiUrlLoaded(userOrderTrackingInit);
 
 const tableHeaders ="<tr>" +
-    "            <th scope=\"col\">From:</th>" +
-    "            <th scope=\"col\">To:</th>" +
     "            <th scope=\"col\">Address:</th>" +
     "            <th scope=\"col\">Ordernr:</th>" +
     "            <th scope=\"col\">Orderstatus:</th>" +
@@ -20,6 +18,7 @@ function userOrderTrackingInit(){
     document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
     document.querySelector("#toUserOrders").addEventListener("click", openUserOrders);
     document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
+
 }
 
 function openUserOrders() {
@@ -33,11 +32,22 @@ function openUserInfo() {
 }
 
 function showOrderdetails(orderId) {
-    const order = getOrderMock();
-    const flight = getFlightMock();
-    fillInDetails(order, flight);
-    showProgression(order.orderStatus);
-
+    getOrdersUser().then(function (orders) {
+        console.log(orders);
+        for (let i = 0; i < orders.length; i++) {
+            console.log(orders[i].orderId + " " + orderId);
+            if (orders[i].orderId.toString() === orderId.toString()) {
+                getRockets().then(function (rockets) {
+                    for (let y = 1; y < rockets.length; y++) {
+                        if (orders[i].rocketId.toString() === rockets[i].id.toString()) {
+                            fillInDetails(orders[i], rockets[y]);
+                            showProgression(orders[i].statusId);
+                        }
+                    }
+                });
+            }
+        }
+    });
 }
 
 function showProgression(progressionLevel) {
@@ -54,14 +64,12 @@ function showProgression(progressionLevel) {
 function fillInDetails(order, flight){
     const containerMars = document.querySelector("#orderInfo");
     const orderDetails = `<tr>
-            <td>${order.userId}</td>
-            <td>RECIEVER</td>
-            <td>ADRESS</td>
+            <td>${flight.address}</td>
             <td>${order.orderId}</td>
-            <td>${order.orderStatus}</td>
+            <td>${order.status}</td>
             <td>${flight.departure}</td>
             <td>${flight.arrival}</td>
-            <td>${order.price}</td>
+            <td>${order.cost}</td>
             <td>${order.width}mm x ${order.depth}mm x ${order.height}mm</td>
             <td>${order.mass} kg</td>
         </tr>`;

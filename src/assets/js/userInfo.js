@@ -16,7 +16,6 @@ function loadInUserInfo() {
 
 function openUserOrders() {
     window.location.href= "userOrders.html";
-
 }
 
 function showUserInfo(user) {
