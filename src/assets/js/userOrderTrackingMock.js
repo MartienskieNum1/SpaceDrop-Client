@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", init);
 
+let context;
+let canvas;
+let rocket;
+let planet1;
+let planet2;
+
 function init() {
     canvas = document.getElementById("trackingVisual");
     canvas.width = 1600;
@@ -37,11 +43,7 @@ class Vector {
 }
 
 function inbounds(x, y, w, h) {
-    if(x > canvas.width + 10 || (x+w) < 0 || (y+h) < 0 || y > canvas.height) {
-        return false;
-    } else {
-        return true;
-    }
+    return !(x > canvas.width + 10 || (x+w) < 0 || (y+h) < 0 || y > canvas.height);
 }
 function random(min, max) {
     return Math.random() * (max-min) + min;
@@ -73,14 +75,12 @@ class Smoke {
 }
 
 class SmokeTrail {
-    constructor(rocket) {
-        this.rocket = rocket;
+    constructor() {
         this.smokes = [];
-        this.smokesPerAnimation = 20;
+        this.smokesPerAnimation = 30;
     }
     animate() {
         let smokes = this.smokes;
-        let rocket = this.rocket;
         for(let x = 0; x < this.smokesPerAnimation; x++) {
             smokes.push(new Smoke((rocket.position.x),(rocket.position.y)));
         }
@@ -103,14 +103,16 @@ class Rocket {
     constructor() {
         this.color = "white";
         this.colorv2 = "red";
-        this.width = 55;
-        this.height = 18;
-        this.width2= 30;
+        this.width = 50;
+        this.height = 17;
+        this.width2= 35;
         this.height2 = 10;
         this.width3 = 25;
         this.height3 = 15;
         this.width4 = 35;
         this.height4 = 5;
+        this.width5 = 7;
+        this.height5 = 12;
         this.position = new Vector(145, (canvas.height - this.height)/2);
         this.velocity = new Vector(0, 0);
         this.acceleration = new Vector(0.1, 0);
@@ -122,7 +124,7 @@ class Rocket {
         this.velocity.add(this.acceleration);
         position.add(this.velocity);
 
-        if(!inbounds(position.x+455, position.y, this.width, this.height)) { //position.x + 1455 is de start, 205 is het aankomen bij de andere planeet,
+        if(!inbounds(position.x+600, position.y, this.width, this.height)) { //position.x + 1455 is de start, 205 is het aankomen bij de andere planeet,
             this.acceleration=new Vector(0, 0);
             this.velocity = new Vector(0, 0);
             this.smokeTrail.smokesPerAnimation=0;
@@ -133,16 +135,18 @@ class Rocket {
         let positioning2 =(canvas.height - this.height2)/2;
         let positioning3 =(canvas.height - this.height3)/2;
         let positioning4 =(canvas.height - this.height4)/2;
+        let positioning5 =(canvas.height - this.height5)/2;
         context.fillRect(position.x, position.y, this.width, this.height);
         context.fillRect(position.x+this.width, positioning2, this.width2, this.height2);
         context.fillRect(position.x+this.width+this.width2, positioning3, this.width3, this.height3);
+        context.fillRect(position.x+this.width+this.width2+this.width3, positioning5, this.width5, this.height5);
         context.fillStyle = this.colorv2;
         context.fillRect(position.x-7, positioning4, this.width4, this.height4);
     }
 }
 
 class Planet1{
-    constructor(planet) {
+    constructor() {
         this.color = "#FF2515";
     }
     animate(){
@@ -154,7 +158,7 @@ class Planet1{
 }
 
 class Planet2{
-    constructor(planet) {
+    constructor() {
         this.color2= "#0f5e9c";
 
     }
