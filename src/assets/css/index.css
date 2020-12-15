@@ -7,7 +7,7 @@ main{
 }
 
 #buttons{
-    display: flex;
+    display: none; /*this should be flex -> for loading screen purposes set to none*/
 }
 
 #buttons > div {
@@ -49,9 +49,9 @@ a.footer{
 
 /* ------------ LOADER ------------- */
 
-#buttons{
-    display: none;
-}
+/*#buttons{*/
+/*    display: none;*/
+/*}*/
 
 #loader {
     position: absolute;

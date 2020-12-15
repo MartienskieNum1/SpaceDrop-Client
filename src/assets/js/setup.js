@@ -114,19 +114,19 @@ function getLoggedInStatus(){
 function checkIfLoggedIn(){
     if (getLoggedInStatus()){
         document.querySelector("a.AccountLoginButton").outerHTML =
-            `<li class="AccountLogoutButton"><a class="AccountLogoutButton" href="index.html">Logout (user)</a></li>`;
+            `<li class="AccountButton"><a class="AccountButton" href="index.html">Account</a></li>`;
     }else{
         document.querySelector("a.AccountLoginButton").outerHTML =
             `<li class="AccountLoginButton"><a class="AccountLoginButton" href="login.html">Login</a></li>`;
     }
 }
 
-function logInOrOut(e){
+function logInOrAccount(e){
     e.preventDefault();
     if (e.target.classList.contains("AccountLoginButton")){
         window.location.href = "login.html";
-    }else if (e.target.classList.contains("AccountLogoutButton")){
-        logout();
+    }else if (e.target.classList.contains("AccountButton")){
+        window.location.href = "userInfo.html";
     }
 }
 

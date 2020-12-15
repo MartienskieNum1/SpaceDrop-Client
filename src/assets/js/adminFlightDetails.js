@@ -30,7 +30,7 @@ function showOrdersRocket(rocket) {
                     for (let x = 0; x < users.length; x++) {
                         if (users[x].id.toString() === orders[i].userId.toString()) {
                             const name = users[x].firstName + " " + users[x].lastName;
-                            const returnAddress = `${users[x].address.street} ${users[x].address.number} ${users[x].address.cityOrDistrict} ${users[x].address.countryOrColony} ${users[x].address.planet}`;
+                            const returnAddress = buildReturnAddress(users[x]);
                             ordersRocket += `<tr data-row='${orders[i].orderId}'>
                                 <td>${orders[i].orderId}</td>
                                 <td>${name}</td>
@@ -47,6 +47,10 @@ function showOrdersRocket(rocket) {
             }
         }
     });
+}
+
+function buildReturnAddress(user){
+    return `${user.address.street} ${user.address.number} ${user.address.cityOrDistrict} ${user.address.countryOrColony} ${user.address.planet}`;
 }
 
 function showDetails(rocket) {
