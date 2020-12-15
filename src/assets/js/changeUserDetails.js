@@ -56,7 +56,7 @@ function addOrEdit(addEdit){
     const city = document.getElementById("city").value;
 
     const validPass = isPasswordValid(password, repeatPassword);
-    const fieldsArgs = [planet, email, phone, fname, lname, street, nr, colony, country, city]
+    const fieldsArgs = [planet, email, phone, fname, lname, street, nr, colony, country, city];
     const allFieldsFilled = !includesEmptyField(...fieldsArgs);
 
     if(!validPass){

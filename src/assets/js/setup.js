@@ -114,19 +114,49 @@ function getLoggedInStatus(){
 function checkIfLoggedIn(){
     if (getLoggedInStatus()){
         document.querySelector("a.AccountLoginButton").outerHTML =
-            `<li class="AccountLogoutButton"><a class="AccountLogoutButton" href="index.html">Logout (user)</a></li>`;
+            `<li class="AccountButton"><a class="AccountButton" href="index.html">Account</a></li>`;
     }else{
         document.querySelector("a.AccountLoginButton").outerHTML =
             `<li class="AccountLoginButton"><a class="AccountLoginButton" href="login.html">Login</a></li>`;
     }
 }
 
-function logInOrOut(e){
+function logInOrAccount(e){
     e.preventDefault();
     if (e.target.classList.contains("AccountLoginButton")){
         window.location.href = "login.html";
-    }else if (e.target.classList.contains("AccountLogoutButton")){
-        logout();
+    }else if (e.target.classList.contains("AccountButton")){
+        window.location.href = "userInfo.html";
     }
+}
+
+function getTableHeader(){
+    return  '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
+            '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
+            '<th scope="col">Volume:</th><td></td></tr>';
+}
+
+function getTableHeader2(){
+    return '<tr class="tableHeaders">' +
+        '                <th scope="col">Ordernr:</th>'+
+        '                <th scope="col">From:</th>' +
+        '                <th scope="col">To:</th>' +
+        '                <th scope="col">Address:</th>' +
+        '                <th scope="col">Return:</th>' +
+        '                <th scope="col">Status:</th>' +
+        '                <td></td>' +
+        '            </tr>';
+}
+
+function fillTableWithContent(flight){
+    return `<tr data-row='${flight.id}'>
+                    <td>${flight.id}</td>
+                    <td>STATUS</td>
+                    <td>${flight.departure}</td>
+                    <td>${flight.arrival}</td>
+                    <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>
+                    <td>${flight.maxVolume-flight.availableVolume}/${flight.maxVolume} m3</td>
+                    <td><button onclick="goToFlightDetail('${flight.id}')">more info</button></td>
+                </tr>`;
 }
 
