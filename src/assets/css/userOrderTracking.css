@@ -108,7 +108,7 @@ header a#AccountLogoutButton {
     padding-left: 0.5rem;
 }
 
-table{
+table, canvas{
     margin-top: 1.3rem;
     margin-left: 12rem;
 

@@ -3,7 +3,6 @@
 onApiUrlLoaded(userOrderTrackingInit);
 
 const tableHeaders ="<tr>" +
-    "            <th scope=\"col\">From:</th>" +
     "            <th scope=\"col\">Address:</th>" +
     "            <th scope=\"col\">Ordernr:</th>" +
     "            <th scope=\"col\">Orderstatus:</th>" +
@@ -65,13 +64,12 @@ function showProgression(progressionLevel) {
 function fillInDetails(order, flight){
     const containerMars = document.querySelector("#orderInfo");
     const orderDetails = `<tr>
-            <td>${order.userId}</td>
             <td>${flight.address}</td>
             <td>${order.orderId}</td>
             <td>${order.status}</td>
             <td>${flight.departure}</td>
             <td>${flight.arrival}</td>
-            <td>${order.price}</td>
+            <td>${order.cost}</td>
             <td>${order.width}mm x ${order.depth}mm x ${order.height}mm</td>
             <td>${order.mass} kg</td>
         </tr>`;

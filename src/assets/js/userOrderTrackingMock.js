@@ -186,7 +186,7 @@ class Stars{
         context.arc(600, 50, this.size1, 0, 2 * Math.PI);
         context.fill();
         context.beginPath();
-        context.arc(100, 200, this.size2, 0, 2 * Math.PI);
+        context.arc(100, 200, this.size1, 0, 2 * Math.PI);
         context.fill();
         context.beginPath();
         context.arc(1100, 40, 5, 0, 2 * Math.PI);
@@ -195,7 +195,7 @@ class Stars{
         context.arc(1570, 205, this.size1, 0, 2 * Math.PI);
         context.fill();
         context.beginPath();
-        context.arc(250, 80, this.size1, 0, 2 * Math.PI);
+        context.arc(250, 80, this.size2, 0, 2 * Math.PI);
         context.fill();
         context.beginPath();
         context.arc(850, 90, this.size1, 0, 2 * Math.PI);
@@ -210,7 +210,7 @@ class Stars{
         context.arc(1300, 75, this.size2, 0, 2 * Math.PI);
         context.fill();
 
-        if(this.counter===30){
+        if(this.counter===25){
             if(this.size1===2&&this.size2===3.5){
                 this.size1=4;
                 this.size2=2;
@@ -221,7 +221,6 @@ class Stars{
             this.counter=0;
 
         }
-        console.log(this.counter);
         this.counter+=1;
     }
 }

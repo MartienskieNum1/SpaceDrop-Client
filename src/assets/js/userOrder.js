@@ -4,7 +4,6 @@
 onApiUrlLoaded(userOrderInit);
 
 const tableHeaders = `<tr class=\"tableHeaders\">
-                        <th scope="col">From:</th>
                         <th scope="col">Address:</th>
                         <th scope="col">Ordernr:</th>
                         <th scope="col">Orderstatus:</th>
@@ -64,7 +63,6 @@ function goToOrderDetail(orderId) {
 function fillTableWithContent(container, order, rocket){
     console.log(order.address);
     return `<tr data-row='${order.orderId}'>
-                    <td>${order.userId}</td>
                     <td>${order.address}</td>
                     <td>${order.orderId}</td>
                     <td>${order.statusId}</td>
