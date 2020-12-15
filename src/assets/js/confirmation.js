@@ -8,6 +8,7 @@ function confirmationInit() {
 
     renderConfirmationMessage(ORDER);
     renderOrderConfirmation(ORDER);
+    renderQrCode(JSON.stringify(ORDER));
 }
 
 function renderOrderConfirmation(ORDER) { //TODO: remove code duplication
