@@ -66,18 +66,11 @@ section.filter div.buttons a {
     align-items: center;
 }
 
+.filterIntro p{
+    text-align: center;
+}
+
 .contentwrapper img{
     height: auto;
     width: 20rem;
 }
-
-/*#filterIntro .buttons{*/
-/*    position: fixed;*/
-/*    top: 85%;*/
-/*    left: 28%;*/
-/*}*/
-
-/*#filterIntro p{*/
-/*    text-align: center;*/
-/*    font-size: 1.5rem;*/
-/*}*/

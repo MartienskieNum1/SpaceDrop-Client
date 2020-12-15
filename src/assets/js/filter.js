@@ -9,12 +9,12 @@ function filterInit(){
 }
 
 function goToOptimizer(e){
-    if (e.target.id === "optimize"){
-        document.querySelector(".filterBot").classList.add("hidden");
-        document.querySelector(".filterStep1").classList.remove("hidden");
-    } else if (e.target.id === "nextStep"){
+    if (e.target.id === "nextStep"){
         document.querySelector(".filterStep1").classList.add("hidden");
         document.querySelector(".filterStep2").classList.remove("hidden");
+    } else if (e.target.id === "previous"){
+        document.querySelector(".filterStep1").classList.remove("hidden");
+        document.querySelector(".filterStep2").classList.add("hidden");
     }
 
 }

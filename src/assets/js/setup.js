@@ -114,7 +114,7 @@ function getLoggedInStatus(){
 function checkIfLoggedIn(){
     if (getLoggedInStatus()){
         document.querySelector("a.AccountLoginButton").outerHTML =
-            `<a class="AccountButton" href="index.html">Account</a>`;
+            `<a class="AccountButton" href="index.html">Account (user)</a>`;
     }else{
         document.querySelector("a.AccountLoginButton").outerHTML =
             `<a class="AccountLoginButton" href="login.html">Login</a>`;
