@@ -63,11 +63,11 @@ class Smoke {
     }
 
     animate() {
-        let position = this.position;
-        let velocity = this.velocity;
+        const position = this.position;
+        const velocity = this.velocity;
         velocity.add(this.gravity);
         position.add(velocity);
-        let size = this.maxSize* (1-(this.age/this.lifetime));
+        const size = this.maxSize* (1-(this.age/this.lifetime));
         context.fillStyle = this.color;
         context.fillRect(position.x, position.y, size, size);
         this.age++;
@@ -80,18 +80,16 @@ class SmokeTrail {
         this.smokesPerAnimation = 30;
     }
     animate() {
-        let smokes = this.smokes;
+        const smokes = this.smokes;
         for(let x = 0; x < this.smokesPerAnimation; x++) {
             smokes.push(new Smoke((rocket.position.x),(rocket.position.y)));
         }
-        for(let x = 0; x < smokes.length; x++) {
-            let smoke = smokes[x];
+        for(let y = 0; y < smokes.length; y++) {
+            const smoke = smokes[y];
 
-            if( !inbounds(smoke.position.x, smoke.position.y, smoke.size, smoke.size)
-                || smoke.age >= smoke.lifetime) {
-
-                smokes.splice(x, 1);
-                x--;
+            if( !inbounds(smoke.position.x, smoke.position.y, smoke.size, smoke.size) || smoke.age >= smoke.lifetime) {
+                smokes.splice(y, 1);
+                y--;
             }
             smoke.animate();
         }
@@ -120,7 +118,7 @@ class Rocket {
     }
 
     animate() {
-        let position = this.position;
+        const position = this.position;
         this.velocity.add(this.acceleration);
         position.add(this.velocity);
 
@@ -132,10 +130,10 @@ class Rocket {
 
         this.smokeTrail.animate();
         context.fillStyle = this.color;
-        let positioning2 =(canvas.height - this.height2)/2;
-        let positioning3 =(canvas.height - this.height3)/2;
-        let positioning4 =(canvas.height - this.height4)/2;
-        let positioning5 =(canvas.height - this.height5)/2;
+        const positioning2 =(canvas.height - this.height2)/2;
+        const positioning3 =(canvas.height - this.height3)/2;
+        const positioning4 =(canvas.height - this.height4)/2;
+        const positioning5 =(canvas.height - this.height5)/2;
         context.fillRect(position.x, position.y, this.width, this.height);
         context.fillRect(position.x+this.width, positioning2, this.width2, this.height2);
         context.fillRect(position.x+this.width+this.width2, positioning3, this.width3, this.height3);
