@@ -63,9 +63,9 @@ function fillTableWithContent(container, order, rocket){
 function showRockets(rockets,ORDER) {
     for (let x = 0; x < rockets.length; x++){
         if(ORDER.rocketId.toString()===rockets[x].id.toString() && rockets[x].departLocation.toString() === "Mars") {
-            marsOrders += fillTableWithContent(earthOrders, ORDER, rockets[x]);
+            earthOrders += fillTableWithContent(earthOrders, ORDER, rockets[x]);
         }else if(ORDER.rocketId.toString()===rockets[x].id.toString() && rockets[x].departLocation === "Earth") {
-            earthOrders += fillTableWithContent(marsOrders, ORDER, rockets[x]);
+            marsOrders += fillTableWithContent(marsOrders, ORDER, rockets[x]);
         }
     }
     containerEarth.innerHTML = marsOrders;
