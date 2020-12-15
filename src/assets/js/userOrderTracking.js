@@ -41,7 +41,7 @@ function showOrderdetails(orderId) {
                     for (let y = 1; y < rockets.length; y++) {
                         if (orders[i].rocketId.toString() === rockets[i].id.toString()) {
                             fillInDetails(orders[i], rockets[y]);
-                            showProgression(orders[i].status);
+                            showProgression(orders[i].statusId);
                         }
                     }
                 });

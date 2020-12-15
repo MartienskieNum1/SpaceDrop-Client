@@ -93,7 +93,7 @@ class SmokeTrail {
 
             if( !inbounds(smoke.position.x, smoke.position.y, smoke.size, smoke.size) || smoke.age >= smoke.lifetime) {
                 smokes.splice(y, 1);
-                y--;
+                y-=1;
             }
             smoke.animate();
         }
