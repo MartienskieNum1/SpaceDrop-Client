@@ -13,6 +13,9 @@ const tableHeaders = `<tr class=\"tableHeaders\">
                         <td></td>
                     </tr>`;
 
+let earthOrders = tableHeaders;
+let marsOrders = tableHeaders;
+
 function userOrderInit(){
     console.log(getUserId());
     showOrders();
@@ -22,36 +25,23 @@ function userOrderInit(){
 
 function openUserInfo() {
     window.location.href= "userInfo.html";
-
 }
 
 
 function showOrders(){
     const containerEarth = document.querySelector("#flightsToEarthContent");
     const containerMars = document.querySelector("#flightsToMarsContent");
-
-    let earthOrders = "";
-    let marsOrders = "";
-
     getOrdersUser().then(function (orders) {
         for (let i = 0; i < orders.length; i++){
-            console.log(orders[i]);
             const ORDER = orders[i];
-            getRockets().then(function (rockets) {
-                for (let x = 0; x < rockets.length; x++){
-                    if(ORDER.rocketId.toString()===rockets[x].id.toString()){
-                        if(rockets[x].departLocation === "Mars"){
-                            marsOrders += fillTableWithContent(earthOrders, ORDER, rockets[x]);
-                        }else if(rockets[x].departLocation === "Earth"){
-                            earthOrders += fillTableWithContent(marsOrders, ORDER, rockets[x]);
-                        }
-                    }
-                }
-                containerEarth.innerHTML = tableHeaders + earthOrders;
-                containerMars.innerHTML = tableHeaders + marsOrders;
+            getRockets().then(response => {
+                showRockets(response, ORDER);
+                containerEarth.innerHTML = marsOrders;
+                containerMars.innerHTML = earthOrders;
             });
         }
     });
+
 }
 
 function goToOrderDetail(orderId) {
@@ -61,14 +51,23 @@ function goToOrderDetail(orderId) {
 
 
 function fillTableWithContent(container, order, rocket){
-    console.log(order.address);
     return `<tr data-row='${order.orderId}'>
                     <td>${order.address}</td>
                     <td>${order.orderId}</td>
-                    <td>${order.statusId}</td>
+                    <td>${order.status}</td>
                     <td>${rocket.departure}</td>
                     <td>${rocket.arrival}</td>
                     <td>${order.cost}</td>
                     <td><button onclick="goToOrderDetail(${order.orderId})">view more</button></td>
                  </tr>`;
+}
+
+function showRockets(rockets,ORDER) {
+    for (let x = 0; x < rockets.length; x++){
+        if(ORDER.rocketId.toString()===rockets[x].id.toString() && rockets[x].departLocation.toString() === "Mars") {
+            marsOrders += fillTableWithContent(earthOrders, ORDER, rockets[x]);
+        }else if(ORDER.rocketId.toString()===rockets[x].id.toString() && rockets[x].departLocation === "Earth") {
+            earthOrders += fillTableWithContent(marsOrders, ORDER, rockets[x]);
+        }
+    }
 }
