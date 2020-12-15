@@ -58,7 +58,7 @@ function fillInDetails(order, flight){
             <td>RECIEVER</td>
             <td>ADRESS</td>
             <td>${order.orderId}</td>
-            <td>STATUS</td>
+            <td>${order.orderStatus}</td>
             <td>${flight.departure}</td>
             <td>${flight.arrival}</td>
             <td>${order.price}</td>
