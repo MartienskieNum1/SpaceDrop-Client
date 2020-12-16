@@ -63,6 +63,10 @@ function getRocketById(rocketId){
     });
 }
 
+function getRocketsByFilter(weight, volume, urgency){
+    return apiCall( `rockets?weight=${weight}&volume=${volume}&urgency=${urgency}`, "GET");
+}
+
 function userToJson(...body){
     return {
         "firstName": body[0],

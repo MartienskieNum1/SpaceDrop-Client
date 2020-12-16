@@ -2,8 +2,6 @@
 
 onApiUrlLoaded(flightsInit);
 
-let flightsToSort = [];
-
 function flightsInit(){
     getRocketsForDestination();
     renderChosenPlanet();
@@ -22,16 +20,38 @@ function showNextPage(){
 
 function getRocketsForDestination(){
 
-    getRockets().then(function(rockets){
+    let filter = getFilterOptions();
+    let rocketsForDestination = [];
+
+    getRocketsByFilter(filter.weight, 300, filter.urgency).then(rockets => {
+        console.log(rockets);
+
         for (let i = 0; i < rockets.length; i++) {
             const ROCKET = rockets[i];
 
             if (ROCKET.departLocation !== toTitleCase(getDestinationPlanet())){
-                flightsToSort.push(ROCKET);
+                console.log(ROCKET)
+                rocketsForDestination.push(ROCKET);
             }
         }
-        renderRockets(flightsToSort);
+
+        renderRockets(rocketsForDestination);
     });
+
+
+    // getRockets().then(function(rockets){
+    //
+    //
+    //
+    //     for (let i = 0; i < rockets.length; i++) {
+    //         const ROCKET = rockets[i];
+    //
+    //         if (ROCKET.departLocation !== toTitleCase(getDestinationPlanet())){
+    //             rocketsForDestination.push(ROCKET);
+    //         }
+    //     }
+    //     renderRockets(rocketsForDestination);
+    // });
 }
 
 function renderChosenPlanet() {
