@@ -148,7 +148,7 @@ function setOrderInLocalStorage(e){
         const countryOrColony = filterData.address.countryOrColony;
         const cityOrDistrict = filterData.address.cityOrDistrict;
         const street = filterData.address.street;
-        const number = filterData.address.number;
+        const number = parseInt(filterData.address.number);
 
         const parameterList = [rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number];
 

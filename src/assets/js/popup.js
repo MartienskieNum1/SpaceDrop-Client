@@ -54,27 +54,19 @@ function renderFormWithUserDetails(rocket, container) {
                 <input type="number" id="rocketId" value="${rocket.id}" disabled>
                 <label for="cost">Fixed cost: €/kg</label>
                 <input type="number" id="cost" value="${rocket.pricePerKilo}" disabled>
-                
                 <label for="country">Country:</label>
                 <input id="country" name="country"  required list="country-list" value="${formDetails.address.countryOrColony}"/>
                 <datalist id="country-list"></datalist>
-
                 <label for="colony">Colony:</label>
                 <input class="wide" type="text" id="colony" name="colony" disabled>
-
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city" value="${formDetails.address.cityOrDistrict}">
-
                 <label for="district">District:</label>
                 <input type="text" id="district" name="district" disabled>
-
-
                 <label for="street">Street:</label>
                 <input type="text" id="street" name="street" value="${formDetails.address.street}">
-
                 <label for="nr">Nr:</label>
                 <input type="text" id="nr" name="nr" value="${formDetails.address.number}">
-                
             </form>
             <a href="#" id="submit" class="popUpButtons">Next</a>`;
 }
