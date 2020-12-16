@@ -127,7 +127,7 @@ div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table
 }
 
 button{
-    background-image: linear-gradient(to right, #29a212 0%, #15fa6d 51%, #29a212 100%);
+    background-image: linear-gradient(to right, #29a212 0%, #15da6b 51%, #29a212 100%);
     padding: 0.3rem 0.75rem;
     border-radius: 10px;
     border: none;

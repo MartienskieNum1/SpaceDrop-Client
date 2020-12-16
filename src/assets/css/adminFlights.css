@@ -69,7 +69,7 @@ li.AccountLoginButton{
 
 .sidenav {
     height: 100%;
-    width: 160px;
+    width: 15%;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -103,7 +103,7 @@ div#flightsToMars,div#flightsToEarth,div#flights,div#filterFlights{
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
-    padding-left: 13rem;
+    padding-left: 17%;
 }
 
 div#filterFlights div{
@@ -114,23 +114,18 @@ div#flightsToEarth table, div#flightsToMars table, div#flights table{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 80%;
+    width: 85%;
     padding-bottom: 0.5rem;
-}
-
-div#flightsToMars table th, div#flightsToEarth table th,div#flights table th{
-    padding: 2rem 0;
-
 }
 
 div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td, div#flights table th,div#flights table td{
     text-align: start;
-    padding: 0.5rem 2rem 0.5rem 0;
+    padding: 0.5rem 2.5rem 0.5rem 0;
     font-size: 0.9rem;
 }
 
 button{
-    background-image: linear-gradient(to right, #29a212 0%, #15fa6d 51%, #29a212 100%);
+    background-image: linear-gradient(to right, #29a212 0%, #15da6b 51%, #29a212 100%);
     padding: 0.3rem 0.75rem;
     border-radius: 10px;
     border: none;
@@ -171,20 +166,6 @@ div#flightsToEarth h1,div#flightsToMars h1,div#flights h1,div#filterFlights h1{
 
 }
 
-#title a,.title a{
-    background-color: #65C55E;
-    padding: 0.2rem 0.5rem;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    text-decoration: none;
-    line-height: 2rem;
-    height: 2rem;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-
 main a.back{
     color: white;
     font-weight: bold;
@@ -197,4 +178,25 @@ main a.back{
     margin-bottom: 2rem;
     margin-left: 12rem;
 
+}
+
+.title a{
+    background-image: linear-gradient(to right, #29a212 0%, #15da6b 51%, #29a212 100%);
+    display: block;
+    transition: 0.5s;
+    background-size: 200% auto;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    text-decoration: none;
+    line-height: 2rem;
+    height: 2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.title a:hover{
+    background-position: right top;
 }
