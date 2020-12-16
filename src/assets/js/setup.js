@@ -63,6 +63,10 @@ function getRocketById(rocketId){
     });
 }
 
+function getRocketsByFilter(weight, volume, urgency){
+    return apiCall( `filteredRockets?weight=${weight}&volume=${volume}&urgency=${urgency}`, "GET");
+}
+
 function userToJson(...body){
     return {
         "firstName": body[0],
@@ -82,21 +86,19 @@ function userToJson(...body){
 
 function orderToJson(...body){
     return {
-        "orderId" : -1,
-        "userId": body[0],
-        "rocketId": body[1],
-        "statusId": body[2],
-        "mass": body[3],
-        "width": body[4],
-        "height": body[5],
-        "depth": body[6],
-        "cost": body[7],
+        "rocketId": body[0],
+        "statusId": body[1],
+        "mass": body[2],
+        "width": body[3],
+        "height": body[4],
+        "depth": body[5],
+        "cost": body[6],
         "address": {
-            "planet": body[8],
-            "countryOrColony": body[9],
-            "cityOrDistrict": body[10],
-            "street": body[11],
-            "number": body[12]
+            "planet": body[7],
+            "countryOrColony": body[8],
+            "cityOrDistrict": body[9],
+            "street": body[10],
+            "number": body[11]
         }
     };
 }
@@ -114,10 +116,10 @@ function getLoggedInStatus(){
 function checkIfLoggedIn(){
     if (getLoggedInStatus()){
         document.querySelector("a.AccountLoginButton").outerHTML =
-            `<li class="AccountButton"><a class="AccountButton" href="index.html">Account</a></li>`;
+            `<a class="AccountButton" href="index.html">Account (user)</a>`;
     }else{
         document.querySelector("a.AccountLoginButton").outerHTML =
-            `<li class="AccountLoginButton"><a class="AccountLoginButton" href="login.html">Login</a></li>`;
+            `<a class="AccountLoginButton" href="login.html">Login</a>`;
     }
 }
 
@@ -127,6 +129,8 @@ function logInOrAccount(e){
         window.location.href = "login.html";
     }else if (e.target.classList.contains("AccountButton")){
         window.location.href = "userInfo.html";
+    }else{
+        window.location.href = "index.html";
     }
 }
 
