@@ -12,7 +12,7 @@ function adminFlightOverviewPlanetInit() {
 }
 
 function showOverview(planet) {
-    const container = document.querySelector("#flightsContent");
+    const container = document.querySelector("#flights table");
     let flightsToChosenPlanet = "";
 
     getRockets().then(function(rockets){
