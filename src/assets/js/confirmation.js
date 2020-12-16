@@ -5,10 +5,11 @@ onApiUrlLoaded(confirmationInit);
 
 function confirmationInit() {
     const ORDER = getFinalOrder();
+    const TRACKING_URL = "https://project-ii.ti.howest.be/mars-03/?uuid=" + ORDER.uuid;
 
     renderConfirmationMessage(ORDER);
     renderOrderConfirmation(ORDER);
-    renderQrCode(JSON.stringify(ORDER));
+    renderQrCode(JSON.stringify(TRACKING_URL));
 }
 
 function renderOrderConfirmation(ORDER) { //TODO: remove code duplication
@@ -22,9 +23,9 @@ function renderOrderConfirmation(ORDER) { //TODO: remove code duplication
             <td>${rocket.departure}</td>
             <td>${rocket.arrival}</td>
             <td>${ORDER.mass} kg</td>
-            <td>${ORDER.height} m</td>
-            <td>${ORDER.width} m</td>
-            <td>${ORDER.depth} m</td>
+            <td>${ORDER.height} cm</td>
+            <td>${ORDER.width} cm</td>
+            <td>${ORDER.depth} cm</td>
             <td>€ ${TOTAL_COST}</td>`;
     });
 }
