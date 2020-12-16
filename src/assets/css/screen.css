@@ -28,7 +28,7 @@ nav ul li{
     margin-bottom: auto;
 }
 
-header nav li a {
+.loginLogoutButton {
     color: white;
     text-align: center;
     text-decoration: none;
@@ -42,17 +42,23 @@ header nav li img {
     float: left;
 }
 
-header a.AccountLoginButton, a.AccountButton  {
+header a{
     display: block;
     padding: 0.2rem 2rem;
     border-radius: 10px;
-    background-image: linear-gradient(to right, #15fa6d 0%, #29a212 51%, #15fa6d 100%);
     transition: 0.5s;
     background-size: 200% auto;
     color: white;
 }
+header a#AccountLoginButton, a#AccountButton{
+    background-image: linear-gradient(to right, #15fa6d 0%, #29a212 51%, #15fa6d 100%);
+}
 
-header a.AccountLoginButton:hover, header a.AccountButton:hover{
+header a#AccountLogoutButton{
+    background-image: linear-gradient(to right, #fa0000 0%, #ea5e06 51%, #fa0000 100%);
+}
+
+header a#AccountLoginButton:hover, header a#AccountButton:hover, header a#AccountLogoutButton:hover{
     background-position: right top;
 }
 

@@ -113,19 +113,19 @@ function getLoggedInStatus(){
 
 function checkIfLoggedIn(){
     if (getLoggedInStatus()){
-        document.querySelector("a.AccountLoginButton").outerHTML =
-            `<li class="AccountButton"><a class="AccountButton" href="index.html">Account</a></li>`;
+        document.querySelector("a.loginLogoutButton").outerHTML =
+            `<li class="AccountButton"><a class="loginLogoutButton" id="AccountButton" href="index.html">Account</a></li>`;
     }else{
-        document.querySelector("a.AccountLoginButton").outerHTML =
-            `<li class="AccountLoginButton"><a class="AccountLoginButton" href="login.html">Login</a></li>`;
+        document.querySelector("a.loginLogoutButton").outerHTML =
+            `<li class="AccountLoginButton"><a class="loginLogoutButton" id="AccountLoginButton" href="login.html">Login</a></li>`;
     }
 }
 
 function logInOrAccount(e){
     e.preventDefault();
-    if (e.target.classList.contains("AccountLoginButton")){
+    if (e.target.id==="AccountLoginButton"){
         window.location.href = "login.html";
-    }else if (e.target.classList.contains("AccountButton")){
+    }else if (e.target.id==="AccountButton"){
         window.location.href = "userInfo.html";
     }
 }
