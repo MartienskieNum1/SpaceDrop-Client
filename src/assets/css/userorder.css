@@ -23,7 +23,9 @@ nav{
     padding: 0.5rem;
 
 }
-
+table{
+    width: 70%;
+}
 ul.nav{
     display: flex;
     justify-content: space-between;
@@ -113,24 +115,19 @@ div#flightsToMars,div#flightsToEarth{
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
-    padding-left: 13rem;
+    padding-left: 12rem;
 }
 
 div#flightsToEarth table, div#flightsToMars table{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 105rem;
-}
-
-div#flightsToMars table th, div#flightsToEarth table th{
-    padding: 2rem 0;
-
+    width: 60%;
 }
 
 div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td{
     text-align: start;
-    padding: 0.5rem 5.5rem 0.5rem 0;
+    padding: 0.5rem 3rem 0.5rem 0;
     font-size: 0.9rem;
 }
 
