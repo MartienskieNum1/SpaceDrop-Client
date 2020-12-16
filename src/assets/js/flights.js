@@ -23,14 +23,12 @@ function getRocketsForDestination(){
     let filter = getFilterOptions();
     let rocketsForDestination = [];
 
-    getRocketsByFilter(filter.weight, 300, filter.urgency).then(rockets => {
-        console.log(rockets);
+    getRocketsByFilter(filter.mass, filter.volume, filter.urgency).then(rockets => {
 
         for (let i = 0; i < rockets.length; i++) {
             const ROCKET = rockets[i];
 
             if (ROCKET.departLocation !== toTitleCase(getDestinationPlanet())){
-                console.log(ROCKET)
                 rocketsForDestination.push(ROCKET);
             }
         }
