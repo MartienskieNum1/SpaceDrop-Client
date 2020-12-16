@@ -33,7 +33,6 @@ function createOrder(e){
         const TEMP_ORDER = getTempOrder();
         console.log(TEMP_ORDER)
         addOrder(TEMP_ORDER).then(finalOrder => {
-            console.log(finalOrder)
             setFinalOrder(finalOrder);
         }).then(() => {
             window.location.href = "confirmation.html";
