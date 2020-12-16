@@ -46,7 +46,14 @@ header a.AccountLoginButton, a.AccountButton  {
     display: block;
     padding: 0.2rem 2rem;
     border-radius: 10px;
-    background-color: #65C55E;
+    background-image: linear-gradient(to right, #15fa6d 0%, #29a212 51%, #15fa6d 100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+}
+
+header a.AccountLoginButton:hover, header a.AccountButton:hover{
+    background-position: right top;
 }
 
 nav li {
@@ -59,12 +66,9 @@ li a.AccountLoginButton{
 }
 
 header a.home:hover{
-    color: #076000;
+    color: #29a212;
 }
 
-header a.AccountLoginButton:hover {
-    background-color: #076000;
-}
 
 #planetDistances{
     display: flex;
