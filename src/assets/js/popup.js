@@ -46,21 +46,35 @@ function fillRocketPopup(rocket, container) {
 }
 
 function renderFormWithUserDetails(rocket, container) {
+    let formDetails = getFilterOptions();
     container.innerHTML = `
-            <h5>Fill in your order details:</h5>
+            <h5>Overview:</h5>
             <form id="tempOrder" action="#" method="post">
                 <label for="rocketId">Rocket ${rocket.id}:</label>
                 <input type="number" id="rocketId" value="${rocket.id}" disabled>
                 <label for="cost">Fixed cost: €/kg</label>
                 <input type="number" id="cost" value="${rocket.pricePerKilo}" disabled>
-                <label for="mass">Mass:</label>
-                <input type="number" min="1" id="mass">
-                <label for="width">Width:</label>
-                <input type="number" min="1" id="width">
-                <label for="height">Height:</label>
-                <input type="number" min="1" id="height">
-                <label for="depth">Depth:</label>
-                <input type="number" min="1" id="depth">
+                
+                <label for="country">Country:</label>
+                <input id="country" name="country"  required list="country-list" value="${formDetails.address.countryOrColony}"/>
+                <datalist id="country-list"></datalist>
+
+                <label for="colony">Colony:</label>
+                <input class="wide" type="text" id="colony" name="colony" disabled>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" value="${formDetails.address.cityOrDistrict}">
+
+                <label for="district">District:</label>
+                <input type="text" id="district" name="district" disabled>
+
+
+                <label for="street">Street:</label>
+                <input type="text" id="street" name="street" value="${formDetails.address.street}">
+
+                <label for="nr">Nr:</label>
+                <input type="text" id="nr" name="nr" value="${formDetails.address.number}">
+                
             </form>
             <a href="#" id="submit" class="popUpButtons">Next</a>`;
 }

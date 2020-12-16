@@ -82,21 +82,19 @@ function userToJson(...body){
 
 function orderToJson(...body){
     return {
-        "orderId" : -1,
-        "userId": body[0],
-        "rocketId": body[1],
-        "statusId": body[2],
-        "mass": body[3],
-        "width": body[4],
-        "height": body[5],
-        "depth": body[6],
-        "cost": body[7],
+        "rocketId": body[0],
+        "statusId": body[1],
+        "mass": body[2],
+        "width": body[3],
+        "height": body[4],
+        "depth": body[5],
+        "cost": body[6],
         "address": {
-            "planet": body[8],
-            "countryOrColony": body[9],
-            "cityOrDistrict": body[10],
-            "street": body[11],
-            "number": body[12]
+            "planet": body[7],
+            "countryOrColony": body[8],
+            "cityOrDistrict": body[9],
+            "street": body[10],
+            "number": body[11]
         }
     };
 }

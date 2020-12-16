@@ -89,3 +89,19 @@ function getFinalOrder(){
 
     return JSON.parse(finalOrder);
 }
+
+function setFilterOptions(filterOptions){
+    localStorage.setItem("filterOptions", JSON.stringify(filterOptions));
+}
+
+function getFilterOptions(){
+    let filterOptions = localStorage.getItem("filterOptions");
+
+    if (filterOptions === null){
+        setFilterOptions(null);
+        filterOptions = localStorage.getItem("filterOptions");
+    }
+
+    return JSON.parse(filterOptions);
+}
+

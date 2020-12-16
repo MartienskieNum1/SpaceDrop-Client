@@ -113,8 +113,8 @@ function renderRockets(rockets) {
                     <td>${ROCKET.arrival}</td>
                     <td>${ROCKET.availableVolume}³</td>
                     <td>${ROCKET.availableMass}</td>
-                    <td>${ROCKET.pricePerKilo} Euro/kg</td>
-                    <td><button>view more</button></td>
+                    <td data-cost="${ROCKET.pricePerKilo}">${ROCKET.pricePerKilo} Euro/kg</td>
+                    <td><button>View details</button></td>
                 </tr>`
             ;
     }
@@ -134,32 +134,32 @@ function renderFlightHead(container){
 function setOrderInLocalStorage(e){
     e.preventDefault();
 
-    if (document.querySelector("a#submit") !== null && e.target.id === "submit"){
+    if (document.querySelector("a#submit") !== null && e.target.id === "submit") {
 
-        getUser().then(response => { // TODO: aanpassen zodat ook clients zonder account orders kunnen plaatsen -> server
-            const rocketId = parseInt(document.getElementById("rocketId").value);
-            const mass = parseInt(document.getElementById("mass").value);
-            const width = parseInt(document.getElementById("width").value);
-            const height = parseInt(document.getElementById("height").value);
-            const depth = parseInt(document.getElementById("depth").value);
-            const cost = parseInt(document.getElementById("cost").value);
-            const userId = response.id;
-            const planet = response.address.planet;
-            const countryOrColony = response.address.countryOrColony;
-            const cityOrDistrict = response.address.cityOrDistrict;
-            const street = response.address.street;
-            const number = response.address.number;
+        const filterData = getFilterOptions();
 
-            const parameterList = [userId, rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number];
+        const rocketId = parseInt(document.getElementById("rocketId").value);
+        const mass = filterData.mass;
+        const width = filterData.width;
+        const height = filterData.height;
+        const depth = filterData.depth;
+        const cost = parseInt(document.getElementById("cost").value);
+        const planet = filterData.address.planet;
+        const countryOrColony = filterData.address.countryOrColony;
+        const cityOrDistrict = filterData.address.cityOrDistrict;
+        const street = filterData.address.street;
+        const number = filterData.address.number;
 
-            if (hasNoEmptyField(...parameterList)){
-                setTempOrder(orderToJson(...parameterList));
-                window.location.href = "payment.html";
-            }else{
-                showPopUp("Please fill in all the fields");
-            }
-        });
+        const parameterList = [rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number];
+
+        if (hasNoEmptyField(...parameterList)) {
+            setTempOrder(orderToJson(...parameterList));
+            window.location.href = "payment.html";
+        } else {
+            showPopUp("Please fill in all the fields");
+        }
     }
+
 }
 
 function hasNoEmptyField(...parameterList){

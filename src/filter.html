@@ -67,8 +67,8 @@
 
             <form class="filterStep2" action="#" method="post">
 
-                <label for="speed">Time of departure:</label>
-                <select name="speed" id="speed">
+                <label for="urgency">Urgency:</label>
+                <select name="urgency" id="urgency">
                     <option value="fast">Fast</option>
                     <option value="normal">Normal</option>
                     <option value="slow">Slow</option>
@@ -81,21 +81,24 @@
             <form id="addressReceiver" class="filterStep2" action="#">
 
                 <label for="country">Country:</label>
-                <input id="country" name="country"  required list="country-list" />
+                <input id="country" name="country"  required list="country-list" value="Belgium"/>
                 <datalist id="country-list"></datalist>
 
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" value="" >
-
-
                 <label for="colony">Colony:</label>
-                <input class="wide" type="text" id="colony" name="colony" value="">
+                <input class="wide" type="text" id="colony" name="colony" disabled>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" value="Bruhhe">
+
+                <label for="district">District:</label>
+                <input type="text" id="district" name="district" disabled>
+
 
                 <label for="street">Street:</label>
-                <input type="text" id="street" name="street" value="">
+                <input type="text" id="street" name="street" value="Steenstroate">
 
                 <label for="nr">Nr:</label>
-                <input type="text" id="nr" name="nr" value="">
+                <input type="text" id="nr" name="nr" value="60">
 
             </form>
 
@@ -114,6 +117,7 @@
     <script src="assets/js/setup.js"></script>
     <script src="assets/js/header.js"></script>
     <script src="assets/js/filter.js"></script>
+    <script src="assets/js/local-storage.js"></script>
     <script src="assets/js/miscellaneousApi.js"></script>
     <script src="assets/js/local-storage.js"></script>
 
