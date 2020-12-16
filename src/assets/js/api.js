@@ -22,4 +22,3 @@ function apiCall(uri, httpVerb, requestBody) {
             return jsonResponse;
         });
 }
-
