@@ -41,12 +41,12 @@ section.filter div.buttons a {
     text-align: center;
 }
 
-.filterStep1 form{
+.filterStep1 form, #addressReceiver{
     display: grid;
     grid-template-columns: 0.5fr 1fr;
 }
 
-.filterStep1 input{
+.filterStep1 input, #addressReceiver input{
     margin-bottom: 1rem;
 }
 
@@ -73,4 +73,8 @@ section.filter div.buttons a {
 .contentwrapper img{
     height: auto;
     width: 20rem;
+}
+
+#addressReceiver{
+    display: grid;
 }

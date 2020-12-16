@@ -76,6 +76,29 @@
 
             </form>
 
+            <h5>Address receiver:</h5>
+
+            <form id="addressReceiver" class="filterStep2" action="#">
+
+                <label for="country">Country:</label>
+                <input id="country" name="country"  required list="country-list" />
+                <datalist id="country-list"></datalist>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" value="" >
+
+
+                <label for="colony">Colony:</label>
+                <input class="wide" type="text" id="colony" name="colony" value="">
+
+                <label for="street">Street:</label>
+                <input type="text" id="street" name="street" value="">
+
+                <label for="nr">Nr:</label>
+                <input type="text" id="nr" name="nr" value="">
+
+            </form>
+
             <div class="buttons">
                 <a id="previous" href="#">Previous</a>
                 <a id="finalize" href="flights.html">Continue</a>
@@ -91,6 +114,7 @@
     <script src="assets/js/setup.js"></script>
     <script src="assets/js/header.js"></script>
     <script src="assets/js/filter.js"></script>
+    <script src="assets/js/miscellaneousApi.js"></script>
     <script src="assets/js/local-storage.js"></script>
 
 </body>

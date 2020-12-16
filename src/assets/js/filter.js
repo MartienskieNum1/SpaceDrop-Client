@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", filterInit);
 
 function filterInit(){
+    renderCountryList();
     document.querySelectorAll(".buttons").forEach(button => {
         button.addEventListener("click", goToOptimizer);
     });
