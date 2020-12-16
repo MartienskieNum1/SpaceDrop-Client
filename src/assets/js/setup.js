@@ -52,6 +52,10 @@ function getOrderById(rocketId){
     return apiCall( `orders/${rocketId}`, "GET");
 }
 
+function getOrderByUuid(uuid){
+    return apiCall(`orders/qr/${uuid}`, "GET");
+}
+
 function getRocketById(rocketId){
     return getRockets().then(function (response){
         for(let i=0;i<response.length;i++){
@@ -160,3 +164,13 @@ function fillTableWithContent(flight){
                 </tr>`;
 }
 
+function showProgression(progressionLevel) {
+    for(let i=1;i<=5;i++){
+        if(progressionLevel>=i){
+            document.getElementById(i.toString()).classList.add("active");
+        }
+        else {
+            document.getElementById(i.toString()).classList.remove("active");
+        }
+    }
+}
