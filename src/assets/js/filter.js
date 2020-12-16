@@ -7,8 +7,6 @@ function filterInit(){
     document.querySelectorAll(".buttons").forEach(button => {
         button.addEventListener("click", goToOptimizer);
     });
-    // document.querySelector("#nextStep").addEventListener("click", addFilterStep1);
-    // document.querySelector("#finalize").addEventListener("click", addToLocalStorage);
 }
 
 function goToOptimizer(e){

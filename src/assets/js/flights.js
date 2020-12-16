@@ -3,16 +3,12 @@
 onApiUrlLoaded(flightsInit);
 
 let flightsToSort = [];
-let sortedFlights = [];
 
 function flightsInit(){
     getRocketsForDestination();
     renderChosenPlanet();
     setTimeout(showNextPage,2000);
     document.querySelector("div#flights").addEventListener("click", openPopUp);
-    document.querySelector("select#sort").addEventListener("change", sortTargetAscendingOrDescending);
-    document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
-    document.querySelector("form").addEventListener("keyup", sortFlightsByWeightOrVolume);
     document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
 
 }
@@ -36,57 +32,6 @@ function getRocketsForDestination(){
         }
         renderRockets(flightsToSort);
     });
-}
-
-function sortFlightsByWeightOrVolume(){
-    const SELECTED_WEIGHT = document.querySelector("#weight").value;
-    const SELECTED_VOLUME = document.querySelector("#volume").value;
-    sortedFlights = [];
-
-    flightsToSort.forEach((flight) => {
-        if (flight.availableMass >= SELECTED_WEIGHT && flight.availableVolume >= SELECTED_VOLUME){
-            sortedFlights.push(flight);
-        }
-    });
-
-    selectDefaultSorting("sort",  "Asc");
-    renderRockets(sortedFlights);
-}
-
-function sortRocketsBySearchValue(e){
-    const SORT_VALUE = e.target.value;
-
-    let flightsToUse = sortedFlights;
-
-    if(sortedFlights.length === 0){
-        flightsToUse = flightsToSort;
-    }
-
-    flightsToUse.sort(function (a, b) {
-            if (a[SORT_VALUE] < b[SORT_VALUE]) {
-                return -1;
-            } else if (a[SORT_VALUE] > b[SORT_VALUE]) {
-                return 1;
-            }
-            return 0;
-        });
-    renderRockets(flightsToUse);
-}
-
-function sortTargetAscendingOrDescending() {
-
-    let flightsToUse = sortedFlights;
-
-    if(sortedFlights.length === 0){
-        flightsToUse = flightsToSort;
-    }
-
-    renderRockets(flightsToUse.reverse());
-}
-
-function selectDefaultSorting(id, valueToSelect) {
-    const ELEMENT_CONTAINER = document.getElementById(id);
-    ELEMENT_CONTAINER.value = valueToSelect;
 }
 
 function renderChosenPlanet() {
