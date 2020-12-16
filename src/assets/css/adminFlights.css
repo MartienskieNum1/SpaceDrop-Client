@@ -114,7 +114,7 @@ div#flightsToEarth table, div#flightsToMars table, div#flights table{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 105rem;
+    width: 80%;
     padding-bottom: 0.5rem;
 }
 
@@ -125,7 +125,7 @@ div#flightsToMars table th, div#flightsToEarth table th,div#flights table th{
 
 div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td, div#flights table th,div#flights table td{
     text-align: start;
-    padding: 0.5rem 5.5rem 0.5rem 0;
+    padding: 0.5rem 2rem 0.5rem 0;
     font-size: 0.9rem;
 }
 

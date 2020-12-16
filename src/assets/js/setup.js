@@ -150,8 +150,8 @@ function getTableHeader2(){
 
 function fillTableWithContent(flight){
     return `<tr data-row='${flight.id}'>
-                    <td>${flight.id}</td>
-                    <td>STATUS</td>
+                    <td>${flight.name}</td>
+                    <td>${flight.statusId}</td>
                     <td>${flight.departure}</td>
                     <td>${flight.arrival}</td>
                     <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>
