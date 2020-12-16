@@ -50,7 +50,7 @@ function goToOrderDetail(orderId) {
 
 function fillTableWithContent(container, order, rocket){
     return `<tr data-row='${order.orderId}'>
-                    <td>${order.address}</td>
+                    <td>${order.address.planet} ${order.address.countryOrColony} ${order.address.cityOrDistrict} ${order.address.street} ${order.address.number}</td>
                     <td>${order.orderId}</td>
                     <td>${order.status}</td>
                     <td>${rocket.departure}</td>
