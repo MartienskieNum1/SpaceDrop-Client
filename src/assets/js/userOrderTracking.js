@@ -38,8 +38,8 @@ function showOrderdetails(orderId) {
             console.log(orders[i].orderId + " " + orderId);
             if (orders[i].orderId.toString() === orderId.toString()) {
                 getRockets().then(function (rockets) {
-                    for (let y = 1; y < rockets.length; y++) {
-                        if (orders[i].rocketId.toString() === rockets[i].id.toString()) {
+                    for (let y = 0; y < rockets.length; y++) {
+                        if (orders[i].rocketId.toString() === rockets[y].id.toString()) {
                             fillInDetails(orders[i], rockets[y]);
                             showProgression(orders[i].statusId);
                         }
