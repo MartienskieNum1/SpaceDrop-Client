@@ -74,7 +74,7 @@ function renderRockets(rockets) {
             `<tr data-row="${ROCKET.id}">
                     <td>${ROCKET.departure}</td>
                     <td>${ROCKET.arrival}</td>
-                    <td>${ROCKET.availableVolume}³</td>
+                    <td>${ROCKET.availableVolume} m³</td>
                     <td>${ROCKET.availableMass}</td>
                     <td data-cost="${ROCKET.pricePerKilo}">${ROCKET.pricePerKilo} Euro/kg</td>
                     <td><button>View details</button></td>

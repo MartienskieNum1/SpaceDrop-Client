@@ -51,7 +51,7 @@ function renderFormWithUserDetails(rocket, container) {
             <h5>Overview:</h5>
             <div id="addressReceiver">
                 <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">Rocket ${rocket.id} departing from the launch site on Cape Canaveral for a cost of ${rocket.pricePerKilo}€/kg</p>
-                <p>Address receiver:</p>
+                <p><span>Address receiver:</span></p>
                 <p>${formDetails.address.street} ${formDetails.address.number}</p>
                 <p>${formDetails.address.cityOrDistrict} ${formDetails.address.countryOrColony}</p>
             </div>

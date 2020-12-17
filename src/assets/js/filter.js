@@ -7,6 +7,30 @@ function filterInit(){
     document.querySelectorAll(".buttons").forEach(button => {
         button.addEventListener("click", goToOptimizer);
     });
+    document.querySelector("#urgency").addEventListener("change", displayUrgency)
+}
+
+function displayUrgency(){
+    const CONTAINER = document.querySelector("#selectedUrgency");
+    const VALUE = document.querySelector("#urgency").value;
+
+    let valueAsString = "";
+
+    console.log(VALUE)
+
+    if (VALUE > 3){
+        CONTAINER.innerHTML = "Fast";
+        valueAsString = "fast";
+    }else if (VALUE < 3){
+        CONTAINER.innerHTML = "Slow";
+        valueAsString = "slow";
+    }else{
+        CONTAINER.innerHTML = "Normal";
+        valueAsString = "normal";
+    }
+
+    return valueAsString;
+
 }
 
 function goToOptimizer(e){
@@ -47,13 +71,15 @@ function addFilterStep2(){
     // const district = document.getElementById("district").value;
     const street = document.getElementById("street").value;
     const number = document.getElementById("nr").value;
-    const urgency = document.getElementById("urgency").value;
-
+    // const urgency = document.getElementById("urgency").value;
+    const urgency = displayUrgency();
     let notEmpty = [urgency, planet, country, city, street, number];
 
     filterOptions.push(...notEmpty);
 
-    let filterAsJson = filterToJson(...filterOptions)
+    let filterAsJson = filterToJson(...filterOptions);
+
+    console.log(filterAsJson)
 
     setFilterOptions(filterAsJson);
 }
