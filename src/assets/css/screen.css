@@ -43,6 +43,10 @@ header nav li img {
 }
 
 header a{
+    color: white;
+}
+
+header a.loginLogoutButton{
     display: block;
     padding: 0.2rem 2rem;
     border-radius: 10px;
@@ -76,12 +80,18 @@ header a.home:hover{
     color: #29a212;
 }
 
+header a.home{
+    width: 15rem;
+    text-align: center;
+    margin-right: 12rem;
+}
+
 
 #planetDistances{
     display: flex;
     justify-content: space-between;
     font-size: 0.7rem;
-    width: 25rem;
+    width: 15rem;
 }
 
 /* -------------------HEADER------------------ */
