@@ -16,8 +16,6 @@ function displayUrgency(){
 
     let valueAsString = "";
 
-    console.log(VALUE)
-
     if (VALUE > 3){
         CONTAINER.innerHTML = "Fast";
         valueAsString = "fast";
@@ -78,8 +76,6 @@ function addFilterStep2(){
     filterOptions.push(...notEmpty);
 
     let filterAsJson = filterToJson(...filterOptions);
-
-    console.log(filterAsJson)
 
     setFilterOptions(filterAsJson);
 }
