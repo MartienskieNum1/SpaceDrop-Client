@@ -44,7 +44,7 @@ function showOrders(){
 
 function goToOrderDetail(orderId) {
     setOrderId(orderId.toString());
-    window.location.href = "userOrderTracking.html";
+    window.location.href = "UserOrderTracking.html";
 }
 
 
@@ -60,14 +60,3 @@ function fillTableWithContent(container, order, rocket){
                  </tr>`;
 }
 
-function showRockets(rockets,ORDER) {
-    for (let x = 0; x < rockets.length; x++){
-        if(ORDER.rocketId.toString()===rockets[x].id.toString() && rockets[x].departLocation.toString() === "Mars") {
-            earthOrders += fillTableWithContent(earthOrders, ORDER, rockets[x]);
-        }else if(ORDER.rocketId.toString()===rockets[x].id.toString() && rockets[x].departLocation === "Earth") {
-            marsOrders += fillTableWithContent(marsOrders, ORDER, rockets[x]);
-        }
-    }
-    containerEarth.innerHTML = marsOrders;
-    containerMars.innerHTML = earthOrders;
-}
