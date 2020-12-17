@@ -17,18 +17,21 @@ function userOrderTrackingInit(){
     showOrderdetails(getOrderId());
     document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
     document.querySelector("#toUserOrders").addEventListener("click", openUserOrders);
+    document.querySelector("#toUserOrdersPast").addEventListener("click", openUserOrdersPast);
     document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
 
 }
 
 function openUserOrders() {
     window.location.href= "userOrders.html";
-
 }
 
 function openUserInfo() {
     window.location.href= "userInfo.html";
+}
 
+function openUserOrdersPast() {
+    window.location.href = "userOrdersPast.html"
 }
 
 function showOrderdetails(orderId) {

@@ -22,11 +22,23 @@ function userOrderInit(){
     console.log(getUserId());
     showOrders();
     document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
+    document.querySelector("#toUserOrdersPast").addEventListener("click", openUserOrdersPast);
+    document.querySelector("#toUserOrders").addEventListener("click", openUserOrdersNew);
     document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
 }
 
 function openUserInfo() {
     window.location.href= "userInfo.html";
+}
+
+function openUserOrdersNew() {
+    window.location.href = "userOrders.html"
+
+}
+
+function openUserOrdersPast() {
+    window.location.href = "userOrdersPast.html"
+
 }
 
 
