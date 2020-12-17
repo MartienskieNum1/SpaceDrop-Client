@@ -74,7 +74,7 @@ function renderRockets(rockets) {
             `<tr data-row="${ROCKET.id}">
                     <td>${ROCKET.departure}</td>
                     <td>${ROCKET.arrival}</td>
-                    <td>${ROCKET.availableVolume}³</td>
+                    <td>${ROCKET.availableVolume} m³</td>
                     <td>${ROCKET.availableMass}</td>
                     <td data-cost="${ROCKET.pricePerKilo}">${ROCKET.pricePerKilo} Euro/kg</td>
                     <td><button>View details</button></td>
@@ -101,12 +101,12 @@ function setOrderInLocalStorage(e){
 
         const filterData = getFilterOptions();
 
-        const rocketId = parseInt(document.getElementById("rocketId").value);
+        const rocketId = parseInt(document.querySelector("#rocket").getAttribute("data-id"));
         const mass = filterData.mass;
         const width = filterData.width;
         const height = filterData.height;
         const depth = filterData.depth;
-        const cost = parseInt(document.getElementById("cost").value);
+        const cost = parseInt(document.querySelector("#rocket").getAttribute("data-cost"));
         const planet = filterData.address.planet;
         const countryOrColony = filterData.address.countryOrColony;
         const cityOrDistrict = filterData.address.cityOrDistrict;

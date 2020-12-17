@@ -31,6 +31,7 @@ function renderOrder() {
 function createOrder(e){
     if (e.target.id === "createOrder"){
         const TEMP_ORDER = getTempOrder();
+        console.log(TEMP_ORDER)
         addOrder(TEMP_ORDER).then(finalOrder => {
             setFinalOrder(finalOrder);
         }).then(() => {

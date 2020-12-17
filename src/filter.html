@@ -65,13 +65,10 @@
             <form class="filterStep2" action="#" method="post">
 
                 <label for="urgency">Urgency:</label>
-                <select name="urgency" id="urgency">
-                    <option value="fast">Fast</option>
-                    <option value="normal">Normal</option>
-                    <option value="slow">Slow</option>
-                </select>
-
+                <input type="range" min="1" max="1000" value="500" class="slider" id="urgency">
             </form>
+
+            <p id="selectedUrgency">Normal: departure within two to five days</p>
 
             <h5>Address receiver:</h5>
 
@@ -85,14 +82,14 @@
                 <input class="wide" type="text" id="colony" name="colony" disabled>
 
                 <label for="city">City:</label>
-                <input type="text" id="city" name="city" value="Bruhhe">
+                <input type="text" id="city" name="city" value="Bruges">
 
                 <label for="district">District:</label>
                 <input type="text" id="district" name="district" disabled>
 
 
                 <label for="street">Street:</label>
-                <input type="text" id="street" name="street" value="Steenstroate">
+                <input type="text" id="street" name="street" value="MarsStreet">
 
                 <label for="nr">Nr:</label>
                 <input type="text" id="nr" name="nr" value="60">
