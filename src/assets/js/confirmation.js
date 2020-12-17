@@ -12,10 +12,6 @@ function confirmationInit() {
     renderQrCode(JSON.stringify(TRACKING_URL));
 }
 
-function getUserDataFromForm(name, email){
-    console.log(name, email);
-}
-
 function renderOrderConfirmation(ORDER) { //TODO: remove code duplication
 
     const TOTAL_COST = ORDER.cost * parseInt(ORDER.mass);
