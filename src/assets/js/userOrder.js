@@ -22,11 +22,23 @@ function userOrderInit(){
     console.log(getUserId());
     showOrders();
     document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
+    document.querySelector("#toUserOrdersPast").addEventListener("click", openUserOrdersPast);
+    document.querySelector("#toUserOrders").addEventListener("click", openUserOrdersNew);
     document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
 }
 
 function openUserInfo() {
     window.location.href= "userInfo.html";
+}
+
+function openUserOrdersNew() {
+    window.location.href = "userOrders.html";
+
+}
+
+function openUserOrdersPast() {
+    window.location.href = "userOrdersPast.html";
+
 }
 
 
@@ -44,7 +56,7 @@ function showOrders(){
 
 function goToOrderDetail(orderId) {
     setOrderId(orderId.toString());
-    window.location.href = "userOrderTracking.html";
+    window.location.href = "UserOrderTracking.html";
 }
 
 
@@ -60,14 +72,3 @@ function fillTableWithContent(container, order, rocket){
                  </tr>`;
 }
 
-function showRockets(rockets,ORDER) {
-    for (let x = 0; x < rockets.length; x++){
-        if(ORDER.rocketId.toString()===rockets[x].id.toString() && rockets[x].departLocation.toString() === "Mars") {
-            earthOrders += fillTableWithContent(earthOrders, ORDER, rockets[x]);
-        }else if(ORDER.rocketId.toString()===rockets[x].id.toString() && rockets[x].departLocation === "Earth") {
-            marsOrders += fillTableWithContent(marsOrders, ORDER, rockets[x]);
-        }
-    }
-    containerEarth.innerHTML = marsOrders;
-    containerMars.innerHTML = earthOrders;
-}

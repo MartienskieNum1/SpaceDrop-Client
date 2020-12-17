@@ -11,12 +11,19 @@ function loadInUserInfo() {
         showUserInfo(response);
     });
     document.querySelector("#toUserOrders").addEventListener("click", openUserOrders);
+    document.querySelector("#toUserOrdersPast").addEventListener("click", openUserOrdersPast);
     document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
 }
 
 function openUserOrders() {
     window.location.href= "userOrders.html";
 }
+
+function openUserOrdersPast() {
+    window.location.href = "userOrdersPast.html";
+
+}
+
 
 function showUserInfo(user) {
     document.getElementById("userInfo").innerHTML = `
@@ -27,3 +34,5 @@ function showUserInfo(user) {
         <tr><th>phone:</th><td>${user.phoneNumber}</td></tr>
         <tr><td colspan="2"><a href='UserEditInfo.html' class='button'>Edit info</a></td</tr>`;
 }
+
+

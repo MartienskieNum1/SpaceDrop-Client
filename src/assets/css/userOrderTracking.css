@@ -186,7 +186,7 @@ table td, table th{
 }
 
 .trackingBar li.active + li:after{
-    background: linear-gradient(to right,#65C55E,#65C55E, #65C55E, #65C55E, #65C55E, #7d7d7d, #7d7d7d, #7d7d7d, #7d7d7d, #7d7d7d)
+    background:#65C55E;
 }
 
 h2{
