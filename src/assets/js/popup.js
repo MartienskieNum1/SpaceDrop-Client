@@ -30,7 +30,7 @@ function openPopUp(e) {
 
 function fillWithForm(e) {
     const CONTAINER = document.querySelector("div.contentwrapper");
-    let rocketId = parseInt(e.target.closest("tr").getAttribute("data-row"));
+    const rocketId = parseInt(e.target.closest("tr").getAttribute("data-row"));
 
     getRocketById(rocketId).then(response => {
         fillRocketPopup(response, CONTAINER);
@@ -46,11 +46,11 @@ function fillRocketPopup(rocket, container) {
 }
 
 function renderFormWithUserDetails(rocket, container) {
-    let formDetails = getFilterOptions();
+    const formDetails = getFilterOptions();
     container.innerHTML = `
             <h5>Overview:</h5>
             <div id="addressReceiver">
-                <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">You have selected rocket: ${rocket.name} departing from the launch site on Cape Canaveral for a cost of €${rocket.pricePerKilo*formDetails.mass}</p>
+                <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">Selected: ${rocket.name}. Launch site: Cape Canaveral. Total cost: €${rocket.pricePerKilo*formDetails.mass}</p>
                 <p><span>Address receiver:</span></p>
                 <p>${formDetails.address.street} ${formDetails.address.number}</p>
                 <p>${formDetails.address.cityOrDistrict} ${formDetails.address.countryOrColony}</p>

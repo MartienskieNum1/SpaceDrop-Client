@@ -31,7 +31,6 @@ function renderOrder() {
 function createOrder(e){
     if (e.target.id === "createOrder"){
         const TEMP_ORDER = getTempOrder();
-        console.log(TEMP_ORDER)
         addOrder(TEMP_ORDER).then(finalOrder => {
             setFinalOrder(finalOrder);
         }).then(() => {
@@ -42,8 +41,8 @@ function createOrder(e){
 }
 
 function saveGuestCredentials(){
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
 
     if (getToken() === ""){
         setPaymentCredentials({
@@ -77,7 +76,7 @@ function handlePaymentPopup(paymentMethod){
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="${user.email}" disabled>
-            </form>`
+            </form>`;
         });
     }
 }

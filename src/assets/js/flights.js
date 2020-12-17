@@ -19,8 +19,7 @@ function showNextPage(){
 
 
 function getRocketsForDestination(){
-
-    let filter = getFilterOptions();
+    const filter = getFilterOptions();
     let rocketsForDestination = [];
 
     getRocketsByFilter(filter.mass, filter.volume, filter.urgency).then(rockets => {
@@ -32,7 +31,6 @@ function getRocketsForDestination(){
                 rocketsForDestination.push(ROCKET);
             }
         }
-
         renderRockets(rocketsForDestination);
     });
 }

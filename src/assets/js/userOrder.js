@@ -40,6 +40,17 @@ function showOrders(){
         }
     });
 
+    // TODO: apply this solution (invert the two api calls so you don't get all 66 rockets for every order) + this removes code smell
+    // getRockets().then(response => {
+    //     getOrdersUser().then(function (orders) {
+    //         for (let i = 0; i < orders.length; i++){
+    //             console.log(orders);
+    //             const ORDER = orders[i];
+    //             showRockets(response, ORDER);
+    //         }
+    //     });
+    // });
+
 }
 
 function goToOrderDetail(orderId) {
