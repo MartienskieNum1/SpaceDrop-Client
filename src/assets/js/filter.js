@@ -7,7 +7,7 @@ function filterInit(){
     document.querySelectorAll(".buttons").forEach(button => {
         button.addEventListener("click", goToOptimizer);
     });
-    document.querySelector("#urgency").addEventListener("input", displayUrgency)
+    document.querySelector("#urgency").addEventListener("input", displayUrgency);
 }
 
 function displayUrgency(){
@@ -62,29 +62,25 @@ function addFilterStep1(){
     const mass = parseInt(document.getElementById("mass").value);
     const volume = width * height * depth;
 
-    let filterOptions = [mass, volume, width, height, depth];
+    const filterOptions = [mass, volume, width, height, depth];
 
     setFilterOptions(filterOptions);
 }
 
 function addFilterStep2(){
-    let filterOptions = getFilterOptions();
-    console.log("HEY")
+    const filterOptions = getFilterOptions();
 
     const planet = getDestinationPlanet();
     const country = document.getElementById("country").value;
-    // const colony = document.getElementById("colony").value;
     const city = document.getElementById("city").value;
-    // const district = document.getElementById("district").value;
     const street = document.getElementById("street").value;
     const number = document.getElementById("nr").value;
-    // const urgency = document.getElementById("urgency").value;
     const urgency = displayUrgency();
-    let notEmpty = [urgency, planet, country, city, street, number];
+    const notEmpty = [urgency, planet, country, city, street, number];
 
     filterOptions.push(...notEmpty);
 
-    let filterAsJson = filterToJson(...filterOptions);
+    const filterAsJson = filterToJson(...filterOptions);
 
     setFilterOptions(filterAsJson);
 }
@@ -104,8 +100,7 @@ function filterToJson(...filterOptions){
             "street": filterOptions[9],
             "number": filterOptions[10]
         }
-
-    }
+    };
 }
 
 
