@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>SpaceDrop Admin Flights</title>
     <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/screen.css">
     <link rel="stylesheet" href="assets/css/adminFlights.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -13,7 +14,7 @@
         <ul class="nav">
             <li><a class="home" href="adminFlightsOverview.html"><em class="fa fa-home" style="font-size:48px"></em></a></li>
             <li id="logo"><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
-            <li class="AccountLoginButton"><a class="AccountLoginButton" href="userInfo.html">Admin</a></li>
+            <li class="AccountLoginButton"><a class="loginLogoutButton" id="AccountLoginButton"  href="userInfo.html">Admin</a></li>
         </ul>
     </nav>
 </header>
@@ -24,16 +25,50 @@
         <a href="#">Statistics</a>
     </div>
     <a class="back" href="adminFlightsOverview.html">Back</a>
-    <div id="flights">
+    <div id="filterFlights">
         <div id="title">
-            <img src="assets/images/icons/earth.png" alt="planet icon">
-            <h1>Flights to Earth</h1>
+        <img src="assets/images/icons/mars.png" alt="planet icon">
+            <h1>Select flight to Mars</h1>
         </div>
-        <table id="flightsContent">
+        <form action="#">
+            <label for="weight">Weight:</label>
+            <input type="text" id="weight" name="weight">
+
+            <label for="volume">Volume:</label>
+            <input type="text" id="volume" name="volume">
+
+            <label for="sortBy"></label>
+            <select name="sortBy" id="sortBy">
+                <option value="arrival">Arrival</option>
+                <option value="departure">Departure</option>
+                <option value="availableMass">Available mass</option>
+            </select>
+
+            <label for="sort"></label>
+            <select name="sort" id="sort">
+                <option value="Asc">Ascending</option>
+                <option value="Desc">Descending</option>
+            </select>
+
+        </form>
+    </div>
+
+
+    <div id="flights">
+
+        <table>
+            <tr id="tableHeaders">
+                <th scope="col">Flightname:</th>
+                <th scope="col">Departure:</th>
+                <th scope="col">Arrival:</th>
+                <th scope="col">Available cargo:</th>
+                <th scope="col">Available volume:</th>
+                <th scope="col">Price:</th>
+                <td></td>
+            </tr>
 
         </table>
     </div>
-
 
 
 </main>
