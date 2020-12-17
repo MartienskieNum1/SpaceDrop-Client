@@ -35,21 +35,6 @@ function getRocketsForDestination(){
 
         renderRockets(rocketsForDestination);
     });
-
-
-    // getRockets().then(function(rockets){
-    //
-    //
-    //
-    //     for (let i = 0; i < rockets.length; i++) {
-    //         const ROCKET = rockets[i];
-    //
-    //         if (ROCKET.departLocation !== toTitleCase(getDestinationPlanet())){
-    //             rocketsForDestination.push(ROCKET);
-    //         }
-    //     }
-    //     renderRockets(rocketsForDestination);
-    // });
 }
 
 function renderChosenPlanet() {

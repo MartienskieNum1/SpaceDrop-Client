@@ -105,3 +105,18 @@ function getFilterOptions(){
     return JSON.parse(filterOptions);
 }
 
+function setPaymentCredentials(userNotLoggedIn){
+    localStorage.setItem("userNotLoggedIn", JSON.stringify(userNotLoggedIn));
+}
+
+function getPaymentCredentials(){
+    let userNotLoggedIn = localStorage.getItem("userNotLoggedIn");
+
+    if (userNotLoggedIn === null){
+        setPaymentCredentials(null);
+        userNotLoggedIn = localStorage.getItem("userNotLoggedIn");
+    }
+
+    return JSON.parse(userNotLoggedIn);
+}
+

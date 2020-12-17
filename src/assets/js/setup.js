@@ -133,7 +133,7 @@ function logInOrAccount(e){
         window.location.href = "login.html";
     }else if (e.target.id==="AccountButton"){
         window.location.href = "userInfo.html";
-    }else{
+    }else if (e.target.classList.contains("fa")){
         window.location.href = "index.html";
     }
 }
