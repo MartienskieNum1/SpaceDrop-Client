@@ -16,14 +16,14 @@ function displayUrgency(){
 
     let valueAsString = "";
 
-    if (VALUE > 3){
-        CONTAINER.innerHTML = "Fast";
+    if (VALUE > 660){
+        CONTAINER.innerHTML = "Fast: departure within two days";
         valueAsString = "fast";
-    }else if (VALUE < 3){
-        CONTAINER.innerHTML = "Slow";
+    }else if (VALUE < 330){
+        CONTAINER.innerHTML = "Slow: departure from one week onward. Results past three months are omitted";
         valueAsString = "slow";
     }else{
-        CONTAINER.innerHTML = "Normal";
+        CONTAINER.innerHTML = "Normal: departure within two to five days";
         valueAsString = "normal";
     }
 
