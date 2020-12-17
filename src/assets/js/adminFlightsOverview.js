@@ -1,7 +1,4 @@
 "use strict";
-const tableHeader = '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
-                    '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
-                    '<th scope="col">Volume:</th><td></td></tr>';
 
 onApiUrlLoaded(adminFlightOverviewInit);
 
@@ -40,21 +37,9 @@ function showOverview() {
                 marsFlights += fillTableWithContent(rocket);
             }
         }
-        containerEarth.innerHTML = tableHeader + earthFlights;
-        containerMars.innerHTML = tableHeader + marsFlights;
+        containerEarth.innerHTML = getTableHeader() + earthFlights;
+        containerMars.innerHTML = getTableHeader() + marsFlights;
     });
-}
-
-function fillTableWithContent(flight){
-    return `<tr data-row='${flight.id}'>
-                    <td>${flight.id}</td>
-                    <td>STATUS</td>
-                    <td>${flight.departure}</td>
-                    <td>${flight.arrival}</td>
-                    <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>
-                    <td>${flight.maxVolume-flight.availableVolume}/${flight.maxVolume} m3</td>
-                    <td><button onclick="goToFlightDetail('${flight.id}')">more info</button></td>
-                </tr>`;
 }
 
 function goToFlightDetail(id) {

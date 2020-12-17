@@ -23,77 +23,60 @@
 </header>
 
 <main>
-
-    <a class="back" href="index.html">Back</a>
-
-    <div id="filterFlights">
-        <div>
-            <img src="assets/images/icons/mars.png" alt="planet icon">
-            <h1>Select flight to Mars</h1>
+    <div id="loader"></div>
+        <a class="back" href="index.html">Back</a>
+        <div id="filterFlights">
+            <div>
+                <img src="assets/images/icons/mars.png" alt="planet icon">
+                <h1>Select flight to Mars</h1>
+            </div>
         </div>
-        <form action="#">
-            <label for="weight">Weight:</label>
-            <input type="text" id="weight" name="weight">
 
-            <label for="volume">Volume:</label>
-            <input type="text" id="volume" name="volume">
-
-            <label for="sortBy"></label>
-            <select name="sortBy" id="sortBy">
-                <option value="arrival">Arrival</option>
-                <option value="departure">Departure</option>
-                <option value="availableMass">Available mass</option>
-            </select>
-
-            <label for="sort"></label>
-            <select name="sort" id="sort">
-                <option value="Asc">Ascending</option>
-                <option value="Desc">Descending</option>
-            </select>
-
-        </form>
+    <div id="optimizing" class="loading loading01">
+        <p>OPTIMIZING</p>
     </div>
 
+    <div id="hiddenDiv" class="animate-bottom hidden">
+        <div id="flights">
 
-    <div id="flights">
+            <table>
+                <tr id="tableHeaders">
+                    <th scope="col">Departure:</th>
+                    <th scope="col">Arrival:</th>
+                    <th scope="col">Available cargo:</th>
+                    <th scope="col">Available volume:</th>
+                    <th scope="col">Price:</th>
+                    <td></td>
+                </tr>
 
-        <table>
-            <tr id="tableHeaders">
-                <th scope="col">Departure:</th>
-                <th scope="col">Arrival:</th>
-                <th scope="col">Available cargo:</th>
-                <th scope="col">Available volume:</th>
-                <th scope="col">Price:</th>
-                <td></td>
-            </tr>
+                <tr data-row="1">
+                    <td>17/01/2052</td>
+                    <td>17/02/2052</td>
+                    <td>230kg</td>
+                    <td>100m³</td>
+                    <td>?? Euro/kg</td>
+                    <td><button>view more</button></td>
+                </tr>
 
-            <tr data-row="1">
-                <td>17/01/2052</td>
-                <td>17/02/2052</td>
-                <td>230kg</td>
-                <td>100m³</td>
-                <td>?? Euro/kg</td>
-                <td><button>view more</button></td>
-            </tr>
+                <tr data-row="2">
+                    <td>17/01/2052</td>
+                    <td>17/02/2052</td>
+                    <td>230kg</td>
+                    <td>100m³</td>
+                    <td>?? Euro/kg</td>
+                    <td><button>view more</button></td>
+                </tr>
 
-            <tr data-row="2">
-                <td>17/01/2052</td>
-                <td>17/02/2052</td>
-                <td>230kg</td>
-                <td>100m³</td>
-                <td>?? Euro/kg</td>
-                <td><button>view more</button></td>
-            </tr>
-
-            <tr data-row="3">
-                <td>17/01/2052</td>
-                <td>17/02/2052</td>
-                <td>230kg</td>
-                <td>100m³</td>
-                <td>?? Euro/kg</td>
-                <td><button>view more</button></td>
-            </tr>
-        </table>
+                <tr data-row="3">
+                    <td>17/01/2052</td>
+                    <td>17/02/2052</td>
+                    <td>230kg</td>
+                    <td>100m³</td>
+                    <td>?? Euro/kg</td>
+                    <td><button>view more</button></td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <section id="flightForm" class="popup hidden">
@@ -117,11 +100,21 @@
         <a href="#" class="close">X</a>
     </section>
 
+    <section id="errorScreen" class="popup hidden">
+
+        <div>
+            <h5>Error Message</h5>
+        </div>
+
+        <a href="#" class="close">X</a>
+    </section>
+
 
 </main>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/setup.js"></script>
+    <script src="assets/js/header.js"></script>
     <script src="assets/js/flights.js"></script>
     <script src="assets/js/local-storage.js"></script>
     <script src="assets/js/popup.js"></script>

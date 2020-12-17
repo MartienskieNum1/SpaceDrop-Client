@@ -1,8 +1,6 @@
 "use strict";
 
-
-document.addEventListener("DOMContentLoaded", popupInit);
-
+onApiUrlLoaded(popupInit);
 
 function popupInit() {
     document.querySelector("div").addEventListener("click", openPopUp);
@@ -31,8 +29,35 @@ function openPopUp(e) {
 }
 
 function fillWithForm(e) {
-    //TODO
+    const CONTAINER = document.querySelector("div.contentwrapper");
+    let rocketId = parseInt(e.target.closest("tr").getAttribute("data-row"));
+
+    getRocketById(rocketId).then(response => {
+        fillRocketPopup(response, CONTAINER);
+    });
 }
+
+
+function fillRocketPopup(rocket, container) {
+    if (container !== undefined){
+        renderFormWithUserDetails(rocket, container);
+    }
+
+}
+
+function renderFormWithUserDetails(rocket, container) {
+    let formDetails = getFilterOptions();
+    container.innerHTML = `
+            <h5>Overview:</h5>
+            <div id="addressReceiver">
+                <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">Rocket ${rocket.id} departing from the launch site on Cape Canaveral for a cost of ${rocket.pricePerKilo}€/kg</p>
+                <p><span>Address receiver:</span></p>
+                <p>${formDetails.address.street} ${formDetails.address.number}</p>
+                <p>${formDetails.address.cityOrDistrict} ${formDetails.address.countryOrColony}</p>
+            </div>
+            <a href="#" id="submit" class="popUpButtons">Next</a>`;
+}
+
 
 function showConfirmation(e) {
     //TODO
@@ -41,4 +66,12 @@ function showConfirmation(e) {
 function closePopUp(e) {
     e.preventDefault();
     e.target.closest(".popup").classList.add("hidden");
+}
+
+function showPopUp(message){
+    const CONTAINER = document.querySelector("#errorScreen h5");
+    CONTAINER.innerHTML = message;
+
+    const POPUP = document.querySelector("#errorScreen");
+    POPUP.classList.remove("hidden");
 }

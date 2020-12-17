@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/screen.css">
+    <link rel="stylesheet" href="assets/css/filter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Refine your choice</title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul class="nav">
+            <li><a class="home" href="index.html"><em class="fa fa-home" style="font-size:48px"></em></a></li>
+            <li><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
+            <li class="AccountLoginButton"><a class="AccountLoginButton" href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div id="loader"></div>
+
+    <section class="filterStep1 filter">
+
+        <div class="contentwrapper filterIntro">
+            <h5>Routing optimizer</h5>
+            <p>Hi, my name is SpaceBot! I'm here help you figure out what cargo slots are perfect <br> to carry
+                your order to its destination.</p>
+            <img src="images/Chatbot.png" alt="chatbot">
+        </div>
+
+        <div class="contentwrapper">
+
+            <h5>What are the dimensions of your package?</h5>
+
+            <form class="filterStep1" action="#" method="post">
+
+                <label for="mass">Mass:</label>
+                <input type="number" min="1" id="mass">
+                <label for="width">Width:</label>
+                <input type="number" min="1" id="width">
+                <label for="height">Height:</label>
+                <input type="number" min="1" id="height">
+                <label for="depth">Depth:</label>
+                <input type="number" min="1" id="depth">
+
+            </form>
+
+            <div class="buttons">
+                <a href="index.html">Previous</a>
+                <a id="nextStep" href="#">Continue</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="filterStep2 filter hidden">
+
+        <div class="contentwrapper">
+
+            <h5>When do you want to send your package ?</h5>
+
+            <form class="filterStep2" action="#" method="post">
+
+                <label for="urgency">Urgency:</label>
+                <input type="range" min="1" max="1000" value="500" class="slider" id="urgency">
+            </form>
+
+            <p id="selectedUrgency">Normal: departure within two to five days</p>
+
+            <h5>Address receiver:</h5>
+
+            <form id="addressReceiver" class="filterStep2" action="#">
+
+                <label for="country">Country:</label>
+                <input id="country" name="country"  required list="country-list" value="Belgium"/>
+                <datalist id="country-list"></datalist>
+
+                <label for="colony">Colony:</label>
+                <input class="wide" type="text" id="colony" name="colony" disabled>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" value="Bruges">
+
+                <label for="district">District:</label>
+                <input type="text" id="district" name="district" disabled>
+
+
+                <label for="street">Street:</label>
+                <input type="text" id="street" name="street" value="MarsStreet">
+
+                <label for="nr">Nr:</label>
+                <input type="text" id="nr" name="nr" value="60">
+
+            </form>
+
+            <div class="buttons">
+                <a id="previous" href="#">Previous</a>
+                <a id="finalize" href="flights.html">Continue</a>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/setup.js"></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/filter.js"></script>
+    <script src="assets/js/local-storage.js"></script>
+    <script src="assets/js/miscellaneousApi.js"></script>
+    <script src="assets/js/local-storage.js"></script>
+
+</body>
+</html>

@@ -78,7 +78,7 @@ td:nth-child(even) {
     text-align: right;
 }
 
-input[type=submit], a.google, a.register{
+input[type=submit], a.google, a.register, a.mock{
     background-color: #65C55E;
     border-radius: 5px;
     text-decoration: none;

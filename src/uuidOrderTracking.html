@@ -11,43 +11,37 @@
 <header>
     <nav>
         <ul class="nav">
-            <li><a class="home" href="index.html"><em class="fa fa-home" style="font-size:48px"></em></a></li>
             <li id="logo"><img src="./assets/images/SpaceDrop.jpg" alt="SpaceDrop logo"></li>
-            <li class="AccountLoginButton"><a id="AccountLogoutButton" href="#">Logout</a></li>
         </ul>
     </nav>
 </header>
 <main>
-    <div class="sidenav">
-        <h1>Account</h1>
-        <a href="userInfo.html" id="toUserInfo">User info</a>
-        <a href="userOrders.html" id="toUserOrders"><strong>Orders</strong></a>
-    </div>
-
     <h2>Track your order</h2>
 
     <table id="orderInfo">
 
     </table>
 
-        <div class="tracking">
-            <ul class="trackingBar">
-                <li id="1" >Order confirmed</li>
-                <li id="2" >At warehouse</li>
-                <li id="3" >Rocket Launched</li>
-                <li id="4">Rocket arrived on mars</li>
-                <li id="5">Package has been delivered</li>
-            </ul>
-        </div>
+    <div class="tracking">
+        <ul class="trackingBar">
+            <li id="1" >Order confirmed</li>
+            <li id="2" >At warehouse</li>
+            <li id="3" >Rocket Launched</li>
+            <li id="4">Rocket arrived on mars</li>
+            <li id="5">Package has been delivered</li>
+        </ul>
+    </div>
+
     <canvas id="trackingVisual"></canvas>
+
 </main>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/setup.js"></script>
-<script src="assets/js/userOrderTracking.js"></script>
 <script src="assets/js/userOrderTrackingMock.js"></script>
 <script src="assets/js/mockData.js"></script>
 <script src="assets/js/local-storage.js"></script>
 <script src="assets/js/popup.js"></script>
+<script src="assets/js/uuidOrderTracking.js"></script>
 </body>
 </html>

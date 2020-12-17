@@ -11,7 +11,7 @@ header{
     line-height: 1.5rem;
     width: 100%;
     background-color: #262626;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 nav{
@@ -42,11 +42,11 @@ header nav li img {
     float: left;
 }
 
-header a.AccountLoginButton {
+header a.AccountLoginButton, a.AccountButton  {
     display: block;
     padding: 0.2rem 2rem;
-    background-color: #65C55E;
     border-radius: 10px;
+    background-color: #65C55E;
 }
 
 nav li {

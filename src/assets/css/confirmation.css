@@ -8,8 +8,12 @@ h1, table#orderConfirmation, p, footer a{
     margin-right: auto;
 }
 
-h1, p, table#orderConfirmation caption{
+h1, p, table#orderConfirmation caption {
     margin-bottom: 2rem;
+}
+
+table {
+    margin-bottom: 5rem;
 }
 
 h1 {
@@ -49,7 +53,17 @@ table#orderConfirmation tr img{
 
 table#orderConfirmation th, table#orderConfirmation td {
     text-align: start;
-    padding: 0.5rem 6rem 0.5rem 0;
+    padding: 0.5rem 3rem 0.5rem 0;
+}
+
+.qrCode {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.qrCode p {
+    width: 100%;
 }
 
 footer a{
@@ -63,5 +77,5 @@ footer a{
     display: block;
     width: 40%;
     position: relative;
-    bottom: -15rem;
+    bottom: -5rem;
 }
