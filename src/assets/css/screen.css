@@ -51,14 +51,15 @@ header a{
     color: white;
 }
 header a#AccountLoginButton, a#AccountButton{
-    background-image: linear-gradient(to right, #29a212 0%, #15da6b 51%, #29a212 100%);
+    background-image: linear-gradient(to right, #29a212 0%, #16fb78 51%, #29a212 100%);
 }
 
 header a#AccountLogoutButton{
-    background-image: linear-gradient(to right, #fa0000 0%, #ea5e06 51%, #fa0000 100%);
+    background-image: linear-gradient(to right, #fa0000 0%, #f76d05 51%, #fa0000 100%);
 }
 
 header a#AccountLoginButton:hover, header a#AccountButton:hover, header a#AccountLogoutButton:hover{
+    font-weight: lighter;
     background-position: right top;
 }
 
@@ -95,5 +96,5 @@ main a.back{
     background-color: #989898;
     border-radius: 10px;
     margin-bottom: 2rem;
-    margin-left: 2rem;
+    margin-left: 17%;
 }

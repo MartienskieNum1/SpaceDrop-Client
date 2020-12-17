@@ -166,20 +166,6 @@ div#flightsToEarth h1,div#flightsToMars h1,div#flights h1,div#filterFlights h1{
 
 }
 
-main a.back{
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.2rem 1.5rem;
-    background-color: #989898;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    margin-left: 12rem;
-
-}
-
 .title a{
     background-image: linear-gradient(to right, #29a212 0%, #15da6b 51%, #29a212 100%);
     display: block;
