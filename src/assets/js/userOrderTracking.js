@@ -50,27 +50,16 @@ function showOrderdetails(orderId) {
     });
 }
 
-function showProgression(progressionLevel) {
-    for(let i=1;i<=5;i++){
-        if(progressionLevel>=i){
-            document.getElementById(i.toString()).classList.add("active");
-        }
-        else {
-            document.getElementById(i.toString()).classList.remove("active");
-        }
-    }
-}
-
 function fillInDetails(order, flight){
     const containerMars = document.querySelector("#orderInfo");
     const orderDetails = `<tr>
-            <td>${flight.address}</td>
+            <td>${order.address.planet} ${order.address.countryOrColony} ${order.address.cityOrDistrict} ${order.address.street} ${order.address.number}</td>
             <td>${order.orderId}</td>
             <td>${order.status}</td>
             <td>${flight.departure}</td>
             <td>${flight.arrival}</td>
             <td>${order.cost}</td>
-            <td>${order.width}mm x ${order.depth}mm x ${order.height}mm</td>
+            <td>${order.width}cm x ${order.depth}cm x ${order.height}cm</td>
             <td>${order.mass} kg</td>
         </tr>`;
     containerMars.innerHTML = tableHeaders + orderDetails;

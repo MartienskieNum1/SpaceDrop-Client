@@ -15,6 +15,6 @@ function renderCountryList(){
 
 function renderQrCode(string){
     const QR_IMAGE = document.querySelector("#qrCode");
-    console.log("called");
-    QR_IMAGE.src = "https://api.qrserver.com/v1/create-qr-code/?qzone=1&data=" + string;
+    let url = "https://api.qrserver.com/v1/create-qr-code/?qzone=1&data=" + string;
+    QR_IMAGE.src = url.split("\"")[0] + url.split("\"")[1];
 }

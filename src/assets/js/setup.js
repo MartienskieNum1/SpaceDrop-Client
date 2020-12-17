@@ -52,6 +52,10 @@ function getOrderById(rocketId){
     return apiCall( `orders/${rocketId}`, "GET");
 }
 
+function getOrderByUuid(uuid){
+    return apiCall(`orders/qr/${uuid}`, "GET");
+}
+
 function getRocketById(rocketId){
     return getRockets().then(function (response){
         for(let i=0;i<response.length;i++){
@@ -61,6 +65,10 @@ function getRocketById(rocketId){
         }
         return null;
     });
+}
+
+function getRocketsByFilter(weight, volume, urgency){
+    return apiCall( `filteredRockets?weight=${weight}&volume=${volume}&urgency=${urgency}`, "GET");
 }
 
 function userToJson(...body){
@@ -82,21 +90,19 @@ function userToJson(...body){
 
 function orderToJson(...body){
     return {
-        "orderId" : -1,
-        "userId": body[0],
-        "rocketId": body[1],
-        "statusId": body[2],
-        "mass": body[3],
-        "width": body[4],
-        "height": body[5],
-        "depth": body[6],
-        "cost": body[7],
+        "rocketId": body[0],
+        "statusId": body[1],
+        "mass": body[2],
+        "width": body[3],
+        "height": body[4],
+        "depth": body[5],
+        "cost": body[6],
         "address": {
-            "planet": body[8],
-            "countryOrColony": body[9],
-            "cityOrDistrict": body[10],
-            "street": body[11],
-            "number": body[12]
+            "planet": body[7],
+            "countryOrColony": body[8],
+            "cityOrDistrict": body[9],
+            "street": body[10],
+            "number": body[11]
         }
     };
 }
@@ -127,6 +133,8 @@ function logInOrAccount(e){
         window.location.href = "login.html";
     }else if (e.target.id==="AccountButton"){
         window.location.href = "userInfo.html";
+    }else{
+        window.location.href = "index.html";
     }
 }
 
@@ -160,3 +168,13 @@ function fillTableWithContent(flight){
                 </tr>`;
 }
 
+function showProgression(progressionLevel) {
+    for(let i=1;i<=5;i++){
+        if(progressionLevel>=i){
+            document.getElementById(i.toString()).classList.add("active");
+        }
+        else {
+            document.getElementById(i.toString()).classList.remove("active");
+        }
+    }
+}

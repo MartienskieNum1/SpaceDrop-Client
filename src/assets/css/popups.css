@@ -84,3 +84,14 @@ section#errorScreen h5{
     text-align: center;
 }
 
+
+/*-------------------FLIGHT-FORM------------------*/
+
+section#flightForm p{
+    margin-bottom: 1rem;
+}
+
+section#flightForm span{
+    font-size: 2rem;
+    font-weight: bold;
+}

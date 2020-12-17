@@ -46,22 +46,15 @@ function fillRocketPopup(rocket, container) {
 }
 
 function renderFormWithUserDetails(rocket, container) {
+    let formDetails = getFilterOptions();
     container.innerHTML = `
-            <h5>Fill in your order details:</h5>
-            <form id="tempOrder" action="#" method="post">
-                <label for="rocketId">Rocket ${rocket.id}:</label>
-                <input type="number" id="rocketId" value="${rocket.id}" disabled>
-                <label for="cost">Fixed cost: €/kg</label>
-                <input type="number" id="cost" value="${rocket.pricePerKilo}" disabled>
-                <label for="mass">Mass:</label>
-                <input type="number" min="1" id="mass">
-                <label for="width">Width:</label>
-                <input type="number" min="1" id="width">
-                <label for="height">Height:</label>
-                <input type="number" min="1" id="height">
-                <label for="depth">Depth:</label>
-                <input type="number" min="1" id="depth">
-            </form>
+            <h5>Overview:</h5>
+            <div id="addressReceiver">
+                <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">Rocket ${rocket.id} departing from the launch site on Cape Canaveral for a cost of ${rocket.pricePerKilo}€/kg</p>
+                <p><span>Address receiver:</span></p>
+                <p>${formDetails.address.street} ${formDetails.address.number}</p>
+                <p>${formDetails.address.cityOrDistrict} ${formDetails.address.countryOrColony}</p>
+            </div>
             <a href="#" id="submit" class="popUpButtons">Next</a>`;
 }
 

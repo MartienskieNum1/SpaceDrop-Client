@@ -1,0 +1,125 @@
+/* -------------------FILTER------------------ */
+
+section.filter {
+    /*position: inherit;*/
+    /*width: 40%;*/
+    /*height: 50%;*/
+
+    background-color: #FFF;
+    border: 5px solid #696969;
+    padding: 20px;
+    color: black;
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+section.filter h5{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+section.filter form{
+    margin-bottom: 2rem;
+}
+
+section.filter form, section.filter div.buttons{
+    font-size: 1.5rem;
+}
+
+section.filter div.buttons a {
+    background-color: #65C55E;
+    padding: 0.5rem 0.5rem;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin-right: 2rem;
+    width: 8rem;
+    text-align: center;
+}
+
+.filterStep1 form, #addressReceiver{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+}
+
+.filterStep1 input, #addressReceiver input{
+    margin-bottom: 1rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.filterIntro{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    align-items: center;
+}
+
+.filterIntro p{
+    text-align: center;
+}
+
+.contentwrapper img{
+    height: auto;
+    width: 20rem;
+}
+
+#addressReceiver{
+    display: grid;
+}
+
+/*--------SLIDER------------*/
+
+form input[type="range"] {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+#selectedUrgency{
+    margin-bottom: 2rem;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
