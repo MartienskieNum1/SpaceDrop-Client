@@ -20,7 +20,7 @@ function openUserOrders() {
 }
 
 function openUserOrdersPast() {
-    window.location.href = "userOrdersPast.html"
+    window.location.href = "userOrdersPast.html";
 
 }
 

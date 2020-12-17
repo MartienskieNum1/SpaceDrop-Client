@@ -32,12 +32,12 @@ function openUserInfo() {
 }
 
 function openUserOrdersNew() {
-    window.location.href = "userOrders.html"
+    window.location.href = "userOrders.html";
 
 }
 
 function openUserOrdersPast() {
-    window.location.href = "userOrdersPast.html"
+    window.location.href = "userOrdersPast.html";
 
 }
 
