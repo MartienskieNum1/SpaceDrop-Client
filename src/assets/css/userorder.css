@@ -69,11 +69,6 @@ li.AccountLoginButton, li#AccountLogoutButton{
     text-align: right;
 }
 
-header a#AccountLogoutButton {
-    padding: 4px 16px;
-    background-color: red;
-    border-radius: 10px;
-}
 
 .sidenav {
     height: 100%;
@@ -131,12 +126,20 @@ div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table
     font-size: 0.9rem;
 }
 
-div#flightsToEarth table td button, div#flightsToMars table td button{
-    background-color: #65C55E;
-    padding: 0.2rem 0.5rem;
+button{
+    background-image: linear-gradient(to right, #29a212 0%, #15da6b 51%, #29a212 100%);
+    padding: 0.3rem 0.75rem;
     border-radius: 10px;
     border: none;
     color: white;
+    display: block;
+    transition: 0.5s;
+    background-size: 200% auto;
+
+}
+
+button:hover{
+    background-position: right top;
 }
 
 div#flightsToEarth table tr:nth-child(even),div#flightsToMars table tr:nth-child(even){
