@@ -50,12 +50,12 @@ function renderFormWithUserDetails(rocket, container) {
     container.innerHTML = `
             <h5>Overview:</h5>
             <div id="addressReceiver">
-                <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">Rocket ${rocket.id} departing from the launch site on Cape Canaveral for a cost of ${rocket.pricePerKilo}€/kg</p>
+                <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">You have selected rocket: ${rocket.name} departing from the launch site on Cape Canaveral for a cost of €${rocket.pricePerKilo*formDetails.mass}</p>
                 <p><span>Address receiver:</span></p>
                 <p>${formDetails.address.street} ${formDetails.address.number}</p>
                 <p>${formDetails.address.cityOrDistrict} ${formDetails.address.countryOrColony}</p>
             </div>
-            <a href="#" id="submit" class="popUpButtons">Next</a>`;
+            <a href="#" id="submit" class="popUpButtons">Select this rocket</a>`;
 }
 
 
