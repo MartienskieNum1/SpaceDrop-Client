@@ -15,8 +15,6 @@ const tableHeaders = `<tr class=\"tableHeaders\">
 
 const containerEarth = document.querySelector("#flightsToEarthContent");
 const containerMars = document.querySelector("#flightsToMarsContent");
-let earthOrders = tableHeaders;
-let marsOrders = tableHeaders;
 
 function userOrderInit(){
     console.log(getUserId());
@@ -46,7 +44,7 @@ function showOrders(){
         for (let i = 0; i < orders.length; i++){
             console.log(orders);
             const ORDER = orders[i];
-            showRockets(response, ORDER);
+            showRockets(response, ORDER,tableHeaders);
         }
     });
     });
