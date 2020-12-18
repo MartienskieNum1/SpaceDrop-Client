@@ -1,7 +1,7 @@
 "use strict";
 onApiUrlLoaded(adminFlightOverviewPlanetInit);
 
-let flightsToSort = [];
+const flightsToSort = [];
 let sortedFlights = [];
 
 function adminFlightOverviewPlanetInit() {
