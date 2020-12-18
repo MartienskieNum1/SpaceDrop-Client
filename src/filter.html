@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/screen.css">
     <link rel="stylesheet" href="assets/css/filter.css">
+    <link rel="stylesheet" href="assets/css/popups.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Refine your choice</title>
 </head>
@@ -25,15 +26,14 @@
     <section class="filterStep1 filter">
 
         <div class="contentwrapper filterIntro">
-            <h5>Routing optimizer</h5>
-            <p>Hi, my name is SpaceBot! I'm here help you figure out what cargo slots are perfect <br> to carry
+            <p>Hi, my name is SpaceBot! I'm here help you figure out what cargo slots are perfect to carry
                 your order to its destination.</p>
             <img src="images/Chatbot.png" alt="chatbot">
         </div>
 
         <div class="contentwrapper">
 
-            <h5>What are the dimensions of your package?</h5>
+            <h5>What are the dimensions of your order?</h5>
 
             <form class="filterStep1" action="#" method="post">
 
@@ -63,12 +63,12 @@
             <h5>When do you want to send your package ?</h5>
 
             <form class="filterStep2" action="#" method="post">
-
                 <label for="urgency">Urgency:</label>
                 <input type="range" min="1" max="1000" value="500" class="slider" id="urgency">
             </form>
 
             <p id="selectedUrgency">Normal: departure within two to five days</p>
+            <p id="estimatedPrice">Calculating estimated price</p>
 
             <h5>Address receiver:</h5>
 
@@ -104,12 +104,22 @@
         </div>
     </section>
 
+    <section id="errorScreen" class="popup hidden">
+
+        <div>
+            <h5>Login succeeded</h5>
+        </div>
+
+        <a href="#" class="close">X</a>
+    </section>
+
 </main>
 
     <script src="assets/js/main.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/setup.js"></script>
     <script src="assets/js/header.js"></script>
+    <script src="assets/js/popup.js"></script>
     <script src="assets/js/filter.js"></script>
     <script src="assets/js/local-storage.js"></script>
     <script src="assets/js/miscellaneousApi.js"></script>
