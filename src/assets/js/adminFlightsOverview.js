@@ -28,14 +28,21 @@ function showOverview() {
     let earthFlights = "";
     let marsFlights = "";
 
-    getRockets().then(function(rockets){
+    const today = new Date();
+    const date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();//added 30 years because we are in 2055/2056
+    getRockets().then(rockets => {
+        rockets.sort(function(a,b){
+            return new Date(a.departure) - new Date(b.departure);
+        });
         for (let i = 0; i < rockets.length; i++) {
-            const rocket = rockets[i];
-            if(rocket.departLocation === "Mars"){
-                earthFlights += fillTableWithContent(rocket);
-            }else if(rocket.departLocation === "Earth"){
-                marsFlights += fillTableWithContent(rocket);
+            const ROCKET = rockets[i];
+            console.log(ROCKET.departure);
+            if(ROCKET.departLocation === "Mars" &&ROCKET.departure >= date){
+                earthFlights += fillTableWithContent(ROCKET);
+            }else if(ROCKET.departLocation === "Earth"&&ROCKET.departure >= date){
+                marsFlights += fillTableWithContent(ROCKET);
             }
+
         }
         containerEarth.innerHTML = getTableHeader() + earthFlights;
         containerMars.innerHTML = getTableHeader() + marsFlights;

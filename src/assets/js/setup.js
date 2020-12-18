@@ -44,11 +44,24 @@ function getOrdersUser(){
     return apiCall("details/orders", "GET");
 }
 
+function FiltredOnDate(rockets) {
+    let filteredRockets = [];
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    for(let i=0;i<rockets.length;i++) {
+        if (rockets[i].departure >= date) {
+            filteredRockets += rockets[i];
+        }
+    }
+    return filteredRockets;
+}
+
 function getRockets(){
     return apiCall("rockets", "GET");
 }
 
 function getOrderById(rocketId){
+
     return apiCall( `orders/${rocketId}`, "GET");
 }
 
@@ -139,7 +152,7 @@ function logInOrAccount(e){
 }
 
 function getTableHeader(){
-    return  '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
+    return  '<tr class="tableHeaders"><th scope="col">Flightname:</th>' +
             '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
             '<th scope="col">Volume:</th><td></td></tr>';
 }
@@ -159,7 +172,6 @@ function getTableHeader2(){
 function fillTableWithContent(flight){
     return `<tr data-row='${flight.id}'>
                     <td>${flight.name}</td>
-                    <td>${flight.statusId}</td>
                     <td>${flight.departure}</td>
                     <td>${flight.arrival}</td>
                     <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>

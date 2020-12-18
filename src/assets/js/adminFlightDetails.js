@@ -57,7 +57,6 @@ function showDetails(rocket) {
     const containerDetails = document.querySelector("#flightsContent");
     containerDetails.innerHTML = getTableHeader() + `<tr data-row='${rocket.id}'>
                     <td>${rocket.id}</td>
-                    <td>STATUS</td>
                     <td>${rocket.departure}</td>
                     <td>${rocket.arrival}</td>
                     <td>${rocket.maxMass-rocket.availableMass}/${rocket.maxMass} kg</td>
