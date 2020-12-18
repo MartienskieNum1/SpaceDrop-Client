@@ -6,7 +6,7 @@ onApiUrlLoaded(confirmationInit);
 function confirmationInit() {
     const ORDER = getFinalOrder();
     const TRACKING_URL = "https://project-ii.ti.howest.be/mars-03/uuidOrderTracking.html?uuid=" + ORDER.uuid;
-    setTimeout(showNextPage,2000);
+    setTimeout(showNextPage,3500);
     renderConfirmationMessage(ORDER);
     renderOrderConfirmation(ORDER);
     renderQrCode(JSON.stringify(TRACKING_URL));

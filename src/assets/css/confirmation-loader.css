@@ -107,10 +107,10 @@
 }
 .content p {
   color: #eae8e8;
-  font-size: 14px;
+  font-size: 1.5rem;
   z-index: 2;
   position: absolute;
-  bottom: -20px;
+  bottom: -30px;
   font-family: "Roboto Mono", monospace;
   animation: text 4s ease infinite;
   width: 100px;
