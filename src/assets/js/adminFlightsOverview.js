@@ -28,8 +28,8 @@ function showOverview() {
     let earthFlights = "";
     let marsFlights = "";
 
-    var today = new Date();
-    var date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();//added 30 years because we are in 2055/2056
+    let today = new Date();
+    let date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();//added 30 years because we are in 2055/2056
     getRockets().then(rockets => {
         rockets.sort(function(a,b){
             return new Date(a.departure) - new Date(b.departure);

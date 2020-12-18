@@ -35,8 +35,8 @@ function showOverview(){
 function renderRockets(rockets) {
     const CONTAINER = document.querySelector("#flights table tbody");
     renderFlightHead(CONTAINER);
-    var today = new Date();
-    var date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();//added 30 years because we are in 2055/2056
+    let today = new Date();
+    let date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();//added 30 years because we are in 2055/2056
 
     for (let i = 0; i < rockets.length; i++) {
         const ROCKET = rockets[i];
@@ -51,8 +51,7 @@ function renderRockets(rockets) {
                     <td class="green"><strong>${ROCKET.availableMass}</strong></td>
                     <td class="green"><strong>${ROCKET.pricePerKilo} Euro/kg</strong></td>
                     <td><button onclick="goToFlightDetail('${ROCKET.id}')">view more</button></td>
-                </tr>`
-            ;
+                </tr>`;
         }else if(ROCKET.arrival > date && ROCKET.departure < date){
             CONTAINER.innerHTML +=
             `<tr data-row="${ROCKET.id}">
@@ -64,7 +63,7 @@ function renderRockets(rockets) {
                     <td class="blue"><strong>${ROCKET.availableMass}</strong></td>
                     <td class="blue"><strong>${ROCKET.pricePerKilo} Euro/kg</strong></td>
                     <td><button onclick="goToFlightDetail('${ROCKET.id}')">view more</button></td>
-                </tr>`
+                </tr>`;
         }
         else{
             console.log("bbb");
@@ -78,8 +77,7 @@ function renderRockets(rockets) {
                     <td>${ROCKET.availableMass}</td>
                     <td>${ROCKET.pricePerKilo} Euro/kg</td>
                     <td><button onclick="goToFlightDetail('${ROCKET.id}')">view more</button></td>
-                </tr>`
-            ;
+                </tr>`;
         }
     }
 }
