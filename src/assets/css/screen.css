@@ -108,3 +108,9 @@ main a.back{
     margin-bottom: 2rem;
     margin-left: 17%;
 }
+
+/*----------------OAUTH------------------*/
+
+li.AccountLoginButton {
+    display: flex;
+}

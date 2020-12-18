@@ -179,24 +179,3 @@ function showProgression(progressionLevel) {
     }
 }
 
-function onSignIn(googleUser) {
-    let accessToken = googleUser.xc.access_token;
-    document.querySelector("a.AccountLoginButton").innerHTML = "Logout";
-    getLoggedInUserFetch(accessToken);
-}
-
-function getLoggedInUserFetch(){ //todo: token in cookie steken
-    fetch("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=ya29.a0AfH6SMDc-N4O5v85BKw429A4gGNbOzJ147oj3zqxoyipmVDP8WXE95yeV0NslAXINY_ysGijxchaSNQMKcqOUVvkE1dFYtHo5IlSO6sYu6joq_xd53kDaUSQZFB5oHirmqA8aHbAA8wqVEmQ5-AqOFjnw4n4pe-t_PZ9zc5qwMwo")
-        .then(response => response.json())
-        .then(user => {
-            console.log(user);
-        });
-}
-
-function signOut() {
-    let auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        // document.querySelector("#googleSignOut").innerHTML = "Signed out";
-        console.log("Signed out");
-    });
-}

@@ -102,3 +102,7 @@ input{
     margin-top: 0.5rem;
 }
 
+div.hidden{
+   display: none;
+}
+
