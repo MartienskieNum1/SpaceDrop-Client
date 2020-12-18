@@ -186,3 +186,10 @@ div#flightsToEarth h1,div#flightsToMars h1,div#flights h1,div#filterFlights h1{
 .title a:hover{
     background-position: right top;
 }
+.green{
+    color: #78ee7f;
+}
+
+.blue{
+    color: #70c4ee;
+}
