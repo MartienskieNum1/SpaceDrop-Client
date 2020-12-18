@@ -44,7 +44,6 @@ function renderRockets(rockets) {
             CONTAINER.innerHTML +=
                 `<tr data-row="${ROCKET.id}">
                     <td class="green"><strong>${ROCKET.name}</strong></td>
-                    <td class="green"><strong>${ROCKET.statusId}</strong></td>
                     <td class="green"><strong>${ROCKET.departure}</strong></td>
                     <td class="green"><strong>${ROCKET.arrival}</strong></td>
                     <td class="green"><strong>${ROCKET.availableVolume}³</strong></td>
@@ -56,7 +55,6 @@ function renderRockets(rockets) {
             CONTAINER.innerHTML +=
             `<tr data-row="${ROCKET.id}">
                     <td class="blue"><strong>${ROCKET.name}</strong></td>
-                    <td class="blue"><strong>${ROCKET.statusId}</strong></td>
                     <td class="blue"><strong>${ROCKET.departure}</strong></td>
                     <td class="blue"><strong>${ROCKET.arrival}</strong></td>
                     <td class="blue"><strong>${ROCKET.availableVolume}³</strong></td>
@@ -66,11 +64,9 @@ function renderRockets(rockets) {
                 </tr>`;
         }
         else{
-            console.log("bbb");
             CONTAINER.innerHTML +=
                 `<tr data-row="${ROCKET.id}">
                     <td>${ROCKET.name}</td>
-                    <td>${ROCKET.statusId}</td>
                     <td>${ROCKET.departure}</td>
                     <td>${ROCKET.arrival}</td>
                     <td>${ROCKET.availableVolume}³</td>
@@ -85,7 +81,6 @@ function renderRockets(rockets) {
 function renderFlightHead(container){
     container.innerHTML = `<tr id="tableHeaders">
 <th scope="col">name:</th>
-<th scope="col">status:</th>
             <th scope="col">Departure:</th>
             <th scope="col">Arrival:</th>
             <th scope="col">Available volume:</th>

@@ -56,23 +56,6 @@ function FiltredOnDate(rockets) {
     return filteredRockets;
 }
 
-function getRocketsFiltredOnDate(){
-    var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    let rocketsFilteredOnDate= [];
-    apiCall("rockets", "GET").then( rockets => {
-        for (let i = 0; i < rockets.length; i++) {
-            const ROCKET = rockets[i];
-            console.log(ROCKET.departure);
-            if (ROCKET.departure >= date) {
-                rocketsFilteredOnDate.push(ROCKET);
-            }
-        }
-        console.log(rocketsFilteredOnDate);
-        return(rocketsFilteredOnDate);
-    });
-}
-
 function getRockets(){
     return apiCall("rockets", "GET");
 }
@@ -169,7 +152,7 @@ function logInOrAccount(e){
 }
 
 function getTableHeader(){
-    return  '<tr class="tableHeaders"><th scope="col">Flightname:</th><th scope="col">Flightstatus:</th>' +
+    return  '<tr class="tableHeaders"><th scope="col">Flightname:</th>' +
             '<th scope="col">Departure:</th><th scope="col">Arrival:</th><th scope="col">Cargo:</th>' +
             '<th scope="col">Volume:</th><td></td></tr>';
 }
@@ -189,7 +172,6 @@ function getTableHeader2(){
 function fillTableWithContent(flight){
     return `<tr data-row='${flight.id}'>
                     <td>${flight.name}</td>
-                    <td>${flight.statusId}</td>
                     <td>${flight.departure}</td>
                     <td>${flight.arrival}</td>
                     <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>

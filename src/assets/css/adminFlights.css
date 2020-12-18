@@ -99,7 +99,7 @@ li.AccountLoginButton{
 }
 
 
-div#flightsToMars,div#flightsToEarth,div#flights,div#filterFlights{
+div#flightsToMars,div#flightsToEarth,div#flights,div#filterFlights,canvas{
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
@@ -115,7 +115,7 @@ div#flightsToEarth table, div#flightsToMars table, div#flights table{
     flex-direction: column;
     flex-wrap: wrap;
     width: 85%;
-    padding-bottom: 0.5rem;
+    padding-bottom: 2rem;
 }
 
 div#flightsToEarth table th,div#flightsToEarth table td, div#flightsToMars table th,div#flightsToMars table td, div#flights table th,div#flights table td{
@@ -192,4 +192,8 @@ div#flightsToEarth h1,div#flightsToMars h1,div#flights h1,div#filterFlights h1{
 
 .blue{
     color: #70c4ee;
+}
+
+canvas{
+    width: 70%;
 }
