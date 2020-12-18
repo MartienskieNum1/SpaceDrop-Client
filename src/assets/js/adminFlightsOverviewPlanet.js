@@ -21,7 +21,7 @@ function showOverview(){
     getRockets().then(function(rockets){
         for (let i = 0; i < rockets.length; i++) {
             const ROCKET = rockets[i];
-            if (ROCKET.departLocation === toTitleCase(getDestinationPlanet())){
+            if (ROCKET.departLocation !== toTitleCase(getDestinationPlanet())){
                 flightsToSort.push(ROCKET);
             }
         }

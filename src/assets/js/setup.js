@@ -44,11 +44,41 @@ function getOrdersUser(){
     return apiCall("details/orders", "GET");
 }
 
+function FiltredOnDate(rockets) {
+    let filteredRockets = [];
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    for(let i=0;i<rockets.length;i++) {
+        if (rockets[i].departure >= date) {
+            filteredRockets += rockets[i];
+        }
+    }
+    return filteredRockets;
+}
+
+function getRocketsFiltredOnDate(){
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let rocketsFilteredOnDate= [];
+    apiCall("rockets", "GET").then( rockets => {
+        for (let i = 0; i < rockets.length; i++) {
+            const ROCKET = rockets[i];
+            console.log(ROCKET.departure);
+            if (ROCKET.departure >= date) {
+                rocketsFilteredOnDate.push(ROCKET);
+            }
+        }
+        console.log(rocketsFilteredOnDate);
+        return(rocketsFilteredOnDate);
+    });
+}
+
 function getRockets(){
     return apiCall("rockets", "GET");
 }
 
 function getOrderById(rocketId){
+
     return apiCall( `orders/${rocketId}`, "GET");
 }
 
