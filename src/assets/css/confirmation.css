@@ -13,7 +13,7 @@ h1, p, table#orderConfirmation caption {
 }
 
 table {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 h1 {
@@ -111,8 +111,6 @@ h5#processing{
     animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
-    -webkit-animation-delay: 0;
-    animation-delay: 0;
     -webkit-animation-direction: normal;
     animation-direction: normal;
     -webkit-animation-fill-mode: forwards;
