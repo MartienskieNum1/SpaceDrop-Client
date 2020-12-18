@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/screen.css">
     <link rel="stylesheet" href="assets/css/confirmation.css">
+    <link rel="stylesheet" href="assets/css/confirmation-loader.css">
     <link rel="stylesheet" href="assets/css/popups.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -63,14 +64,34 @@
         </div>
     </div>
 
+<!--    <div id="loader">-->
+<!--        <h5 id="processing">Processing payment...</h5>-->
+<!--        <svg width="200" height="200" viewBox="0 0 100 100">-->
+<!--            <polyline class="line-cornered stroke-still" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>-->
+<!--            <polyline class="line-cornered stroke-still" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>-->
+<!--            <polyline class="line-cornered stroke-animation" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>-->
+<!--            <polyline class="line-cornered stroke-animation" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>-->
+<!--        </svg>-->
+<!--    </div>-->
+
     <div id="loader">
-        <h5 id="processing">Processing payment...</h5>
-        <svg width="200" height="200" viewBox="0 0 100 100">
-            <polyline class="line-cornered stroke-still" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>
-            <polyline class="line-cornered stroke-still" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>
-            <polyline class="line-cornered stroke-animation" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>
-            <polyline class="line-cornered stroke-animation" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>
-        </svg>
+        <div class="content">
+            <div class="planet">
+                <div class="ring"></div>
+                <div class="cover-ring"></div>
+                <div class="spots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+            </div>
+            <p>Processing...</p>
+        </div>
     </div>
 
 </main>
