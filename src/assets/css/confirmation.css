@@ -13,7 +13,7 @@ h1, p, table#orderConfirmation caption {
 }
 
 table {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 h1 {
@@ -78,4 +78,123 @@ footer a{
     width: 40%;
     position: relative;
     bottom: -5rem;
+}
+
+.hidden{
+    display: none;
+}
+
+/*-------------------confirmation loader ----------------------*/
+
+svg{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
+
+h5#processing{
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.stroke-still {
+    stroke: #232323;
+}
+
+.stroke-animation {
+    -webkit-animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
+    animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+}
+
+@-webkit-keyframes stroke-spacing {
+    0% {
+        stroke-dasharray: 0 200;
+    }
+    45% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 200 200;
+    }
+    90% {
+        stroke-dashoffset: -200;
+        stroke-dasharray: 200 200;
+    }
+    100% {
+        stroke-dashoffset: -200;
+        stroke-dasharray: 200 200;
+    }
+}
+
+@keyframes stroke-spacing {
+    0% {
+        stroke-dasharray: 0 200;
+    }
+    45% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 200 200;
+    }
+    90% {
+        stroke-dashoffset: -200;
+        stroke-dasharray: 200 200;
+    }
+    100% {
+        stroke-dashoffset: -200;
+        stroke-dasharray: 200 200;
+    }
+}
+
+@-webkit-keyframes stroke-color {
+    0%  { stroke: #3498DB; }
+    24% { stroke: #643232; }
+    25% { stroke: #327864; }
+    49% { stroke: #327864; }
+    50% { stroke: #32326e; }
+    74% { stroke: #32326e; }
+    75% { stroke: #78325a; }
+    99% { stroke: #78325a; }
+}
+
+@keyframes stroke-color {
+    0%  { stroke: #3498DB; }
+    24% { stroke: #643232; }
+    25% { stroke: #327864; }
+    49% { stroke: #327864; }
+    50% { stroke: #32326e; }
+    74% { stroke: #32326e; }
+    75% { stroke: #78325a; }
+    99% { stroke: #78325a; }
+}
+
+/*-----------------animate-bottom-------------------*/
+
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from { bottom:-100px; opacity:0 }
+    to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+    from{ bottom:-100px; opacity:0 }
+    to{ bottom:0; opacity:1 }
 }

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/screen.css">
     <link rel="stylesheet" href="assets/css/confirmation.css">
+    <link rel="stylesheet" href="assets/css/confirmation-loader.css">
     <link rel="stylesheet" href="assets/css/popups.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -22,49 +23,80 @@
 </header>
 
 <main>
+    <div class="animate-bottom hidden">
+        <h1>Your order is completed</h1>
 
-    <h1>Your order is completed</h1>
+        <p>A confirmation mail containing the tracking ID of your order no. X has been sent to: yourEmail@place.holder</p>
 
-    <p>A confirmation mail containing the tracking ID of your order no. X has been sent to: yourEmail@place.holder</p>
+        <table id="orderConfirmation">
+            <caption>Overview:</caption>
+            <tr id="tableHeaders">
+                <th scope="col">To:</th>
+                <th scope="col">Departure:</th>
+                <th scope="col">Arrival:</th>
+                <th scope="col">Weight:</th>
+                <th scope="col">Height:</th>
+                <th scope="col">Width:</th>
+                <th scope="col">Depth:</th>
+                <th scope="col">Price:</th>
+            </tr>
 
-    <table id="orderConfirmation">
-        <caption>Overview:</caption>
-        <tr id="tableHeaders">
-            <th scope="col">To:</th>
-            <th scope="col">Departure:</th>
-            <th scope="col">Arrival:</th>
-            <th scope="col">Weight:</th>
-            <th scope="col">Height:</th>
-            <th scope="col">Width:</th>
-            <th scope="col">Depth:</th>
-            <th scope="col">Price:</th>
-        </tr>
+            <tr data-order="1">
+                <td><img src="assets/images/icons/mars.png" alt="planet icon"></td>
+                <td>17/01/2052</td>
+                <td>17/01/2052</td>
+                <td>230kg</td>
+                <td>5m</td>
+                <td>2m</td>
+                <td>2m</td>
+                <td>?? Euro/kg</td>
+            </tr>
+        </table>
 
-        <tr data-order="1">
-            <td><img src="assets/images/icons/mars.png" alt="planet icon"></td>
-            <td>17/01/2052</td>
-            <td>17/01/2052</td>
-            <td>230kg</td>
-            <td>5m</td>
-            <td>2m</td>
-            <td>2m</td>
-            <td>?? Euro/kg</td>
-        </tr>
-    </table>
+        <div class="qrCode">
+            <p>
+                Download and print this QR code to paste it on your package.
+                <br>
+                Deliver the package to the post office in your neighbourhood.
+            </p>
 
-    <div class="qrCode">
-        <p>
-            Download and print this QR code to paste it on your package.
-            <br>
-            Deliver the package to the post office in your neighbourhood.
-        </p>
+            <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="QR-code" />
+        </div>
+    </div>
 
-        <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="QR-code" />
+<!--    <div id="loader">-->
+<!--        <h5 id="processing">Processing payment...</h5>-->
+<!--        <svg width="200" height="200" viewBox="0 0 100 100">-->
+<!--            <polyline class="line-cornered stroke-still" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>-->
+<!--            <polyline class="line-cornered stroke-still" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>-->
+<!--            <polyline class="line-cornered stroke-animation" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>-->
+<!--            <polyline class="line-cornered stroke-animation" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>-->
+<!--        </svg>-->
+<!--    </div>-->
+
+    <div id="loader">
+        <div class="content">
+            <div class="planet">
+                <div class="ring"></div>
+                <div class="cover-ring"></div>
+                <div class="spots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+            </div>
+            <p>Processing...</p>
+        </div>
     </div>
 
 </main>
 
-<footer>
+<footer class="animate-bottom hidden">
     <a href="index.html">Return to home</a>
 </footer>
 

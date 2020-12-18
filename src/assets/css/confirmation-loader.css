@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+#loader {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  width: 100%;
+  background-color: #404040;
+}
+
+.content {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .planet {
+  width: 65%;
+  height: 65%;
+  background-color: #d47432;
+  border-radius: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  transform-origin: center center;
+  box-shadow: inset 2px -10px 0px rgba(0, 0, 0, 0.1);
+  animation: planet 5s ease infinite alternate;
+  /* planet spots */
+}
+@keyframes planet {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+.content .planet .spots {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+}
+.content .planet .spots span {
+  width: 30px;
+  height: 30px;
+  background-color: #a44406;
+  position: absolute;
+  border-radius: 100%;
+  box-shadow: inset -2px 3px 0px rgba(0, 0, 0, 0.3);
+  animation: dots 5s ease infinite alternate;
+}
+@keyframes dots {
+  0% {
+    box-shadow: inset -3px 3px 0px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+.content .planet .spots span:nth-child(1) {
+  top: 20px;
+  right: 50px;
+}
+.content .planet .spots span:nth-child(2) {
+  top: 40px;
+  left: 50px;
+  width: 15px;
+  height: 15px;
+}
+.content .planet .spots span:nth-child(3) {
+  top: 80px;
+  left: 20px;
+  width: 25px;
+  height: 25px;
+}
+.content .planet .spots span:nth-child(4) {
+  top: 80px;
+  left: 90px;
+  width: 40px;
+  height: 40px;
+}
+.content .planet .spots span:nth-child(5) {
+  top: 160px;
+  left: 70px;
+  width: 15px;
+  height: 15px;
+}
+.content .planet .spots span:nth-child(6) {
+  top: 165px;
+  left: 125px;
+  width: 10px;
+  height: 10px;
+}
+.content .planet .spots span:nth-child(7) {
+  top: 90px;
+  left: 150px;
+  width: 15px;
+  height: 15px;
+}
+.content p {
+  color: #eae8e8;
+  font-size: 1.5rem;
+  z-index: 2;
+  position: absolute;
+  bottom: -30px;
+  font-family: "Roboto Mono", monospace;
+  animation: text 4s ease infinite;
+  width: 100px;
+  text-align: center;
+}
+@keyframes text {
+  0% {
+    transform: translateX(-30px);
+    letter-spacing: 0px;
+    color: #eae8e8;
+  }
+  25% {
+    letter-spacing: 3px;
+    color: #a44406;
+  }
+  50% {
+    transform: translateX(30px);
+    letter-spacing: 0px;
+    color: #eae8e8;
+  }
+  75% {
+    letter-spacing: 3px;
+    color: #a44406;
+  }
+  100% {
+    transform: translateX(-30px);
+    letter-spacing: 0px;
+    color: #eae8e8;
+  }
+}
+
+/*# sourceMappingURL=confirmation-loader.css.map */

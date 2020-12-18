@@ -6,10 +6,16 @@ onApiUrlLoaded(confirmationInit);
 function confirmationInit() {
     const ORDER = getFinalOrder();
     const TRACKING_URL = "https://project-ii.ti.howest.be/mars-03/uuidOrderTracking.html?uuid=" + ORDER.uuid;
-
+    setTimeout(showNextPage,3500);
     renderConfirmationMessage(ORDER);
     renderOrderConfirmation(ORDER);
     renderQrCode(JSON.stringify(TRACKING_URL));
+}
+
+function showNextPage(){
+    document.getElementById("loader").style.display = "none";
+    document.querySelector("div.animate-bottom").classList.remove("hidden");
+    document.querySelector("footer.animate-bottom").classList.remove("hidden");
 }
 
 function renderOrderConfirmation(ORDER) {
