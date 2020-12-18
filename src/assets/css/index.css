@@ -47,3 +47,8 @@ a.footer{
     text-decoration: none;
     color: white;
 }
+
+#planetDistances li img{
+    height: 2rem;
+
+}

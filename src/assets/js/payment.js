@@ -31,11 +31,23 @@ function renderOrder() {
 function createOrder(e){
     if (e.target.id === "createOrder"){
         const TEMP_ORDER = getTempOrder();
-        console.log(TEMP_ORDER)
         addOrder(TEMP_ORDER).then(finalOrder => {
             setFinalOrder(finalOrder);
         }).then(() => {
+            saveGuestCredentials();
             window.location.href = "confirmation.html";
+        });
+    }
+}
+
+function saveGuestCredentials(){
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    if (getToken() === ""){
+        setPaymentCredentials({
+            "name": name,
+            "email": email
         });
     }
 }
@@ -49,10 +61,22 @@ function renderChosenPaymentMethod(e){
 
 function handlePaymentPopup(paymentMethod){
     const HEADER = document.querySelector("#chosenPayment h5");
-    const BODY = document.querySelector("#chosenPayment p");
+    const FORM = document.querySelector("#chosenPayment form");
 
     document.querySelector("#chosenPayment").classList.remove("hidden");
 
     HEADER.innerHTML = `${paymentMethod} payment service provider`;
-    BODY.innerHTML = `By clicking continue, you confirm that your order details are correct.`;
+
+    if (getToken() !== ""){
+        getUser().then(user => {
+            FORM.innerHTML = `
+            <form action="#">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="${user.firstName}${user.lastName}" disabled>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="${user.email}" disabled>
+            </form>`;
+        });
+    }
 }

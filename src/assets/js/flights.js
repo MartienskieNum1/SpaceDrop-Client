@@ -19,8 +19,7 @@ function showNextPage(){
 
 
 function getRocketsForDestination(){
-
-    let filter = getFilterOptions();
+    const filter = getFilterOptions();
     let rocketsForDestination = [];
 
     getRocketsByFilter(filter.mass, filter.volume, filter.urgency).then(rockets => {
@@ -32,24 +31,8 @@ function getRocketsForDestination(){
                 rocketsForDestination.push(ROCKET);
             }
         }
-
         renderRockets(rocketsForDestination);
     });
-
-
-    // getRockets().then(function(rockets){
-    //
-    //
-    //
-    //     for (let i = 0; i < rockets.length; i++) {
-    //         const ROCKET = rockets[i];
-    //
-    //         if (ROCKET.departLocation !== toTitleCase(getDestinationPlanet())){
-    //             rocketsForDestination.push(ROCKET);
-    //         }
-    //     }
-    //     renderRockets(rocketsForDestination);
-    // });
 }
 
 function renderChosenPlanet() {
@@ -66,6 +49,7 @@ function toTitleCase(txt){
 
 function renderRockets(rockets) {
     const CONTAINER = document.querySelector("#flights table tbody");
+    const filterData = getFilterOptions();
     renderFlightHead(CONTAINER);
 
     for (let i = 0; i < rockets.length; i++) {
@@ -75,8 +59,8 @@ function renderRockets(rockets) {
                     <td>${ROCKET.departure}</td>
                     <td>${ROCKET.arrival}</td>
                     <td>${ROCKET.availableVolume} m³</td>
-                    <td>${ROCKET.availableMass}</td>
-                    <td data-cost="${ROCKET.pricePerKilo}">${ROCKET.pricePerKilo} Euro/kg</td>
+                    <td>${ROCKET.availableMass} kg</td>
+                    <td data-cost="${ROCKET.pricePerKilo}">€ ${ROCKET.pricePerKilo * filterData.mass}</td>
                     <td><button>View details</button></td>
                 </tr>`
             ;
@@ -89,7 +73,7 @@ function renderFlightHead(container){
             <th scope="col">Arrival:</th>
             <th scope="col">Available volume:</th>
             <th scope="col">Available mass:</th>
-            <th scope="col">Price:</th>
+            <th scope="col">Your price:</th>
             <td></td>
           </tr>`;
 }

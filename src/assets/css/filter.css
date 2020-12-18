@@ -5,10 +5,10 @@ section.filter {
     /*width: 40%;*/
     /*height: 50%;*/
 
-    background-color: #FFF;
-    border: 5px solid #696969;
+    background-color: #404040;
+    /*border: 5px solid #696969;*/
     padding: 20px;
-    color: black;
+    color: white;
     margin: auto;
     position: fixed;
     top: 50%;
@@ -36,7 +36,6 @@ section.filter div.buttons a {
     border: none;
     color: white;
     text-decoration: none;
-    margin-right: 2rem;
     width: 8rem;
     text-align: center;
 }
@@ -52,7 +51,7 @@ section.filter div.buttons a {
 
 .buttons{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .hidden{
@@ -68,6 +67,7 @@ section.filter div.buttons a {
 
 .filterIntro p{
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .contentwrapper img{
@@ -77,6 +77,11 @@ section.filter div.buttons a {
 
 #addressReceiver{
     display: grid;
+}
+
+#estimatedPrice{
+    display: inline-block;
+    margin-bottom: 1rem;
 }
 
 /*--------SLIDER------------*/
@@ -109,17 +114,25 @@ form input[type="range"] {
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    background: #4CAF50;
-    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10px;
+    background-image: url("https://cdn0.iconfinder.com/data/icons/octicons/1024/rocket-512.png");
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    background-position: 70%;
+    padding: 0.5rem;
 }
 
 .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    background: #4CAF50;
-    cursor: pointer;
+    -webkit-appearance: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10px;
+    background-image: url("https://cdn0.iconfinder.com/data/icons/octicons/1024/rocket-512.png");
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    padding: 0.5rem;
 }
 

@@ -3,7 +3,7 @@ onApiUrlLoaded(adminFlightOverviewInit);
 
 function adminFlightOverviewInit() {
     const flightId = getFlightId();
-    getRockets().then(function(rockets){  // TODO: use getRocketById
+    getRockets().then(function(rockets){
         let rocket =null;
         for (let i = 0; i < rockets.length; i++) {
             const selectedRocket = rockets[i];

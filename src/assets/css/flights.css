@@ -58,11 +58,19 @@ div#flights table th,div#flights table td {
 }
 
 div#flights table td button{
-    background-color: #65C55E;
-    padding: 0.2rem 0.5rem;
+    background-image: linear-gradient(to right, #29a212 0%, #15da6b 51%, #29a212 100%);
+    padding: 0.3rem 0.75rem;
     border-radius: 10px;
     border: none;
     color: white;
+    display: block;
+    transition: 0.5s;
+    background-size: 200% auto;
+
+}
+
+div#flights table td button:hover{
+    background-position: right top;
 }
 
 div#flights table tr:nth-child(even){
@@ -145,4 +153,17 @@ div#flights table tr:nth-child(even){
 span {
     display: inline-block;
     margin: 0 -.05em;
+}
+
+main a.back{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.2rem 1.5rem;
+    background-color: #989898;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    margin-left: 10%;
 }

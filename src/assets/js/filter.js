@@ -7,24 +7,33 @@ function filterInit(){
     document.querySelectorAll(".buttons").forEach(button => {
         button.addEventListener("click", goToOptimizer);
     });
-    document.querySelector("#urgency").addEventListener("change", displayUrgency)
+    document.querySelector("#urgency").addEventListener("input", displayUrgency);
 }
 
 function displayUrgency(){
     const CONTAINER = document.querySelector("#selectedUrgency");
-    const VALUE = document.querySelector("#urgency").value;
+    const PRICE = document.querySelector("#estimatedPrice");
+    const WEIGHT = parseInt(document.querySelector("#mass").value);
+    const URGENCY = document.querySelector("#urgency").value;
 
-    let valueAsString = "";
+    if (isNaN(WEIGHT)){
+        showPopUp("Error: failed to calculate price. Please enter a valid number for your order's weight");
+    }
 
-    if (VALUE > 660){
+    let valueAsString;
+
+    if (URGENCY > 660){
         CONTAINER.innerHTML = "Fast: departure within two days";
+        PRICE.innerHTML = `Estimated cost: € ${WEIGHT*120}`;
         valueAsString = "fast";
-    }else if (VALUE < 330){
+    }else if (URGENCY < 330){
         CONTAINER.innerHTML = "Slow: departure from one week onward. Results past three months are omitted";
         valueAsString = "slow";
+        PRICE.innerHTML = `Estimated cost: € ${WEIGHT*95}`;
     }else{
         CONTAINER.innerHTML = "Normal: departure within two to five days";
         valueAsString = "normal";
+        PRICE.innerHTML = `Estimated cost: € ${WEIGHT*100}`;
     }
 
     return valueAsString;
@@ -53,29 +62,25 @@ function addFilterStep1(){
     const mass = parseInt(document.getElementById("mass").value);
     const volume = width * height * depth;
 
-    let filterOptions = [mass, volume, width, height, depth];
+    const filterOptions = [mass, volume, width, height, depth];
 
     setFilterOptions(filterOptions);
 }
 
 function addFilterStep2(){
-    let filterOptions = getFilterOptions();
-    console.log("HEY")
+    const filterOptions = getFilterOptions();
 
     const planet = getDestinationPlanet();
     const country = document.getElementById("country").value;
-    // const colony = document.getElementById("colony").value;
     const city = document.getElementById("city").value;
-    // const district = document.getElementById("district").value;
     const street = document.getElementById("street").value;
     const number = document.getElementById("nr").value;
-    // const urgency = document.getElementById("urgency").value;
     const urgency = displayUrgency();
-    let notEmpty = [urgency, planet, country, city, street, number];
+    const notEmpty = [urgency, planet, country, city, street, number];
 
     filterOptions.push(...notEmpty);
 
-    let filterAsJson = filterToJson(...filterOptions);
+    const filterAsJson = filterToJson(...filterOptions);
 
     setFilterOptions(filterAsJson);
 }
@@ -95,8 +100,7 @@ function filterToJson(...filterOptions){
             "street": filterOptions[9],
             "number": filterOptions[10]
         }
-
-    }
+    };
 }
 
 

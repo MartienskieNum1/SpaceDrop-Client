@@ -28,7 +28,7 @@ nav ul li{
     margin-bottom: auto;
 }
 
-header nav li a {
+.loginLogoutButton {
     color: white;
     text-align: center;
     text-decoration: none;
@@ -42,14 +42,32 @@ header nav li img {
     float: left;
 }
 
-header a.AccountLoginButton, a.AccountButton  {
+header a{
+    color: white;
+}
+
+header a.loginLogoutButton{
     display: block;
     padding: 0.2rem 2rem;
     border-radius: 10px;
-    background-color: #65C55E;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+}
+header a#AccountLoginButton, a#AccountButton{
+    background-image: linear-gradient(to right, #29a212 0%, #16fb78 51%, #29a212 100%);
 }
 
-nav li {
+header a#AccountLogoutButton{
+    background-image: linear-gradient(to right, #fa0000 0%, #f76d05 51%, #fa0000 100%);
+}
+
+header a#AccountLoginButton:hover, header a#AccountButton:hover, header a#AccountLogoutButton:hover{
+    font-weight: lighter;
+    background-position: right top;
+}
+
+nav li.AccountLoginButton {
     width: 15rem;
 }
 
@@ -59,18 +77,21 @@ li a.AccountLoginButton{
 }
 
 header a.home:hover{
-    color: #076000;
+    color: #29a212;
 }
 
-header a.AccountLoginButton:hover {
-    background-color: #076000;
+header a.home{
+    width: 15rem;
+    text-align: center;
+    margin-right: 12rem;
 }
+
 
 #planetDistances{
     display: flex;
     justify-content: space-between;
     font-size: 0.7rem;
-    width: 25rem;
+    width: 15rem;
 }
 
 /* -------------------HEADER------------------ */
@@ -85,5 +106,5 @@ main a.back{
     background-color: #989898;
     border-radius: 10px;
     margin-bottom: 2rem;
-    margin-left: 2rem;
+    margin-left: 17%;
 }

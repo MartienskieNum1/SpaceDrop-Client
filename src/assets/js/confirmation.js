@@ -12,7 +12,7 @@ function confirmationInit() {
     renderQrCode(JSON.stringify(TRACKING_URL));
 }
 
-function renderOrderConfirmation(ORDER) { //TODO: remove code duplication
+function renderOrderConfirmation(ORDER) {
 
     const TOTAL_COST = ORDER.cost * parseInt(ORDER.mass);
     const CONTAINER = document.querySelector('tr[data-order="1"]');
@@ -32,21 +32,21 @@ function renderOrderConfirmation(ORDER) { //TODO: remove code duplication
 
 function renderConfirmationMessage(ORDER){
     const CONTAINER = document.querySelector("main p");
+    const USER_NOT_LOGGED_IN = getPaymentCredentials();
 
     if (getToken() === ""){
         getOrderById(ORDER.orderId).then(response => {
-            console.log(response)
-            CONTAINER.outerHTML = `<p>A confirmation mail containing the tracking ID of your order no. ${response.orderId}
-                                   has been sent to your email </p>`
+            CONTAINER.outerHTML = `<p>Payment successful, ${USER_NOT_LOGGED_IN.name} ! A confirmation mail containing the tracking ID of your order no. ${response.orderId} has been sent to ${USER_NOT_LOGGED_IN.email} </p>`;
         });
+
+        setPaymentCredentials(null);
 
     }else {
         getUser().then(user => {
             const EMAIL = user.email;
 
             getOrderById(ORDER.orderId).then(response => {
-                CONTAINER.outerHTML = `<p>A confirmation mail containing the tracking ID of your order no. ${response.orderId}
-                               has been sent to: ${EMAIL} </p>`
+                CONTAINER.outerHTML = `<p>Payment successful, ${user.firstName} ! A confirmation mail containing the tracking ID of your order no. ${response.orderId} has been sent to: ${EMAIL} </p>`;
             });
         });
     }

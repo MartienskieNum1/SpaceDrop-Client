@@ -26,7 +26,7 @@ function login(e) {
     }
 }
 
-function logInMockUser(e){ //TODO: implement this on server side: hashed pass = $2a$10$y4ZEbUKH1NBMOneHg.JwrecL8VIyNFfoZcQPsBw2tbriXyIdRzQKW
+function logInMockUser(e){
     e.preventDefault();
     if (e.target.id === "user"){
         const email = "user@space.drop";

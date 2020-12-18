@@ -119,21 +119,21 @@ function getLoggedInStatus(){
 
 function checkIfLoggedIn(){
     if (getLoggedInStatus()){
-        document.querySelector("a.AccountLoginButton").outerHTML =
-            `<a class="AccountButton" href="index.html">Account (user)</a>`;
+        document.querySelector("a.loginLogoutButton").outerHTML =
+            `<li class="AccountLoginButton"><a class="loginLogoutButton" id="AccountButton" href="index.html">Account</a></li>`;
     }else{
-        document.querySelector("a.AccountLoginButton").outerHTML =
-            `<a class="AccountLoginButton" href="login.html">Login</a>`;
+        document.querySelector("a.loginLogoutButton").outerHTML =
+            `<li class="AccountLoginButton"><a class="loginLogoutButton" id="AccountLoginButton" href="login.html">Login</a></li>`;
     }
 }
 
 function logInOrAccount(e){
     e.preventDefault();
-    if (e.target.classList.contains("AccountLoginButton")){
+    if (e.target.id==="AccountLoginButton"){
         window.location.href = "login.html";
-    }else if (e.target.classList.contains("AccountButton")){
+    }else if (e.target.id==="AccountButton"){
         window.location.href = "userInfo.html";
-    }else{
+    }else if (e.target.classList.contains("fa")){
         window.location.href = "index.html";
     }
 }
@@ -158,8 +158,8 @@ function getTableHeader2(){
 
 function fillTableWithContent(flight){
     return `<tr data-row='${flight.id}'>
-                    <td>${flight.id}</td>
-                    <td>STATUS</td>
+                    <td>${flight.name}</td>
+                    <td>${flight.statusId}</td>
                     <td>${flight.departure}</td>
                     <td>${flight.arrival}</td>
                     <td>${flight.maxMass-flight.availableMass}/${flight.maxMass} kg</td>
