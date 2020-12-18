@@ -41,34 +41,13 @@
             <div id="googleSignIn" class="g-signin2" data-onsuccess="onSignIn">Sign in with Google</div>
         </div>
 
-        <div>
+        <div id="loginMockButton">
             <a id="user" class="mock">Login with mock user</a>
         </div>
 
     </div>
 
     <div id="googleWelcome" class="hidden"></div>
-
-    <div id="my-signin2"></div>
-    <script>
-        function onSuccess(googleUser) {
-            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-        }
-        function onFailure(error) {
-            console.log(error);
-        }
-        function renderButton() {
-            gapi.signin2.render('my-signin2', {
-                'scope': 'profile email',
-                'width': 240,
-                'height': 50,
-                'longtitle': true,
-                'theme': 'dark',
-                'onsuccess': onSuccess,
-                'onfailure': onFailure
-            });
-        }
-    </script>
 
     <section id="errorScreen" class="popup hidden">
 

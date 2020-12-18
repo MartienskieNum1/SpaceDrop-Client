@@ -101,10 +101,9 @@ function getLoggedInUserFetch(){ //todo: token in cookie steken
             .then(response => response.json())
             .then(user => {
                 document.querySelector("#googleWelcome").innerHTML =
-                    `<a href="#" id="googleSignOff">Logout</a>
-                     <h5>Welcome, ${user.name}</h5>
-                    <img src="${user.picture}" alt="google avatar">`;
-                console.log(user);
+                    `<h5>Welcome, ${user.name}</h5>
+                    <img src="${user.picture}" alt="google avatar" referrerpolicy="no-referrer">
+                    <a href="#" id="googleSignOff">Logout</a>`;
             });
     }
 }
