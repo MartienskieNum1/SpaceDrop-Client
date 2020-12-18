@@ -31,7 +31,7 @@ function openUserInfo() {
 }
 
 function openUserOrdersPast() {
-    window.location.href = "userOrdersPast.html"
+    window.location.href = "userOrdersPast.html";
 }
 
 function showOrderdetails(orderId) {
