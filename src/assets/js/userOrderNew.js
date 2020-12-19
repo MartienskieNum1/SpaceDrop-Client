@@ -8,6 +8,6 @@ function showRockets(rockets, ORDER,tableHeaders) {
             marsOrders += fillTableWithContent(marsOrders, ORDER, rockets[x]);
         }
     }
-    containerEarth.innerHTML = marsOrders;
-    containerMars.innerHTML = earthOrders;
+    containerEarth.innerHTML = earthOrders;
+    containerMars.innerHTML = marsOrders;
 }

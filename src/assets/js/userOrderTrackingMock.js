@@ -7,8 +7,9 @@ let planet1;
 let planet2;
 let stars;
 let progression;
+let departure;
 
-function init(progress) {
+function init(progress,depart) {
     canvas = document.getElementById("trackingVisual");
     canvas.width = 1600;
     canvas.height = 250;
@@ -18,6 +19,7 @@ function init(progress) {
     rocket = new Rocket();
     setInterval(loop, 20);
     progression = progress;
+    departure = depart;
 }
 
 function loop() {
@@ -156,7 +158,11 @@ class Rocket {
 
 class Planet1{
     constructor() {
-        this.color = "#FF2515";
+        if(departure==="Mars"){
+            this.color = "#FF2515";
+        } else{
+            this.color = "#0f5e9c";
+        }
     }
     animate(){
         context.beginPath();
@@ -168,7 +174,11 @@ class Planet1{
 
 class Planet2{
     constructor() {
-        this.color2= "#0f5e9c";
+        if(departure==="Mars"){
+            this.color2 = "#0f5e9c";
+        } else{
+            this.color2 = "#FF2515";
+        }
 
     }
     animate(){

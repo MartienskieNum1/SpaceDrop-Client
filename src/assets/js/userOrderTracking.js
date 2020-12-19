@@ -67,9 +67,9 @@ function fillInDetails(order, flight){
     containerMars.innerHTML = tableHeaders + orderDetails;
     const today = new Date();
     const date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    let progression = (new Date(date)-new Date(flight.departure)) / (new Date(flight.arrival)-new Date(flight.departure));
+    const progression = (new Date(date)-new Date(flight.departure)) / (new Date(flight.arrival)-new Date(flight.departure));
     console.log(progression);
-    init(progression);
+    init(progression,flight.departLocation);
 
 
 }
