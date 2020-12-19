@@ -119,7 +119,7 @@ class Rocket {
         this.height4 = 5;
         this.width5 = 7;
         this.height5 = 12;
-        this.position = new Vector(145, (canvas.height - this.height)/2);
+        this.position = new Vector(170, (canvas.height - this.height)/2);
         this.velocity = new Vector(0, 0);
         this.acceleration = new Vector(0.1, 0);
         this.smokeTrail = new SmokeTrail(this);
@@ -132,7 +132,8 @@ class Rocket {
             progression = 0;
         }
         let progress = progression * (1455-300);
-        console.log(progression);
+
+        console.log(progress);
         const position = this.position;
         this.velocity.add(this.acceleration);
         position.add(this.velocity);
