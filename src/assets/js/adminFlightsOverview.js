@@ -6,6 +6,7 @@ function adminFlightOverviewInit() {
     showOverview();
     document.querySelector("#viewMoreEarth").addEventListener("click", goToPlanetOverview);
     document.querySelector("#viewMoreMars").addEventListener("click", goToPlanetOverview);
+    document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
 
 }
 
@@ -30,6 +31,8 @@ function showOverview() {
 
     const today = new Date();
     const date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();//added 30 years because we are in 2055/2056
+    let earthCount=1;
+    let marsCount=1;
     getRockets().then(rockets => {
         rockets.sort(function(a,b){
             return new Date(a.departure) - new Date(b.departure);
@@ -37,10 +40,13 @@ function showOverview() {
         for (let i = 0; i < rockets.length; i++) {
             const ROCKET = rockets[i];
             console.log(ROCKET.departure);
-            if(ROCKET.departLocation === "Mars" &&ROCKET.departure >= date){
+            if(ROCKET.departLocation === "Mars" && ROCKET.departure >= date && earthCount<=10){
                 earthFlights += fillTableWithContent(ROCKET);
-            }else if(ROCKET.departLocation === "Earth"&&ROCKET.departure >= date){
+                earthCount += 1;
+                console.log(earthCount);
+            }else if(ROCKET.departLocation === "Earth"&&ROCKET.departure >= date && marsCount<=10){
                 marsFlights += fillTableWithContent(ROCKET);
+                marsCount += 1;
             }
 
         }
