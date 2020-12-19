@@ -60,11 +60,19 @@ function renderRockets(rockets) {
                     <td>${ROCKET.arrival}</td>
                     <td>${ROCKET.availableVolume} m³</td>
                     <td>${ROCKET.availableMass} kg</td>
+                    <td>${getDateDifference(ROCKET.departure, ROCKET.arrival)} days</td>
                     <td data-cost="${ROCKET.pricePerKilo}">€ ${ROCKET.pricePerKilo * filterData.mass}</td>
                     <td><button>View details</button></td>
                 </tr>`
             ;
     }
+}
+
+function getDateDifference(departure, arrival){
+    const end = new Date(arrival);
+    const start = new Date(departure);
+
+    return Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(start.getFullYear(), start.getMonth(), start.getDate()) ) /(1000 * 60 * 60 * 24));
 }
 
 function renderFlightHead(container){
@@ -73,6 +81,7 @@ function renderFlightHead(container){
             <th scope="col">Arrival:</th>
             <th scope="col">Available volume:</th>
             <th scope="col">Available mass:</th>
+            <th scope="col">Days in transit:</th>
             <th scope="col">Your price:</th>
             <td></td>
           </tr>`;
