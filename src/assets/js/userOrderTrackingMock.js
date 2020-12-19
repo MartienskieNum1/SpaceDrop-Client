@@ -17,13 +17,13 @@ function init(progress) {
     stars = new Stars();
     rocket = new Rocket();
     setInterval(loop, 20);
-    progression = progress
+    progression = progress;
 }
 
 function loop() {
     clearCanvas();
     stars.animate();
-    rocket.animate(progression);
+    rocket.animate();
     planet1 = new Planet1("earth");
     planet1.animate();
     planet2 = new Planet2("mars");
@@ -123,8 +123,12 @@ class Rocket {
         this.smokeTrail = new SmokeTrail(this);
     }
 
-    animate(progression) {
-        const progress = progression *(1455-205);
+    animate() {
+        const progress = progression * (1455-205);
+        //if(progression>1){
+        //             const progress = p
+        //         }
+        console.log(progression);
         const position = this.position;
         this.velocity.add(this.acceleration);
         position.add(this.velocity);
