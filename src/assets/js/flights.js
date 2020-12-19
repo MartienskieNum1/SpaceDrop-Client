@@ -9,7 +9,7 @@ function flightsInit(){
     setTimeout(showOptimizedFlights,2000);
     document.querySelector("div#flights").addEventListener("click", openPopUp);
     document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
-    document.querySelector("tbody").addEventListener("click", sortRocketsBySearchValue);
+    document.querySelector("table").addEventListener("click", getTableColumn);
 }
 
 function showOptimizedFlights(){
@@ -18,33 +18,51 @@ function showOptimizedFlights(){
     document.getElementById("optimizing").classList.add("hidden");
 }
 
-function sortRocketsBySearchValue(e){
-    if (e.target.tagName === "TH"){
-        let sortValue = "";
-
-        if (e.target.innerHTML === "Days in transit:" ){
-            sortValue = "#data-cost";
+function getTableColumn(e){
+    if (e.target.classList.contains("sortable")){
+        if (e.target.innerHTML === "Days in transit:"){
+            sortTable(4);
         }else if (e.target.innerHTML === "Your price:"){
-            sortValue = "#data-urgency";
+            sortTable(5);
         }
-        let flightsToUse = flightsToSort;
-
-        performSort(flightsToUse, sortValue);
-
-        renderRockets(flightsToUse);
     }
 }
 
-function performSort(array, sortValue){
-    console.log("ik kom heir hoor")
-    array.sort(function (a, b) {
-        if (a[sortValue] < b[sortValue]) {
-            return -1;
-        } else if (a[sortValue] > b[sortValue]) {
-            return 1;
+function sortTable(n) {
+    let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.querySelector("div#flights table");
+    switching = true;
+    dir = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            if (dir === "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch= true;
+                    break;
+                }
+            } else if (dir === "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
         }
-        return 0;
-    });
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount ++;
+        } else {
+            if (switchcount === 0 && dir === "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
 }
 
 
@@ -112,8 +130,8 @@ function renderFlightHead(container){
             <th scope="col">Arrival:</th>
             <th scope="col">Available volume:</th>
             <th scope="col">Available mass:</th>
-            <th scope="col">Days in transit:</th>
-            <th scope="col">Your price:</th>
+            <th scope="col" class="sortable">Days in transit:</th>
+            <th scope="col" class="sortable">Your price:</th>
             <td></td>
           </tr>`;
 }
