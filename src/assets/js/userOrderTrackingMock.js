@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", init);
+
 
 let context;
 let canvas;
@@ -6,8 +6,10 @@ let rocket;
 let planet1;
 let planet2;
 let stars;
+let progression;
+let departure;
 
-function init() {
+function init(progress,depart) {
     canvas = document.getElementById("trackingVisual");
     canvas.width = 1600;
     canvas.height = 250;
@@ -16,6 +18,8 @@ function init() {
     stars = new Stars();
     rocket = new Rocket();
     setInterval(loop, 20);
+    progression = progress;
+    departure = depart;
 }
 
 function loop() {
@@ -115,18 +119,25 @@ class Rocket {
         this.height4 = 5;
         this.width5 = 7;
         this.height5 = 12;
-        this.position = new Vector(145, (canvas.height - this.height)/2);
+        this.position = new Vector(170, (canvas.height - this.height)/2);
         this.velocity = new Vector(0, 0);
         this.acceleration = new Vector(0.1, 0);
         this.smokeTrail = new SmokeTrail(this);
     }
 
     animate() {
+        if(progression>1) {
+            progression = 1;
+        }else if(progression<0) {
+            progression = 0;
+        }
+        let progress = progression * (1455-300);
+
         const position = this.position;
         this.velocity.add(this.acceleration);
         position.add(this.velocity);
 
-        if(!inbounds(position.x+600, position.y, this.width, this.height)) { //position.x + 1455 is de start, 205 is het aankomen bij de andere planeet,
+        if(!inbounds(position.x+1455-progress, position.y, this.width, this.height)) { //position.x + 1455 is de start, 300 is het aankomen bij de andere planeet,
             this.acceleration=new Vector(0, 0);
             this.velocity = new Vector(0, 0);
             this.smokeTrail.smokesPerAnimation=0;
@@ -149,7 +160,11 @@ class Rocket {
 
 class Planet1{
     constructor() {
-        this.color = "#FF2515";
+        if(departure==="Mars"){
+            this.color = "#FF2515";
+        } else{
+            this.color = "#0f5e9c";
+        }
     }
     animate(){
         context.beginPath();
@@ -161,7 +176,11 @@ class Planet1{
 
 class Planet2{
     constructor() {
-        this.color2= "#0f5e9c";
+        if(departure==="Mars"){
+            this.color2 = "#0f5e9c";
+        } else{
+            this.color2 = "#FF2515";
+        }
 
     }
     animate(){

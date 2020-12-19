@@ -26,6 +26,11 @@ function uuidOrderTrackingInit() {
                 if (rockets[i].id === order.rocketId) {
                     showShortDetails(order, rockets[i]);
                     showProgression(order.statusId);
+                    const today = new Date();
+                    const date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                    const progression = (new Date(date)-new Date(rockets[i].departure)) / (new Date(rockets[i].arrival)-new Date(rockets[i].departure));
+                    console.log(progression);
+                    init(progression,rockets[i].departLocation);
                 }
             }
         });
