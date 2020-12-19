@@ -5,13 +5,13 @@ onApiUrlLoaded(flightsInit);
 function flightsInit(){
     getRocketsForDestination();
     renderChosenPlanet();
-    setTimeout(showNextPage,2000);
+    setTimeout(showOptimizedFlights,2000);
     document.querySelector("div#flights").addEventListener("click", openPopUp);
     document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
 
 }
 
-function showNextPage(){
+function showOptimizedFlights(){
     document.getElementById("loader").style.display = "none";
     document.getElementById("hiddenDiv").style.display = "flex";
     document.getElementById("optimizing").classList.add("hidden");
