@@ -41,7 +41,13 @@ function loginNormalUser(email, password){
     loginUser(email, password).then(response => {
         if (response.message === undefined){
             setToken(response);
-            window.location.href = "index.html";
+            getOrders().then((responseLogin) => {
+                if (responseLogin.status === 500) {
+                    window.location.href = "index.html";
+                }else {
+                    window.location.href = "adminFlightsOverview.html";
+                }
+            });
         }else{
             showPopUp("User credentials invalid, try again or register first.");
         }
@@ -55,7 +61,7 @@ function showPopUp(message){
     const POPUP = document.querySelector("#errorScreen");
     POPUP.classList.remove("hidden");
 
-    console.log(loggedIn)
+    console.log(loggedIn);
 }
 
 function goToReg() {
@@ -73,8 +79,8 @@ function setCookie(name,value,days) {
     document.cookie = name + "=" + (value || "")  + expires;
 }
 function getCookie(cname) {
-    let name = cname + "=";
-    let ca = document.cookie.split(';');
+    const name = cname + "=";
+    const ca = document.cookie.split(';');
     for(let i = 0; i < ca.length; i++) {
         let c = ca[i];
         while (c.charAt(0) === ' ') {
@@ -88,7 +94,7 @@ function getCookie(cname) {
 }
 
 function onSignIn(googleUser) {
-    let accessToken = googleUser.xc.access_token;
+    const accessToken = googleUser.xc.access_token;
     setCookie("auth", accessToken, 30);
     document.querySelector("div.hidden").classList.remove("hidden");
     getLoggedInUserFetch();
