@@ -9,7 +9,8 @@ section.popup {
     border: 5px solid #696969;
     padding: 20px;
     color: black;
-    width: 50%;
+    height: auto;
+    width: auto;
     font-size: 1.5rem;
 }
 
@@ -91,9 +92,8 @@ section#flightForm p{
     margin-bottom: 1rem;
 }
 
-section#flightForm span{
-    font-size: 2rem;
-    font-weight: bold;
+section#flightForm div.sketchfab-embed-wrapper{
+    margin-bottom: 1rem;
 }
 
 /*----------------PAYMENT-CONFIRM-----------------*/

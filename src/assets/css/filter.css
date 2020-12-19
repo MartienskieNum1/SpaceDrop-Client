@@ -1,19 +1,11 @@
 /* -------------------FILTER------------------ */
 
 section.filter {
-    /*position: inherit;*/
-    /*width: 40%;*/
-    /*height: 50%;*/
-
     background-color: #404040;
-    /*border: 5px solid #696969;*/
     padding: 20px;
     color: white;
     margin: auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    width: 70%;
 }
 
 section.filter h5{
@@ -24,6 +16,12 @@ section.filter h5{
 
 section.filter form{
     margin-bottom: 2rem;
+}
+
+div#data-urgency, section.filter form, section.filter div.buttons {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 section.filter form, section.filter div.buttons{
@@ -38,6 +36,7 @@ section.filter div.buttons a {
     text-decoration: none;
     width: 8rem;
     text-align: center;
+
 }
 
 .filterStep1 form, #addressReceiver{
@@ -47,6 +46,7 @@ section.filter div.buttons a {
 
 .filterStep1 input, #addressReceiver input{
     margin-bottom: 1rem;
+    height: 2rem;
 }
 
 .buttons{
@@ -61,18 +61,36 @@ section.filter div.buttons a {
 .filterIntro{
     display: flex;
     flex-direction: column;
-    height: 50%;
     align-items: center;
+    height: 50%;
 }
 
 .filterIntro p{
     text-align: center;
     font-size: 1.5rem;
+    margin-bottom: 1rem;
+    background: #6e6e6e;
+    border-radius: 10px;
+    padding: 1rem;
+    font-style: italic;
 }
 
-.contentwrapper img{
-    height: auto;
-    width: 20rem;
+/*.contentwrapper img{*/
+/*    padding: 1.5rem;*/
+/*    height: 23rem;*/
+/*    width: auto;*/
+/*}*/
+
+.filterIntro div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.filterIntro div{
+    height: 20rem;
+    width: auto;
 }
 
 #addressReceiver{
@@ -82,6 +100,10 @@ section.filter div.buttons a {
 #estimatedPrice{
     display: inline-block;
     margin-bottom: 1rem;
+}
+
+div.hidden{
+    display: none;
 }
 
 /*--------SLIDER------------*/

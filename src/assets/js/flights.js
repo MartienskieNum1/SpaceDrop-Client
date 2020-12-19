@@ -1,20 +1,68 @@
 "use strict";
 
 onApiUrlLoaded(flightsInit);
+let flightsToSort = [];
 
 function flightsInit(){
     getRocketsForDestination();
     renderChosenPlanet();
-    setTimeout(showNextPage,2000);
+    setTimeout(showOptimizedFlights,2000);
     document.querySelector("div#flights").addEventListener("click", openPopUp);
     document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
-
+    document.querySelector("table").addEventListener("click", getTableColumn);
 }
 
-function showNextPage(){
+function showOptimizedFlights(){
     document.getElementById("loader").style.display = "none";
     document.getElementById("hiddenDiv").style.display = "flex";
     document.getElementById("optimizing").classList.add("hidden");
+}
+
+function getTableColumn(e){
+    if (e.target.classList.contains("sortable")){
+        if (e.target.innerHTML.includes("Days in transit:")){
+            sortTable(4);
+        }else if (e.target.innerHTML.includes("Your price:")){
+            sortTable(5);
+        }
+    }
+}
+
+function sortTable(n) {
+    let table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+    table = document.querySelector("div#flights table");
+    switching = true;
+    dir = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) { //compare row 1 and 2 (4th column of every table row
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            if (dir === "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch= true;
+                    break;
+                }
+            } else if (dir === "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) { //insert the row with value greater than or lower above the next row
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchCount ++;
+        } else {
+            if (switchCount === 0 && dir === "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
 }
 
 
@@ -31,6 +79,7 @@ function getRocketsForDestination(){
                 rocketsForDestination.push(ROCKET);
             }
         }
+        flightsToSort = rocketsForDestination;
         renderRockets(rocketsForDestination);
     });
 }
@@ -60,11 +109,19 @@ function renderRockets(rockets) {
                     <td>${ROCKET.arrival}</td>
                     <td>${ROCKET.availableVolume} m³</td>
                     <td>${ROCKET.availableMass} kg</td>
+                    <td data-urgency="${getDateDifference(ROCKET.departure, ROCKET.arrival)}">${getDateDifference(ROCKET.departure, ROCKET.arrival)} days</td>
                     <td data-cost="${ROCKET.pricePerKilo}">€ ${ROCKET.pricePerKilo * filterData.mass}</td>
                     <td><button>View details</button></td>
                 </tr>`
             ;
     }
+}
+
+function getDateDifference(departure, arrival){
+    const end = new Date(arrival);
+    const start = new Date(departure);
+
+    return Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(start.getFullYear(), start.getMonth(), start.getDate()) ) /(1000 * 60 * 60 * 24));
 }
 
 function renderFlightHead(container){
@@ -73,7 +130,8 @@ function renderFlightHead(container){
             <th scope="col">Arrival:</th>
             <th scope="col">Available volume:</th>
             <th scope="col">Available mass:</th>
-            <th scope="col">Your price:</th>
+            <th scope="col" class="sortable">Days in transit:</th>
+            <th scope="col" class="sortable">Your price:</th>
             <td></td>
           </tr>`;
 }

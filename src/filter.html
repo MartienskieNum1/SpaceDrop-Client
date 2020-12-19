@@ -26,25 +26,33 @@
     <section class="filterStep1 filter">
 
         <div class="contentwrapper filterIntro">
-            <p>Hi, my name is SpaceBot! I'm here help you figure out what cargo slots are perfect to carry
-                your order to its destination.</p>
-            <img src="images/Chatbot.png" alt="chatbot">
+            <p>"We want to open up the possibility of smart and optimized interplanetary transportation to a wide array of people by making use of the already-established transport routes from Mars to Earth and back."</p>
+<!--            <img src="images/launch_from_mars_base.jpg" alt="flight">-->
+            <div id="mars-to-earth" class="hidden">
+                <img src="images/mars_met_raket.png" alt="marsPNG">
+                <img src="assets/images/icons/earth.png" alt="earthPNG">
+            </div>
+
+            <div id="earth-to-mars" class="hidden">
+                <img src="assets/images/icons/mars.png" alt="earthPNG">
+                <img src="images/aarde_met_raket.png" alt="earthPNG">
+            </div>
         </div>
 
         <div class="contentwrapper">
 
-            <h5>What are the dimensions of your order?</h5>
+            <h5>To find the most efficient route, we need some information about your parcel:</h5>
 
             <form class="filterStep1" action="#" method="post">
 
-                <label for="mass">Mass:</label>
-                <input type="number" min="1" id="mass">
-                <label for="width">Width:</label>
-                <input type="number" min="1" id="width">
-                <label for="height">Height:</label>
-                <input type="number" min="1" id="height">
-                <label for="depth">Depth:</label>
-                <input type="number" min="1" id="depth">
+                <label for="mass">Mass (in kilogram):</label>
+                <input type="number" min="1" id="mass" placeholder="Please enter the weight of your parcel">
+                <label for="width">Width (in meter):</label>
+                <input type="number" min="1" id="width" placeholder="Please enter the width of your parcel">
+                <label for="height">Height (in meter):</label>
+                <input type="number" min="1" id="height" placeholder="Please enter the height of your parcel">
+                <label for="depth">Depth (in meter):</label>
+                <input type="number" min="1" id="depth" placeholder="Please enter the depth of your parcel">
 
             </form>
 
@@ -60,15 +68,17 @@
 
         <div class="contentwrapper">
 
-            <h5>When do you want to send your package ?</h5>
+            <h5>How fast do you want to receive your parcel?</h5>
 
             <form class="filterStep2" action="#" method="post">
-                <label for="urgency">Urgency:</label>
+                <label for="urgency">Move the slider accordingly:</label>
                 <input type="range" min="1" max="1000" value="500" class="slider" id="urgency">
             </form>
 
-            <p id="selectedUrgency">Normal: departure within two to five days</p>
-            <p id="estimatedPrice">Calculating estimated price</p>
+            <div id="data-urgency">
+                <p id="selectedUrgency">Normal: departure within two to five days.</p>
+                <p id="estimatedPrice">Move the slider to start calculating your price.</p>
+            </div>
 
             <h5>Address receiver:</h5>
 
@@ -79,13 +89,13 @@
                 <datalist id="country-list"></datalist>
 
                 <label for="colony">Colony:</label>
-                <input class="wide" type="text" id="colony" name="colony" disabled>
+                <input class="wide" type="text" id="colony" name="colony" disabled placeholder="N/A">
 
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city" value="Bruges">
 
                 <label for="district">District:</label>
-                <input type="text" id="district" name="district" disabled>
+                <input type="text" id="district" name="district" disabled placeholder="N/A">
 
 
                 <label for="street">Street:</label>

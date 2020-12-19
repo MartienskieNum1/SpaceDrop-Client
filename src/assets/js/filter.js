@@ -4,10 +4,34 @@ document.addEventListener("DOMContentLoaded", filterInit);
 
 function filterInit(){
     renderCountryList();
+    renderFlightImages();
     document.querySelectorAll(".buttons").forEach(button => {
         button.addEventListener("click", goToOptimizer);
     });
     document.querySelector("#urgency").addEventListener("input", displayUrgency);
+}
+
+function renderFlightImages(){
+    if (getDestinationPlanet() === "earth"){
+        document.querySelector("#mars-to-earth").classList.remove("hidden");
+    }else if (getDestinationPlanet() === "mars"){
+        document.querySelector("#earth-to-mars").classList.remove("hidden");
+        displayMartianAddressForm();
+    }
+}
+
+function displayMartianAddressForm(){
+    document.getElementById("country").setAttribute("disabled",null);
+    document.getElementById("country").setAttribute("value","N/A");
+
+    document.getElementById("city").setAttribute("disabled",null);
+    document.getElementById("city").setAttribute("value","N/A");
+
+    document.getElementById("colony").removeAttribute("disabled");
+    document.getElementById("colony").setAttribute("value","Surface");
+
+    document.getElementById("district").removeAttribute("disabled");
+    document.getElementById("district").setAttribute("value","E-56");
 }
 
 function displayUrgency(){
