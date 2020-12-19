@@ -1,6 +1,7 @@
 "use strict";
 
 onApiUrlLoaded(flightsInit);
+let flightsToSort = [];
 
 function flightsInit(){
     getRocketsForDestination();
@@ -8,13 +9,42 @@ function flightsInit(){
     setTimeout(showOptimizedFlights,2000);
     document.querySelector("div#flights").addEventListener("click", openPopUp);
     document.querySelector("section#flightForm").addEventListener("click", setOrderInLocalStorage);
-
+    document.querySelector("tbody").addEventListener("click", sortRocketsBySearchValue);
 }
 
 function showOptimizedFlights(){
     document.getElementById("loader").style.display = "none";
     document.getElementById("hiddenDiv").style.display = "flex";
     document.getElementById("optimizing").classList.add("hidden");
+}
+
+function sortRocketsBySearchValue(e){
+    if (e.target.tagName === "TH"){
+        let sortValue = "";
+
+        if (e.target.innerHTML === "Days in transit:" ){
+            sortValue = "#data-cost";
+        }else if (e.target.innerHTML === "Your price:"){
+            sortValue = "#data-urgency";
+        }
+        let flightsToUse = flightsToSort;
+
+        performSort(flightsToUse, sortValue);
+
+        renderRockets(flightsToUse);
+    }
+}
+
+function performSort(array, sortValue){
+    console.log("ik kom heir hoor")
+    array.sort(function (a, b) {
+        if (a[sortValue] < b[sortValue]) {
+            return -1;
+        } else if (a[sortValue] > b[sortValue]) {
+            return 1;
+        }
+        return 0;
+    });
 }
 
 
@@ -31,6 +61,7 @@ function getRocketsForDestination(){
                 rocketsForDestination.push(ROCKET);
             }
         }
+        flightsToSort = rocketsForDestination;
         renderRockets(rocketsForDestination);
     });
 }
@@ -60,7 +91,7 @@ function renderRockets(rockets) {
                     <td>${ROCKET.arrival}</td>
                     <td>${ROCKET.availableVolume} m³</td>
                     <td>${ROCKET.availableMass} kg</td>
-                    <td>${getDateDifference(ROCKET.departure, ROCKET.arrival)} days</td>
+                    <td data-urgency="${getDateDifference(ROCKET.departure, ROCKET.arrival)}">${getDateDifference(ROCKET.departure, ROCKET.arrival)} days</td>
                     <td data-cost="${ROCKET.pricePerKilo}">€ ${ROCKET.pricePerKilo * filterData.mass}</td>
                     <td><button>View details</button></td>
                 </tr>`
