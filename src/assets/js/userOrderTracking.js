@@ -35,9 +35,7 @@ function openUserOrdersPast() {
 
 function showOrderdetails(orderId) {
     getOrdersUser().then(function (orders) {
-        console.log(orders);
         for (let i = 0; i < orders.length; i++) {
-            console.log(orders[i].orderId + " " + orderId);
             if (orders[i].orderId.toString() === orderId.toString()) {
                 getRockets().then(function (rockets) {
                     for (let y = 0; y < rockets.length; y++) {
@@ -68,7 +66,6 @@ function fillInDetails(order, flight){
     const today = new Date();
     const date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();
     const progression = (new Date(date)-new Date(flight.departure)) / (new Date(flight.arrival)-new Date(flight.departure));
-    console.log(progression);
     init(progression,flight.departLocation);
 
 

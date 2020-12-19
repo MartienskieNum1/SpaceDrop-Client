@@ -133,7 +133,6 @@ class Rocket {
         }
         let progress = progression * (1455-300);
 
-        console.log(progress);
         const position = this.position;
         this.velocity.add(this.acceleration);
         position.add(this.velocity);
