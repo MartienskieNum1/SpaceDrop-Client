@@ -46,6 +46,7 @@ section.filter div.buttons a {
 
 .filterStep1 input, #addressReceiver input{
     margin-bottom: 1rem;
+    height: 2rem;
 }
 
 .buttons{
