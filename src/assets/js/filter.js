@@ -4,10 +4,19 @@ document.addEventListener("DOMContentLoaded", filterInit);
 
 function filterInit(){
     renderCountryList();
+    renderFlightImages();
     document.querySelectorAll(".buttons").forEach(button => {
         button.addEventListener("click", goToOptimizer);
     });
     document.querySelector("#urgency").addEventListener("input", displayUrgency);
+}
+
+function renderFlightImages(){
+    if (getDestinationPlanet() === "earth"){
+        document.querySelector("#mars-to-earth").classList.remove("hidden");
+    }else if (getDestinationPlanet() === "mars"){
+        document.querySelector("#earth-to-mars").classList.remove("hidden");
+    }
 }
 
 function displayUrgency(){
