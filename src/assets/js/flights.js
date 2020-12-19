@@ -20,12 +20,19 @@ function showOptimizedFlights(){
 
 function getTableColumn(e){
     if (e.target.classList.contains("sortable")){
-        if (e.target.innerHTML.includes("Days in transit:")){
-            sortTable(4);
-        }else if (e.target.innerHTML.includes("Your price:")){
-            sortTable(5);
-        }
+        markSortedColumn(e.target);
+        sortTable(e.target.getAttribute("data-col"));
     }
+}
+
+function markSortedColumn(header){
+    document.querySelectorAll("#tableHeaders th").forEach(tableHeader => {
+        if(tableHeader === header){
+            header.style = "color: #65C55E";
+        }else {
+            tableHeader.style = "color: white";
+        }
+    });
 }
 
 function sortTable(n) {
@@ -126,12 +133,12 @@ function getDateDifference(departure, arrival){
 
 function renderFlightHead(container){
     container.innerHTML = `<tr id="tableHeaders">
-            <th scope="col">Departure:</th>
-            <th scope="col">Arrival:</th>
-            <th scope="col">Available volume:</th>
-            <th scope="col">Available mass:</th>
-            <th scope="col" class="sortable">Days in transit:</th>
-            <th scope="col" class="sortable">Your price:</th>
+            <th scope="col" class="sortable" data-col="0">Departure: <i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th scope="col" class="sortable" data-col="1">Arrival: <i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th scope="col"  data-col="2">Available volume:</th>
+            <th scope="col"  data-col="3">Available mass:</th>
+            <th scope="col" class="sortable" data-col="4">Days in transit: <i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th scope="col" class="sortable" data-col="5">Your price: <i class="fa fa-sort" aria-hidden="true"></i></th>
             <td></td>
           </tr>`;
 }
