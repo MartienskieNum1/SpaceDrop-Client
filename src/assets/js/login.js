@@ -41,7 +41,13 @@ function loginNormalUser(email, password){
     loginUser(email, password).then(response => {
         if (response.message === undefined){
             setToken(response);
-            window.location.href = "index.html";
+            getOrders().then((responseLogin) => {
+                if (responseLogin.status === 500) {
+                    window.location.href = "index.html";
+                }else {
+                    window.location.href = "adminFlightsOverview.html";
+                }
+            })
         }else{
             showPopUp("User credentials invalid, try again or register first.");
         }
