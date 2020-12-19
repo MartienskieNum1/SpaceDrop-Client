@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", init);
+
 
 let context;
 let canvas;
@@ -6,8 +6,9 @@ let rocket;
 let planet1;
 let planet2;
 let stars;
+let progression;
 
-function init() {
+function init(progress) {
     canvas = document.getElementById("trackingVisual");
     canvas.width = 1600;
     canvas.height = 250;
@@ -16,12 +17,13 @@ function init() {
     stars = new Stars();
     rocket = new Rocket();
     setInterval(loop, 20);
+    progression = progress
 }
 
 function loop() {
     clearCanvas();
     stars.animate();
-    rocket.animate();
+    rocket.animate(progression);
     planet1 = new Planet1("earth");
     planet1.animate();
     planet2 = new Planet2("mars");
@@ -121,12 +123,13 @@ class Rocket {
         this.smokeTrail = new SmokeTrail(this);
     }
 
-    animate() {
+    animate(progression) {
+        const progress = progression *(1455-205);
         const position = this.position;
         this.velocity.add(this.acceleration);
         position.add(this.velocity);
 
-        if(!inbounds(position.x+600, position.y, this.width, this.height)) { //position.x + 1455 is de start, 205 is het aankomen bij de andere planeet,
+        if(!inbounds(position.x+1455-progress, position.y, this.width, this.height)) { //position.x + 1455 is de start, 205 is het aankomen bij de andere planeet,
             this.acceleration=new Vector(0, 0);
             this.velocity = new Vector(0, 0);
             this.smokeTrail.smokesPerAnimation=0;

@@ -19,7 +19,6 @@ function userOrderTrackingInit(){
     document.querySelector("#toUserOrders").addEventListener("click", openUserOrders);
     document.querySelector("#toUserOrdersPast").addEventListener("click", openUserOrdersPast);
     document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
-
 }
 
 function openUserOrders() {
@@ -66,5 +65,12 @@ function fillInDetails(order, flight){
             <td>${order.mass} kg</td>
         </tr>`;
     containerMars.innerHTML = tableHeaders + orderDetails;
+    const today = new Date();
+    const date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let progression = (new Date(date)-new Date(flight.departure))/(new Date(flight.arrival) - new Date(flight.departure));
+    console.log(progression);
+
+    init(progression);
+
 
 }
