@@ -39,16 +39,11 @@ function openUserOrdersPast() {
 
 
 function showOrders(){
-    getRockets().then(response => {
-        getOrdersUser().then(function (orders) {
-        for (let i = 0; i < orders.length; i++){
-            console.log(orders);
-            const ORDER = orders[i];
-            showRockets(response, ORDER,tableHeaders);
-        }
+    getOrdersUser().then(function (orders) {
+        getRockets().then(response => {
+            showRockets(response, orders,tableHeaders);
+        });
     });
-    });
-
 }
 
 function goToOrderDetail(orderId) {

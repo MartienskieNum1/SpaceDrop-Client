@@ -181,7 +181,7 @@ function fillTableWithContent(flight){
 }
 
 function showProgression(progressionLevel) {
-    for(let i=1;i<=5;i++){
+    for(let i=1;i<=3;i++){
         if(progressionLevel>=i){
             document.getElementById(i.toString()).classList.add("active");
         }

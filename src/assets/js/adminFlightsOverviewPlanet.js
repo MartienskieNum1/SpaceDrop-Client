@@ -35,7 +35,7 @@ function showOverview(){
 function renderRockets(rockets) {
     const CONTAINER = document.querySelector("#flights table tbody");
     renderFlightHead(CONTAINER);
-    const today = new Date();
+
     const date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();//added 30 years because we are in 2055/2056
 
     for (let i = 0; i < rockets.length; i++) {
