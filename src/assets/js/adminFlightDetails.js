@@ -3,6 +3,7 @@ onApiUrlLoaded(adminFlightOverviewInit);
 
 function adminFlightOverviewInit() {
     const flightId = getFlightId();
+    document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
     getRockets().then(function(rockets){
         let rocket =null;
         for (let i = 0; i < rockets.length; i++) {

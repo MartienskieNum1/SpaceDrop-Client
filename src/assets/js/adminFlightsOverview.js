@@ -6,6 +6,7 @@ function adminFlightOverviewInit() {
     showOverview();
     document.querySelector("#viewMoreEarth").addEventListener("click", goToPlanetOverview);
     document.querySelector("#viewMoreMars").addEventListener("click", goToPlanetOverview);
+    document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
 
 }
 

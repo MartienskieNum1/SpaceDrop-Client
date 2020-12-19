@@ -14,6 +14,7 @@ function adminFlightOverviewPlanetInit() {
         document.querySelector("select#sort").addEventListener("change", sortTargetAscendingOrDescending);
         document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
         document.querySelector("form").addEventListener("keyup", sortFlightsByWeightOrVolume);
+        document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
     }
 }
 
