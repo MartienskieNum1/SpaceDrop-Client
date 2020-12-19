@@ -126,16 +126,18 @@ class Rocket {
     }
 
     animate() {
-        const progress = progression * (1455-205);
-        //if(progression>1){
-        //             const progress = p
-        //         }
+        if(progression>1) {
+            progression = 1;
+        }else if(progression<0) {
+            progression = 0;
+        }
+        let progress = progression * (1455-300);
         console.log(progression);
         const position = this.position;
         this.velocity.add(this.acceleration);
         position.add(this.velocity);
 
-        if(!inbounds(position.x+1455-progress, position.y, this.width, this.height)) { //position.x + 1455 is de start, 205 is het aankomen bij de andere planeet,
+        if(!inbounds(position.x+1455-progress, position.y, this.width, this.height)) { //position.x + 1455 is de start, 300 is het aankomen bij de andere planeet,
             this.acceleration=new Vector(0, 0);
             this.velocity = new Vector(0, 0);
             this.smokeTrail.smokesPerAnimation=0;
