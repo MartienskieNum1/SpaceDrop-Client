@@ -77,11 +77,11 @@ div#flights table tr:nth-child(even){
     background: #989898;
 }
 
-/*--------------LOADER------------------*/
+th.sortable{
+    cursor: pointer;
+}
 
-/*#buttons{*/
-/*    display: none;*/
-/*}*/
+/*--------------LOADER------------------*/
 
 #loader {
     position: absolute;

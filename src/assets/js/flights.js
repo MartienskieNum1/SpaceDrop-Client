@@ -20,23 +20,23 @@ function showOptimizedFlights(){
 
 function getTableColumn(e){
     if (e.target.classList.contains("sortable")){
-        if (e.target.innerHTML === "Days in transit:"){
+        if (e.target.innerHTML.includes("Days in transit:")){
             sortTable(4);
-        }else if (e.target.innerHTML === "Your price:"){
+        }else if (e.target.innerHTML.includes("Your price:")){
             sortTable(5);
         }
     }
 }
 
 function sortTable(n) {
-    let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    let table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
     table = document.querySelector("div#flights table");
     switching = true;
     dir = "asc";
     while (switching) {
         switching = false;
         rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
+        for (i = 1; i < (rows.length - 1); i++) { //compare row 1 and 2 (4th column of every table row
             shouldSwitch = false;
             x = rows[i].getElementsByTagName("TD")[n];
             y = rows[i + 1].getElementsByTagName("TD")[n];
@@ -52,12 +52,12 @@ function sortTable(n) {
                 }
             }
         }
-        if (shouldSwitch) {
+        if (shouldSwitch) { //insert the row with value greater than or lower above the next row
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
-            switchcount ++;
+            switchCount ++;
         } else {
-            if (switchcount === 0 && dir === "asc") {
+            if (switchCount === 0 && dir === "asc") {
                 dir = "desc";
                 switching = true;
             }
