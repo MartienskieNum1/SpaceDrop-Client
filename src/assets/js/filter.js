@@ -79,34 +79,34 @@ function goToOptimizer(e){
 }
 
 function addFilterStep1(){
-    const width = parseInt(document.getElementById("width").value);
-    const height = parseInt(document.getElementById("height").value);
-    const depth = parseInt(document.getElementById("depth").value);
+    const WIDTH = parseInt(document.getElementById("width").value);
+    const HEIGHT = parseInt(document.getElementById("height").value);
+    const DEPTH = parseInt(document.getElementById("depth").value);
 
-    const mass = parseInt(document.getElementById("mass").value);
-    const volume = width * height * depth;
+    const MASS = parseInt(document.getElementById("mass").value);
+    const VOLUME = WIDTH * HEIGHT * DEPTH;
 
-    const filterOptions = [mass, volume, width, height, depth];
+    const FILTERED_OPTIONS = [MASS, VOLUME, WIDTH, HEIGHT, DEPTH];
 
-    setFilterOptions(filterOptions);
+    setFilterOptions(FILTERED_OPTIONS);
 }
 
 function addFilterStep2(){
-    const filterOptions = getFilterOptions();
+    const FILTER_OPTIONS = getFilterOptions();
 
-    const planet = getDestinationPlanet();
-    const country = document.getElementById("country").value;
-    const city = document.getElementById("city").value;
-    const street = document.getElementById("street").value;
-    const number = document.getElementById("nr").value;
-    const urgency = displayUrgency();
-    const notEmpty = [urgency, planet, country, city, street, number];
+    const PLANET = getDestinationPlanet();
+    const COUNTRY = document.getElementById("country").value;
+    const CITY = document.getElementById("city").value;
+    const STREET = document.getElementById("street").value;
+    const NUMBER = document.getElementById("nr").value;
+    const URGENCY = displayUrgency();
+    const NOT_EMPTY = [URGENCY, PLANET, COUNTRY, CITY, STREET, NUMBER];
 
-    filterOptions.push(...notEmpty);
+    FILTER_OPTIONS.push(...NOT_EMPTY);
 
-    const filterAsJson = filterToJson(...filterOptions);
+    const FILTER_AS_JSON = filterToJson(...FILTER_OPTIONS);
 
-    setFilterOptions(filterAsJson);
+    setFilterOptions(FILTER_AS_JSON);
 }
 
 function filterToJson(...filterOptions){

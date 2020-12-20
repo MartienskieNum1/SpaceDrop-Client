@@ -74,10 +74,10 @@ function sortTable(n) {
 
 
 function getRocketsForDestination(){
-    const filter = getFilterOptions();
+    const FILTER = getFilterOptions();
     let rocketsForDestination = [];
 
-    getRocketsByFilter(filter.mass, filter.volume, filter.urgency).then(rockets => {
+    getRocketsByFilter(FILTER.mass, FILTER.volume, FILTER.urgency).then(rockets => {
 
         for (let i = 0; i < rockets.length; i++) {
             const ROCKET = rockets[i];
@@ -105,7 +105,7 @@ function toTitleCase(txt){
 
 function renderRockets(rockets) {
     const CONTAINER = document.querySelector("#flights table tbody");
-    const filterData = getFilterOptions();
+    const FILTER_DATA = getFilterOptions();
     renderFlightHead(CONTAINER);
 
     for (let i = 0; i < rockets.length; i++) {
@@ -117,18 +117,17 @@ function renderRockets(rockets) {
                     <td>${ROCKET.availableVolume} m³</td>
                     <td>${ROCKET.availableMass} kg</td>
                     <td data-urgency="${getDateDifference(ROCKET.departure, ROCKET.arrival)}">${getDateDifference(ROCKET.departure, ROCKET.arrival)} days</td>
-                    <td data-cost="${ROCKET.pricePerKilo}">€ ${ROCKET.pricePerKilo * filterData.mass}</td>
+                    <td data-cost="${ROCKET.pricePerKilo}">€ ${ROCKET.pricePerKilo * FILTER_DATA.mass}</td>
                     <td><button>View details</button></td>
-                </tr>`
-            ;
+                </tr>`;
     }
 }
 
 function getDateDifference(departure, arrival){
-    const end = new Date(arrival);
-    const start = new Date(departure);
+    const END = new Date(arrival);
+    const START = new Date(departure);
 
-    return Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(start.getFullYear(), start.getMonth(), start.getDate()) ) /(1000 * 60 * 60 * 24));
+    return Math.floor((Date.UTC(END.getFullYear(), END.getMonth(), END.getDate()) - Date.UTC(START.getFullYear(), START.getMonth(), START.getDate()) ) /(1000 * 60 * 60 * 24));
 }
 
 function renderFlightHead(container){
@@ -148,24 +147,24 @@ function setOrderInLocalStorage(e){
 
     if (document.querySelector("a#submit") !== null && e.target.id === "submit") {
 
-        const filterData = getFilterOptions();
+        const FILTER_DATA = getFilterOptions();
 
-        const rocketId = parseInt(document.querySelector("#rocket").getAttribute("data-id"));
-        const mass = filterData.mass;
-        const width = filterData.width;
-        const height = filterData.height;
-        const depth = filterData.depth;
-        const cost = parseInt(document.querySelector("#rocket").getAttribute("data-cost"));
-        const planet = filterData.address.planet;
-        const countryOrColony = filterData.address.countryOrColony;
-        const cityOrDistrict = filterData.address.cityOrDistrict;
-        const street = filterData.address.street;
-        const number = parseInt(filterData.address.number);
+        const ROCKET_ID = parseInt(document.querySelector("#rocket").getAttribute("data-id"));
+        const MASS = FILTER_DATA.mass;
+        const WIDTH = FILTER_DATA.width;
+        const HEIGHT = FILTER_DATA.height;
+        const DEPTH = FILTER_DATA.depth;
+        const COST = parseInt(document.querySelector("#rocket").getAttribute("data-cost"));
+        const PLANET = FILTER_DATA.address.planet;
+        const COUNTRY_OR_COLONY = FILTER_DATA.address.countryOrColony;
+        const CITY_OR_DISTRICT = FILTER_DATA.address.cityOrDistrict;
+        const STREET = FILTER_DATA.address.street;
+        const NUMBER = parseInt(FILTER_DATA.address.number);
 
-        const parameterList = [rocketId, 1, mass, width, height, depth, cost, planet, countryOrColony, cityOrDistrict, street, number];
+        const PARAMETER_LIST = [ROCKET_ID, 1, MASS, WIDTH, HEIGHT, DEPTH, COST, PLANET, COUNTRY_OR_COLONY, CITY_OR_DISTRICT, STREET, NUMBER];
 
-        if (hasNoEmptyField(...parameterList)) {
-            setTempOrder(orderToJson(...parameterList));
+        if (hasNoEmptyField(...PARAMETER_LIST)) {
+            setTempOrder(orderToJson(...PARAMETER_LIST));
             window.location.href = "payment.html";
         } else {
             showPopUp("Please fill in all the fields");

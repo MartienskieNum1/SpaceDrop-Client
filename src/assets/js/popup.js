@@ -48,12 +48,13 @@ function fillRocketPopup(rocket, container) {
 function renderFormWithUserDetails(rocket, container) {
     const formDetails = getFilterOptions();
     const rocketRender = ["5d5bbd72b92c4e1fb57c0588851a4112", "16ff82609f7c49359c7c3f970bfc0524", "d80a780cadd84b2fb7dcd8e0aa1d16be"];
+    const randomRocketRender = Math.floor(Math.random() * 3);
     container.innerHTML = `
             <h5>Overview:</h5>
             <div id="addressReceiver">
                 <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">Selected: ${rocket.name}. Launch site: Cape Canaveral. Total cost: €${rocket.pricePerKilo*formDetails.mass}</p>
                 <div class="sketchfab-embed-wrapper">
-                     <iframe title="A 3D model" width="960" height="480" src="https://sketchfab.com/models/d80a780cadd84b2fb7dcd8e0aa1d16be/embed?autospin=0.2&amp;autostart=1&amp;preload=1&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_theme=dark&amp;ui_watermark=1&amp;ui_watermark_link=1" allow="autoplay; fullscreen; vr"></iframe>
+                     <iframe title="A 3D model" width="960" height="480" src="https://sketchfab.com/models/${rocketRender[randomRocketRender]}/embed?autospin=0.2&amp;autostart=1&amp;preload=1&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_theme=dark&amp;ui_watermark=1&amp;ui_watermark_link=1" allow="autoplay; fullscreen; vr"></iframe>
                  </div>
             </div>
             <a href="#" id="submit" class="popUpButtons">Select this rocket</a>`;
