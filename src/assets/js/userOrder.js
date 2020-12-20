@@ -17,7 +17,6 @@ const containerEarth = document.querySelector("#flightsToEarthContent");
 const containerMars = document.querySelector("#flightsToMarsContent");
 
 function userOrderInit(){
-    console.log(getUserId());
     showOrders();
     document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
     document.querySelector("#toUserOrdersPast").addEventListener("click", openUserOrdersPast);

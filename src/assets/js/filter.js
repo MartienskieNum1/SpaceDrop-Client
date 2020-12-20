@@ -96,13 +96,22 @@ function addFilterStep2(){
 
     const PLANET = getDestinationPlanet();
     const COUNTRY = document.getElementById("country").value;
+    const COLONY = document.getElementById("colony").value;
+    const DISTRICT = document.getElementById("district").value;
     const CITY = document.getElementById("city").value;
     const STREET = document.getElementById("street").value;
     const NUMBER = document.getElementById("nr").value;
     const URGENCY = displayUrgency();
-    const NOT_EMPTY = [URGENCY, PLANET, COUNTRY, CITY, STREET, NUMBER];
 
-    FILTER_OPTIONS.push(...NOT_EMPTY);
+    let notEmptyAddress;
+
+    if (getDestinationPlanet() === "earth"){
+        notEmptyAddress = [URGENCY, PLANET, COUNTRY, CITY, STREET, NUMBER];
+    }else if (getDestinationPlanet() === "mars"){
+        notEmptyAddress = [URGENCY, PLANET, COLONY, DISTRICT, STREET, NUMBER];
+    }
+
+    FILTER_OPTIONS.push(...notEmptyAddress);
 
     const FILTER_AS_JSON = filterToJson(...FILTER_OPTIONS);
 

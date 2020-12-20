@@ -44,18 +44,6 @@ function getOrdersUser(){
     return apiCall("details/orders", "GET");
 }
 
-function FiltredOnDate(rockets) {
-    let filteredRockets = [];
-    var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    for(let i=0;i<rockets.length;i++) {
-        if (rockets[i].departure >= date) {
-            filteredRockets += rockets[i];
-        }
-    }
-    return filteredRockets;
-}
-
 function getRockets(){
     return apiCall("rockets", "GET");
 }
