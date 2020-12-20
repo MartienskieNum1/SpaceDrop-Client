@@ -21,18 +21,18 @@ function changeVisible(){
     }
 }
 
-function includesEmptyField(planet, email, phone, fname, lname, street, nr, colony, country, city){
-    if(planet === "mars"){
-        const MARS_FIELDS = [planet, email, phone, fname, lname, street, nr, colony];
+function includesEmptyField(...fields){
+    if(fields[0] === "mars"){
+        const MARS_FIELDS = [fields[0], fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7]];
         return MARS_FIELDS.includes("");
     }
-    else if(planet === "earth"){
-        const EARTH_FIELDS = [planet, email, phone, fname, lname, street, nr, country, city];
+    else if(fields[0] === "earth"){
+        const EARTH_FIELDS = [fields[0], fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[8], fields[9]];
         return EARTH_FIELDS.includes("");
     }
     else{
         showPopUp("Something went wrong");
-        const PLANET_FIELDS = [planet, email, phone, fname, lname, street, nr, country, city];
+        const PLANET_FIELDS = [fields[0], fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[8], fields[9]];
         return PLANET_FIELDS.includes("");
     }
 }

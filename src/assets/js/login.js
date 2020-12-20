@@ -72,9 +72,9 @@ function goToReg() {
 function setCookie(name,value,days) {
     let expires = "";
     if (days) {
-        let date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
+        const DATE = new Date();
+        DATE.setTime(DATE.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + DATE.toUTCString();
     }
     document.cookie = name + "=" + (value || "")  + expires;
 }
@@ -101,7 +101,7 @@ function onSignIn(googleUser) {
 }
 
 
-function getLoggedInUserFetch(){ //todo: token in cookie steken
+function getLoggedInUserFetch(){
     if (getCookie("auth") !== null){
         fetch("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + getCookie("auth"))
             .then(response => response.json())
