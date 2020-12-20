@@ -22,29 +22,21 @@ function adminFlightOverviewInit() {
 
 function showOrdersRocket(rocket) {
     const containerOrders = document.querySelector("#flightOrders");
-    console.log(getUsers());
     getOrders().then(function(orders){
         let ordersRocket ="";
         for (let i = 0; i < orders.length; i++) {
             if (orders[i].rocketId.toString() === rocket.id.toString()) {
-                getUsers().then(function (users) {
-                    for (let x = 0; x < users.length; x++) {
-                        if (users[x].id.toString() === orders[i].userId.toString()) {
-                            const name = users[x].firstName + " " + users[x].lastName;
-                            const returnAddress = buildReturnAddress(users[x]);
-                            ordersRocket += `<tr data-row='${orders[i].orderId}'>
+                ordersRocket += `<tr data-row='${orders[i].orderId}'>
                                 <td>${orders[i].orderId}</td>
-                                <td>${name}</td>
-                                <td>RECEIVER</td>
-                                <td>ADDRESS</td>
-                                <td>${returnAddress}</td>
+                                <td>${orders[i].userId}</td>
+                                <td>${orders[i].address.street} ${orders[i].address.number} ${orders[i].address.cityOrDistrict} ${orders[i].address.countryOrColony}</td>
+                                <td>${orders[i].width} x ${orders[i].depth} x ${orders[i].height} m3</td>
+                                <td>${orders[i].mass}kg</td>
                                 <td>${orders[i].status}</td>
                                 <td><button>delete</button></td>
                                 </tr>`;
-                        }
-                    }
-                    containerOrders.innerHTML = getTableHeader2() + ordersRocket;
-                });
+                containerOrders.innerHTML = getTableHeader2() + ordersRocket;
+
             }
         }
     });
