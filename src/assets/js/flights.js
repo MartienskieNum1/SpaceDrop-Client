@@ -75,7 +75,7 @@ function sortTable(n) {
 
 function getRocketsForDestination(){
     const FILTER = getFilterOptions();
-    let rocketsForDestination = [];
+    const ROCKETS_FOR_DESTINATION = [];
 
     getRocketsByFilter(FILTER.mass, FILTER.volume, FILTER.urgency).then(rockets => {
 
@@ -83,11 +83,11 @@ function getRocketsForDestination(){
             const ROCKET = rockets[i];
 
             if (ROCKET.departLocation !== toTitleCase(getDestinationPlanet())){
-                rocketsForDestination.push(ROCKET);
+                ROCKETS_FOR_DESTINATION.push(ROCKET);
             }
         }
-        flightsToSort = rocketsForDestination;
-        renderRockets(rocketsForDestination);
+        flightsToSort = ROCKETS_FOR_DESTINATION;
+        renderRockets(ROCKETS_FOR_DESTINATION);
     });
 }
 
