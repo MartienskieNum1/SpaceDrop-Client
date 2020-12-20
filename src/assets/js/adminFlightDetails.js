@@ -21,7 +21,6 @@ function adminFlightOverviewInit() {
 
 function showOrdersRocket(rocket) {
     const CONTAINER = document.querySelector("#flightOrders");
-    console.log(getUsers());
     getOrders().then(function(orders){
         let ordersRocket ="";
         for (let i = 0; i < orders.length; i++) {
@@ -39,10 +38,6 @@ function showOrdersRocket(rocket) {
             }
         }
     });
-}
-
-function buildReturnAddress(user){
-    return `${user.address.street} ${user.address.number} ${user.address.cityOrDistrict} ${user.address.countryOrColony} ${user.address.planet}`;
 }
 
 function showDetails(rocket) {
