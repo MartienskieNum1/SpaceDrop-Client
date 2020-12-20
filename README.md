@@ -6,8 +6,11 @@
   * A user can login to his account
   * A user can login with oAuth (google)
   * A user can see his account info
+  * A user can edit his account info
   * A user can see his orders
-  * A user can see what flights are available (ordering not yet impemented)
+  * A user can track his orders
+  * A user can search to the flights with the route optimizer
+  * A user can reserve space on a flight
 * Admins:
   * An admin can login to his account
   * An admin can see an overview of all flights
@@ -76,8 +79,8 @@
 * Adminhome page:
   * On this page the admin can see an overview of the next future flights, when he clicks on the more info page he gets redirected to the adminflightdetails page. When he clicks on view more next to the planet title, Only all the flights to that planet get displayed. On the left side there is a sidenav with a button to the statistics(not impemented).
 ![picture](images/adminflights.png)
+![picture](images/adminflights2.png)
 
 * adminflightdetails page:
-  * On this page the admin can see an table with all the flight details, underneat this there is an overview of all orders placed on this flight.
-  * IMPORTANT: if you want to go admin pages you need to do this via the url: go to page adminFlightDetails.html
-  ![picture](images/adminflightsdetails.png)
+  * On this page the admin can see an table with all the flight details, underneath this there is an overview of all orders placed on this flight.
+  ![picture](images/adminflightdetails.png)
