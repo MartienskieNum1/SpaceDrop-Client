@@ -17,23 +17,23 @@ function preventFormSubmit(e){
 
 function login(e) {
     e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const EMAIL = document.getElementById("email").value;
+    const PASSWORD = document.getElementById("password").value;
 
-    if (email === "" || password === "") {
+    if (EMAIL === "" || PASSWORD === "") {
         showPopUp("Please fill in all fields");
     }else{
-        loginNormalUser(email, password);
+        loginNormalUser(EMAIL, PASSWORD);
     }
 }
 
 function logInMockUser(e){
     e.preventDefault();
     if (e.target.id === "user"){
-        const email = "user@space.drop";
-        const password = "mock";
+        const EMAIL = "user@space.drop";
+        const PASSWORD = "mock";
 
-        loginNormalUser(email, password);
+        loginNormalUser(EMAIL, PASSWORD);
     }
 }
 
@@ -72,36 +72,36 @@ function goToReg() {
 function setCookie(name,value,days) {
     let expires = "";
     if (days) {
-        let date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
+        const DATE = new Date();
+        DATE.setTime(DATE.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + DATE.toUTCString();
     }
     document.cookie = name + "=" + (value || "")  + expires;
 }
 function getCookie(cname) {
-    const name = cname + "=";
-    const ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i];
+    const NAME = cname + "=";
+    const CA = document.cookie.split(';');
+    for(let i = 0; i < CA.length; i++) {
+        let c = CA[i];
         while (c.charAt(0) === ' ') {
             c = c.substring(1);
         }
-        if (c.indexOf(name) === 0) {
-            return c.substring(name.length, c.length);
+        if (c.indexOf(NAME) === 0) {
+            return c.substring(NAME.length, c.length);
         }
     }
     return "";
 }
 
 function onSignIn(googleUser) {
-    const accessToken = googleUser.xc.access_token;
-    setCookie("auth", accessToken, 30);
+    const ACCESS_TOKEN = googleUser.xc.access_token;
+    setCookie("auth", ACCESS_TOKEN, 30);
     document.querySelector("div.hidden").classList.remove("hidden");
     getLoggedInUserFetch();
 }
 
 
-function getLoggedInUserFetch(){ //todo: token in cookie steken
+function getLoggedInUserFetch(){
     if (getCookie("auth") !== null){
         fetch("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + getCookie("auth"))
             .then(response => response.json())
@@ -116,12 +116,12 @@ function getLoggedInUserFetch(){ //todo: token in cookie steken
 
 function signOut(e) {
     if(e.target.id === "googleSignOff"){
-        let auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
+        const AUTH = gapi.auth2.getAuthInstance();
+        AUTH.signOut().then(function () {
             document.querySelector("#googleWelcome").classList.add("hidden");
             setCookie("auth", null, 30);
         });
-        auth2.disconnect();
+        AUTH.disconnect();
     }
 }
 

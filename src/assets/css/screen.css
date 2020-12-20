@@ -8,6 +8,8 @@ body{
 /* -------------------HEADER------------------ */
 
 header{
+    position: fixed;
+    z-index: 1;
     line-height: 1.5rem;
     width: 100%;
     background-color: #262626;
@@ -84,6 +86,10 @@ header a.home{
     width: 15rem;
     text-align: center;
     margin-right: 12rem;
+}
+
+main{
+    padding-top: 6.5rem;
 }
 
 

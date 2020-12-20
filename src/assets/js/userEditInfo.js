@@ -9,12 +9,10 @@ function editInfoInit() {
 }
 
 function editAccount() {
-    const addEdit = "edit";
-    addOrEdit(addEdit);
+    addOrEdit("edit");
 }
 
 function showInputfields(user) {
-    console.log(user);
     let selectedMars ;
     let selectedEarth;
     if(user.address.planet === "mars"){

@@ -1,7 +1,7 @@
 function apiCall(uri, httpVerb, requestBody) {
     const TOKEN = getToken();
 
-    const request = new Request(api + uri, {
+    const REQUEST = new Request(api + uri, {
         method: httpVerb,
         headers: {
             'Content-type': 'application/json',
@@ -10,7 +10,7 @@ function apiCall(uri, httpVerb, requestBody) {
         body: JSON.stringify(requestBody)
     });
 
-    return fetch(request)
+    return fetch(REQUEST)
         .then((response) => {
             if (!response.ok){
                 console.error("! An error occurred while calling the API");
