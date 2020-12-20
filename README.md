@@ -90,3 +90,11 @@
    * This is to check if the user is a admin or not
     * We excecute a api call that only an admin can do,if it returns an error the user isn't an admin
     * This was a last day fix
+
+## Credentials
+  * Admin user
+    * username: admin@spacedrop.com
+    * password: admin
+  * Mock user
+    * username: user@space.drop
+    * password: mock
