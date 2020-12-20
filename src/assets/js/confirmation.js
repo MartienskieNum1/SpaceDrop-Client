@@ -38,13 +38,12 @@ function renderOrderConfirmation(ORDER) {
 
 function renderConfirmationMessage(ORDER){
     const CONTAINER = document.querySelector("main p");
-    const USER_NOT_LOGGED_IN = getPaymentCredentials();
+    const NO_ACC = getPaymentCredentials();
 
     if (getToken() === ""){
         getOrderById(ORDER.orderId).then(response => {
             CONTAINER.outerHTML =
-            `<p>Payment successful, ${USER_NOT_LOGGED_IN.name} ! A confirmation mail containing the tracking ID of your order no. 
-                ${response.orderId} has been sent to ${USER_NOT_LOGGED_IN.email} </p>`;
+            `<p>Payment successful, ${NO_ACC.name} ! A confirmation mail containing the tracking ID of your order no. ${response.orderId} has been sent to ${NO_ACC.email} </p>`;
         });
 
         setPaymentCredentials(null);
@@ -55,8 +54,7 @@ function renderConfirmationMessage(ORDER){
 
             getOrderById(ORDER.orderId).then(response => {
                 CONTAINER.outerHTML =
-                `<p>Payment successful, ${user.firstName} ! A confirmation mail containing the tracking ID of your order no. 
-                ${response.orderId} has been sent to: ${EMAIL} </p>`;
+                `<p>Payment successful, ${user.firstName} ! A confirmation mail containing the tracking ID of your order no. ${response.orderId} has been sent to: ${EMAIL} </p>`;
             });
         });
     }
