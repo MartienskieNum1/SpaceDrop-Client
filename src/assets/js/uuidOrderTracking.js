@@ -30,7 +30,7 @@ function uuidOrderTrackingInit() {
                     const DATE = TODAY.getFullYear()+35+'-'+(TODAY.getMonth()+1)+'-'+TODAY.getDate();
                     const PROGRESSION = (new Date(DATE)-new Date(rockets[i].departure)) / (new Date(rockets[i].arrival)-new Date(rockets[i].departure));
                     console.log(PROGRESSION);
-                    init(PROGRESSION,rockets[i].departLocation);
+                    initCanvas(PROGRESSION,rockets[i].departLocation);
                 }
             }
         });

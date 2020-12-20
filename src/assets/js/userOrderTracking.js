@@ -66,7 +66,7 @@ function fillInDetails(order, flight){
     const TODAY = new Date();
     const DATE = TODAY.getFullYear()+35+'-'+(TODAY.getMonth()+1)+'-'+TODAY.getDate();
     const PROGRESSION = (new Date(DATE)-new Date(flight.departure)) / (new Date(flight.arrival)-new Date(flight.departure));
-    init(PROGRESSION,flight.departLocation);
+    initCanvas(PROGRESSION,flight.departLocation);
 
 
 }

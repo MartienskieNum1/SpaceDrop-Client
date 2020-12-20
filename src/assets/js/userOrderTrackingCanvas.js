@@ -9,7 +9,7 @@ let stars;
 let progression;
 let departure;
 
-function init(progress,depart) {
+function initCanvas(progress,depart) {
     canvas = document.getElementById("trackingVisual");
     canvas.width = 1600;
     canvas.height = 250;

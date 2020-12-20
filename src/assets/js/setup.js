@@ -148,10 +148,10 @@ function getTableHeader(){
 function getTableHeader2(){
     return '<tr class="tableHeaders">' +
         '                <th scope="col">Ordernr:</th>'+
-        '                <th scope="col">From:</th>' +
-        '                <th scope="col">To:</th>' +
+        '                <th scope="col">userId:</th>' +
         '                <th scope="col">Address:</th>' +
-        '                <th scope="col">Return:</th>' +
+        '                <th scope="col">Dimensions:</th>' +
+        '                <th scope="col">Mass:</th>' +
         '                <th scope="col">Status:</th>' +
         '                <td></td>' +
         '            </tr>';

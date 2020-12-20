@@ -42,10 +42,11 @@ function loginNormalUser(email, password){
         if (response.message === undefined){
             setToken(response);
             getOrders().then((responseLogin) => {
-                if (responseLogin.status === 500) {
-                    window.location.href = "index.html";
-                }else {
+                if (responseLogin.status === undefined) {
                     window.location.href = "adminFlightsOverview.html";
+                }else {
+                    window.location.href = "index.html";
+
                 }
             });
         }else{
