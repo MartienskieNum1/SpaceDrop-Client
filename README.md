@@ -84,3 +84,9 @@
 * adminflightdetails page:
   * On this page the admin can see an table with all the flight details, underneath this there is an overview of all orders placed on this flight.
   ![picture](images/adminflightdetails.png)
+  
+## Known bugs
+ * 500 internal server error when logging in as a user
+   * This is to check if the user is a admin or not
+    * We excecute a api call that only an admin can do,if it returns an error the user isn't an admin
+    * This was a last day fix
