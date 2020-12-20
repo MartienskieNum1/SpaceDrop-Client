@@ -36,7 +36,6 @@ function showOrdersRocket(rocket) {
                                 <td><button>delete</button></td>
                                 </tr>`;
                 containerOrders.innerHTML = getTableHeader2() + ordersRocket;
-
             }
         }
     });
