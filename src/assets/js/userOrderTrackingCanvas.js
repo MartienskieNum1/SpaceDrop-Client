@@ -131,7 +131,7 @@ class Rocket {
         }else if(progression<0) {
             progression = 0;
         }
-        const progress = progression * (1455-300);
+        const progress = (Math.round(progression*10)/10) * (1455-300);
 
         const position = this.position;
         this.velocity.add(this.acceleration);

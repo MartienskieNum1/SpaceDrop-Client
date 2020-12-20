@@ -79,34 +79,43 @@ function goToOptimizer(e){
 }
 
 function addFilterStep1(){
-    const width = parseInt(document.getElementById("width").value);
-    const height = parseInt(document.getElementById("height").value);
-    const depth = parseInt(document.getElementById("depth").value);
+    const WIDTH = parseInt(document.getElementById("width").value);
+    const HEIGHT = parseInt(document.getElementById("height").value);
+    const DEPTH = parseInt(document.getElementById("depth").value);
 
-    const mass = parseInt(document.getElementById("mass").value);
-    const volume = width * height * depth;
+    const MASS = parseInt(document.getElementById("mass").value);
+    const VOLUME = WIDTH * HEIGHT * DEPTH;
 
-    const filterOptions = [mass, volume, width, height, depth];
+    const FILTERED_OPTIONS = [MASS, VOLUME, WIDTH, HEIGHT, DEPTH];
 
-    setFilterOptions(filterOptions);
+    setFilterOptions(FILTERED_OPTIONS);
 }
 
 function addFilterStep2(){
-    const filterOptions = getFilterOptions();
+    const FILTER_OPTIONS = getFilterOptions();
 
-    const planet = getDestinationPlanet();
-    const country = document.getElementById("country").value;
-    const city = document.getElementById("city").value;
-    const street = document.getElementById("street").value;
-    const number = document.getElementById("nr").value;
-    const urgency = displayUrgency();
-    const notEmpty = [urgency, planet, country, city, street, number];
+    const PLANET = getDestinationPlanet();
+    const COUNTRY = document.getElementById("country").value;
+    const COLONY = document.getElementById("colony").value;
+    const DISTRICT = document.getElementById("district").value;
+    const CITY = document.getElementById("city").value;
+    const STREET = document.getElementById("street").value;
+    const NUMBER = document.getElementById("nr").value;
+    const URGENCY = displayUrgency();
 
-    filterOptions.push(...notEmpty);
+    let notEmptyAddress;
 
-    const filterAsJson = filterToJson(...filterOptions);
+    if (getDestinationPlanet() === "earth"){
+        notEmptyAddress = [URGENCY, PLANET, COUNTRY, CITY, STREET, NUMBER];
+    }else if (getDestinationPlanet() === "mars"){
+        notEmptyAddress = [URGENCY, PLANET, COLONY, DISTRICT, STREET, NUMBER];
+    }
 
-    setFilterOptions(filterAsJson);
+    FILTER_OPTIONS.push(...notEmptyAddress);
+
+    const FILTER_AS_JSON = filterToJson(...FILTER_OPTIONS);
+
+    setFilterOptions(FILTER_AS_JSON);
 }
 
 function filterToJson(...filterOptions){

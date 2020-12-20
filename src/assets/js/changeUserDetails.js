@@ -21,19 +21,19 @@ function changeVisible(){
     }
 }
 
-function includesEmptyField(planet, email, phone, fname, lname, street, nr, colony, country, city){
-    if(planet === "mars"){
-        const marsFields = [planet, email, phone, fname, lname, street, nr, colony];
-        return marsFields.includes("");
+function includesEmptyField(...fields){
+    if(fields[0] === "mars"){
+        const MARS_FIELDS = [fields[0], fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7]];
+        return MARS_FIELDS.includes("");
     }
-    else if(planet === "earth"){
-        const earthFields = [planet, email, phone, fname, lname, street, nr, country, city];
-        return earthFields.includes("");
+    else if(fields[0] === "earth"){
+        const EARTH_FIELDS = [fields[0], fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[8], fields[9]];
+        return EARTH_FIELDS.includes("");
     }
     else{
         showPopUp("Something went wrong");
-        const planetFields = [planet, email, phone, fname, lname, street, nr, country, city];
-        return planetFields.includes("");
+        const PLANET_FIELDS = [fields[0], fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[8], fields[9]];
+        return PLANET_FIELDS.includes("");
     }
 }
 
@@ -42,32 +42,32 @@ function isPasswordValid(password, repeatPassword){
 }
 
 function addOrEdit(addEdit){
-    const email = document.getElementById("email").value;
-    const fname = document.getElementById("fname").value;
-    const lname = document.getElementById("lname").value;
-    const password = document.getElementById("password").value;
-    const repeatPassword = document.getElementById("repeatPassword").value;
-    const street = document.getElementById("street").value;
-    const nr = document.getElementById("nr").value;
-    const planet = document.getElementById("planet").value;
-    const phone = document.getElementById("phone").value;
-    const colony = document.getElementById("colony").value;
-    const country = document.getElementById("country").value;
-    const city = document.getElementById("city").value;
+    const EMAIL = document.getElementById("email").value;
+    const FIRST_NAME = document.getElementById("fname").value;
+    const LAST_NAME = document.getElementById("lname").value;
+    const PASSWORD = document.getElementById("password").value;
+    const REPEAT_PASSWORD = document.getElementById("repeatPassword").value;
+    const STREET = document.getElementById("street").value;
+    const NR = document.getElementById("nr").value;
+    const PLANET = document.getElementById("planet").value;
+    const PHONE = document.getElementById("phone").value;
+    const COLONY = document.getElementById("colony").value;
+    const COUNTRY = document.getElementById("country").value;
+    const CITY = document.getElementById("city").value;
 
-    const validPass = isPasswordValid(password, repeatPassword);
-    const fieldsArgs = [planet, email, phone, fname, lname, street, nr, colony, country, city];
-    const allFieldsFilled = !includesEmptyField(...fieldsArgs);
+    const VALID_PASS = isPasswordValid(PASSWORD, REPEAT_PASSWORD);
+    const FIELDS_ARGS = [PLANET, EMAIL, PHONE, FIRST_NAME, LAST_NAME, STREET, NR, COLONY, COUNTRY, CITY];
+    const ALL_FIELDS_FILLED = !includesEmptyField(...FIELDS_ARGS);
 
-    if(!validPass){
+    if(!VALID_PASS){
         showPopUp("Passwords are not identical");
-    }else if (!allFieldsFilled) {
+    }else if (!ALL_FIELDS_FILLED) {
         showPopUp("Please fill in the required fields");
     }else{
-        const COLONY_OR_COUNTRY = checkColonyOrCountry(colony, country);
-        const userArgs = [fname, lname, email, phone, password, planet, COLONY_OR_COUNTRY, city, street, parseInt(nr)];
+        const COLONY_OR_COUNTRY = checkColonyOrCountry(COLONY, COUNTRY);
+        const USER_ARGS = [FIRST_NAME, LAST_NAME, EMAIL, PHONE, PASSWORD, PLANET, COLONY_OR_COUNTRY, CITY, STREET, parseInt(NR)];
         if(addEdit ==="add"){
-            addUser(userToJson(...userArgs)).then(response => {
+            addUser(userToJson(...USER_ARGS)).then(response => {
                 if (response.message === undefined){
                     setToken(response);
                     window.location.href = "login.html";
@@ -76,8 +76,8 @@ function addOrEdit(addEdit){
                 }
             });
         }else if(addEdit ==="edit"){
-            const oldPassword = document.getElementById("oldPassword").value;
-            editUser(oldPassword, userToJson(...userArgs)).then(response => {
+            const OLD_PASSWORD = document.getElementById("oldPassword").value;
+            editUser(OLD_PASSWORD, userToJson(...USER_ARGS)).then(response => {
                 if (response.message === undefined){
                     window.location.href = "userInfo.html";
                 }else{

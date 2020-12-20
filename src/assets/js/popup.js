@@ -19,20 +19,18 @@ function openPopUp(e) {
 
     if (e.target.tagName.toLowerCase() === "em"){
         document.querySelector(".popup").classList.remove("hidden");
-        showConfirmation(e);
     }
 
     if (e.target.getAttribute("id") === "submit"){
         document.querySelector(".popup").classList.remove("hidden");
-        showConfirmation(e);
     }
 }
 
 function fillWithForm(e) {
     const CONTAINER = document.querySelector("div.contentwrapper");
-    const rocketId = parseInt(e.target.closest("tr").getAttribute("data-row"));
+    const ROCKET_ID = parseInt(e.target.closest("tr").getAttribute("data-row"));
 
-    getRocketById(rocketId).then(response => {
+    getRocketById(ROCKET_ID).then(response => {
         fillRocketPopup(response, CONTAINER);
     });
 }
@@ -46,23 +44,20 @@ function fillRocketPopup(rocket, container) {
 }
 
 function renderFormWithUserDetails(rocket, container) {
-    const formDetails = getFilterOptions();
-    const rocketRender = ["5d5bbd72b92c4e1fb57c0588851a4112", "16ff82609f7c49359c7c3f970bfc0524", "d80a780cadd84b2fb7dcd8e0aa1d16be"];
+    const FORM_DETAILS = getFilterOptions();
+    const ROCKET_RENDERS = ["5d5bbd72b92c4e1fb57c0588851a4112", "16ff82609f7c49359c7c3f970bfc0524", "d80a780cadd84b2fb7dcd8e0aa1d16be"];
+    const RANDOM_ROCKET_RENDER = Math.floor(Math.random() * 3);
     container.innerHTML = `
             <h5>Overview:</h5>
             <div id="addressReceiver">
-                <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">Selected: ${rocket.name}. Launch site: Cape Canaveral. Total cost: €${rocket.pricePerKilo*formDetails.mass}</p>
+                <p id="rocket" data-id="${rocket.id}" data-cost="${rocket.pricePerKilo}">Selected: ${rocket.name}. Launch site: Cape Canaveral. Total cost: €${rocket.pricePerKilo*FORM_DETAILS.mass}</p>
                 <div class="sketchfab-embed-wrapper">
-                     <iframe title="A 3D model" width="960" height="480" src="https://sketchfab.com/models/d80a780cadd84b2fb7dcd8e0aa1d16be/embed?autospin=0.2&amp;autostart=1&amp;preload=1&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_theme=dark&amp;ui_watermark=1&amp;ui_watermark_link=1" allow="autoplay; fullscreen; vr"></iframe>
+                     <iframe title="A 3D model" width="960" height="480" src="https://sketchfab.com/models/${ROCKET_RENDERS[RANDOM_ROCKET_RENDER]}/embed?autospin=0.2&amp;autostart=1&amp;preload=1&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_theme=dark&amp;ui_watermark=1&amp;ui_watermark_link=1" allow="autoplay; fullscreen; vr"></iframe>
                  </div>
             </div>
             <a href="#" id="submit" class="popUpButtons">Select this rocket</a>`;
 }
 
-
-function showConfirmation(e) {
-    //TODO
-}
 
 function closePopUp(e) {
     e.preventDefault();

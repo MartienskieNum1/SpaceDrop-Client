@@ -41,13 +41,13 @@ function createOrder(e){
 }
 
 function saveGuestCredentials(){
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
+    const NAME = document.getElementById("name").value;
+    const EMAIL = document.getElementById("email").value;
 
     if (getToken() === ""){
         setPaymentCredentials({
-            "name": name,
-            "email": email
+            "name": NAME,
+            "email": EMAIL
         });
     }
 }

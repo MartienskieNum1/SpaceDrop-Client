@@ -1,15 +1,15 @@
 "use strict";
 onApiUrlLoaded(adminFlightOverviewPlanetInit);
 
-const flightsToSort = [];
-let sortedFlights = [];
+const FLIGHTS_TO_SORT = [];
+let SORTED_FLIGHTS = [];
 
 function adminFlightOverviewPlanetInit() {
-    const planet = getDestinationPlanet();
-    if(planet!=="Mars"&&planet!=="Earth"){
+    const PLANET = getDestinationPlanet();
+    if(PLANET!=="Mars"&&PLANET!=="Earth"){
         window.location.href = "adminFlightsOverview.html";
     }else{
-        showTitle(planet);
+        showTitle(PLANET);
         showOverview();
         document.querySelector("select#sort").addEventListener("change", sortTargetAscendingOrDescending);
         document.querySelector("select#sortBy").addEventListener("change", sortRocketsBySearchValue);
@@ -26,22 +26,22 @@ function showOverview(){
             });
             const ROCKET = rockets[i];
             if (ROCKET.departLocation !== toTitleCase(getDestinationPlanet())){
-                flightsToSort.push(ROCKET);
+                FLIGHTS_TO_SORT.push(ROCKET);
             }
         }
-        renderRockets(flightsToSort);
+        renderRockets(FLIGHTS_TO_SORT);
     });
 }
 
 function renderRockets(rockets) {
     const CONTAINER = document.querySelector("#flights table tbody");
     renderFlightHead(CONTAINER);
-    const today = new Date();
-    const date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();//added 30 years because we are in 2055/2056
+    const TODAY = new Date();
+    const DATE = TODAY.getFullYear()+35+'-'+(TODAY.getMonth()+1)+'-'+TODAY.getDate();//added 30 years because we are in 2055/2056
 
     for (let i = 0; i < rockets.length; i++) {
         const ROCKET = rockets[i];
-        if(ROCKET.arrival < date){
+        if(ROCKET.arrival < DATE){
             CONTAINER.innerHTML +=
                 `<tr data-row="${ROCKET.id}">
                     <td class="green"><strong>${ROCKET.name}</strong></td>
@@ -52,7 +52,7 @@ function renderRockets(rockets) {
                     <td class="green"><strong>${ROCKET.pricePerKilo} Euro/kg</strong></td>
                     <td><button onclick="goToFlightDetail('${ROCKET.id}')">view more</button></td>
                 </tr>`;
-        }else if(ROCKET.arrival > date && ROCKET.departure < date){
+        }else if(ROCKET.arrival > DATE && ROCKET.departure < DATE){
             CONTAINER.innerHTML +=
             `<tr data-row="${ROCKET.id}">
                     <td class="blue"><strong>${ROCKET.name}</strong></td>
@@ -94,8 +94,8 @@ function renderFlightHead(container){
 
 
 function showTitle(planet) {
-    const container = document.querySelector("#title");
-    container.innerHTML = `<img src="assets/images/icons/${planet}.png" alt="planet icon"><h1>Flights to ${planet}</h1>`;
+    const CONTAINER = document.querySelector("#title");
+    CONTAINER.innerHTML = `<img src="assets/images/icons/${planet}.png" alt="planet icon"><h1>Flights to ${planet}</h1>`;
 
 }
 
@@ -107,25 +107,25 @@ function goToFlightDetail(id) {
 function sortFlightsByWeightOrVolume(){
     const SELECTED_WEIGHT = document.querySelector("#weight").value;
     const SELECTED_VOLUME = document.querySelector("#volume").value;
-    sortedFlights = [];
+    SORTED_FLIGHTS = [];
 
-    flightsToSort.forEach((flight) => {
+    FLIGHTS_TO_SORT.forEach((flight) => {
         if (flight.availableMass >= SELECTED_WEIGHT && flight.availableVolume >= SELECTED_VOLUME){
-            sortedFlights.push(flight);
+            SORTED_FLIGHTS.push(flight);
         }
     });
 
     selectDefaultSorting("sort",  "Asc");
-    renderRockets(sortedFlights);
+    renderRockets(SORTED_FLIGHTS);
 }
 
 function sortRocketsBySearchValue(e){
     const SORT_VALUE = e.target.value;
 
-    let flightsToUse = sortedFlights;
+    let flightsToUse = SORTED_FLIGHTS;
 
-    if(sortedFlights.length === 0){
-        flightsToUse = flightsToSort;
+    if(SORTED_FLIGHTS.length === 0){
+        flightsToUse = FLIGHTS_TO_SORT;
     }
 
     flightsToUse.sort(function (a, b) {
@@ -141,10 +141,10 @@ function sortRocketsBySearchValue(e){
 
 function sortTargetAscendingOrDescending() {
 
-    let flightsToUse = sortedFlights;
+    let flightsToUse = SORTED_FLIGHTS;
 
-    if(sortedFlights.length === 0){
-        flightsToUse = flightsToSort;
+    if(SORTED_FLIGHTS.length === 0){
+        flightsToUse = FLIGHTS_TO_SORT;
     }
 
     renderRockets(flightsToUse.reverse());

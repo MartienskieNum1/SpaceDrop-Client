@@ -51,8 +51,8 @@ function showOrderdetails(orderId) {
 }
 
 function fillInDetails(order, flight){
-    const containerMars = document.querySelector("#orderInfo");
-    const orderDetails = `<tr>
+    const CONTAINER_MARS = document.querySelector("#orderInfo");
+    const ORDER_DETAILS = `<tr>
             <td>${order.address.planet} ${order.address.countryOrColony} ${order.address.cityOrDistrict} ${order.address.street} ${order.address.number}</td>
             <td>${order.orderId}</td>
             <td>${order.status}</td>
@@ -62,11 +62,11 @@ function fillInDetails(order, flight){
             <td>${order.width}cm x ${order.depth}cm x ${order.height}cm</td>
             <td>${order.mass} kg</td>
         </tr>`;
-    containerMars.innerHTML = tableHeaders + orderDetails;
-    const today = new Date();
-    const date = today.getFullYear()+35+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    const progression = (new Date(date)-new Date(flight.departure)) / (new Date(flight.arrival)-new Date(flight.departure));
-    initCanvas(progression,flight.departLocation);
+    CONTAINER_MARS.innerHTML = tableHeaders + ORDER_DETAILS;
+    const TODAY = new Date();
+    const DATE = TODAY.getFullYear()+35+'-'+(TODAY.getMonth()+1)+'-'+TODAY.getDate();
+    const PROGRESSION = (new Date(DATE)-new Date(flight.departure)) / (new Date(flight.arrival)-new Date(flight.departure));
+    initCanvas(PROGRESSION,flight.departLocation);
 
 
 }
