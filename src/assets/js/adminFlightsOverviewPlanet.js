@@ -41,7 +41,7 @@ function renderRockets(rockets) {
 
     for (let i = 0; i < rockets.length; i++) {
         const ROCKET = rockets[i];
-        if(ROCKET.arrival < DATE){
+        if(Date.parse(ROCKET.arrival) < Date.parse(DATE)){
             CONTAINER.innerHTML +=
                 `<tr data-row="${ROCKET.id}">
                     <td class="green"><strong>${ROCKET.name}</strong></td>
@@ -52,7 +52,7 @@ function renderRockets(rockets) {
                     <td class="green"><strong>${ROCKET.pricePerKilo} Euro/kg</strong></td>
                     <td><button onclick="goToFlightDetail('${ROCKET.id}')">view more</button></td>
                 </tr>`;
-        }else if(ROCKET.arrival > DATE && ROCKET.departure < DATE){
+        }else if(Date.parse(ROCKET.arrival) > Date.parse(DATE) && Date.parse(ROCKET.departure) < Date.parse(DATE)){
             CONTAINER.innerHTML +=
             `<tr data-row="${ROCKET.id}">
                     <td class="blue"><strong>${ROCKET.name}</strong></td>
@@ -95,7 +95,7 @@ function renderFlightHead(container){
 
 function showTitle(planet) {
     const CONTAINER = document.querySelector("#title");
-    CONTAINER.innerHTML = `<img src="assets/images/icons/${planet}.png" alt="planet icon"><h1>Flights to ${planet}</h1>`;
+    CONTAINER.innerHTML = `<img src="assets/images/icons/${planet.toLowerCase()}.png" alt="planet icon"><h1>Flights to ${planet}</h1>`;
 
 }
 

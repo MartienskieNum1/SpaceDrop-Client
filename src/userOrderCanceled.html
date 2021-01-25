@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <title>SpaceDrop User Orders</title>
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -22,9 +21,9 @@
     <div class="sidenav">
         <h1>Account</h1>
         <a href="userInfo.html" id="toUserInfo">User info</a>
-        <a href="userOrders.html" id="toUserOrders"><strong>Orders</strong></a>
+        <a href="userOrders.html" id="toUserOrders">Orders</a>
         <a href="userOrdersPast.html" id="toUserOrdersPast">Past orders</a>
-        <a href="userOrderCanceled.html" id="toUserOrdersCanceled">Canceled orders</a>
+        <a href="userOrderCanceled.html" id="toUserOrdersCanceled"><strong>Canceled orders</strong></a>
     </div>
 
     <div id="flightsToEarth">
@@ -32,17 +31,49 @@
             <img src="assets/images/icons/earth.png" alt="planet icon">
             <h1>Your orders to Earth</h1>
         </div>
-        <table id="flightsToEarthContent">
-
-        </table>
+        <table id="flightsToEarthContent"><tbody><tr class="tableHeaders">
+            <th scope="col">Address:</th>
+            <th scope="col">Ordernr:</th>
+            <th scope="col">Orderstatus:</th>
+            <th scope="col">Departure:</th>
+            <th scope="col">Arrival:</th>
+            <th scope="col">Price:</th>
+        </tr><tr data-row="4">
+            <td>Mars E-545 City Street 1</td>
+            <td>4</td>
+            <td>Canceled</td>
+            <td>2055-12-18 13:30:00</td>
+            <td>2056-01-18 08:20:30</td>
+            <td>100</td>
+        </tr></tbody></table>
     </div>
     <div id="flightsToMars">
         <div>
             <img src="assets/images/icons/mars.png" alt="planet icon">
             <h1>Your orders to Mars</h1>
         </div>
-        <table id="flightsToMarsContent">
-        </table>
+        <table id="flightsToMarsContent"><tbody><tr class="tableHeaders">
+            <th scope="col">Address:</th>
+            <th scope="col">Ordernr:</th>
+            <th scope="col">Orderstatus:</th>
+            <th scope="col">Departure:</th>
+            <th scope="col">Arrival:</th>
+            <th scope="col">Price:</th>
+        </tr><tr data-row="3">
+            <td>Earth Belgium City Street 1</td>
+            <td>3</td>
+            <td>Canceled</td>
+            <td>2055-12-19 12:15:20</td>
+            <td>2056-01-19 22:30:00</td>
+            <td>100</td>
+        </tr><tr data-row="5">
+            <td>mars Surface E-56 MarsStreet 60</td>
+            <td>5</td>
+            <td>Canceled</td>
+            <td>2056-01-29 12:15:20</td>
+            <td>2056-03-01 22:30:00</td>
+            <td>125</td>
+        </tr></tbody></table>
 
     </div>
 
@@ -52,8 +83,7 @@
 <script src="assets/js/api.js"></script>
 <script src="assets/js/setup.js"></script>
 <script src="assets/js/userOrder.js"></script>
-<script src="assets/js/userOrderNew.js"></script>
 <script src="assets/js/local-storage.js"></script>
 <script src="assets/js/popup.js"></script>
-</body>
-</html>
+
+</body></html>
