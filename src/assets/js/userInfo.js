@@ -12,7 +12,12 @@ function loadInUserInfo() {
     });
     document.querySelector("#toUserOrders").addEventListener("click", openUserOrders);
     document.querySelector("#toUserOrdersPast").addEventListener("click", openUserOrdersPast);
+    document.querySelector("#toUserOrdersCanceled").addEventListener("click", openUserOrdersCanceled);
     document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
+}
+
+function openUserOrdersCanceled() {
+    window.location.href= "userOrderCanceled.html";
 }
 
 function openUserOrders() {

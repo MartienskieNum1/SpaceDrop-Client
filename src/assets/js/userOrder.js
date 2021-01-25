@@ -21,7 +21,12 @@ function userOrderInit(){
     document.querySelector("#toUserInfo").addEventListener("click", openUserInfo);
     document.querySelector("#toUserOrdersPast").addEventListener("click", openUserOrdersPast);
     document.querySelector("#toUserOrders").addEventListener("click", openUserOrdersNew);
+    document.querySelector("#toUserOrdersCanceled").addEventListener("click", openUserOrdersCanceled);
     document.querySelector("#AccountLogoutButton").addEventListener("click", logout);
+}
+
+function openUserOrdersCanceled() {
+    window.location.href= "userOrderCanceled.html";
 }
 
 function openUserInfo() {
@@ -52,6 +57,10 @@ function goToOrderDetail(orderId) {
 
 
 function fillTableWithContent(container, order, rocket){
+    let cancelbutton = '<td></td>';
+    if(order.status === "Processing"){
+        cancelbutton = '<td><button>cancel order</button></td>';
+    }
     return `<tr data-row='${order.orderId}'>
                     <td>${order.address.planet} ${order.address.countryOrColony} ${order.address.cityOrDistrict} ${order.address.street} ${order.address.number}</td>
                     <td>${order.orderId}</td>
@@ -60,6 +69,7 @@ function fillTableWithContent(container, order, rocket){
                     <td>${rocket.arrival}</td>
                     <td>${order.cost}</td>
                     <td><button onclick="goToOrderDetail(${order.orderId})">view more</button></td>
+                    `+cancelbutton+`
                  </tr>`;
 }
 

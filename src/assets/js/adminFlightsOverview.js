@@ -31,6 +31,7 @@ function showOverview() {
 
     const TODAY = new Date();
     const DATE = TODAY.getFullYear()+35+'-'+(TODAY.getMonth()+1)+'-'+TODAY.getDate();
+    console.log(DATE);
     let earthCount=1;
     let marsCount=1;
     getRockets().then(rockets => {
@@ -39,10 +40,11 @@ function showOverview() {
         });
         for (let i = 0; i < rockets.length; i++) {
             const ROCKET = rockets[i];
-            if(ROCKET.departLocation === "Mars" && ROCKET.departure >= DATE && earthCount<=10){
+            console.log(ROCKET.departure);
+            if(ROCKET.departLocation === "Mars" && Date.parse(ROCKET.departure) >=Date.parse(DATE) && earthCount<=10){
                 earthFlights += fillTableWithContent(ROCKET);
                 earthCount += 1;
-            }else if(ROCKET.departLocation === "Earth"&&ROCKET.departure >= DATE && marsCount<=10){
+            }else if(ROCKET.departLocation === "Earth"&&Date.parse(ROCKET.departure) >=Date.parse(DATE) && marsCount<=10){
                 marsFlights += fillTableWithContent(ROCKET);
                 marsCount += 1;
             }
